@@ -1,0 +1,3148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xperio</title>
+    <link
+      rel="icon"
+      href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+    />
+    <meta property="og:title" content="Xperio" id="ogTitle" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+    />
+    <meta
+      property="og:description"
+      content="Discover unique experiences with Xperio"
+      id="ogDescription"
+    />
+    <meta property="og:site_name" content="Xperio" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Xperio" id="twitterTitle" />
+    <meta
+      name="twitter:description"
+      content="Discover unique experiences with Xperio"
+      id="twitterDescription"
+    />
+    <meta
+      name="twitter:image"
+      content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 15px;
+        color: #333;
+        background-color: #f9f9f9;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .experience-header {
+        padding: 32px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        border-radius: 16px 16px 0 0;
+      }
+      .title {
+        font-size: clamp(24px, 5vw, 32px);
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 16px;
+        line-height: 1.3;
+        letter-spacing: -0.3px;
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #555;
+      }
+
+      .host-section {
+        display: flex;
+        align-items: center;
+      }
+
+      .host-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .host-photo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .host-photo:hover {
+        transform: scale(1.1);
+      }
+
+      .category-info {
+        margin-left: auto;
+      }
+
+      .guest-types {
+        margin: 20px 0;
+      }
+
+      .guest-type-tag {
+        display: inline-block;
+        padding: 6px 16px;
+        margin: 5px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .guest-type-tag {
+        background-color: rgba(255, 56, 92, 0.1);
+        color: #ff385c;
+      }
+
+      .guest-type-tag:hover {
+        background-color: rgba(255, 56, 92, 0.2);
+      }
+
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      @media (min-width: 768px) {
+        .image-gallery {
+          grid-template-columns: 2fr 1fr 1fr;
+        }
+      }
+
+      .main-image {
+        grid-row: span 2;
+        height: 400px;
+        border-radius: 8px;
+        transition: transform 0.3s;
+      }
+
+      .main-image:hover {
+        transform: scale(1.05);
+      }
+
+      .gallery-image {
+        height: 195px;
+        border-radius: 8px;
+        transition: transform 0.3s;
+      }
+
+      .gallery-image:hover {
+        transform: scale(1.05);
+      }
+
+      .image-gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .keywords {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .keyword-tag {
+        padding: 5px 15px;
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        font-size: 14px;
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .left-column,
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .section {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .section:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        border-color: rgba(255, 56, 92, 0.1);
+      }
+
+      .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 16px;
+        position: relative;
+        padding-bottom: 8px;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff385c, #ff8da3);
+        border-radius: 2px;
+      }
+
+      .section-content {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .booking-slot {
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        border-left: 4px solid #ff385c;
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .booking-slot:hover {
+        transform: translateX(4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 56, 92, 0.05);
+      }
+
+      .label {
+        color: #ff385c;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .time {
+        color: #666;
+      }
+
+      h4 {
+        color: #666;
+        margin: 20px 0 10px 0;
+      }
+
+      .policy-section {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .policy-item {
+        margin: 10px 0;
+        color: #666;
+      }
+
+      .languages-section {
+        margin-top: 20px;
+      }
+
+      .language-tag {
+        display: inline-block;
+        padding: 8px 16px;
+        margin: 4px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #ff385c 0%, #ff6b87 100%);
+        color: white;
+      }
+
+      .language-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .pricing-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .pricing-table th {
+        background: linear-gradient(135deg, #ff385c 0%, #ff6b87 100%);
+        color: white;
+        padding: 16px;
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .pricing-table td {
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+      }
+
+      .pricing-table tr:nth-child(even) td {
+        background-color: #f1f1f1;
+      }
+
+      .pricing-table tr:hover td {
+        background-color: #e0f7fa;
+      }
+
+      .pricing-table td:first-child {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .pricing-table td:last-child {
+        text-align: right;
+        color: #666;
+      }
+
+      .amenities,
+      .food-drinks {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .amenity-item,
+      .food-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .map-section {
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        margin: 20px 0px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .map-container {
+        position: relative;
+        padding-bottom: 32.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .location-details {
+        line-height: 1.6;
+      }
+
+      .location-details > div {
+        margin-bottom: 10px;
+      }
+
+      .rules-section {
+        border-radius: 8px;
+        padding: 0;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .children-allowed {
+        margin-bottom: 25px;
+      }
+
+      .rules-list,
+      .bring-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .section-content {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 576px) {
+        .host-section {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+
+        .category-info {
+          margin-left: 0;
+          margin-top: 15px;
+        }
+
+        .amenities,
+        .food-drinks {
+          flex-wrap: wrap;
+        }
+      }
+
+      .experience-header {
+        padding: 24px 0;
+        background: #fff;
+      }
+
+      .title {
+        font-size: 26px;
+        font-weight: 600;
+        color: #222222;
+        margin-bottom: 8px;
+        line-height: 1.3;
+        letter-spacing: -0.2px;
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: #222222;
+        font-size: 14px;
+        margin-bottom: 16px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .location:hover {
+        color: #000;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: repeat(2, 200px);
+        gap: 12px;
+        margin: 20px 0;
+        height: 412px;
+      }
+
+      .gallery-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .gallery-image.gallery-main {
+        grid-row: span 2;
+        grid-column: 1;
+        height: 100%;
+      }
+
+      .gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-image:hover img {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          height: auto;
+          grid-template-columns: 1fr;
+          grid-template-rows: 300px repeat(4, 150px);
+        }
+
+        .gallery-image.gallery-main {
+          grid-row: 1;
+          grid-column: 1;
+        }
+      }
+
+      .info-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+        margin: 0 0 12px 0;
+      }
+
+      .host-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .host-card {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .host-image {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .host-image:hover {
+        transform: scale(1.05);
+      }
+
+      .host-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .host-label {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 2px;
+      }
+
+      .host-name {
+        font-size: 15px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .category-section {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .category-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .category-label {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .category-tag,
+      .subcategory-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .category-tag {
+        background: #ff385c;
+        color: white;
+      }
+
+      .subcategory-tag {
+        background: #ff8da3;
+        color: white;
+      }
+
+      .category-tag:hover,
+      .subcategory-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (max-width: 768px) {
+        .info-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .category-section {
+          width: 100%;
+          justify-content: flex-end;
+        }
+      }
+
+      @media (max-width: 1128px) {
+        .header-content {
+          padding: 0 40px;
+        }
+      }
+
+      @media (max-width: 950px) {
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 300px 150px 150px;
+        }
+
+        .gallery-main {
+          grid-column: span 2;
+          grid-row: 1;
+        }
+      }
+
+      @media (max-width: 744px) {
+        .header-content {
+          padding: 0 24px;
+        }
+
+        .info-container {
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        .category-info {
+          text-align: left;
+        }
+      }
+
+      @media (max-width: 550px) {
+        .hosts-wrapper {
+          flex-direction: column;
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: 200px;
+        }
+
+        .gallery-main {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+
+        .details-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          grid-auto-rows: 200px;
+        }
+
+        .gallery-main {
+          grid-column: span 1;
+        }
+
+        .hosts-wrapper {
+          flex-direction: column;
+          gap: 16px;
+        }
+      }
+
+      .info-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+        margin: 0 0 12px 0;
+      }
+
+      .content-section {
+        margin-top: 12px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #eee;
+      }
+
+      .key-attraction {
+        margin-top: 16px;
+      }
+
+      .date-slots-language {
+        margin-top: 16px;
+      }
+
+      .content-section:first-child {
+        margin-top: 0;
+      }
+
+      .date-slots-section {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 16px;
+      }
+
+      .date-slots-section .section-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .details-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+
+      .detail-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .date-range,
+      .guest-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .date-range {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .guest-info {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .date-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .date-item span {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .date-item strong {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .slots-container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .slots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 16px;
+      }
+
+      .slot-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .slot-time {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .slot-time div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .slot-time small {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .slot-time strong {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .slot-date {
+        font-size: 14px;
+        color: #ff385c;
+      }
+
+      .policy-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .policy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 16px;
+      }
+
+      .policy-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .policy-item span {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .policy-item strong {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .booking-slots-section {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        margin: 20px 0;
+      }
+
+      .booking-slots-section h4 {
+        color: #2c3e50;
+        margin: 0 0 15px 0;
+        font-size: 16px;
+      }
+
+      .slots-table {
+        overflow-x: auto;
+      }
+
+      .slots-table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .slots-table th {
+        background: #f8f9fa;
+        padding: 12px;
+        text-align: left;
+        font-weight: 600;
+        color: #495057;
+        border-bottom: 2px solid #dee2e6;
+      }
+
+      .slots-table td {
+        padding: 12px;
+        border-bottom: 1px solid #e9ecef;
+        color: #495057;
+      }
+
+      .slots-table tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      @media (max-width: 576px) {
+        .slots-table {
+          font-size: 13px;
+        }
+
+        .slots-table th,
+        .slots-table td {
+          padding: 8px;
+        }
+      }
+      .slots-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0 0 16px 0;
+      }
+
+      .slots-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+      }
+
+      .slot-card {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 12px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .slot-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .slot-date {
+        font-size: 14px;
+        font-weight: 500;
+        color: #ff385c;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px dashed #dee2e6;
+      }
+
+      .slot-times {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .time-block {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .time-label {
+        font-size: 12px;
+        color: #868e96;
+        margin-bottom: 4px;
+      }
+
+      .time {
+        font-size: 14px;
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      .time-divider {
+        color: #ff385c;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .slots-wrapper {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+      }
+
+      @media (max-width: 480px) {
+        .slots-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .slot-card {
+          padding: 10px;
+        }
+      }
+
+      .policy-and-slots-container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+      }
+
+      .policy-section {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+
+      .policy-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .policy-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .policy-item span {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .policy-item .days {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .policy-item .refund {
+        font-weight: bold;
+        color: #ff385c;
+      }
+
+      .pricing-policy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .pricing-section,
+      .policy-section {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        padding: 12px;
+      }
+
+      .section-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .pricing-table {
+        margin-top: 8px;
+      }
+
+      .pricing-table td {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+
+      .policy-content {
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .policy-item {
+        padding: 4px 12px;
+        font-size: 14px;
+      }
+
+      .error-message {
+        padding: 20px;
+        text-align: center;
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+      }
+
+      .loading-spinner::after {
+        content: "";
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .additional-details-grid {
+        margin-top: 24px;
+      }
+
+      .sub-section {
+        margin-bottom: 16px;
+      }
+
+      .sub-section-title {
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 8px;
+      }
+
+      .rules-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+      }
+
+      .rules-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .rules-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .icon-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #f5f5f5;
+      }
+
+      .rule-icon {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f9fa;
+        border-radius: 50%;
+      }
+
+      .status-indicator {
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .status-indicator.allowed {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+      }
+
+      .status-indicator.not-allowed {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+      }
+
+      .rules-list,
+      .bring-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .rule-item,
+      .bring-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 8px 0;
+        transition: transform 0.2s ease;
+      }
+
+      .rule-item:hover,
+      .bring-item:hover {
+        transform: translateX(8px);
+      }
+
+      .rule-bullet,
+      .bring-bullet {
+        color: #ff385c;
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      .rule-text,
+      .bring-text {
+        color: #4a5568;
+        flex: 1;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .rules-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .rules-card {
+          padding: 16px;
+        }
+      }
+
+      .host-category-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 16px 0;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .category-section {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .hosts-section {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-left: auto;
+      }
+
+      .host-card {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .host-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .host-category-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hosts-section {
+          margin-left: 0;
+          width: 100%;
+          justify-content: flex-end;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hosts-section {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+      }
+
+      .experience-header {
+        position: sticky;
+        top: 0;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 12px 0;
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .title-location {
+        flex: 1;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 4px;
+        color: #2c3e50;
+        line-height: 1.2;
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .categories-hosts {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .category-section {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .divider {
+        color: #ccc;
+        font-size: 16px;
+      }
+
+      .category-tag,
+      .subcategory-tag {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .category-tag {
+        background: #ff385c;
+        color: white;
+      }
+
+      .subcategory-tag {
+        background: #ff8da3;
+        color: white;
+      }
+
+      .hosts-section {
+        display: flex;
+        gap: 12px;
+      }
+
+      .host-card {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 8px;
+        border-radius: 20px;
+        background: #f8f9fa;
+        transition: all 0.2s ease;
+      }
+
+      .host-card:hover {
+        background: #f0f0f0;
+      }
+
+      .host-image {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .host-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .host-label {
+        font-size: 10px;
+        color: #666;
+      }
+
+      .host-name {
+        font-size: 12px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      @media (max-width: 1024px) {
+        .header-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .categories-hosts {
+          width: 100%;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .categories-hosts {
+          flex-direction: row !important;
+          flex-wrap: wrap;
+          gap: 12px;
+          justify-content: space-between;
+        }
+
+        .category-section {
+          flex: 0 0 auto;
+          width: auto;
+        }
+
+        .hosts-section {
+          flex: 0 0 auto;
+          width: auto;
+          margin-left: 0;
+        }
+
+        .category-tag,
+        .subcategory-tag {
+          padding: 4px 8px;
+          font-size: 12px;
+        }
+
+        .host-card {
+          padding: 4px;
+        }
+
+        .host-image {
+          width: 24px;
+          height: 24px;
+        }
+
+        .host-label {
+          font-size: 8px;
+        }
+
+        .host-name {
+          font-size: 10px;
+        }
+
+        .divider {
+          margin: 0 4px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .categories-hosts {
+          gap: 8px;
+        }
+
+        .category-tag,
+        .subcategory-tag {
+          padding: 3px 6px;
+          font-size: 11px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .experience-header {
+          height: auto;
+          margin-bottom: 10px;
+          padding: 0px 16px;
+          background: #fff;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .title {
+          font-size: 20px;
+          font-weight: 700;
+          color: #2c3e50;
+          line-height: 1.3;
+          margin-bottom: 8px;
+        }
+
+        .location {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 12px;
+          color: #666;
+          text-decoration: none;
+          background: #f8f9fa;
+          border-radius: 16px;
+        }
+
+        .location span:first-child {
+          color: #ff385c;
+        }
+
+        .categories-hosts {
+          margin-top: -43px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 8px;
+        }
+
+        .category-section {
+          display: contents;
+        }
+
+        .category-item {
+          text-align: center;
+        }
+
+        .category-tag,
+        .subcategory-tag {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: #fff;
+          border: 1px solid #ff385c;
+          border-radius: 12px;
+          font-size: 11px;
+          color: #ff385c;
+          height: 100%;
+          justify-content: center;
+        }
+
+        .hosts-section {
+          display: contents;
+        }
+
+        .host-card {
+          display: flex;
+          align-items: center;
+          padding: 4px 18px;
+          background: #fff;
+          border: 1px solid #e0e0e0;
+          border-radius: 12px;
+          gap: 4px;
+        }
+
+        .host-image {
+          display: none;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .host-details {
+          text-align: center;
+        }
+
+        .host-label {
+          font-size: 10px;
+          color: #666;
+          margin-bottom: 2px;
+        }
+
+        .host-name {
+          font-size: 11px;
+          font-weight: 500;
+          color: #2c3e50;
+        }
+
+        .divider {
+          display: none;
+        }
+
+        .container {
+          padding: 0;
+        }
+
+        .header-content {
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .categories-hosts {
+          gap: 6px;
+        }
+
+        .category-tag,
+        .subcategory-tag,
+        .host-card {
+          padding: 6px 2px;
+        }
+
+        .host-image {
+          width: 28px;
+          height: 28px;
+        }
+
+        .title {
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .gallery-container {
+          position: relative;
+          width: 100%;
+          height: 280px;
+          overflow: hidden;
+          margin-bottom: 10px;
+        }
+
+        .gallery-carousel {
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+
+        .carousel-track {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          scroll-snap-type: x mandatory;
+          overflow-x: scroll;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .carousel-track::-webkit-scrollbar {
+          display: none; /* Chrome/Safari */
+        }
+
+        .carousel-slide {
+          flex: 0 0 100%;
+          width: 100%;
+          height: 100%;
+          scroll-snap-align: start;
+          position: relative;
+        }
+
+        .carousel-slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .image-counter {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          background: rgba(0, 0, 0, 0.7);
+          color: white;
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 14px;
+          z-index: 3;
+        }
+
+        .dots-container {
+          position: absolute;
+          bottom: 16px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 8px;
+          z-index: 3;
+        }
+
+        .dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .dot.active {
+          background: #ffffff;
+          transform: scale(1.2);
+        }
+
+        .carousel-track {
+          display: flex;
+          scroll-snap-type: x mandatory;
+          overflow-x: auto;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .carousel-track::-webkit-scrollbar {
+          display: none; /* Chrome/Safari */
+        }
+
+        .carousel-slide {
+          flex: 0 0 100%;
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+        }
+      }
+
+      .amenities {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .language-assisted {
+        display: flex;
+        gap: 10px;
+      }
+
+      .amenity-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .amenity-bullet {
+        color: #ff385c;
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      .amenity-text {
+        color: #4a5568;
+        flex: 1;
+        line-height: 1.6;
+      }
+
+      .amenities-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .host-card {
+          background: #fff;
+          border: 1px solid #e0e0e0;
+          border-radius: 12px;
+          padding: 8px 12px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
+        }
+
+        .host-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .host-image {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          border: 2px solid #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          display: block !important;
+        }
+
+        .host-details {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .host-label {
+          font-size: 11px;
+          color: #666;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .host-name {
+          font-size: 13px;
+          font-weight: 600;
+          color: #2c3e50;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .host-card {
+          width: auto;
+          margin-right: -90px;
+        }
+      }
+
+      .scrollable-section {
+        max-height: 150px;
+      }
+
+      .slot-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .book-button {
+        background: #ff385c;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 15px;
+      }
+
+      .dialog-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .dialog-form {
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .dialog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 8px 0px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 12px;
+        background: #ff385c;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .submit-button:hover {
+        background: #e31c5f;
+      }
+
+      .error-message {
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 4px;
+      }
+
+      .form-group select {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      .dialog-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 20px;
+        backdrop-filter: blur(5px);
+      }
+
+      .dialog-form {
+        background: white;
+        padding: 32px;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 480px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        animation: slideUp 0.3s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .dialog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+      }
+
+      .dialog-header h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #2c3e50;
+        line-height: 1.3;
+        margin: 0;
+        flex: 1;
+        padding-right: 16px;
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 4px;
+        transition: color 0.2s;
+      }
+
+      .close-button:hover {
+        color: #64748b;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #4b5563;
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 12px 5px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 16px;
+        color: #1e293b;
+        transition: all 0.2s;
+        background: #fff;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #ff385c;
+        box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.1);
+      }
+
+      .form-group input::placeholder {
+        color: #94a3b8;
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 14px 24px;
+        background: #ff385c;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .submit-button:hover {
+        background: #e31c5f;
+        transform: translateY(-1px);
+      }
+
+      .submit-button:active {
+        transform: translateY(0);
+      }
+
+      /* Responsive styles */
+      @media (max-width: 640px) {
+        .dialog-form {
+          padding: 24px;
+          margin: 16px;
+          max-height: calc(100vh - 32px);
+          overflow-y: auto;
+        }
+
+        .dialog-header h3 {
+          font-size: 20px;
+        }
+
+        .form-group label {
+          font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .submit-button {
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .dialog-form {
+          padding: 20px;
+        }
+
+        .dialog-header h3 {
+          font-size: 18px;
+        }
+      }
+
+      /* Floating Book Now Button */
+      .floating-book-button {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: linear-gradient(135deg, #ff385c, #e31c5f);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 32px;
+        box-shadow: 0 4px 20px rgba(255, 56, 92, 0.25);
+        z-index: 1000;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(8px);
+        min-width: 180px;
+      }
+
+      .floating-book-button:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 8px 28px rgba(255, 56, 92, 0.35);
+        background: linear-gradient(135deg, #ff4d6d, #ff385c);
+      }
+
+      .floating-book-button:active {
+        transform: translateY(-2px) scale(0.98);
+      }
+
+      .button-icon {
+        font-size: 20px;
+        animation: pulse 2s infinite;
+      }
+
+      .button-text {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+      }
+
+      .button-price {
+        font-size: 14px;
+        opacity: 0.9;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 4px 8px;
+        border-radius: 16px;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Mobile responsive styles */
+      @media (max-width: 768px) {
+        .floating-book-button {
+          bottom: 16px;
+          right: 16px;
+          justify-content: center;
+        }
+
+        .button-text {
+          font-size: 15px;
+        }
+
+        .button-price {
+          font-size: 13px;
+        }
+      }
+
+      /* Add this to handle smaller screens */
+      @media (max-width: 380px) {
+        .floating-book-button {
+          padding: 14px 20px;
+        }
+
+        .button-icon {
+          font-size: 18px;
+        }
+
+        .button-text {
+          font-size: 14px;
+        }
+
+        .button-price {
+          font-size: 12px;
+        }
+      }
+
+      /* Add slot range selection styles */
+      .slot-range-select {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 16px;
+        color: #1e293b;
+        margin-bottom: 16px;
+        background: #fff;
+      }
+
+      .slot-range-select:focus {
+        outline: none;
+        border-color: #ff385c;
+        box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.1);
+      }
+
+      .slot-time {
+        color: #666;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .floating-book-button {
+          bottom: 16px;
+          right: 16px;
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+
+      /* Add/update these styles in your CSS */
+      @media (max-width: 768px) {
+        .slot-card {
+          display: flex;
+          background: #fff;
+          border: 1px solid #e0e0e0;
+          border-radius: 12px;
+          cursor: pointer;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .slot-date-container {
+          min-width: 80px;
+        }
+
+        .slot-day {
+          font-size: 14px;
+          color: #666;
+        }
+
+        .slot-date {
+          font-size: 16px;
+          font-weight: 600;
+          color: #2c3e50;
+        }
+
+        .slot-times {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex: 1;
+        }
+
+        .time-block {
+          display: flex;
+          flex-direction: column;
+          min-width: 65px;
+        }
+
+        .time-label {
+          font-size: 12px;
+          color: #666;
+        }
+
+        .time {
+          font-size: 14px;
+          font-weight: 500;
+          color: #2c3e50;
+        }
+
+        .time-divider {
+          display: flex;
+          align-items: center;
+          color: #ff385c;
+          padding: 0 4px;
+        }
+
+        /* Hide the book button on mobile */
+        .book-button {
+          display: none;
+        }
+
+        /* Optional hover effect */
+        .slot-card:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .desktop-only {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="app"></div>
+    </div>
+
+    <div class="dialog-overlay" id="bookingDialog">
+      <div class="dialog-form">
+        <div class="dialog-header">
+          <h3>Book a memorable journey with Xperio</h3>
+          <button class="close-button" onclick="closeDialog()">&times;</button>
+        </div>
+        <form id="bookingForm" onsubmit="submitBooking(event)" novalidate>
+          <div class="form-group">
+            <label for="slotRange">Select Time Slot *</label>
+            <select id="slotRange" class="slot-range-select" required>
+              <option value=""></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input
+              type="text"
+              id="name"
+              required
+              minlength="2"
+              pattern="[A-Za-z\s]+"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input
+              type="tel"
+              id="phone"
+              required
+              pattern="[0-9]{10}"
+              placeholder="Enter your phone number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              placeholder="Enter your email"
+            />
+
+          </div>
+          <div class="form-group">
+            <label for="guestCount">Number of Guests *</label>
+            <select id="guestCount" required>
+              <option value="">Select number of guests</option>
+            </select>
+          </div>
+          <input type="hidden" id="slotId" name="slotId" required />
+          <button type="submit" class="submit-button">
+            <span>Submit Booking</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <button class="floating-book-button" onclick="openDialog()">
+      <span class="button-icon">📅</span>
+      <span class="button-text">Book Now</span>
+    </button>
+
+    <script>
+      async function fetchExperienceData() {
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          const experienceId = urlParams.get("exId");
+
+          if (!experienceId) {
+            throw new Error("Experience ID not provided in URL");
+          }
+
+          const response = await fetch(
+            `https://qa-api.xperio.travel/app/experience/public/${experienceId}`
+          );
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function mapApiDataToExperience(apiData) {
+        return {
+          id: apiData.id,
+          hostName: apiData.hostName,
+          hostProfilePhoto: apiData.hostProfilePhoto,
+          coHostName: apiData.coHostName,
+          coHostProfilePhoto: apiData.coHostProfilePhoto,
+          title: apiData.title,
+          category: apiData.category,
+          subCategory: apiData.subCategory,
+          city: apiData.city,
+          country: apiData.country,
+          guestType: apiData.guestType,
+          imageUrls: apiData.imageUrls,
+          keywords: apiData.keywords,
+          keyAttractions: apiData.keyAttractions,
+          briefOverview: apiData.briefOverview,
+          whatToExpect: apiData.whatToExpect,
+          whatsIncluded: apiData.whatsIncluded,
+          startDate: apiData.startDate,
+          endDate: apiData.endDate,
+          maxGuests: apiData.maxGuests,
+          slotRanges: apiData.slotRanges.map((slot) => ({
+            range: [slot.range[0], slot.range[1]],
+            slotId: slot.slotId,
+          })),
+          complexity: apiData.complexity,
+          safetyAndAccessibility: apiData.safetyInstruction.join(", "),
+          takeAway: apiData.takeaway,
+          cancellationPolicy: apiData.cancellationPolicies.map((policy) => ({
+            days: policy.days,
+            refund: policy.percentage,
+          })),
+          languages: apiData.languageAssisted,
+          eventGeoPoint: apiData.eventGeoPoint,
+          address: `${apiData.addressLine1}, ${apiData.addressLine2}`,
+          meetingPoint: apiData.addressLine1,
+          childrenAllowed: apiData.isChildrenAllowed,
+          activityRules: apiData.rules,
+          whatToBring: apiData.whatToBring,
+          amenities: apiData.amenities,
+          languageAssisted: apiData.languageAssisted,
+          foodAndDrinks: apiData.foodAndDrinks,
+          pricing: apiData.pricing,
+          immersive: apiData.immersive,
+          authenticity: apiData.authenticity,
+          localInteractions: apiData.localInteractions,
+          communityBenefits: apiData.communityBenefits,
+          sustainabilityPractices: apiData.sustainabilityPractices,
+        };
+      }
+
+      async function initializePage() {
+        const app = document.getElementById("app");
+        app.innerHTML = '<div class="loading-spinner"></div>';
+
+        const apiData = await fetchExperienceData();
+        if (apiData) {
+          window.experienceData = apiData;
+          const mappedData = mapApiDataToExperience(apiData);
+          renderExperience(mappedData);
+        } else {
+          app.innerHTML = `
+            <div class="error-message">
+              Failed to load experience data. Please try again later.
+            </div>
+          `;
+        }
+      }
+      window.addEventListener("load", initializePage);
+
+      function renderExperience(data) {
+        const app = document.getElementById("app");
+
+        app.innerHTML = `
+          <div class="experience-header">
+            <div class="header-content">
+              <!-- Add this new div for logo and brand -->
+              <div class="brand-container">
+                <div class="brand-wrapper">
+                  <div class="logo-mark">
+                    <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" 
+                         alt="Xperio Logo"
+                         style="width: 30px; height: 30px; vertical-align: middle;">
+                    <span class="brand-name" style="font-size: 1rem; vertical-align: middle; margin-left: 4px;">Xperio</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="header-row">
+                <div class="title-location">
+                  <h1 class="title">${data.title}</h1>
+                  <div class="location">
+                    <span>📍</span>
+                    <span>${data.city || "Location TBD"}, ${
+          data.country || ""
+        }</span>
+                  </div>
+                </div>
+                
+                <div class="categories-hosts desktop-only">
+                  <div class="category-section">
+                    <div class="category-item">
+                      <div class="category-tag">
+                        ${data.category}
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="subcategory-tag">
+                        ${data.subCategory}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="hosts-section">
+                    <div class="host-card">
+                      <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${
+                        data.hostProfilePhoto
+                      }" 
+                           alt="Host" 
+                           class="host-image">
+                      <div class="host-details">
+                        <span class="host-label">Host</span>
+                        <span class="host-name">${data.hostName}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const isMobile = window.innerWidth <= 768;
+        app.innerHTML += `
+          <div class="gallery-container">
+            ${
+              isMobile
+                ? `
+              <!-- Mobile Carousel View -->
+              <div class="gallery-carousel">
+                <div class="carousel-track">
+                  ${data.imageUrls
+                    .map(
+                      (url, index) => `
+                    <div class="carousel-slide" id="slide-${index}">
+                      <img 
+                        src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${url}" 
+                        alt="Experience image ${index + 1}"
+                        loading="${index < 2 ? "eager" : "lazy"}"
+                      >
+                    </div>
+                  `
+                    )
+                    .join("")}
+                </div>
+                <div class="image-counter">
+                  ${
+                    data.imageUrls.length > 0
+                      ? `${1}/${data.imageUrls.length}`
+                      : ""
+                  }
+                </div>
+                <div class="dots-container">
+                  ${data.imageUrls
+                    .map(
+                      (_, index) => `
+                    <div class="dot ${
+                      index === 0 ? "active" : ""
+                    }" data-index="${index}"></div>
+                  `
+                    )
+                    .join("")}
+                </div>
+              </div>
+            `
+                : `
+              <!-- Desktop Grid View -->
+              <div class="gallery-grid">
+                ${data.imageUrls
+                  .slice(0, 5)
+                  .map(
+                    (url, index) => `
+                  <div class="gallery-image ${
+                    index === 0 ? "gallery-main" : ""
+                  }">
+                    <img 
+                      src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${url}" 
+                      alt="Experience image ${index + 1}"
+                      loading="lazy"
+                    >
+                  </div>
+                `
+                  )
+                  .join("")}
+              </div>
+            `
+            }
+          </div>
+        `;
+
+        app.innerHTML += 
+          isMobile 
+            ? `
+             <div class="info-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 16px; margin: 10px 0; margin-bottom: 10px; margin-top: 50px;">
+  <div class="categories-hosts">
+    <div class="category-section">  
+      <div class="category-item">
+        <div class="category-tag">${data.category}</div>
+      </div>
+      <div class="divider">•</div>
+      <div class="category-item">
+        <div class="category-tag">${data.subCategory}</div>
+      </div>
+    </div>
+
+    <div class="hosts-section">
+      <div class="host-card">
+        <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${data.hostProfilePhoto}" 
+             alt="Host" 
+             class="host-image">
+        <div class="host-details">
+          <span class="host-label">Hosted by</span>
+          <span class="host-name">${data.hostName}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`
+            : '';
+
+
+        app.innerHTML += `
+          <div class="policy-and-slots-container">
+            <div class="booking-slots-container">
+              <h4 class="slots-title">📅 Available Time Slots</h4>
+              <div class="slots-wrapper">
+                ${data.slotRanges
+                  .map((slot) => {
+                    const checkIn = new Date(slot.range[0]);
+                    const checkOut = new Date(slot.range[1]);
+                    return `
+                    <div class="slot-card">
+                      <div class="slot-times">
+                        <div class="time-block">
+                          <div class="time-icon">
+                             <div class="slot-day">${checkIn.toLocaleDateString(
+                            undefined,
+                            { weekday: "short", month: "short", day: "numeric" }
+                          )}</div> 
+                          </div>
+                          <div class="time-details">
+                            <span class="time-label">Check-in</span>
+                            <span class="time">${checkIn.toLocaleTimeString(
+                              [],
+                              {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              }
+                            )}</span>
+                          </div>
+                        </div>
+                        <div class="time-divider">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div class="time-block">
+                          <div class="time-icon">
+                           <div class="slot-day">${checkOut.toLocaleDateString(
+                            undefined,
+                            { weekday: "short", month: "short", day: "numeric" }
+                          )}</div>  
+                          </div>
+                          <div class="time-details">
+                            <span class="time-label">Check-out</span>
+                            <span class="time">${checkOut.toLocaleTimeString(
+                              [],
+                              {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              }
+                            )}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  `;
+                  })
+                  .join("")}
+              </div>
+              
+               <div class="pricing-policy-grid">
+                <div class="section pricing-section">
+                  <h3 class="section-title">Pricing Details</h3>
+                  <table class="pricing-table">
+                    ${data.pricing
+                      .map(
+                        (price) => `
+                      <tr>
+                        <td>${price.guestCount} Guest${
+                          price.guestCount > 1 ? "s" : ""
+                        }</td>
+                        <td>₹${price.price}</td>
+                      </tr>
+                    `
+                      )
+                      .join("")}
+                  </table>
+                </div>
+
+                <div class="section pricing-section">
+                  <h3 class="section-title">Cancellation Policy</h3>
+                  <div class="policy-content">
+                    ${data.cancellationPolicy
+                      .map(
+                        (policy) => `
+                      <div class="policy-item">
+                        <span>${policy.days}${
+                          policy.days === 1 ? " day" : " days"
+                        } prior</span>
+                        <span>${policy.refund}% refund</span>
+                      </div>
+                    `
+                      )
+                      .join("")}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="details-grid">
+              <div class="left-column">
+                <div class="section">
+                  <div class="section-title">Key Attraction</div>
+                  <div class="section-content">
+                    ${data.keyAttractions}
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Brief Overview</div>
+                  <div class="section-content">
+                    ${data.briefOverview}
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="section-title">What to Expect</div>
+                  <div class="section-content">
+                    <ul>
+                      ${data.whatToExpect
+                        .map((item) => `<li>${item}</li>`)
+                        .join("")}
+                    </ul>
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="section-title">What's Included</div>
+                  <div class="section-content">
+                    ${data.whatsIncluded}
+                  </div>
+                </div>
+
+                <div class="section">
+                <div class="section-title">Environment & Social Impact :</div>
+                <div class="sub-section">
+                  <div class="sub-section-title">Sustainability Practices :</div>
+                  <div>${data.sustainabilityPractices}</div>
+                </div>
+                <div class="sub-section">
+                  <div class="sub-section-title">Community Benefits :</div>
+                  <div>${data.communityBenefits}</div>
+                </div>
+              </div>
+
+              <div class="section">
+                <div class="section-title">Languages Assisted :</div>
+                <div class="language-assisted">
+                  ${
+                    data.languageAssisted
+                      ? data.languageAssisted
+                          .map(
+                            (language) => `
+                    <span class="language-tag">${language}</span>
+                  `
+                          )
+                          .join("")
+                      : "No languages specified"
+                  }
+                </div>
+              </div>
+              </div>
+              
+              <div class="right-column">
+                <div class="section">
+                  <div class="section-title">Complexity</div>
+                  <div class="section-content">
+                    ${data.complexity}
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Safety and Accessibility</div>
+                  <div class="section-content">
+                    ${data.safetyAndAccessibility}
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Take Away</div>
+                  <div class="section-content">
+                    ${data.takeAway}
+                  </div>
+                </div>
+
+                 <div class="section">
+                <div class="section-title">Cultural Immersion:</div>
+                <div class="sub-section scrollable-section">
+                  <div class="sub-section-title">Local Interaction :</div>
+                  <div>${data.localInteractions}</div>
+                </div>
+                <div class="sub-section scrollable-section">
+                  <div class="sub-section-title">Authenticity :</div>
+                  <div>${data.authenticity}</div>
+                </div>
+                <div class="sub-section scrollable-section">
+                  <div class="sub-section-title">Immersive :</div>
+                  <div>${data.immersive}</div>
+                  </div>
+                </div>
+
+                <div class="section">
+                <div class="section-title">Amenities :</div>
+                <div class="amenities">
+                  <ul class="amenities-list">
+                    ${
+                      data.amenities
+                        ? data.amenities
+                            .map(
+                              (amenity) => `
+                      <li class="amenity-item">
+                        <span class="amenity-bullet">•</span>
+                        <span class="amenity-text">${amenity}</span>
+                      </li>
+                    `
+                            )
+                            .join("")
+                        : "No amenities listed"
+                    }
+                  </ul>
+                  </div>
+                </div>  
+
+                <div class="section">
+                <div class="section-title">Food and Drinks :</div>
+                <div class="food-drinks">
+                  ${
+                    data.foodAndDrinks
+                      ? data.foodAndDrinks
+                          .map(
+                            (item) => `
+                    <div class="food-item">
+                      <span class="amenity-bullet">•</span>
+                      <span class="amenity-text">${item}</span>
+                    </div>
+                  `
+                          )
+                          .join("")
+                      : "No food and drinks included"
+                  }
+                </div>               
+            </div>
+          </div>
+        `;
+
+        app.innerHTML += `
+          <div class="section map-section">
+            <div class="section-title">Location Details</div>
+            <div class="map-container">
+              <iframe
+                style="width: 100%; height: 350px; border: none;"
+                src="//maps.google.com/maps?q=${
+                  data.eventGeoPoint.coordinates[0]
+                },${data.eventGeoPoint.coordinates[1]}&z=13&output=embed"
+              ></iframe>
+              </div>
+
+              <div class="location-details">
+                <div class="address">
+                <strong>Address:</strong> ${data.address}
+              </div>
+              <div class="meeting-point">
+                <strong>Meeting Point:</strong> ${data.meetingPoint}
+              </div>
+            </div>
+          </div>
+        `;
+
+        app.innerHTML += `
+          <div class="section rules-section">
+            <div class="rules-grid">
+              <div class="rules-card children-allowed">
+                <div class="icon-header">
+                  <span class="rule-icon"></span>
+                  <div class="section-title">Children allowed</div>
+                </div>
+                <div class="section-content status-indicator ${
+                  data.childrenAllowed ? "allowed" : "not-allowed"
+                }">
+                  ${
+                    data.childrenAllowed
+                      ? "Yes - Children are welcome!"
+                      : "No - Adults only experience"
+                  }
+                </div>
+              </div>
+
+              <div class="rules-card activity-rules">
+                <div class="icon-header">
+                  <span class="rule-icon">📋</span>
+                  <div class="section-title">Activity Rules</div>
+                </div>
+                <ul class="rules-list">
+                  ${data.activityRules
+                    .map(
+                      (rule) => `
+                    <li class="rule-item">
+                      <span class="rule-bullet">•</span>
+                      <span class="rule-text">${rule}</span>
+                    </li>
+                  `
+                    )
+                    .join("")}
+                </ul>
+              </div>
+
+              <div class="rules-card what-to-bring">
+                <div class="icon-header">
+                  <span class="rule-icon"></span>
+                  <div class="section-title">What to Bring</div>
+                </div>
+                <ul class="bring-list">
+                  ${data.whatToBring
+                    .map(
+                      (item) => `
+                    <li class="bring-item">
+                      <span class="bring-bullet">✓</span>
+                      <span class="bring-text">${item}</span>
+                    </li>
+                  `
+                    )
+                    .join("")}
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+
+        if (isMobile) {
+          const track = document.querySelector(".carousel-track");
+          const dots = document.querySelectorAll(".dot");
+          const counter = document.querySelector(".image-counter");
+          let currentIndex = 0;
+          const updateIndicators = (index) => {
+            dots.forEach((dot, i) => {
+              dot.classList.toggle("active", i === index);
+            });
+            counter.textContent = `${index + 1}/${dots.length}`;
+          };
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const slideIndex = parseInt(entry.target.id.split("-")[1]);
+                  currentIndex = slideIndex;
+                  updateIndicators(slideIndex);
+                }
+              });
+            },
+            {
+              root: track,
+              threshold: 0.5,
+            }
+          );
+
+          document.querySelectorAll(".carousel-slide").forEach((slide) => {
+            observer.observe(slide);
+          });
+
+          dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+              const slideElement = document.getElementById(`slide-${index}`);
+              slideElement.scrollIntoView({
+                behavior: "smooth",
+                inline: "start",
+              });
+              currentIndex = index;
+              updateIndicators(index);
+            });
+          });
+          track.addEventListener("click", (e) => {
+            const rect = track.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+
+            if (x > rect.width / 2 && currentIndex < dots.length - 1) {
+              currentIndex++;
+            } else if (x <= rect.width / 2 && currentIndex > 0) {
+              currentIndex--;
+            }
+
+            document.getElementById(`slide-${currentIndex}`).scrollIntoView({
+              behavior: "smooth",
+              inline: "start",
+            });
+            updateIndicators(currentIndex);
+          });
+        }
+      }
+
+      function openDialog(slotId) {
+        const dialog = document.getElementById("bookingDialog");
+        const guestCountSelect = document.getElementById("guestCount");
+        const slotRangeSelect = document.getElementById("slotRange");
+
+        // Clear existing options
+        guestCountSelect.innerHTML = "";
+        slotRangeSelect.innerHTML = "<option value=''>Select a slot</option>";
+
+        const apiData = window.experienceData;
+        
+        // Populate guest count options
+        apiData.pricing.forEach((price) => {
+          const option = document.createElement("option");
+          option.value = price.guestCount;
+          option.textContent = `${price.guestCount} Guest${price.guestCount > 1 ? "s" : ""} - ₹${price.price}`;
+          guestCountSelect.appendChild(option);
+        });
+
+        // Populate slot range options
+        apiData.slotRanges.forEach((slot, index) => {
+          const checkIn = new Date(slot.range[0]);
+          const checkOut = new Date(slot.range[1]);
+          
+          const option = document.createElement("option");
+          option.value = slot.slotId;
+          option.textContent = `${checkIn.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} - ${checkIn.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} to ${checkOut.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} - ${checkOut.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+          slotRangeSelect.appendChild(option);
+        });
+
+        document.getElementById("slotId").value = slotId;
+        dialog.style.display = "flex";
+      }
+
+      function closeDialog() {
+        document.getElementById("bookingDialog").style.display = "none";
+        document.getElementById("bookingForm").reset();
+      }
+
+      async function submitBooking(event) {
+        event.preventDefault();
+
+        // Get form elements
+        const nameInput = document.getElementById("name");
+        const phoneInput = document.getElementById("phone");
+        const emailInput = document.getElementById("email");
+        const guestCountInput = document.getElementById("guestCount");
+        const slotIdInput = document.getElementById("slotRange");
+
+        // Clear any previous error styling
+        [nameInput, phoneInput, emailInput, guestCountInput].forEach(input => {
+          input.style.borderColor = '#e2e8f0';
+        });
+
+        // Validate required fields
+        let hasError = false;
+        const errors = [];
+
+        if (!nameInput.value.trim()) {
+          nameInput.style.borderColor = '#dc3545';
+          errors.push('Name is required');
+          hasError = true;
+        }
+
+        if (!phoneInput.value.trim()) {
+          phoneInput.style.borderColor = '#dc3545';
+          errors.push('Phone number is required');
+          hasError = true;
+        } else if (!/^[0-9]{10}$/.test(phoneInput.value.trim())) {
+          phoneInput.style.borderColor = '#dc3545';
+          errors.push('Please enter a valid 10-digit phone number');
+          hasError = true;
+        }
+
+        if (!emailInput.value.trim()) {
+          emailInput.style.borderColor = '#dc3545';
+          errors.push('Email is required');
+          hasError = true;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+          emailInput.style.borderColor = '#dc3545';
+          errors.push('Please enter a valid email address');
+          hasError = true;
+        }
+
+        if (!guestCountInput.value) {
+          guestCountInput.style.borderColor = '#dc3545';
+          errors.push('Please select number of guests');
+          hasError = true;
+        }
+
+        const experienceId = new URLSearchParams(window.location.search).get("exId");
+        if (!experienceId) {
+          errors.push('Experience ID is missing');
+          hasError = true;
+        }
+
+        if (!slotIdInput.value) {
+          errors.push('Slot ID is missing');
+          hasError = true;
+        }
+
+        if (hasError) {
+          alert('Please correct the following errors:\n' + errors.join('\n'));
+          return;
+        }
+
+        // If validation passes, prepare form data
+        const formData = {
+          name: nameInput.value.trim(),
+          phone: phoneInput.value.trim(),
+          email: emailInput.value.trim(),
+          experienceId: experienceId,
+          experienceTitle: document.querySelector(".title").textContent,
+          slotId: slotIdInput.value,
+          guestCount: parseInt(guestCountInput.value)
+        };
+
+        try {
+          const response = await fetch(
+            "https://qa-api.xperio.travel/app/experience/public/enquire",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                accept: "application/x-ndjson",
+              },
+              body: JSON.stringify(formData),
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Booking failed");
+          }
+
+          alert("Booking submitted successfully!");
+          closeDialog();
+        } catch (error) {
+          alert("Failed to submit booking. Please try again.");
+        }
+      }
+
+      // Add this function to get the minimum price from pricing data
+      function getMinPrice() {
+        const apiData = window.experienceData;
+        if (apiData && apiData.pricing && apiData.pricing.length > 0) {
+          const prices = apiData.pricing.map(p => p.price);
+          return Math.min(...prices).toLocaleString('en-IN');
+        }
+        return '0';
+      }
+    </script>
+  </body>
+</html>
