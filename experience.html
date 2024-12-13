@@ -2332,7 +2332,6 @@
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               placeholder="Enter your email"
             />
-
           </div>
           <div class="form-group">
             <label for="guestCount">Number of Guests *</label>
@@ -2484,7 +2483,7 @@
                       </div>
                     </div>
                     <div class="category-item">
-                      <div class="subcategory-tag">
+                      <div class="category-tag">
                         ${data.subCategory}
                       </div>
                     </div>
@@ -2577,9 +2576,8 @@
           </div>
         `;
 
-        app.innerHTML += 
-          isMobile 
-            ? `
+        app.innerHTML += isMobile
+          ? `
              <div class="info-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 16px; margin: 10px 0; margin-bottom: 10px; margin-top: 50px;">
   <div class="categories-hosts">
     <div class="category-section">  
@@ -2605,8 +2603,7 @@
     </div>
   </div>
 </div>`
-            : '';
-
+          : "";
 
         app.innerHTML += `
           <div class="policy-and-slots-container">
@@ -2623,9 +2620,13 @@
                         <div class="time-block">
                           <div class="time-icon">
                              <div class="slot-day">${checkIn.toLocaleDateString(
-                            undefined,
-                            { weekday: "short", month: "short", day: "numeric" }
-                          )}</div> 
+                               undefined,
+                               {
+                                 weekday: "short",
+                                 month: "short",
+                                 day: "numeric",
+                               }
+                             )}</div> 
                           </div>
                           <div class="time-details">
                             <span class="time-label">Check-in</span>
@@ -2646,9 +2647,13 @@
                         <div class="time-block">
                           <div class="time-icon">
                            <div class="slot-day">${checkOut.toLocaleDateString(
-                            undefined,
-                            { weekday: "short", month: "short", day: "numeric" }
-                          )}</div>  
+                             undefined,
+                             {
+                               weekday: "short",
+                               month: "short",
+                               day: "numeric",
+                             }
+                           )}</div>  
                           </div>
                           <div class="time-details">
                             <span class="time-label">Check-out</span>
@@ -2710,6 +2715,23 @@
 
             <div class="details-grid">
               <div class="left-column">
+               <div class="section">
+                <div class="section-title">Languages Assisted : </div>
+                  <div class="section-content">
+                    ${
+                    data.languageAssisted
+                      ? data.languageAssisted
+                          .map(
+                            (language) => `
+                    <span class="language-tag">${language}</span>
+                  `
+                          )
+                          .join("")
+                      : "No languages specified"
+                  }  
+                     
+                </div>
+              </div>
                 <div class="section">
                   <div class="section-title">Key Attraction</div>
                   <div class="section-content">
@@ -2750,23 +2772,6 @@
                   <div>${data.communityBenefits}</div>
                 </div>
               </div>
-
-              <div class="section">
-                <div class="section-title">Languages Assisted :</div>
-                <div class="language-assisted">
-                  ${
-                    data.languageAssisted
-                      ? data.languageAssisted
-                          .map(
-                            (language) => `
-                    <span class="language-tag">${language}</span>
-                  `
-                          )
-                          .join("")
-                      : "No languages specified"
-                  }
-                </div>
-              </div>
               </div>
               
               <div class="right-column">
@@ -2782,13 +2787,6 @@
                     ${data.safetyAndAccessibility}
                   </div>
                 </div>
-                <div class="section">
-                  <div class="section-title">Take Away</div>
-                  <div class="section-content">
-                    ${data.takeAway}
-                  </div>
-                </div>
-
                  <div class="section">
                 <div class="section-title">Cultural Immersion:</div>
                 <div class="sub-section scrollable-section">
@@ -2855,9 +2853,7 @@
             <div class="map-container">
               <iframe
                 style="width: 100%; height: 350px; border: none;"
-                src="//maps.google.com/maps?q=${
-                  data.eventGeoPoint.coordinates[0]
-                },${data.eventGeoPoint.coordinates[1]}&z=13&output=embed"
+                src="//maps.google.com/maps?q=${data.eventGeoPoint.coordinates[0]},${data.eventGeoPoint.coordinates[1]}&z=13&output=embed"
               ></iframe>
               </div>
 
@@ -2930,6 +2926,14 @@
               </div>
             </div>
           </div>
+          <div style="height: 20px;"></div> 
+           <div class="section">
+              <div class="section-title">Take Away</div>
+              <div class="section-content">
+              ${data.takeAway}
+              </div>
+            </div>
+          <div style="height: 20px;"></div> 
         `;
 
         if (isMobile) {
@@ -3003,12 +3007,14 @@
         slotRangeSelect.innerHTML = "<option value=''>Select a slot</option>";
 
         const apiData = window.experienceData;
-        
+
         // Populate guest count options
         apiData.pricing.forEach((price) => {
           const option = document.createElement("option");
           option.value = price.guestCount;
-          option.textContent = `${price.guestCount} Guest${price.guestCount > 1 ? "s" : ""} - ₹${price.price}`;
+          option.textContent = `${price.guestCount} Guest${
+            price.guestCount > 1 ? "s" : ""
+          } - ₹${price.price}`;
           guestCountSelect.appendChild(option);
         });
 
@@ -3016,10 +3022,24 @@
         apiData.slotRanges.forEach((slot, index) => {
           const checkIn = new Date(slot.range[0]);
           const checkOut = new Date(slot.range[1]);
-          
+
           const option = document.createElement("option");
           option.value = slot.slotId;
-          option.textContent = `${checkIn.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} - ${checkIn.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} to ${checkOut.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} - ${checkOut.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+          option.textContent = `${checkIn.toLocaleDateString(undefined, {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+          })} - ${checkIn.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })} to ${checkOut.toLocaleDateString(undefined, {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+          })} - ${checkOut.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}`;
           slotRangeSelect.appendChild(option);
         });
 
@@ -3043,59 +3063,65 @@
         const slotIdInput = document.getElementById("slotRange");
 
         // Clear any previous error styling
-        [nameInput, phoneInput, emailInput, guestCountInput].forEach(input => {
-          input.style.borderColor = '#e2e8f0';
-        });
+        [nameInput, phoneInput, emailInput, guestCountInput].forEach(
+          (input) => {
+            input.style.borderColor = "#e2e8f0";
+          }
+        );
 
         // Validate required fields
         let hasError = false;
         const errors = [];
 
         if (!nameInput.value.trim()) {
-          nameInput.style.borderColor = '#dc3545';
-          errors.push('Name is required');
+          nameInput.style.borderColor = "#dc3545";
+          errors.push("Name is required");
           hasError = true;
         }
 
         if (!phoneInput.value.trim()) {
-          phoneInput.style.borderColor = '#dc3545';
-          errors.push('Phone number is required');
+          phoneInput.style.borderColor = "#dc3545";
+          errors.push("Phone number is required");
           hasError = true;
         } else if (!/^[0-9]{10}$/.test(phoneInput.value.trim())) {
-          phoneInput.style.borderColor = '#dc3545';
-          errors.push('Please enter a valid 10-digit phone number');
+          phoneInput.style.borderColor = "#dc3545";
+          errors.push("Please enter a valid 10-digit phone number");
           hasError = true;
         }
 
         if (!emailInput.value.trim()) {
-          emailInput.style.borderColor = '#dc3545';
-          errors.push('Email is required');
+          emailInput.style.borderColor = "#dc3545";
+          errors.push("Email is required");
           hasError = true;
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
-          emailInput.style.borderColor = '#dc3545';
-          errors.push('Please enter a valid email address');
+        } else if (
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())
+        ) {
+          emailInput.style.borderColor = "#dc3545";
+          errors.push("Please enter a valid email address");
           hasError = true;
         }
 
         if (!guestCountInput.value) {
-          guestCountInput.style.borderColor = '#dc3545';
-          errors.push('Please select number of guests');
+          guestCountInput.style.borderColor = "#dc3545";
+          errors.push("Please select number of guests");
           hasError = true;
         }
 
-        const experienceId = new URLSearchParams(window.location.search).get("exId");
+        const experienceId = new URLSearchParams(window.location.search).get(
+          "exId"
+        );
         if (!experienceId) {
-          errors.push('Experience ID is missing');
+          errors.push("Experience ID is missing");
           hasError = true;
         }
 
         if (!slotIdInput.value) {
-          errors.push('Slot ID is missing');
+          errors.push("Slot ID is missing");
           hasError = true;
         }
 
         if (hasError) {
-          alert('Please correct the following errors:\n' + errors.join('\n'));
+          alert("Please correct the following errors:\n" + errors.join("\n"));
           return;
         }
 
@@ -3107,7 +3133,7 @@
           experienceId: experienceId,
           experienceTitle: document.querySelector(".title").textContent,
           slotId: slotIdInput.value,
-          guestCount: parseInt(guestCountInput.value)
+          guestCount: parseInt(guestCountInput.value),
         };
 
         try {
@@ -3138,10 +3164,10 @@
       function getMinPrice() {
         const apiData = window.experienceData;
         if (apiData && apiData.pricing && apiData.pricing.length > 0) {
-          const prices = apiData.pricing.map(p => p.price);
-          return Math.min(...prices).toLocaleString('en-IN');
+          const prices = apiData.pricing.map((p) => p.price);
+          return Math.min(...prices).toLocaleString("en-IN");
         }
-        return '0';
+        return "0";
       }
     </script>
   </body>
