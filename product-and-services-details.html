@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .feature-content {
+            padding: 20px;
+        }
+
+        .feature-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .price {
+            color: #2c5282;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2c5282;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #1a365d;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section" style="background-color: inherit; box-shadow: 0 4px 10px rgba(255, 56, 92, 0.5);">
+        <div class="hero-content">
+            <h1 style="color: #ff385c; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">XPERIO</h1>
+            <p style="color: #ff385c; font-weight: 500;">Never stop exploring</p>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/M8HpgogMk7UHBfh.jpeg')"></div>
+                <div class="feature-content">
+                    <h3>Silk Odyssey: From Cocoon to Loom & traditional Toys.</h3>
+                    <p>Walk through mulberry fields, handle live silkworms, and witness the
+                        ancient craft of silk weaving, all while staying locally in a village known for its sericulture
+                        expertise.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/epUpIfvnqDhWamT.jpeg')"></div>
+                <div class="feature-content">
+                    <h3>Sacred Serenity Retreat</h3>
+                    <p>Participate in daily rituals, yoga sessions, and spiritual discourses while exploring the historical charm of Sonda Fort and the natural beauty of Sahasralinga.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/wXdigRNOQG3x73W.jpeg')"></div>
+                <div class="feature-content">
+                    <h3>Unveiling the Siddi Tribe</h3>
+                    <p>Experience captivating Siddi music and Damami dance, try hands-on forest activities, and learn about their rich lineage and sustainable living practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
