@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="oQuWzHv2mbG5ecrMv6l8n1UHIhfM6TwH7FlpPG0ddxY" />
+    <meta
+      name="google-site-verification"
+      content="oQuWzHv2mbG5ecrMv6l8n1UHIhfM6TwH7FlpPG0ddxY"
+    />
     <title>Xperio Travel</title>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -227,6 +230,81 @@
           width: 100%;
         }
       }
+      .app-download-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+
+      .heading {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .subheading {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      .store-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .store-link {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .store-link:hover {
+        transform: translateY(-5px);
+      }
+
+      .store-badge {
+        height: 60px;
+        transition: all 0.3s ease;
+      }
+
+      .coming-soon-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+
+      @media (max-width: 768px) {
+        .heading {
+          font-size: 2rem;
+        }
+
+        .subheading {
+          font-size: 1rem;
+        }
+
+        .store-badge {
+          height: 50px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -249,7 +327,33 @@
           authentic, cultural, and immersive experiences that are sustainable
           and unforgettable.
         </p>
-        <a href="#" class="launching-soon">Launching Soon...! </a>
+
+        <div class="app-download-container">
+          <h1 class="heading">Download Our App</h1>
+          <p class="subheading">
+            Stay tuned! Our mobile app is coming soon to your favorite app
+            store.
+          </p>
+
+          <div class="store-buttons">
+            <div class="store-link">
+              <img
+                src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+                style="width: 127px;"
+                alt="Download on the App Store"
+                class="store-badge"
+              />
+            </div>
+
+            <div class="store-link">
+              <img
+                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                alt="Get it on Google Play"
+                class="store-badge"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -312,11 +416,13 @@
               style="color: #666; text-decoration: underline"
               >Account Deletion</a
             >
+            |
             <a
               href="https://xperio.travel/refund-policy.html"
               style="color: #666; text-decoration: underline"
               >Refund Policy</a
             >
+            |
             <a
               href="https://xperio.travel/xperio-terms-of-service.html"
               style="color: #666; text-decoration: underline"
@@ -331,4 +437,3 @@
     </footer>
   </body>
 </html>
-
