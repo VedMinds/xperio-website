@@ -69,53 +69,80 @@
     }
 
     .hero-section {
-      height: 45vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url("https://plus.unsplash.com/premium_photo-1719943510748-4b4354fbcf56?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      height: 100%;
       background-size: cover;
       background-position: center;
-      color: white;
-      padding: 4rem 2rem;
-      position: relative;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
     }
 
     .hero-wrapper {
-      max-width: 600px;
+      position: relative;
+      z-index: 1;
+      padding: 20px;
     }
 
     .hero-title {
-      font-size: 2.7rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      line-height: 1.2;
+      font-size: 2rem;
+      color: #f2f2f2;
     }
 
     .hero-text {
-      font-size: 1rem;
-      opacity: 0.8;
-      margin-bottom: 2rem;
+      color: #f2f2f2;
     }
 
     .button-group {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 3rem;
+      margin-top: 20px;
     }
 
     .discover-btn {
-      padding: 0.8rem 2rem;
-      border-radius: 25px;
-      border: none;
-      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      background-color: #ff385c;
       color: white;
-      font-weight: 500;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
 
-    .discover-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .hero-text {
+        font-size: 0.9rem;
+      }
+
+      .discover-btn {
+        width: 100%;
+      }
     }
 
     .image-gallery {
@@ -1433,6 +1460,73 @@
         font-size: 0.8rem;
       }
     }
+
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel {
+      position: absolute;
+      width: 100%;
+    }
+
+    .carousel-item {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.5s ease-in-out;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
+    }
+
+    .carousel-content {
+      color: white;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem;
+      border-radius: 8px;
+      width: 700px;
+    }
+
+    .carousel-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .carousel-text {
+      font-size: 1.5rem;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .indicator.active {
+      background: white;
+    }
   </style>
 </head>
 
@@ -1462,63 +1556,102 @@
       <a href="#" class="navbar-link"><i class="fas fa-envelope"></i> Contact Us</a>
     </div>
   </nav>
+
   <section class="hero-section">
-    <div class="hero-wrapper">
-      <h2 class="hero-title" style="
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-top: 20px;
-          ">
-        Discover Unique Experiences, Only a Tap Away!
-      </h2>
-      <p class="hero-text" style="color: white; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)">
-        From serene wellness retreats to thrilling adventures, explore
-        authentic experiences with local hosts.
-      </p>
-      <div class="button-group">
-        <button class="discover-btn">Explore More</button>
+    <div class="carousel">
+      <div class="carousel-item active"
+        style="background-image: url('https://plus.unsplash.com/premium_photo-1712685912274-2483dade540f?q=80&w=2975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+        <div class="carousel-content">
+          <h2 class="hero-title">Discover Majestic Mountains!</h2>
+          <p class="hero-text">Enjoy breathtaking views and guided adventures.</p>
+          <a href="#" class="cta-button" style="margin-top: 10px;">Start Your Adventure!</a>
+        </div>
+      </div>
+      <div class="carousel-item"
+        style="background-image: url('https://images.unsplash.com/photo-1523760957528-55d1d540360d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHZpbGxhZ2V8ZW58MHx8MHx8fDA%3D')">
+        <div class="carousel-content">
+          <h2 class="hero-title">Discover the Charm of Village Stays!</h2>
+          <p class="hero-text">Enjoy rural tranquility, local cuisine, and nature's embrace.</p>
+          <a href="#" class="cta-button" style="margin-top: 10px;">Start Your Adventure!</a>
+        </div>
+      </div>
+      <div class="carousel-item"
+        style="background-image: url('https://images.unsplash.com/photo-1463592177119-bab2a00f3ccb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGthcm5hdHRha2ElMjBjdWx0dXJlfGVufDB8fDB8fHww')">
+        <div class="carousel-content">
+          <h2 class="hero-title">Discover Indian Dance Culture!</h2>
+          <p class="hero-text">Dive into the rich traditions and vibrant styles of Indian dance.</p>
+          <a href="#" class="cta-button" style="margin-top: 10px;">Start Your Adventure!</a>
+        </div>
+      </div>
+      <div class="carousel-item"
+        style="background-image: url('https://images.unsplash.com/photo-1686629935008-2ccef35fe904?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNlYSUyMGJvYXR8ZW58MHx8MHx8fDA%3D')">
+        <div class="carousel-content">
+          <h2 class="hero-title">Discover Sea Backwaters!</h2>
+          <p class="hero-text">Unwind in the tranquility of nature's embrace.</p>
+          <a href="#" class="cta-button" style="margin-top: 10px;">Start Your Adventure!</a>
+        </div>
+      </div>
+      <div class="carousel-item"
+        style="background-image: url('https://images.unsplash.com/photo-1597840662268-226a09bc49f7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFuY2UlMjBpbmRpYXxlbnwwfHwwfHx8MA%3D%3D')">
+        <div class="carousel-content">
+          <h2 class="hero-title">Explore Yashaghana Culture!</h2>
+          <p class="hero-text">Dive into the vibrant traditions of Karnataka's heritage.</p>
+          <a href="#" class="cta-button" style="margin-top: 10px;">Start Your Adventure!</a>
+        </div>
+      </div>
+      <div class="carousel-item"
+        style="background-image: url('https://images.unsplash.com/photo-1542275658-fa28c48e8954?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGZhcm1pbmd8ZW58MHx8MHx8fDA%3D')">
+        <div class="carousel-content">
+          <h2 class="hero-title">Discover Indian Agriculture</h2>
+          <p class="hero-text">Connect with farmers and sustainable practices.</p>
+          <a href="#" class="cta-button" style="margin-top: 10px;">Start Your Adventure!</a>
+        </div>
       </div>
     </div>
+    <div class="carousel-indicators"></div>
   </section>
 
-  <!--   <section class="about">
-      <div class="about-content">
-        <h2>About Xperio</h2>
-        <p>
-          Xperio is your premier online travel aggregator platform, connecting
-          travelers with local hosts across India. Our mission is to provide
-          authentic, cultural, and immersive experiences that are sustainable
-          and unforgettable.
-        </p>
+  <script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    let isTransitioning = false;
 
-        <div class="app-download-container">
-          <h1 class="heading">Download Our App</h1>
-          <p class="subheading">
-            Stay tuned! Our mobile app is coming soon to your favorite app
-            store.
-          </p>
+    for (let i = 0; i < totalItems; i++) {
+      const indicator = document.createElement('div');
+      indicator.classList.add('indicator');
+      if (i === 0) indicator.classList.add('active');
+      indicator.addEventListener('click', () => !isTransitioning && goToSlide(i));
+      indicatorsContainer.appendChild(indicator);
+    }
 
-          <div class="store-buttons">
-            <div class="store-link">
-              <img
-                src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
-                style="width: 127px"
-                alt="Download on the App Store"
-                class="store-badge"
-              />
-            </div>
+    function goToSlide(index) {
+      if (isTransitioning) return;
+      isTransitioning = true;
 
-            <div class="store-link">
-              <img
-                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                alt="Get it on Google Play"
-                class="store-badge"
-              />
-            </div>
-          </div>
-        </div> 
-      </div>
-    </section>-->
+      const indicators = document.querySelectorAll('.indicator');
+      items[currentIndex].classList.remove('active');
+      indicators[currentIndex].classList.remove('active');
+
+      currentIndex = index;
+
+      items[currentIndex].classList.add('active');
+      indicators[currentIndex].classList.add('active');
+
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 500);
+    }
+
+    function showNextItem() {
+      if (!isTransitioning) {
+        goToSlide((currentIndex + 1) % totalItems);
+      }
+    }
+
+    setInterval(showNextItem, 3000);
+  </script>
 
   <section class="adventure-section" style="
         display: flex;
@@ -1728,7 +1861,8 @@
               alt="Photography" style="width: 100%; height: 200px; object-fit: cover;" />
             <h4 style="padding: 15px 10px; margin: 0; text-align: center; font-size: 1.1rem;">WELLNESS</h4>
             <p style="padding: 0 15px 15px; margin: 0; text-align: center; color: #666; font-size: 0.9rem;">
-              Rejuvenate your mind, body, and spirit with holistic retreats, yoga sessions, and wellness practices designed to promote relaxation and balance.
+              Rejuvenate your mind, body, and spirit with holistic retreats, yoga sessions, and wellness practices
+              designed to promote relaxation and balance.
             </p>
           </div>
 
@@ -1747,7 +1881,8 @@
               alt="Photography" style="width: 100%; height: 200px; object-fit: cover;" />
             <h4 style="padding: 15px 10px; margin: 0; text-align: center; font-size: 1.1rem;">CULTURE</h4>
             <p style="padding: 0 15px 15px; margin: 0; text-align: center; color: #666; font-size: 0.9rem;">
-              Engage with vibrant traditions, art, and history through immersive experiences that celebrate local customs and foster a deeper understanding of diverse cultures.
+              Engage with vibrant traditions, art, and history through immersive experiences that celebrate local
+              customs and foster a deeper understanding of diverse cultures.
             </p>
           </div>
 
@@ -2641,7 +2776,8 @@
             Contact Us
           </h4>
           <p style="margin-bottom: 16px">
-            <strong style="color: #fff">Email:</strong> <a href="mailto:info@xperio.travel" style="color: #9ca3af; text-decoration: none">info@xperio.travel</a><br />
+            <strong style="color: #fff">Email:</strong> <a href="mailto:info@xperio.travel"
+              style="color: #9ca3af; text-decoration: none">info@xperio.travel</a><br />
           </p>
           <!-- <p style="margin-bottom: 16px">
               <strong style="color: #fff">Phone:</strong><br />
