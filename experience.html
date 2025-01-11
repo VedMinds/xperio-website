@@ -2714,58 +2714,60 @@
 
     function mapApiDataToExperience(apiData) {
       return {
-        id: apiData.id,
-        hostName: apiData.hostName,
-        hostProfilePhoto: apiData.hostProfilePhoto,
-        coHostName: apiData.coHostName,
-        coHostProfilePhoto: apiData.coHostProfilePhoto,
-        title: apiData.title,
-        category: apiData.category,
-        subCategory: apiData.subCategory,
-        city: apiData.city,
-        country: apiData.country,
-        guestType: apiData.guestType,
-        imageUrls: apiData.imageUrls,
-        keywords: apiData.keywords,
-        keyAttractions: apiData.keyAttractions,
-        briefOverview: apiData.briefOverview,
-        whatToExpect: apiData.whatToExpect,
-        whatsIncluded: apiData.whatsIncluded,
-        startDate: apiData.startDate,
-        endDate: apiData.endDate,
-        maxGuests: apiData.maxGuests,
-        slotRanges: apiData.slotRanges.map((slot) => ({
-          range: [slot.range[0], slot.range[1]],
+        id: apiData?.id || null,
+        hostName: apiData?.hostName || '',
+        hostProfilePhoto: apiData?.hostProfilePhoto || '',
+        coHostName: apiData?.coHostName || '',
+        coHostProfilePhoto: apiData?.coHostProfilePhoto || '',
+        title: apiData?.title || '',
+        category: apiData?.category || '',
+        subCategory: apiData?.subCategory || '',
+        city: apiData?.city || '',
+        country: apiData?.country || '',
+        guestType: apiData?.guestType || '',
+        imageUrls: apiData?.imageUrls || [],
+        keywords: apiData?.keywords || [],
+        keyAttractions: apiData?.keyAttractions || '',
+        briefOverview: apiData?.briefOverview || '',
+        whatToExpect: apiData?.whatToExpect || '',
+        whatsIncluded: apiData?.whatsIncluded || [],
+        startDate: apiData?.startDate || null,
+        endDate: apiData?.endDate || null,
+        maxGuests: apiData?.maxGuests || 0,
+        slotRanges: (apiData?.slotRanges || []).map((slot) => ({
+          range: [slot?.range?.[0] || 0, slot?.range?.[1] || 0],
         })),
-        complexity: apiData.complexity,
-        safetyAndAccessibility: apiData.safetyInstruction.join(", "),
-        takeAway: apiData.takeaway,
-        cancellationPolicy: apiData.cancellationPolicies.map((policy) => ({
-          days: policy.days,
-          refund: policy.percentage,
+        complexity: apiData?.complexity || '',
+        safetyAndAccessibility: (apiData?.safetyInstruction || []).join(', '),
+        takeAway: apiData?.takeaway || '',
+        cancellationPolicy: (apiData?.cancellationPolicies || []).map((policy) => ({
+          days: policy?.days || 0,
+          refund: policy?.percentage || 0,
         })),
-        languages: apiData.languageAssisted,
-        guestType: apiData.guestType,
-        instructionToReach: apiData.notes,
-        eventGeoPoint: apiData.eventGeoPoint,
-        address: `${apiData.addressLine1}`,
-        meetingPoint: apiData.addressLine2,
-        childrenAllowed: apiData.isChildrenAllowed,
-        activityRules: apiData.rules,
-        whatToBring: apiData.whatToBring,
-        amenities: apiData.amenities,
-        languageAssisted: apiData.languageAssisted,
-        foodAndDrinks: apiData.foodAndDrinks,
-        pricing: apiData.pricing,
-        immersive: apiData.immersive,
-        authenticity: apiData.authenticity,
-        localInteractions: apiData.localInteractions,
-        communityBenefits: apiData.communityBenefits,
-        sustainabilityPractices: apiData.sustainabilityPractices,
-        hostRating: apiData.hostRating,
-        hostReviews: apiData.hostReviews,
-        hostBriefAbout: apiData.hostBriefAbout,
-        isStayAvailable: apiData.isStayAvailable
+        languages: apiData?.languageAssisted || [],
+        instructionToReach: apiData?.notes || '',
+        eventGeoPoint: {
+          type: apiData?.eventGeoPoint?.type || 'Point',
+          coordinates: apiData?.eventGeoPoint?.coordinates?.slice()?.reverse() || [0, 0],
+        },
+        address: apiData?.addressLine1 || '',
+        meetingPoint: apiData?.addressLine2 || '',
+        childrenAllowed: apiData?.isChildrenAllowed ?? false,
+        activityRules: apiData?.rules || [],
+        whatToBring: apiData?.whatToBring || '',
+        amenities: apiData?.amenities || [],
+        languageAssisted: apiData?.languageAssisted || [],
+        foodAndDrinks: apiData?.foodAndDrinks || '',
+        pricing: apiData?.pricing || [],
+        immersive: apiData?.immersive || false,
+        authenticity: apiData?.authenticity || false,
+        localInteractions: apiData?.localInteractions || false,
+        communityBenefits: apiData?.communityBenefits || false,
+        sustainabilityPractices: apiData?.sustainabilityPractices || false,
+        hostRating: apiData?.hostRating || 0,
+        hostReviews: apiData?.hostReviews || [],
+        hostBriefAbout: apiData?.hostBriefAbout || '',
+        isStayAvailable: apiData?.isStayAvailable ?? false,
       };
     }
 
@@ -3232,28 +3234,24 @@
                   <span class="rule-icon"></span>
                   <div class="section-title">Are Children Allowed?</div>
                 </div>
-                <div class="section-content status-indicator ${
-                  data.childrenAllowed ? "allowed" : "not-allowed"
-                }">
-                  ${
-                    data.childrenAllowed
-                      ? "Yes"
-                      : "No"
-                  }
+                <div class="section-content status-indicator ${data.childrenAllowed ? "allowed" : "not-allowed"
+        }">
+                  ${data.childrenAllowed
+          ? "Yes"
+          : "No"
+        }
                 </div>
                 <div style="padding-top: 20px"></div>
                  <div class="icon-header">
                   <span class="rule-icon"></span>
                   <div class="section-title">Is Accommodation Available?</div>
                 </div>
-                <div class="section-content status-indicator ${
-                  data.isStayAvailable ? "allowed" : "not-allowed"
-                }">
-                  ${
-                    data.isStayAvailable
-                      ? "Yes"
-                      : "No"
-                  }
+                <div class="section-content status-indicator ${data.isStayAvailable ? "allowed" : "not-allowed"
+        }">
+                  ${data.isStayAvailable
+          ? "Yes"
+          : "No"
+        }
                 </div>
               </div>
 
