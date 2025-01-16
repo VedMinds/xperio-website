@@ -2626,6 +2626,19 @@
         font-size: 12px;
       }
     }
+
+    .title-location .location {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .title-location .location-icon {
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
+      padding-top: -5px;
+    }
   </style>
 </head>
 
@@ -2849,11 +2862,14 @@
               <div class="header-row">
                 <div class="title-location">
                   <h1 class="title">${data.title}</h1>
-                  <div class="location">
-                    <span>📍</span>
-                    <span>${data.city || "Location TBD"}, ${data.country || ""
-        }</span>
-                  </div>
+                    <div class="location">
+                      <img 
+                        src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/vRoXr0zMHBBZaAQ.jpeg" 
+                        alt="Location Icon" 
+                        class="location-icon" 
+                      />
+                    <span>${data.city || "Location TBD"}, ${data.country || ""}</span>
+                    </div>
                 </div>
                 
                 <div class="categories-hosts desktop-only">
@@ -3058,7 +3074,7 @@
                       <tr>
                         <td>${price.guestCount} Guest${price.guestCount > 1 ? "s" : ""
               }</td>
-                        <td>₹${price.price}</td>
+                        <td>₹${price.totalPrice}</td>
                       </tr>
                     `
           )
@@ -3341,7 +3357,7 @@
             </div>
           <div class="disclaimer-section">
             <div class="disclaimer-content">
-              <strong>Disclaimer:</strong> At Xperio, we strive to ensure that every experience meets your expectations and creates memorable moments. However, certain factors beyond our control, such as weather conditions, local regulations, health advisories, or host unavailability, may lead to modifications, delays, or, in rare cases, cancellations of planned activities.
+              <strong>Note:</strong> At Xperio, we strive to ensure that every experience meets your expectations and creates memorable moments. However, certain factors beyond our control, such as weather conditions, local regulations, health advisories, or host unavailability, may lead to modifications, delays, or, in rare cases, cancellations of planned activities.
             </div>
           </div>
            <div style="height: 20px;"></div> 
@@ -3429,7 +3445,7 @@
         const option = document.createElement("option");
         option.value = price.guestCount;
         option.textContent = `${price.guestCount} Guest${price.guestCount > 1 ? "s" : ""
-          } - ₹${price.price}`;
+          } - ₹${price.totalPrice}`;
         guestCountSelect.appendChild(option);
       });
 
