@@ -2805,6 +2805,7 @@
         meetingPoint: apiData?.addressLine2 || '',
         childrenAllowed: apiData?.isChildrenAllowed ?? false,
         activityRules: apiData?.rules || [],
+        activityRulesDos: apiData?.dos || [],
         whatToBring: apiData?.whatToBring || '',
         amenities: apiData?.amenities || [],
         languageAssisted: apiData?.languageAssisted || [],
@@ -3253,6 +3254,26 @@
         }
                 </div>               
             </div>
+
+
+            <div class="section">
+                <div class="icon-header">
+                  <span class="rule-icon"></span>
+                  <div class="section-title">What to Bring</div>
+                </div>
+                <ul class="bring-list">
+                  ${data.whatToBring
+          .map(
+            (item) => `
+                    <li class="bring-item">
+                      <span class="bring-bullet">✓</span>
+                      <span class="bring-text">${item}</span>
+                    </li>
+                  `
+          )
+          .join("")}
+                </ul>
+              </div>
           </div>
         `;
 
@@ -3312,7 +3333,26 @@
               <div class="rules-card activity-rules">
                 <div class="icon-header">
                   <span class="rule-icon">📋</span>
-                  <div class="section-title">Activity Rules</div>
+                  <div class="section-title">Activity Rules - Do's</div>
+                </div>
+                <ul class="rules-list">
+                  ${data.activityRulesDos
+          .map(
+            (rule) => `
+                    <li class="rule-item">
+                      <span class="rule-bullet">•</span>
+                      <span class="rule-text">${rule}</span>
+                    </li>
+                  `
+          )
+          .join("")}
+                </ul>
+              </div>
+
+              <div class="rules-card activity-rules">
+                <div class="icon-header">
+                  <span class="rule-icon">📋</span>
+                  <div class="section-title">Activity Rules - Dont's</div>
                 </div>
                 <ul class="rules-list">
                   ${data.activityRules
@@ -3328,24 +3368,7 @@
                 </ul>
               </div>
 
-              <div class="rules-card what-to-bring">
-                <div class="icon-header">
-                  <span class="rule-icon"></span>
-                  <div class="section-title">What to Bring</div>
-                </div>
-                <ul class="bring-list">
-                  ${data.whatToBring
-          .map(
-            (item) => `
-                    <li class="bring-item">
-                      <span class="bring-bullet">✓</span>
-                      <span class="bring-text">${item}</span>
-                    </li>
-                  `
-          )
-          .join("")}
-                </ul>
-              </div>
+              
             </div>
           </div>
           <div style="height: 20px;"></div> 
