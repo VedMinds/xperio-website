@@ -2839,6 +2839,12 @@
             </div>
           `;
       }
+
+      // Show buttons only if there are more than 4 slot ranges
+      const slotButtons = document.getElementById("slotButtons");
+      if (window.experienceData.slotRanges.length > 4) {
+        slotButtons.style.display = "flex"; // Show buttons
+      }
     }
     window.addEventListener("load", initializePage);
 
@@ -2998,11 +3004,12 @@
         : "";
 
       app.innerHTML += `
-          <div class="policy-and-slots-container">
+                    <div class="policy-and-slots-container">
             <div class="booking-slots-container">
               <h4 class="slots-title">📅 Available Time Slots</h4>
-              <div class="slots-wrapper">
+              <div class="slots-wrapper" id="slotsWrapper">
                 ${data.slotRanges
+          .slice(0, 4) // Limit to the first four slots
           .map((slot) => {
             const checkIn = new Date(slot.range[0]);
             const checkOut = new Date(slot.range[1]);
@@ -3065,6 +3072,14 @@
           .join("")}
               </div>
               
+              <div style="display: flex; justify-content: center; margin-bottom: 20px;" id="slotButtons" style="display: ${window.experienceData.slotRanges.length > 4 ? 'flex' : 'none'};">
+                <button id="showMoreButton" class="submit-button" onclick="showMoreSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: ${window.experienceData.slotRanges.length > 4 ? 'flex': 'none'}">
+                    Show More <span class="button-icon">⬇️</span>
+                </button>
+                <button id="showLessButton" class="submit-button" onclick="showLessSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: none;">
+                    Show Less <span class="button-icon">⬆️</span>
+                </button>
+              </div>
                <div class="pricing-policy-grid">
                 <div class="section pricing-section">
                   <h3 class="section-title">Pricing Details</h3>
@@ -3450,6 +3465,118 @@
       if (window.innerWidth > 768) {
         initializeLightbox(data.imageUrls);
       }
+    }
+
+    let currentIndex = 4; // Start from the 5th item
+    let isSlotsExpanded = false; // Track the state of the slots
+
+    function showMoreSlots() {
+      const slotsWrapper = document.getElementById("slotsWrapper");
+      if (!slotsWrapper) {
+          console.error("slotsWrapper element not found");
+          return;
+      }
+
+      // Expand the slots
+      const additionalSlots = window.experienceData.slotRanges.slice(currentIndex, currentIndex + 4);
+      if (additionalSlots.length > 0) {
+          const newSlotsHTML = additionalSlots.map((slot) => {
+              const checkIn = new Date(slot.range[0]);
+              const checkOut = new Date(slot.range[1]);
+              return `
+              <div class="slot-card">
+                <div class="slot-times">
+                  <div class="time-block">
+                    <div class="time-icon">
+                      <div class="slot-day">${checkIn.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}</div> 
+                    </div>
+                    <div class="time-details">
+                      <span class="time-label">Check-in</span>
+                      <span class="time">${checkIn.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                    </div>
+                  </div>
+                  <div class="time-divider">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="time-block">
+                    <div class="time-icon">
+                      <div class="slot-day">${checkOut.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}</div>  
+                    </div>
+                    <div class="time-details">
+                      <span class="time-label">Check-out</span>
+                      <span class="time">${checkOut.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join("");
+
+          slotsWrapper.innerHTML += newSlotsHTML; // Append new slots
+          currentIndex += 4; // Update the current index
+
+          // Show "Show Less" button if maximum length is reached
+          if (currentIndex >= window.experienceData.slotRanges.length) {
+              document.getElementById("showMoreButton").style.display = "none";
+              document.getElementById("showLessButton").style.display = "block";
+          }
+      }
+
+      isSlotsExpanded = true; // Set the state to expanded
+    }
+
+    function showLessSlots() {
+      const slotsWrapper = document.getElementById("slotsWrapper");
+      if (!slotsWrapper) {
+          console.error("slotsWrapper element not found");
+          return;
+      }
+
+      // Collapse the slots
+      slotsWrapper.innerHTML = ''; // Clear the slots
+      currentIndex = 4; // Reset to show the first four slots
+      const initialSlots = window.experienceData.slotRanges.slice(0, currentIndex); // Get the first four slots
+      const initialSlotsHTML = initialSlots.map((slot) => {
+          const checkIn = new Date(slot.range[0]);
+          const checkOut = new Date(slot.range[1]);
+          return `
+          <div class="slot-card">
+            <div class="slot-times">
+              <div class="time-block">
+                <div class="time-icon">
+                  <div class="slot-day">${checkIn.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}</div> 
+                </div>
+                <div class="time-details">
+                  <span class="time-label">Check-in</span>
+                  <span class="time">${checkIn.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                </div>
+              </div>
+              <div class="time-divider">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="time-block">
+                <div class="time-icon">
+                  <div class="slot-day">${checkOut.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}</div>  
+                </div>
+                <div class="time-details">
+                  <span class="time-label">Check-out</span>
+                  <span class="time">${checkOut.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      slotsWrapper.innerHTML = initialSlotsHTML; // Show the initial slots
+      document.getElementById("showMoreButton").style.display = "block"; // Show "Show More" button
+      document.getElementById("showLessButton").style.display = "none"; // Hide "Show Less" button
+
+      isSlotsExpanded = false; // Set the state to collapsed
     }
 
     function openDialog(slotId) {
