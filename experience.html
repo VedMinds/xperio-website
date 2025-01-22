@@ -996,6 +996,7 @@
       display: flex;
       flex-direction: column;
       border-radius: 8px;
+      margin-top: 20px;
     }
 
     .policy-section {
@@ -3004,148 +3005,20 @@
         : "";
 
       app.innerHTML += `
-                    <div class="policy-and-slots-container">
-            <div class="booking-slots-container">
-              <h4 class="slots-title">📅 Available Time Slots</h4>
-              <div class="slots-wrapper" id="slotsWrapper">
-                ${data.slotRanges
-          .slice(0, 4) // Limit to the first four slots
-          .map((slot) => {
-            const checkIn = new Date(slot.range[0]);
-            const checkOut = new Date(slot.range[1]);
-            return `
-                    <div class="slot-card">
-                      <div class="slot-times">
-                        <div class="time-block">
-                          <div class="time-icon">
-                             <div class="slot-day">${checkIn.toLocaleDateString(
-              undefined,
-              {
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-              }
-            )}</div> 
-                          </div>
-                          <div class="time-details">
-                            <span class="time-label">Check-in</span>
-                            <span class="time">${checkIn.toLocaleTimeString(
-              [],
-              {
-                hour: "2-digit",
-                minute: "2-digit",
-              }
-            )}</span>
-                          </div>
-                        </div>
-                        <div class="time-divider">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </div>
-                        <div class="time-block">
-                          <div class="time-icon">
-                           <div class="slot-day">${checkOut.toLocaleDateString(
-              undefined,
-              {
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-              }
-            )}</div>  
-                          </div>
-                          <div class="time-details">
-                            <span class="time-label">Check-out</span>
-                            <span class="time">${checkOut.toLocaleTimeString(
-              [],
-              {
-                hour: "2-digit",
-                minute: "2-digit",
-              }
-            )}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  `;
-          })
-          .join("")}
-              </div>
-              
-              <div style="display: flex; justify-content: center; margin-bottom: 20px;" id="slotButtons" style="display: ${window.experienceData.slotRanges.length > 4 ? 'flex' : 'none'};">
-                <button id="showMoreButton" class="submit-button" onclick="showMoreSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: ${window.experienceData.slotRanges.length > 4 ? 'flex': 'none'}">
-                    Show More <span class="button-icon">⬇️</span>
-                </button>
-                <button id="showLessButton" class="submit-button" onclick="showLessSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: none;">
-                    Show Less <span class="button-icon">⬆️</span>
-                </button>
-              </div>
-               <div class="pricing-policy-grid">
-                <div class="section pricing-section">
-                  <h3 class="section-title">Pricing Details</h3>
-                  <table class="pricing-table">
-                    ${data.pricing
-          .map(
-            (price) => `
-                      <tr>
-                        <td>${price.guestCount} Guest${price.guestCount > 1 ? "s" : ""
-              }</td>
-                        <td>₹${price.totalPrice}</td>
-                      </tr>
-                    `
-          )
-          .join("")}
-                  </table>
-                </div>
-
-                <div class="section pricing-section">
-                  <h3 class="section-title">Cancellation Policy</h3>
-                  <div class="policy-content">
-                    ${data.cancellationPolicy
-          .map(
-            (policy) => `
-                      <div class="policy-item">
-                        <span>${policy.days}${policy.days === 1 ? " day" : " days"
-              } prior</span>
-                        <span>${policy.refund}% refund</span>
-                      </div>
-                    `
-          )
-          .join("")}
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-
+                    
             <div class="details-grid">
               <div class="left-column">
-               <div class="section">
-                <div class="section-title">Languages Assisted : </div>
-                  <div class="section-content">
-                    ${data.languageAssisted
-          ? data.languageAssisted
-            .map(
-              (language) => `
-                    <span class="language-tag">${language}</span>
-                  `
-            )
-            .join("")
-          : "No languages specified"
-        }  
-                     
-                </div>
-              </div>
-                <div class="section">
-                  <div class="section-title">Key Attraction</div>
-                  <div class="section-content">
-                    ${data.keyAttractions}
-                  </div>
-                </div>
+
                 <div class="section">
                   <div class="section-title">Brief Overview</div>
                   <div class="section-content">
                     ${data.briefOverview}
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Key Attraction</div>
+                  <div class="section-content">
+                    ${data.keyAttractions}
                   </div>
                 </div>
                 <div class="section">
@@ -3184,24 +3057,7 @@
               </div>
               </div>
               
-              <div class="right-column">
-                <div class="section">
-                  <div class="section-title">Guest Type:</div>
-                  <div class="section-content">
-                    ${data.guestType
-          ? data.guestType
-            .map(
-              (guestType) => `
-                    <span class="language-tag">${guestType}</span>
-                  `
-            )
-            .join("")
-          : "No Guest Type specified"
-        }  
-                     
-                  </div>
-                </div>
-                
+              <div class="right-column">          
                 <div class="section">
                   <div class="section-title">Complexity</div>
                   <div class="section-content">
@@ -3290,6 +3146,40 @@
                 </ul>
               </div>
           </div>
+
+           <div class="section">
+                <div class="section-title">Languages Assisted : </div>
+                  <div class="section-content">
+                    ${data.languageAssisted
+          ? data.languageAssisted
+            .map(
+              (language) => `
+                    <span class="language-tag">${language}</span>
+                  `
+            )
+            .join("")
+          : "No languages specified"
+        }  
+                     
+                </div>         
+            </div>
+
+          <div class="section">
+                  <div class="section-title">Guest Type:</div>
+                  <div class="section-content">
+                    ${data.guestType
+          ? data.guestType
+            .map(
+              (guestType) => `
+                    <span class="language-tag">${guestType}</span>
+                  `
+            )
+            .join("")
+          : "No Guest Type specified"
+        }  
+                     
+                  </div>
+                </div>
         `;
 
       app.innerHTML += `
@@ -3393,14 +3283,134 @@
               ${data.takeAway}
               </div>
             </div>
+
+            <div class="policy-and-slots-container">
+            <div class="booking-slots-container">
+              <h4 class="slots-title">📅 Available Time Slots</h4>
+              <div class="slots-wrapper" id="slotsWrapper">
+                ${data.slotRanges
+          .slice(0, 4) // Limit to the first four slots
+          .map((slot) => {
+            const checkIn = new Date(slot.range[0]);
+            const checkOut = new Date(slot.range[1]);
+            return `
+                    <div class="slot-card">
+                      <div class="slot-times">
+                        <div class="time-block">
+                          <div class="time-icon">
+                             <div class="slot-day">${checkIn.toLocaleDateString(
+              undefined,
+              {
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+              }
+            )}</div> 
+                          </div>
+                          <div class="time-details">
+                            <span class="time-label">Check-in</span>
+                            <span class="time">${checkIn.toLocaleTimeString(
+              [],
+              {
+                hour: "2-digit",
+                minute: "2-digit",
+              }
+            )}</span>
+                          </div>
+                        </div>
+                        <div class="time-divider">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div class="time-block">
+                          <div class="time-icon">
+                           <div class="slot-day">${checkOut.toLocaleDateString(
+              undefined,
+              {
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+              }
+            )}</div>  
+                          </div>
+                          <div class="time-details">
+                            <span class="time-label">Check-out</span>
+                            <span class="time">${checkOut.toLocaleTimeString(
+              [],
+              {
+                hour: "2-digit",
+                minute: "2-digit",
+              }
+            )}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  `;
+          })
+          .join("")}
+              </div>
+              
+              <div style="display: flex; justify-content: center; margin-bottom: 20px;" id="slotButtons" style="display: ${window.experienceData.slotRanges.length > 4 ? 'flex' : 'none'};">
+                <button id="showMoreButton" class="submit-button" onclick="showMoreSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: ${window.experienceData.slotRanges.length > 4 ? 'flex': 'none'}">
+                    Show More <span class="button-icon">⬇️</span>
+                </button>
+                <button id="showLessButton" class="submit-button" onclick="showLessSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: none;">
+                    Show Less <span class="button-icon">⬆️</span>
+                </button>
+              </div>
+
+
+              <div class="pricing-policy-grid">
+                <div class="section pricing-section">
+                  <h3 class="section-title">Pricing Details</h3>
+                  <table class="pricing-table">
+                    ${data.pricing
+          .map(
+            (price) => `
+                      <tr>
+                        <td>${price.guestCount} Guest${price.guestCount > 1 ? "s" : ""
+              }</td>
+                        <td>₹${price.totalPrice}</td>
+                      </tr>
+                    `
+          )
+          .join("")}
+                  </table>
+                </div>
+
+                <div class="section pricing-section">
+                  <h3 class="section-title">Cancellation Policy</h3>
+                  <div class="policy-content">
+                    ${data.cancellationPolicy
+          .map(
+            (policy) => `
+                      <div class="policy-item">
+                        <span>${policy.days}${policy.days === 1 ? " day" : " days"
+              } prior</span>
+                        <span>${policy.refund}% refund</span>
+                      </div>
+                    `
+          )
+          .join("")}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
           <div class="disclaimer-section">
             <div class="disclaimer-content">
               <strong>Note:</strong> At Xperio, we strive to ensure that every experience meets your expectations and creates memorable moments. However, certain factors beyond our control, such as weather conditions, local regulations, health advisories, or host unavailability, may lead to modifications, delays, or, in rare cases, cancellations of planned activities.
             </div>
           </div>
            <div style="height: 20px;"></div> 
+
+           
         `;
 
+        
       if (isMobile) {
         const track = document.querySelector(".carousel-track");
         const dots = document.querySelectorAll(".dot");
