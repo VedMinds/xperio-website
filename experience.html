@@ -2774,7 +2774,9 @@
         title: apiData?.title || '',
         category: apiData?.category || '',
         subCategory: apiData?.subCategory || '',
-        city: apiData?.city || '',
+        village: apiData?.village || '',
+        district: apiData?.district || '',
+        state: apiData?.state || '',
         country: apiData?.country || '',
         guestType: apiData?.guestType || '',
         imageUrls: apiData?.imageUrls || [],
@@ -2870,14 +2872,42 @@
               <div class="header-row">
                 <div class="title-location">
                   <h1 class="title">${data.title}</h1>
-                    <div class="location">
-                      <img 
-                        src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/vRoXr0zMHBBZaAQ.jpeg" 
-                        alt="Location Icon" 
-                        class="location-icon" 
-                      />
-                    <span>${data.city || "Location TBD"}, ${data.country || ""}</span>
-                    </div>
+                   <div
+  class="location"
+  style="
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+  "
+>
+  <!-- Location Icon -->
+  <img
+    src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/vRoXr0zMHBBZaAQ.jpeg"
+    alt="Location Icon"
+    style="
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+    "
+  />
+
+  <!-- Location Details -->
+  <span style="flex: 1; line-height: 1.4; margin-top: 5px ">
+    ${[
+          data.village,
+          data.district,
+          data.state,
+          data.country,
+        ]
+          .filter(Boolean)
+          .join(", ")}
+  </span>
+</div>
+
                 </div>
                 
                 <div class="categories-hosts desktop-only">
@@ -3353,7 +3383,7 @@
               </div>
               
               <div style="display: flex; justify-content: center; margin-bottom: 20px;" id="slotButtons" style="display: ${window.experienceData.slotRanges.length > 4 ? 'flex' : 'none'};">
-                <button id="showMoreButton" class="submit-button" onclick="showMoreSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: ${window.experienceData.slotRanges.length > 4 ? 'flex': 'none'}">
+                <button id="showMoreButton" class="submit-button" onclick="showMoreSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: ${window.experienceData.slotRanges.length > 4 ? 'flex' : 'none'}">
                     Show More <span class="button-icon">⬇️</span>
                 </button>
                 <button id="showLessButton" class="submit-button" onclick="showLessSlots()" style="padding: 8px 16px; width: 20rem; margin-top: 10px; display: none;">
@@ -3410,7 +3440,7 @@
            
         `;
 
-        
+
       if (isMobile) {
         const track = document.querySelector(".carousel-track");
         const dots = document.querySelectorAll(".dot");
@@ -3483,17 +3513,17 @@
     function showMoreSlots() {
       const slotsWrapper = document.getElementById("slotsWrapper");
       if (!slotsWrapper) {
-          console.error("slotsWrapper element not found");
-          return;
+        console.error("slotsWrapper element not found");
+        return;
       }
 
       // Expand the slots
       const additionalSlots = window.experienceData.slotRanges.slice(currentIndex, currentIndex + 4);
       if (additionalSlots.length > 0) {
-          const newSlotsHTML = additionalSlots.map((slot) => {
-              const checkIn = new Date(slot.range[0]);
-              const checkOut = new Date(slot.range[1]);
-              return `
+        const newSlotsHTML = additionalSlots.map((slot) => {
+          const checkIn = new Date(slot.range[0]);
+          const checkOut = new Date(slot.range[1]);
+          return `
               <div class="slot-card">
                 <div class="slot-times">
                   <div class="time-block">
@@ -3522,16 +3552,16 @@
                 </div>
               </div>
             `;
-          }).join("");
+        }).join("");
 
-          slotsWrapper.innerHTML += newSlotsHTML; // Append new slots
-          currentIndex += 4; // Update the current index
+        slotsWrapper.innerHTML += newSlotsHTML; // Append new slots
+        currentIndex += 4; // Update the current index
 
-          // Show "Show Less" button if maximum length is reached
-          if (currentIndex >= window.experienceData.slotRanges.length) {
-              document.getElementById("showMoreButton").style.display = "none";
-              document.getElementById("showLessButton").style.display = "block";
-          }
+        // Show "Show Less" button if maximum length is reached
+        if (currentIndex >= window.experienceData.slotRanges.length) {
+          document.getElementById("showMoreButton").style.display = "none";
+          document.getElementById("showLessButton").style.display = "block";
+        }
       }
 
       isSlotsExpanded = true; // Set the state to expanded
@@ -3540,8 +3570,8 @@
     function showLessSlots() {
       const slotsWrapper = document.getElementById("slotsWrapper");
       if (!slotsWrapper) {
-          console.error("slotsWrapper element not found");
-          return;
+        console.error("slotsWrapper element not found");
+        return;
       }
 
       // Collapse the slots
@@ -3549,9 +3579,9 @@
       currentIndex = 4; // Reset to show the first four slots
       const initialSlots = window.experienceData.slotRanges.slice(0, currentIndex); // Get the first four slots
       const initialSlotsHTML = initialSlots.map((slot) => {
-          const checkIn = new Date(slot.range[0]);
-          const checkOut = new Date(slot.range[1]);
-          return `
+        const checkIn = new Date(slot.range[0]);
+        const checkOut = new Date(slot.range[1]);
+        return `
           <div class="slot-card">
             <div class="slot-times">
               <div class="time-block">
