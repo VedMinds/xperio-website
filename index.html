@@ -79,53 +79,58 @@
 
     @media (max-width: 768px) {
       .menu-toggle {
-    display: block;
-    margin-right: 7%;
-  }
+        display: block;
+        margin-right: 7%;
+      }
 
-  .nav-right {
-    display: none; /* Initially hidden */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 8px;
-    width: 200px;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
+      .nav-right {
+        display: none;
+        /* Initially hidden */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 8px;
+        width: 200px;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
 
-  .nav-right.active {
-    display: flex; /* Display when menu is toggled */
-  }
+      .nav-right.active {
+        display: flex;
+        /* Display when menu is toggled */
+      }
 
-  .navbar-link {
-    width: 100%;
-    padding: 10px 15px; /* Adjust padding for better touch experience */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    transition: background 0.3s;
-  }
+      .navbar-link {
+        width: 100%;
+        padding: 10px 15px;
+        /* Adjust padding for better touch experience */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: background 0.3s;
+      }
 
-  .navbar-link:last-child {
-    border-bottom: none; /* No border for the last item */
-  }
+      .navbar-link:last-child {
+        border-bottom: none;
+        /* No border for the last item */
+      }
 
-  .navbar-link:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Highlight effect on hover */
-  }
+      .navbar-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        /* Highlight effect on hover */
+      }
 
-  .navbar-link i {
-    width: 25px;
-    text-align: center;
-    margin-right: 10px;
-    color: #ff385c;
-  }
+      .navbar-link i {
+        width: 25px;
+        text-align: center;
+        margin-right: 10px;
+        color: #ff385c;
+      }
     }
 
     .hero-section {
@@ -1176,6 +1181,7 @@
       .hero-text {
         font-size: 0.9rem;
       }
+
       .experience-card {
         width: 100%;
       }
@@ -1571,108 +1577,217 @@
     }
 
     .about__wrapper {
-            display: flex;
-            background-color: #f5f5f7;
-            padding: 20px;
-            gap: 30px;
-        }
+      display: flex;
+      background-color: #f5f5f7;
+      padding: 20px;
+      gap: 30px;
+    }
 
-        .about__image {
-            flex: 1;
-            min-height: 200px;
-            background: url('https://images.unsplash.com/photo-1502920514313-52581002a659?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHRyYXZlbCUyMGFub3V0JTIwdXN8ZW58MHx8MHx8fDA%3D') center/cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+    .about__image {
+      flex: 1;
+      min-height: 200px;
+      background: url('https://images.unsplash.com/photo-1502920514313-52581002a659?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHRyYXZlbCUyMGFub3V0JTIwdXN8ZW58MHx8MHx8fDA%3D') center/cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .about__content {
-            flex: 1;
-            padding: 20px;
-        }
+    .about__content {
+      flex: 1;
+      padding: 20px;
+    }
 
-        .about__info {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
+    .about__info {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
 
-        .about__title {
-            font-size: 1.7rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
+    .about__title {
+      font-size: 1.7rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-        .about__description {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+    .about__description {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
 
-        .about__differentiators-btn {
-            background-color: white;
-            border: none;
-            padding: 20px;
-            width: 100%;
-            text-align: left;
-            font-size: 1.3rem;
-            color: #ff385c;
-            cursor: pointer;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .about__differentiators-btn {
+      background-color: white;
+      border: none;
+      padding: 20px;
+      width: 100%;
+      text-align: left;
+      font-size: 1.3rem;
+      color: #ff385c;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .about__arrow {
-            border: solid #ff385c;
-            border-width: 0 2px 2px 0;
-            display: inline-block;
-            padding: 4px;
-            transform: rotate(45deg);
-            transition: transform 0.3s;
-        }
+    .about__arrow {
+      border: solid #ff385c;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 4px;
+      transform: rotate(45deg);
+      transition: transform 0.3s;
+    }
 
-        .active .about__arrow {
-            transform: rotate(-135deg);
-        }
+    .active .about__arrow {
+      transform: rotate(-135deg);
+    }
 
-        .about__differentiators-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: white;
-            border-radius: 0 0 10px 10px;
-        }
+    .about__differentiators-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: white;
+      border-radius: 0 0 10px 10px;
+    }
 
-        .about__differentiator {
-            padding: 20px;
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-top: 1px solid #eee;
-        }
+    .about__differentiator {
+      padding: 20px;
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-top: 1px solid #eee;
+    }
 
-        @media (max-width: 768px) {
-            .about__wrapper {
-                flex-direction: column;
-            }
+    @media (max-width: 768px) {
+      .about__wrapper {
+        flex-direction: column;
+      }
 
-            .about__image {
-                min-height: 300px;
-            }
+      .about__image {
+        min-height: 300px;
+      }
 
-            .about__content {
-                padding: 10px;
-            }
+      .about__content {
+        padding: 10px;
+      }
 
-            .about__title {
-                font-size: 1.8rem;
-            }
-        }
+      .about__title {
+        font-size: 1.8rem;
+      }
+    }
+
+    #experience-section {
+      max-width: 1250px;
+      margin: 0 auto;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    #experience-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #experience-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    #experience-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .xperio-card {
+      min-width: 350px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .xperio-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .xperio-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .xperio-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .xperio-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .xperio-price-tag {
+      color: #ff385c;
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border: 1px solid #ff385c;
+      border-radius: 25px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      background: rgba(255, 56, 92, 0.1);
+    }
+
+    .xperio-price-tag:hover {
+      background: rgba(255, 56, 92, 0.3);
+      color: white;
+    }
+
+    .scroll-btn {
+      position: absolute;
+      top: 60%;
+      transform: translateY(-60%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+
+    .scroll-btn:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .scroll-btn-left {
+      left: 10px;
+    }
+
+    .scroll-btn-right {
+      right: 10px;
+    }
   </style>
 </head>
 
@@ -2032,156 +2147,178 @@
   </section>
   </section>
 
-
-  <section style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;" id="experience-scroll">
-    <div>
-      <p style="
-          color: #666;
-          font-size: 0.9rem;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-        ">
-        Travel and inspire your life
-      </p>
-      <h2 style="font-size: 1.7rem; color: #333">
-        Top-Rated Experiences Handpicked for You
-      </h2>
+  <div id="experience-section">
+    <div id="experience-header">
+      <p>Travel and Inspire Your Life</p>
+      <h2>Top-Rated Experiences Handpicked for You</h2>
     </div>
-
-    <div style="
-        display: flex;
-        gap: 2rem;
-        overflow-x: auto;
-        padding-bottom: 2%;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        position: relative; /* Added for positioning arrow buttons */
-      ">
-      <!-- Scroll Buttons -->
-      <button class="scroll-button left" style="
-          position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
-          background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%;
-          padding: 10px; cursor: pointer; z-index: 20;"> <!-- Increased z-index -->
-        &#10094; <!-- Left Arrow -->
-      </button>
-      
-      <button class="scroll-button right" style="
-          position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-          background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%;
-          padding: 10px; cursor: pointer; z-index: 20;"> <!-- Increased z-index -->
-        &#10095; <!-- Right Arrow -->
-      </button>
-
+    <div class="scroll-btn scroll-btn-left" onclick="scrollExperiences('left')">&#10094;</div>
+    <div class="scroll-btn scroll-btn-right" onclick="scrollExperiences('right')">&#10095;</div>
+    <div id="experience-container">
       <!-- Card 1 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737445387855" style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="experience-card-1" style="min-width: 350px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';">
+      <a href="https://xperio.travel/experience.html?exId=EX-1737445387855"
+        style="text-decoration: none; color: inherit;" target="_blank">
+        <div class="xperio-card experience-card-1">
           <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/t2owSFWEO9aqd6H.jpeg" alt="Experience 1" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+            <img
+              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/t2owSFWEO9aqd6H.jpeg"
+              alt="Experience 1" />
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: white; transform: translateY(0); transition: transform 0.3s ease;">
-            <span style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO TOURISM</span>
-            <h3 style="font-size: 1.5rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease;">Lingadabailu: Siddi Rhythms & Roots</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737445387855" style="color: #ff385c; text-decoration: none; padding: 0.8rem 2rem; border: 1px solid #ff385c; border-radius: 25px; display: inline-block; transition: all 0.3s ease; background: rgba(255, 56, 92, 0.1);" onmouseover="this.style.background='rgba(255, 56, 92, 0.3)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 56, 92, 0.1)'; this.style.color='#ff385c';">Price: ₹6000</a>
+          <div class="xperio-card-overlay">
+            <span
+              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO
+              TOURISM</span>
+            <h3 style="font-size: 1.2rem;
+            margin: 0.5rem 0 1.5rem;
+            transition: transform 0.3s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;">Lingadabailu: Siddi
+              Rhythms & Roots</h3>
+            <a href="https://xperio.travel/experience.html?exId=EX-1737445387855" class="xperio-price-tag">Price:
+              ₹6000</a>
           </div>
         </div>
       </a>
 
       <!-- Card 2 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737027135696" style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="experience-card-2" style="min-width: 350px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';">
+      <a href="https://xperio.travel/experience.html?exId=EX-1737027135696"
+        style="text-decoration: none; color: inherit;" target="_blank">
+        <div class="xperio-card experience-card-2">
           <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/PmSkOjEYwfT0Fi7.jpeg" alt="Experience 2" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+            <img
+              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/PmSkOjEYwfT0Fi7.jpeg"
+              alt="Experience 2" />
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: white; transform: translateY(0); transition: transform 0.3s ease;">
-            <span style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">EXPLORATION</span>
-            <h3 style="font-size: 1.5rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease;">Sacred Serenity Retreat</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737027135696" style="color: #ff385c; text-decoration: none; padding: 0.8rem 2rem; border: 1px solid #ff385c; border-radius: 25px; display: inline-block; transition: all 0.3s ease; background: rgba(255, 56, 92, 0.1);" onmouseover="this.style.background='rgba(255, 56, 92, 0.3)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 56, 92, 0.1)'; this.style.color='#ff385c';">Price: ₹3000</a>
+          <div class="xperio-card-overlay">
+            <span
+              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO TOURISM</span>
+            <h3 style="font-size: 1.2rem;
+            margin: 0.5rem 0 1.5rem;
+            transition: transform 0.3s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;">Kalkanduru Unfolding Coorg Village
+              Retreat</h3>
+            <a href="https://xperio.travel/experience.html?exId=EX-1737027135696" class="xperio-price-tag">Price:
+              ₹3000</a>
           </div>
         </div>
       </a>
 
       <!-- Card 3 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737033059440" style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="experience-card-3" style="min-width: 350px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';">
+      <a href="https://xperio.travel/experience.html?exId=EX-1737033059440"
+        style="text-decoration: none; color: inherit;" target="_blank">
+        <div class="xperio-card experience-card-3">
           <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/MuX2QjtnmV1yA2V.jpeg" alt="Experience 3" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+            <img
+              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/MuX2QjtnmV1yA2V.jpeg"
+              alt="Experience 3" />
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: white; transform: translateY(0); transition: transform 0.3s ease;">
-            <span style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">TRIBES</span>
-            <h3 style="font-size: 1.5rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease;">Unveiling the Siddi Tribe</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737033059440" style="color: #ff385c; text-decoration: none; padding: 0.8rem 2rem; border: 1px solid #ff385c; border-radius: 25px; display: inline-block; transition: all 0.3s ease; background: rgba(255, 56, 92, 0.1);" onmouseover="this.style.background='rgba(255, 56, 92, 0.3)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 56, 92, 0.1)'; this.style.color='#ff385c';">Price: ₹6000</a>
+          <div class="xperio-card-overlay">
+            <span
+              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO TOURISM</span>
+            <h3 style="font-size: 1.2rem;
+            margin: 0.5rem 0 1.5rem;
+            transition: transform 0.3s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;">Joida Backwater Bliss Retreat
+              Tribe</h3>
+            <a href="https://xperio.travel/experience.html?exId=EX-1737033059440" class="xperio-price-tag">Price:
+              ₹6000</a>
           </div>
         </div>
       </a>
 
       <!-- Card 4 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737526743299" style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="experience-card-4" style="min-width: 350px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';">
+      <a href="https://xperio.travel/experience.html?exId=EX-1737526743299"
+        style="text-decoration: none; color: inherit;" target="_blank">
+        <div class="xperio-card experience-card-4">
           <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/4jKd1QsPRbm4BQA.jpeg" alt="Experience 4" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+            <img
+              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/4jKd1QsPRbm4BQA.jpeg"
+              alt="Experience 4" />
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: white; transform: translateY(0); transition: transform 0.3s ease;">
-            <span style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">CULTURE</span>
-            <h3 style="font-size: 1.5rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease;">Cultural Heritage Tour</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737526743299" style="color: #ff385c; text-decoration: none; padding: 0.8rem 2rem; border: 1px solid #ff385c; border-radius: 25px; display: inline-block; transition: all 0.3s ease; background: rgba(255, 56, 92, 0.1);" onmouseover="this.style.background='rgba(255, 56, 92, 0.3)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 56, 92, 0.1)'; this.style.color='#ff385c';">Price: ₹8200</a>
+          <div class="xperio-card-overlay">
+            <span
+              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">CULTURE</span>
+            <h3 style="font-size: 1.2rem;
+            margin: 0.5rem 0 1.5rem;
+            transition: transform 0.3s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;">Mythical Rhythms of Yakshagana
+              Tour</h3>
+            <a href="https://xperio.travel/experience.html?exId=EX-1737526743299" class="xperio-price-tag">Price:
+              ₹8200</a>
           </div>
         </div>
       </a>
 
       <!-- Card 5 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737373895821" style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="experience-card-5" style="min-width: 350px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';">
+      <a href="https://xperio.travel/experience.html?exId=EX-1737373895821"
+        style="text-decoration: none; color: inherit;" target="_blank">
+        <div class="xperio-card experience-card-5">
           <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/62ZA2HLbre6RU9N.jpeg" alt="Experience 5" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+            <img
+              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/62ZA2HLbre6RU9N.jpeg"
+              alt="Experience 5" />
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: white; transform: translateY(0); transition: transform 0.3s ease;">
-            <span style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">WELLNESS</span>
-            <h3 style="font-size: 1.5rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease;">Wellness Retreat</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737373895821" style="color: #ff385c; text-decoration: none; padding: 0.8rem 2rem; border: 1px solid #ff385c; border-radius: 25px; display: inline-block; transition: all 0.3s ease; background: rgba(255, 56, 92, 0.1);" onmouseover="this.style.background='rgba(255, 56, 92, 0.3)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 56, 92, 0.1)'; this.style.color='#ff385c';">Price: ₹7760</a>
+          <div class="xperio-card-overlay">
+            <span
+              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">SPIRITUAL</span>
+            <h3 style="font-size: 1.2rem;
+            margin: 0.5rem 0 1.5rem;
+            transition: transform 0.3s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;">Spiritual Serenity Retreat
+            </h3>
+            <a href="https://xperio.travel/experience.html?exId=EX-1737373895821" class="xperio-price-tag">Price:
+              ₹7760</a>
           </div>
         </div>
       </a>
 
       <!-- Card 6 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1736736788331" style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="experience-card-6" style="min-width: 350px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';">
+      <a href="https://xperio.travel/experience.html?exId=EX-1736736788331"
+        style="text-decoration: none; color: inherit;" target="_blank">
+        <div class="xperio-card experience-card-6">
           <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/kvT3WKIe5BrTWm2.jpeg" alt="Experience 6" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
+            <img
+              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/kvT3WKIe5BrTWm2.jpeg"
+              alt="Experience 6" />
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: white; transform: translateY(0); transition: transform 0.3s ease;">
-            <span style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">ADVENTURE</span>
-            <h3 style="font-size: 1.5rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease;">Adventure Awaits</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1736736788331" style="color: #ff385c; text-decoration: none; padding: 0.8rem 2rem; border: 1px solid #ff385c; border-radius: 25px; display: inline-block; transition: all 0.3s ease; background: rgba(255, 56, 92, 0.1);" onmouseover="this.style.background='rgba(255, 56, 92, 0.3)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 56, 92, 0.1)'; this.style.color='#ff385c';">Price: ₹00</a>
+          <div class="xperio-card-overlay">
+            <span
+              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO TOURISM</span>
+            <h3 style="font-size: 1.2rem;
+            margin: 0.5rem 0 1.5rem;
+            transition: transform 0.3s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;">Know the unknown
+            </h3>
+            <a href="https://xperio.travel/experience.html?exId=EX-1736736788331" class="xperio-price-tag">Price:
+              ₹3200</a>
           </div>
         </div>
       </a>
-
     </div>
-  </section>
-
+  </div>
   <script>
-    const leftButton = document.querySelector('.scroll-button.left');
-    const rightButton = document.querySelector('.scroll-button.right');
-    const scrollContainer = document.getElementById('experience-scroll'); // Updated to select by ID
+    function scrollExperiences(direction) {
+      const container = document.getElementById('experience-container');
+      const scrollAmount = container.firstElementChild.offsetWidth + 500;
 
-    leftButton.addEventListener('click', () => {
-      console.log('Left button clicked'); // Debugging log
-      scrollContainer.scrollBy({
-        top: 0,
-        left: -300,
+      container.scrollBy({
+        left: direction === 'right' ? scrollAmount : -scrollAmount,
         behavior: 'smooth'
       });
-    });
-
-    rightButton.addEventListener('click', () => {
-      console.log('Right button clicked'); // Debugging log
-      scrollContainer.scrollBy({
-        top: 0,
-        left: 300, 
-        behavior: 'smooth'
-      });
-    });
+    }
   </script>
+
 
   <section style="background-color: #f5f5f5;">
     <div class="promo-section" style="max-width: 1200px; margin: 0 auto;">
@@ -2194,10 +2331,11 @@
       <div class="promo-content">
         <h1 class="promo-heading">Discover the Beauty of Uttara Kannada!</h1>
         <p class="promo-text">
-          Embark on an extraordinary journey through the captivating landscapes of Uttara Kannada. 
-          From pristine beaches and verdant forests to majestic rivers and ancient temples, 
-          this region is a treasure trove of natural beauty and cultural heritage. 
-          Experience the serenity of the Western Ghats, the thrill of coastal adventures, and the warmth of its vibrant communities.
+          Embark on an extraordinary journey through the captivating landscapes of Uttara Kannada.
+          From pristine beaches and verdant forests to majestic rivers and ancient temples,
+          this region is a treasure trove of natural beauty and cultural heritage.
+          Experience the serenity of the Western Ghats, the thrill of coastal adventures, and the warmth of its vibrant
+          communities.
         </p>
         <div class="app-links">
           <a href="#">
@@ -2259,7 +2397,7 @@
     </div>
   </div>
 
-  
+
   <section class="host-section" style="
         text-align: center;
         margin: 0 auto;
@@ -2317,7 +2455,7 @@
       </a>
     </div>
   </section>
-  
+
   <section class="why-choose-us-container" style="
         background: #fff;
         padding: 40px 20px;
@@ -2513,9 +2651,7 @@
               ">
             <div style="width: 16px; height: 16px">→</div> <!-- Reduced icon size -->
             <div>
-              <h3 style="font-size: 12px; font-weight: 600; margin-bottom: 2px"
-                Login
-              </h3>
+              <h3 style="font-size: 12px; font-weight: 600; margin-bottom: 2px" Login </h3>
             </div>
           </div>
 
@@ -2670,50 +2806,57 @@
   <div class="about__wrapper">
     <div class="about__image"></div>
     <div class="about__content">
-        <div class="about__info">
-            <h2 class="about__title">About Us</h2>
-            <p class="about__description">
-                Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and immersive experiences. The tech platform facilitates discovery, booking, and financial transactions, ensuring a seamless connection between the traveler's desire for unique experiences and the host's offer of local authenticity. All these experiences will be delivered through sustainable practices.
-            </p>
-            <p class="about__description">
-                Xperio addresses the growing demand for authentic and immersive travel experiences that go beyond conventional sightseeing tours.
-            </p>
-        </div>
+      <div class="about__info">
+        <h2 class="about__title">About Us</h2>
+        <p class="about__description">
+          Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and
+          immersive experiences. The tech platform facilitates discovery, booking, and financial transactions, ensuring
+          a seamless connection between the traveler's desire for unique experiences and the host's offer of local
+          authenticity. All these experiences will be delivered through sustainable practices.
+        </p>
+        <p class="about__description">
+          Xperio addresses the growing demand for authentic and immersive travel experiences that go beyond conventional
+          sightseeing tours.
+        </p>
+      </div>
 
-        <button class="about__differentiators-btn">
-            Unique Differentiators
-            <span class="about__arrow"></span>
-        </button>
-        <div class="about__differentiators-content">
-            <div class="about__differentiator">
-                <strong>Authenticity First:</strong> Focus on deep connection and immersion, rather than standard tourist offerings.
-            </div>
-            <div class="about__differentiator">
-                <strong>Local Economic Empowerment:</strong> A business model that prioritizes local hosts, ensuring they receive a fair share of the revenue.
-            </div>
-            <div class="about__differentiator">
-                <strong>Sustainability:</strong> Encouraging experiences that promote environmental sustainability and responsible tourism.
-            </div>
+      <button class="about__differentiators-btn">
+        Unique Differentiators
+        <span class="about__arrow"></span>
+      </button>
+      <div class="about__differentiators-content">
+        <div class="about__differentiator">
+          <strong>Authenticity First:</strong> Focus on deep connection and immersion, rather than standard tourist
+          offerings.
         </div>
+        <div class="about__differentiator">
+          <strong>Local Economic Empowerment:</strong> A business model that prioritizes local hosts, ensuring they
+          receive a fair share of the revenue.
+        </div>
+        <div class="about__differentiator">
+          <strong>Sustainability:</strong> Encouraging experiences that promote environmental sustainability and
+          responsible tourism.
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<script>
+  <script>
     var coll = document.getElementsByClassName("about__differentiators-btn");
     var i;
 
     for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
     }
-</script>
+  </script>
 
 
   <footer style="background-color: #111827; color: #9ca3af; padding: 60px 24px 40px">
@@ -2799,8 +2942,7 @@
           </h4>
           <ul style="list-style: none; padding: 0; margin: 0">
             <li style="margin-bottom: 12px">
-              <a href="mailto:info@xperio.travel"
-              style="color: #9ca3af;
+              <a href="mailto:info@xperio.travel" style="color: #9ca3af;
               text-decoration: none;
               transition: color 0.2s;">support@xperio.travel</a>
             </li>
