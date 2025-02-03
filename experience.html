@@ -1928,6 +1928,8 @@
       border-radius: 12px;
       width: 90%;
       max-width: 400px;
+      max-height: 80vh; /* Set a maximum height */
+      overflow-y: auto; /* Enable vertical scrolling */
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
@@ -2158,7 +2160,8 @@
     .floating-book-button {
       position: fixed;
       bottom: 24px;
-      right: 24px;
+      left: 50%;
+      transform: translateX(-50%);
       background: linear-gradient(135deg, #ff385c, #e31c5f);
       color: white;
       padding: 12px 24px;
@@ -2177,13 +2180,13 @@
     }
 
     .floating-book-button:hover {
-      transform: translateY(-4px) scale(1.02);
+      transform: translate(-50%, -4px) scale(1.02); /* Adjust hover effect */
       box-shadow: 0 8px 28px rgba(255, 56, 92, 0.35);
       background: linear-gradient(135deg, #ff4d6d, #ff385c);
     }
 
     .floating-book-button:active {
-      transform: translateY(-2px) scale(0.98);
+      transform: translate(-50%, -2px) scale(0.98); /* Adjust active effect */
     }
 
     .button-icon {
@@ -2688,9 +2691,9 @@
     </div>
   </div>
 
-  <button class="floating-book-button" onclick="openDialog()">
+  <button class="floating-book-button" id="bookNowButton" onclick="openDialog()">
     <span class="button-icon">📅</span>
-    <span class="button-text">Book Now</span>
+    <span class="button-text">BOOKING ENQUIRY</span>
   </button>
 
 
@@ -3622,6 +3625,10 @@
       const dialog = document.getElementById("bookingDialog");
       const guestCountSelect = document.getElementById("guestCount");
       const slotRangeSelect = document.getElementById("slotRange");
+      const bookNowButton = document.getElementById("bookNowButton"); // Get the button
+
+      // Hide the button
+      bookNowButton.style.display = 'none';
 
       // Clear existing options
       guestCountSelect.innerHTML = "";
@@ -3668,6 +3675,8 @@
     }
 
     function closeDialog() {
+      const bookNowButton = document.getElementById("bookNowButton");
+      bookNowButton.style.display = 'block';
       document.getElementById("bookingDialog").style.display = "none";
       document.getElementById("bookingForm").reset();
     }
