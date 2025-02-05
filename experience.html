@@ -1928,8 +1928,10 @@
       border-radius: 12px;
       width: 90%;
       max-width: 400px;
-      max-height: 80vh; /* Set a maximum height */
-      overflow-y: auto; /* Enable vertical scrolling */
+      max-height: 80vh;
+      /* Set a maximum height */
+      overflow-y: auto;
+      /* Enable vertical scrolling */
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
@@ -2160,8 +2162,8 @@
     .floating-book-button {
       position: fixed;
       bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
+      right: calc(50% - 530px);
+      transform: translateX(50%);
       background: linear-gradient(135deg, #ff385c, #e31c5f);
       color: white;
       padding: 12px 24px;
@@ -2180,13 +2182,12 @@
     }
 
     .floating-book-button:hover {
-      transform: translate(-50%, -4px) scale(1.02); /* Adjust hover effect */
       box-shadow: 0 8px 28px rgba(255, 56, 92, 0.35);
       background: linear-gradient(135deg, #ff4d6d, #ff385c);
     }
 
     .floating-book-button:active {
-      transform: translate(-50%, -2px) scale(0.98); /* Adjust active effect */
+      transform: translateY(-2px) scale(0.98);
     }
 
     .button-icon {
@@ -2227,34 +2228,42 @@
       .floating-book-button {
         bottom: 16px;
         right: 16px;
-        justify-content: center;
+        transform: none;
+        min-width: 140px;
+        padding: 10px 20px;
+        font-size: 14px;
+        gap: 8px;
       }
 
-      .button-text {
-        font-size: 15px;
-      }
-
-      .button-price {
-        font-size: 13px;
-      }
-    }
-
-    /* Add this to handle smaller screens */
-    @media (max-width: 380px) {
-      .floating-book-button {
-        padding: 14px 20px;
+      .floating-book-button:hover {
+        transform: translateY(-3px) scale(1.02);
       }
 
       .button-icon {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .button-text {
         font-size: 14px;
       }
+    }
 
-      .button-price {
-        font-size: 12px;
+    @media (max-width: 380px) {
+      .floating-book-button {
+        bottom: 12px;
+        right: 12px;
+        min-width: 120px;
+        padding: 8px 16px;
+        font-size: 13px;
+        gap: 6px;
+      }
+
+      .button-icon {
+        font-size: 14px;
+      }
+
+      .button-text {
+        font-size: 13px;
       }
     }
 
@@ -2279,15 +2288,6 @@
     .slot-time {
       color: #666;
       font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .floating-book-button {
-        bottom: 16px;
-        right: 16px;
-        padding: 10px 20px;
-        font-size: 14px;
-      }
     }
 
     /* Add/update these styles in your CSS */
