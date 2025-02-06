@@ -2666,11 +2666,13 @@
         </div>
         <div class="form-group">
           <label for="firstName">First Name *</label>
-          <input type="text" id="firstName" required minlength="2" pattern="[A-Za-z\s]+" placeholder="Enter Your First Name" />
+          <input type="text" id="firstName" required minlength="2" pattern="[A-Za-z\s]+"
+            placeholder="Enter Your First Name" />
         </div>
         <div class="form-group">
           <label for="lastName">Last Name *</label>
-          <input type="text" id="lastName" required minlength="2" pattern="[A-Za-z\s]+" placeholder="Enter Your Last Name" />
+          <input type="text" id="lastName" required minlength="2" pattern="[A-Za-z\s]+"
+            placeholder="Enter Your Last Name" />
         </div>
         <div class="form-group">
           <label for="phone">Phone *</label>
@@ -2765,6 +2767,14 @@
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
+        document.querySelector('meta[property="og:title"]').setAttribute("content", data.title);
+        document.querySelector('meta[property="og:description"]').setAttribute("content", data.description);
+        document.querySelector('meta[property="og:image"]').setAttribute("content", data.imageUrls[0]);
+        document.querySelector('meta[name="twitter:title"]').setAttribute("content", data.title);
+        document.querySelector('meta[name="twitter:description"]').setAttribute("content", data.description);
+        document.querySelector('meta[name="twitter:image"]').setAttribute("content", data.imageUrls[0]);
+
+        document.title = data.title;
         return data;
       } catch (error) {
         return null;
