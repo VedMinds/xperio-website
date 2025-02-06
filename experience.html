@@ -2665,22 +2665,26 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="name">Name *</label>
-          <input type="text" id="name" required minlength="2" pattern="[A-Za-z\s]+" placeholder="Enter your name" />
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" required minlength="2" pattern="[A-Za-z\s]+" placeholder="Enter Your First Name" />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" required minlength="2" pattern="[A-Za-z\s]+" placeholder="Enter Your Last Name" />
         </div>
         <div class="form-group">
           <label for="phone">Phone *</label>
-          <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="Enter your phone number" />
+          <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="Enter Your Phone Number" />
         </div>
         <div class="form-group">
           <label for="email">Email *</label>
           <input type="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            placeholder="Enter your email" />
+            placeholder="Enter Your Email" />
         </div>
         <div class="form-group">
-          <label for="guestCount">Number of Guests *</label>
+          <label for="guestCount">Number Of Guests *</label>
           <select id="guestCount" required>
-            <option value="">Select number of guests</option>
+            <option value="">Select Number Of Guests</option>
           </select>
         </div>
         <input type="hidden" id="slotId" name="slotId" required />
@@ -3684,15 +3688,15 @@
     async function submitBooking(event) {
       event.preventDefault();
 
-      // Get form elements
-      const nameInput = document.getElementById("name");
+      const firstNameInput = document.getElementById("firstName");
+      const lastNameInput = document.getElementById("lastName");
       const phoneInput = document.getElementById("phone");
       const emailInput = document.getElementById("email");
       const guestCountInput = document.getElementById("guestCount");
       const slotIdInput = document.getElementById("slotRange");
 
       // Clear any previous error styling
-      [nameInput, phoneInput, emailInput, guestCountInput].forEach(
+      [firstNameInput, lastNameInput, phoneInput, emailInput, guestCountInput].forEach(
         (input) => {
           input.style.borderColor = "#e2e8f0";
         }
@@ -3702,9 +3706,15 @@
       let hasError = false;
       const errors = [];
 
-      if (!nameInput.value.trim()) {
-        nameInput.style.borderColor = "#dc3545";
-        errors.push("Name is required");
+      if (!firstNameInput.value.trim()) {
+        firstNameInput.style.borderColor = "#dc3545";
+        errors.push("First Name is required");
+        hasError = true;
+      }
+
+      if (!lastNameInput.value.trim()) {
+        lastNameInput.style.borderColor = "#dc3545";
+        errors.push("Last Name is required");
         hasError = true;
       }
 
@@ -3756,8 +3766,10 @@
 
       // If validation passes, prepare form data
       const formData = {
-        name: nameInput.value.trim(),
+        firstName: firstNameInput.value.trim(),
+        lastName: lastNameInput.value.trim(),
         phone: phoneInput.value.trim(),
+        phoneNumberPrefix: "+91",
         email: emailInput.value.trim(),
         experienceId: experienceId,
         experienceTitle: document.querySelector(".title").textContent,
