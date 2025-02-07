@@ -5,19 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xperio</title>
-  <link rel="icon"
-    href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
+  
+  <link rel="icon" href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
+
   <meta property="og:title" content="Xperio" id="ogTitle" />
   <meta property="og:type" content="website" />
-  <meta property="og:image"
-    content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
+  <meta property="og:image" content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
   <meta property="og:description" content="Discover unique experiences with Xperio" id="ogDescription" />
   <meta property="og:site_name" content="Xperio" />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Xperio" id="twitterTitle" />
   <meta name="twitter:description" content="Discover unique experiences with Xperio" id="twitterDescription" />
-  <meta name="twitter:image"
-    content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
+  <meta name="twitter:image" content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
+
   <style>
     body {
       font-family: "Roboto", sans-serif;
@@ -2767,14 +2768,28 @@
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        document.querySelector('meta[property="og:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[property="og:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[property="og:image"]').setAttribute("content", data.imageUrls[0]);
-        document.querySelector('meta[name="twitter:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[name="twitter:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[name="twitter:image"]').setAttribute("content", data.imageUrls[0]);
-
         document.title = data.title;
+
+        const metaTags = [
+          { selector: 'meta[property="og:title"]', content: data.title },
+          { selector: 'meta[property="og:description"]', content: data.description },
+          { selector: 'meta[property="og:image"]', content: data.imageUrls[0] },
+          { selector: 'meta[name="twitter:title"]', content: data.title },
+          { selector: 'meta[name="twitter:description"]', content: data.description },
+          { selector: 'meta[name="twitter:image"]', content: data.imageUrls[0] }
+        ];
+
+        metaTags.forEach(({ selector, content }) => {
+          const element = document.querySelector(selector);
+          if (element) {
+            element.setAttribute("content", content);
+          } else {
+            const newMeta = document.createElement("meta");
+            newMeta.setAttribute("content", content);
+            document.head.appendChild(newMeta);
+          }
+        });
+
         return data;
       } catch (error) {
         return null;
