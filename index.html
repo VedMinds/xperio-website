@@ -1924,6 +1924,69 @@
     }
 
     setInterval(showNextItem, 3000);
+
+    async function fetchMultipleExperienceData(experienceIds) {
+      try {
+        const responses = await Promise.all(
+          experienceIds.map(async (experienceId) => {
+            const response = await fetch(
+              `https://qa-api.xperio.travel/app/experience/public/${experienceId}`
+            );
+
+            if (!response.ok) {
+              throw new Error(`Failed to fetch data for ${experienceId}`);
+            }
+
+            return response.json();
+          })
+        );
+
+        renderExperiences(responses);
+      } catch (error) {
+        console.error("Error fetching experience data:", error);
+      }
+    }
+
+    function renderExperiences(experiences) {
+      const container = document.getElementById("experience-container");
+      container.innerHTML = "";
+
+      experiences.forEach((experience) => {
+        const experienceHtml = `
+        <a href="https://xperio.travel/experience.html?exId=${experience.id}" style="text-decoration: none; color: inherit;" target="_blank">
+          <div class="xperio-card">
+            <div style="width: 100%; height: 400px; overflow: hidden;">
+              <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.imageUrls[0]}" alt="${experience.title}" />
+            </div>
+            <div class="xperio-card-overlay">
+              <span style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">
+                ${experience.category}
+              </span>
+              <h3 style="font-size: 1.2rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease; white-space: normal;">
+                ${experience.title}
+              </h3>
+              <a href="https://xperio.travel/experience.html?exId=${experience.id}" class="xperio-price-tag">
+                Price: ₹${experience.pricing[0].totalPrice}
+              </a>
+            </div>
+          </div>
+        </a>
+      `;
+
+        container.innerHTML += experienceHtml;
+      });
+    }
+
+    const experienceIds = [
+      "EX-1737445387855",
+      "EX-1737027135696",
+      "EX-1737033059440",
+      "EX-1737526743299",
+      "EX-1737373895821",
+      "EX-1736943696352",
+    ];
+
+    fetchMultipleExperienceData(experienceIds);
   </script>
 
   </section>
@@ -2155,156 +2218,6 @@
     <div class="scroll-btn scroll-btn-left" onclick="scrollExperiences('left')">&#10094;</div>
     <div class="scroll-btn scroll-btn-right" onclick="scrollExperiences('right')">&#10095;</div>
     <div id="experience-container">
-      <!-- Card 1 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737445387855"
-        style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="xperio-card experience-card-1">
-          <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img
-              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/PWLmnaiicvDBeWM.jpeg"
-              alt="Experience 1" />
-          </div>
-          <div class="xperio-card-overlay">
-            <span
-              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO
-              TOURISM</span>
-            <h3 style="font-size: 1.2rem;
-            margin: 0.5rem 0 1.5rem;
-            transition: transform 0.3s ease;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow-wrap: break-word;">Lingadabailu: Siddi
-              Rhythms & Roots</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737445387855" class="xperio-price-tag">Price:
-              ₹6250</a>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card 2 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737027135696"
-        style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="xperio-card experience-card-2">
-          <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img
-              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/n4hM26Ar8xNXWhC.png"
-              alt="Experience 2" />
-          </div>
-          <div class="xperio-card-overlay">
-            <span
-              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO TOURISM</span>
-            <h3 style="font-size: 1.2rem;
-            margin: 0.5rem 0 1.5rem;
-            transition: transform 0.3s ease;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow-wrap: break-word;">Kalkanduru Unfolding Coorg Village
-              Retreat</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737027135696" class="xperio-price-tag">Price:
-              ₹6250</a>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card 3 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737033059440"
-        style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="xperio-card experience-card-3">
-          <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img
-              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/m7zaZaaFbvjICK7.jpeg"
-              alt="Experience 3" />
-          </div>
-          <div class="xperio-card-overlay">
-            <span
-              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO TOURISM</span>
-            <h3 style="font-size: 1.2rem;
-            margin: 0.5rem 0 1.5rem;
-            transition: transform 0.3s ease;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow-wrap: break-word;">Joida Backwater Bliss Retreat
-              Tribe</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737033059440" class="xperio-price-tag">Price:
-              ₹6250</a>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card 4 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737526743299"
-        style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="xperio-card experience-card-4">
-          <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img
-              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/YxMmksDoOLVWkTB.jpeg"
-              alt="Experience 4" />
-          </div>
-          <div class="xperio-card-overlay">
-            <span
-              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">CULTURE</span>
-            <h3 style="font-size: 1.2rem;
-            margin: 0.5rem 0 1.5rem;
-            transition: transform 0.3s ease;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow-wrap: break-word;">Mythical Rhythms of Yakshagana
-              Tour</h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737526743299" class="xperio-price-tag">Price:
-              ₹8550</a>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card 5 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1737373895821"
-        style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="xperio-card experience-card-5">
-          <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img
-              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/JLws6mgsrDoxyF1.png"
-              alt="Experience 5" />
-          </div>
-          <div class="xperio-card-overlay">
-            <span
-              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">SPIRITUAL</span>
-            <h3 style="font-size: 1.2rem;
-            margin: 0.5rem 0 1.5rem;
-            transition: transform 0.3s ease;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow-wrap: break-word;">Spiritual Serenity Retreat
-            </h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1737373895821" class="xperio-price-tag">Price:
-              ₹8090</a>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card 6 -->
-      <a href="https://xperio.travel/experience.html?exId=EX-1736943696352"
-        style="text-decoration: none; color: inherit;" target="_blank">
-        <div class="xperio-card experience-card-6">
-          <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img
-              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/FDdv0EkEgypWlbm.jpeg"
-              alt="Experience 6" />
-          </div>
-          <div class="xperio-card-overlay">
-            <span
-              style="font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; display: block; opacity: 0.9;">AGRO TOURISM</span>
-            <h3 style="font-size: 1.2rem;
-            margin: 0.5rem 0 1.5rem;
-            transition: transform 0.3s ease;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow-wrap: break-word;">Manchikeri Siddi Culture & Nature Trails
-            </h3>
-            <a href="https://xperio.travel/experience.html?exId=EX-1736943696352" class="xperio-price-tag">Price:
-              ₹6650</a>
-          </div>
-        </div>
-      </a>
     </div>
   </div>
   <script>
