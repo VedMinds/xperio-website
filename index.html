@@ -1578,7 +1578,7 @@
 
     .about__wrapper {
       display: flex;
-      background-color: #f5f5f7;
+      background-color: #e9ebed;
       padding: 20px;
       gap: 30px;
     }
@@ -1984,12 +1984,37 @@
       "EX-1737526743299",
       "EX-1737373895821",
       "EX-1736943696352",
+      "EX-1737016979966"
     ];
 
     fetchMultipleExperienceData(experienceIds);
   </script>
 
   </section>
+
+  <section class="experiences fade-in" style="padding: 40px 0;">
+  <div id="experience-section">
+    <div id="experience-header">
+      <p>Travel and Inspire Your Life</p>
+      <h2>Top-Rated Experiences Handpicked for You</h2>
+    </div>
+    <div class="scroll-btn scroll-btn-left" onclick="scrollExperiences('left')">&#10094;</div>
+    <div class="scroll-btn scroll-btn-right" onclick="scrollExperiences('right')">&#10095;</div>
+    <div id="experience-container">
+    </div>
+  </div>
+</section>
+  <script>
+    function scrollExperiences(direction) {
+      const container = document.getElementById('experience-container');
+      const scrollAmount = container.firstElementChild.offsetWidth + 500;
+
+      container.scrollBy({
+        left: direction === 'right' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 
   <section class="adventure-section">
     <div class="feature-container">
@@ -2210,30 +2235,7 @@
   </section>
   </section>
 
-  <div id="experience-section">
-    <div id="experience-header">
-      <p>Travel and Inspire Your Life</p>
-      <h2>Top-Rated Experiences Handpicked for You</h2>
-    </div>
-    <div class="scroll-btn scroll-btn-left" onclick="scrollExperiences('left')">&#10094;</div>
-    <div class="scroll-btn scroll-btn-right" onclick="scrollExperiences('right')">&#10095;</div>
-    <div id="experience-container">
-    </div>
-  </div>
-  <script>
-    function scrollExperiences(direction) {
-      const container = document.getElementById('experience-container');
-      const scrollAmount = container.firstElementChild.offsetWidth + 500;
-
-      container.scrollBy({
-        left: direction === 'right' ? scrollAmount : -scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  </script>
-
-
-  <section style="background-color: #f5f5f5;">
+  <section>
     <div class="promo-section" style="max-width: 1200px; margin: 0 auto;">
       <div class="promo-image" style="overflow: hidden; border-radius: 20px;">
         <img
@@ -2314,7 +2316,7 @@
   <section class="host-section" style="
         text-align: center;
         margin: 0 auto;
-        background: #f5f5f5;
+        background: #e9ebed;
       ">
     <div style="
           padding: 30px 15px;
@@ -2439,7 +2441,7 @@
   <section style="
         padding: 30px 20px; /* Reduced padding for smaller height */
         margin: 0 auto;
-        background: #f5f5f7;
+        background: #e9ebed;
       ">
     <div style="
           display: flex;
@@ -2531,7 +2533,7 @@
       </div>
 
       <!-- Content Area -->
-      <div style="flex: 1; min-width: 300px; max-width: 500px">
+      <div style="flex: 1; min-width: 300px; max-width: 500px ">
         <p style="
               color: #ff385c;
               font-size: 12px; /* Reduced font size */
