@@ -5,21 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xperio</title>
-  
-  <link rel="icon" href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
 
-   <!-- Base Meta Tags -->
-   <meta property="og:type" content="website" />
-   <meta property="og:site_name" content="Xperio" />
-   <meta name="twitter:card" content="summary_large_image" />
-   
-   <!-- Dynamic Meta Tags -->
-   <meta property="og:title" content="Xperio" />
-   <meta property="og:description" content="Discover unique experiences with Xperio" />
-   <meta property="og:image" content="" />
-   <meta name="twitter:title" content="Xperio" />
-   <meta name="twitter:description" content="Discover unique experiences with Xperio" />
-   <meta name="twitter:image" content="" />
+  <link rel="icon"
+    href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" />
+
+  <!-- Base Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Xperio" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Dynamic Meta Tags -->
+  <meta property="og:title" content="Xperio" />
+  <meta property="og:description" content="Discover unique experiences with Xperio" />
+  <meta property="og:image" content="" />
+  <meta name="twitter:title" content="Xperio" />
+  <meta name="twitter:description" content="Discover unique experiences with Xperio" />
+  <meta name="twitter:image" content="" />
 
   <style>
     body {
@@ -2755,83 +2756,83 @@
 
   <script>
     async function initializeExperience() {
-        const data = await fetchExperienceData();
-        if (data) {
-            updateMetaTags(data);
-        }
+      const data = await fetchExperienceData();
+      if (data) {
+        updateMetaTags(data);
+      }
     }
 
     async function fetchExperienceData() {
-        try {
-            const urlParams = new URLSearchParams(window.location.search);
-            const experienceId = urlParams.get("exId");
-            
-            if (!experienceId) {
-                throw new Error("Experience ID not provided in URL");
-            }
-            
-            const response = await fetch(
-                `https://qa-api.xperio.travel/app/experience/public/${experienceId}`,
-                {
-                    headers: {
-                        'Cache-Control': 'no-cache',
-                        'Pragma': 'no-cache'
-                    }
-                }
-            );
-            
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error("Error fetching experience data:", error);
-            return null;
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const experienceId = urlParams.get("exId");
+
+        if (!experienceId) {
+          throw new Error("Experience ID not provided in URL");
         }
+
+        const response = await fetch(
+          `https://qa-api.xperio.travel/app/experience/public/${experienceId}`,
+          {
+            headers: {
+              'Cache-Control': 'no-cache',
+              'Pragma': 'no-cache'
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error("Error fetching experience data:", error);
+        return null;
+      }
     }
 
     function updateMetaTags(data) {
-        // Update document title
-        document.title = data.title;
-        
-        // Update favicon if available
-        if (data.imageUrls && data.imageUrls[0]) {
-            const favicon = document.querySelector('link[rel="icon"]');
-            if (favicon) {
-                favicon.href = `https://wsrv.nl/?url=${encodeURIComponent(data.imageUrls[0])}`;
-            }
+      // Update document title
+      document.title = data.title;
+
+      // Update favicon if available
+      if (data.imageUrls && data.imageUrls[0]) {
+        const favicon = document.querySelector('link[rel="icon"]');
+        if (favicon) {
+          favicon.href = `https://wsrv.nl/?url=${encodeURIComponent(data.imageUrls[0])}`;
         }
-        
-        // Define meta tags to update
-        const metaTags = [
-            { property: 'og:title', content: data.title },
-            { property: 'og:description', content: data.description },
-            { property: 'og:image', content: data.imageUrls[0] },
-            { name: 'twitter:title', content: data.title },
-            { name: 'twitter:description', content: data.description },
-            { name: 'twitter:image', content: data.imageUrls[0] }
-        ];
-        
-        // Update each meta tag
-        metaTags.forEach(({ property, name, content }) => {
-            let selector = property ? `meta[property="${property}"]` : `meta[name="${name}"]`;
-            let element = document.querySelector(selector);
-            
-            if (element) {
-                element.setAttribute('content', content);
-            } else {
-                const newMeta = document.createElement('meta');
-                if (property) {
-                    newMeta.setAttribute('property', property);
-                } else {
-                    newMeta.setAttribute('name', name);
-                }
-                newMeta.setAttribute('content', content);
-                document.head.appendChild(newMeta);
-            }
-        });
+      }
+
+      // Define meta tags to update
+      const metaTags = [
+        { property: 'og:title', content: data.title },
+        { property: 'og:description', content: data.description },
+        { property: 'og:image', content: data.imageUrls[0] },
+        { name: 'twitter:title', content: data.title },
+        { name: 'twitter:description', content: data.description },
+        { name: 'twitter:image', content: data.imageUrls[0] }
+      ];
+
+      // Update each meta tag
+      metaTags.forEach(({ property, name, content }) => {
+        let selector = property ? `meta[property="${property}"]` : `meta[name="${name}"]`;
+        let element = document.querySelector(selector);
+
+        if (element) {
+          element.setAttribute('content', content);
+        } else {
+          const newMeta = document.createElement('meta');
+          if (property) {
+            newMeta.setAttribute('property', property);
+          } else {
+            newMeta.setAttribute('name', name);
+          }
+          newMeta.setAttribute('content', content);
+          document.head.appendChild(newMeta);
+        }
+      });
     }
 
     // Initialize when the page loads
@@ -2930,17 +2931,19 @@
       app.innerHTML = `
           <div class="experience-header">
             <div class="header-content">
-              <!-- Add this new div for logo and brand -->
-              <div class="brand-container">
-                <div class="brand-wrapper">
-                  <div class="logo-mark">
-                    <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" 
-                         alt="Xperio Logo"
-                         style="width: 30px; height: 30px; vertical-align: middle;">
-                    <span class="brand-name" style="font-size: 1rem; vertical-align: middle; margin-left: 4px;">Xperio</span>
-                  </div>
-                </div>
-              </div>
+              <a href="https://xperio.travel/" style="text-decoration: none; color: inherit;">
+  <div class="brand-container">
+    <div class="brand-wrapper">
+      <div class="logo-mark">
+        <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" 
+             alt="Xperio Logo"
+             style="width: 30px; height: 30px; vertical-align: middle;">
+        <span class="brand-name" style="font-size: 1rem; vertical-align: middle; margin-left: 0px;">Xperio</span>
+      </div>
+    </div>
+  </div>
+</a>
+
               
               <div class="header-row">
                 <div class="title-location">
