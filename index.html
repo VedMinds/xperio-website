@@ -1706,6 +1706,63 @@
       display: none;
     }
 
+    @media screen and (max-width: 768px) {
+      #experience-section {
+        max-width: 100%;
+        padding: 0 10px;
+        margin-bottom: 0.5rem;
+      }
+
+      #experience-header h2 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+
+      #experience-container {
+        gap: 8px;
+        padding: 5px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+        height: 300px;
+      }
+
+      #experience-container::-webkit-scrollbar {
+        display: none;
+      }
+
+      .experience-card {
+        width: 140px;
+        height: 300px;
+        font-size: 0.85rem;
+      }
+
+      .scroll-btn {
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        padding: 3px 7px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .scroll-btn-left {
+        left: 5px;
+      }
+
+      .scroll-btn-right {
+        right: 5px;
+      }
+
+      .scroll-btn:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+    }
+
+
     .xperio-card {
       min-width: 350px;
       border-radius: 20px;
@@ -1994,7 +2051,7 @@
 
   <div id="experience-section">
     <div id="experience-header">
-      <h2>Top-Rated Experiences Handpicked for You</h2>
+      <h2>Top-Rated Experiences</h2>
     </div>
     <div class="scroll-btn scroll-btn-left" onclick="scrollExperiences('left')">&#10094;</div>
     <div class="scroll-btn scroll-btn-right" onclick="scrollExperiences('right')">&#10095;</div>
@@ -2267,7 +2324,7 @@
       </div>
     </div>
   </section>
-<!-- 
+  <!-- 
   <div class="testimonial-section" style="max-width: 1200px; margin: 0 auto; padding: 20 20px;">
     <h2 class="testimonial-heading">Testimonials and Stories</h2>
     <p class="testimonial-subheading">
