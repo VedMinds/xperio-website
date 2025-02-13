@@ -1422,7 +1422,7 @@
     .carousel-content {
       color: white;
       text-align: center;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.2);
       padding: 0.5rem;
       border-radius: 8px;
     }
@@ -1739,14 +1739,6 @@
       #experience-container {
         gap: 8px;
         padding: 5px;
-        overflow-x: auto;
-        white-space: nowrap;
-        scrollbar-width: none;
-        height: 300px;
-      }
-
-      #experience-container::-webkit-scrollbar {
-        display: none;
       }
 
       .experience-card {
@@ -1754,9 +1746,6 @@
       }
 
       .scroll-btn {
-        position: absolute;
-        top: 45%;
-        transform: translateY(-50%);
         font-size: 18px;
         padding: 3px 7px;
         background-color: rgba(0, 0, 0, 0.5);
@@ -1897,28 +1886,28 @@
       <div class="carousel-item active"
         style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/oP9wZeGveaalzeT.png')">
         <div class="carousel-content">
-          <h2 class="hero-title">Discover Majestic Mountains!</h2>
+          <h2 class="hero-title">Majestic Mountains!</h2>
           <p class="hero-text">Enjoy breathtaking views and guided adventures.</p>
         </div>
       </div>
       <div class="carousel-item"
         style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/jCfOigCi1PObMiW.png')">
         <div class="carousel-content">
-          <h2 class="hero-title">Discover the Charm of Village Stays!</h2>
+          <h2 class="hero-title">Charm of Village Life!</h2>
           <p class="hero-text">Enjoy rural tranquility, local cuisine, and nature's embrace.</p>
         </div>
       </div>
       <div class="carousel-item"
         style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/8tlOOopJ2mev58J.png')">
         <div class="carousel-content">
-          <h2 class="hero-title">Discover Indian Dance Culture!</h2>
+          <h2 class="hero-title">Indian Dance Culture!</h2>
           <p class="hero-text">Dive into the rich traditions and vibrant styles of Indian dance.</p>
         </div>
       </div>
       <div class="carousel-item"
         style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/JNDu9YjCNNFJOhx.png')">
         <div class="carousel-content">
-          <h2 class="hero-title">Discover Sea Backwaters!</h2>
+          <h2 class="hero-title">Sea Backwaters!</h2>
           <p class="hero-text">Unwind in the tranquility of nature's embrace.</p>
         </div>
       </div>
@@ -1932,7 +1921,7 @@
       <div class="carousel-item"
         style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/fLPXJMqS7sGfePw.png')">
         <div class="carousel-content">
-          <h2 class="hero-title">Discover Indian Agriculture</h2>
+          <h2 class="hero-title">Indian Agriculture</h2>
           <p class="hero-text">Connect with farmers and sustainable practices.</p>
         </div>
       </div>
@@ -2041,7 +2030,7 @@
                 ${experience.title}
               </h3>
               <a href="https://xperio.travel/experience.html?exId=${experience.id}" class="xperio-price-tag">
-                ₹${experience.pricing[0].totalPrice/experience.pricing[0].guestCount} / Person
+                ₹${experience.pricing[0].totalPrice / experience.pricing[0].guestCount} / Person
               </a>
             </div>
           </div>
@@ -2071,11 +2060,12 @@
     <div id="experience-header">
       <h2>Top-Rated Experiences</h2>
     </div>
-    <div class="scroll-btn scroll-btn-left" onclick="scrollExperiences('left')">&#10094;</div>
-    <div class="scroll-btn scroll-btn-right" onclick="scrollExperiences('right')">&#10095;</div>
+    <button class="scroll-btn scroll-btn-left" onclick="scrollExperiences('left')">&#10094;</button>
+    <button class="scroll-btn scroll-btn-right" onclick="scrollExperiences('right')">&#10095;</button>
     <div id="experience-container">
     </div>
   </div>
+  
   <script>
     function scrollExperiences(direction) {
       const container = document.getElementById('experience-container');
@@ -2489,7 +2479,7 @@
           </div>
 
           <div style="color: #555; font-size: 14px; line-height: 1.5">
-            <strong>Trusted Hosts</strong><br />
+            <strong>Verified Hosts</strong><br />
             Plan your next adventure with ease and confidence.
           </div>
 
