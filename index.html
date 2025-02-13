@@ -2069,14 +2069,16 @@
   <script>
     function scrollExperiences(direction) {
       const container = document.getElementById('experience-container');
-      const scrollAmount = container.firstElementChild.offsetWidth + 500;
-
+      const isMobile = window.innerWidth <= 768;
+      const baseScroll = container.firstElementChild.offsetWidth + 372;
+      const scrollAmount = isMobile ? baseScroll : baseScroll + 500;
+  
       container.scrollBy({
         left: direction === 'right' ? scrollAmount : -scrollAmount,
         behavior: 'smooth'
       });
     }
-  </script>
+  </script>  
 
   <section class="adventure-section">
     <div class="feature-container">
