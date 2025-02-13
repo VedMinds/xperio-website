@@ -2065,32 +2065,41 @@
     <div id="experience-container">
     </div>
   </div>
-  
+
   <script>
     function scrollExperiences(direction) {
       const container = document.getElementById('experience-container');
-      const scrollAmount = container.firstElementChild.offsetWidth + 500;
+      const card = container.firstElementChild;
+      const isMobile = window.innerWidth <= 768;
 
-      container.scrollBy({
-        left: direction === 'right' ? scrollAmount : -scrollAmount,
-        behavior: 'smooth'
-      });
+      const cardWidth = card.offsetWidth;
+      const cardGap = isMobile ? 372 : 20;
+      const scrollAmount = isMobile ?
+        cardWidth + cardGap :
+        500;
+      const currentScroll = container.scrollLeft;
+
+      if (direction === 'right') {
+        if (currentScroll + container.clientWidth >= container.scrollWidth) {
+          return;
+        }
+        container.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+
+      else {
+        if (currentScroll <= 0) {
+          return;
+        }
+        container.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+        });
+      }
     }
   </script>
-<!-- 
-<script>
-  function scrollExperiences(direction) {
-    const container = document.getElementById('experience-container');
-    const isMobile = window.innerWidth <= 768;
-    const baseScroll = container.firstElementChild.offsetWidth;
-    const scrollAmount = isMobile ? baseScroll : baseScroll + 500;
-
-    container.scrollBy({
-      left: direction === 'right' ? scrollAmount : -scrollAmount,
-      behavior: 'smooth'
-    });
-  }
-</script> -->
 
 
   <section class="adventure-section">
