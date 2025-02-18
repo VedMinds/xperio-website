@@ -2841,6 +2841,8 @@
       return {
         id: apiData?.id || null,
         hostName: apiData?.hostName || '',
+        hostFirstName: apiData?.hostFirstName	 || "",
+        hostLastName: apiData?.hostLastName	 || "",
         hostProfilePhoto: apiData?.hostProfilePhoto || '',
         coHostName: apiData?.coHostName || '',
         coHostProfilePhoto: apiData?.coHostProfilePhoto || '',
@@ -3005,7 +3007,7 @@
                            class="host-image">
                       <div class="host-details">
                         <span class="host-label">Host</span>
-                        <span class="host-name">${data.hostName}</span>
+                        <span class="host-name">${data.hostFirstName} ${data.hostLastName}</span>
                       </div>
                     </div>
                   </div>
