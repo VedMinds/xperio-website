@@ -3102,7 +3102,7 @@
              class="host-image">
         <div class="host-details">
           <span class="host-label">Hosted by</span>
-          <span class="host-name">${data.hostName}</span>
+          <span class="host-name">${data.hostFirstName} ${data.hostLasttName}</span>
         </div>
       </div>
     </div>
@@ -3885,13 +3885,15 @@
       const modal = document.getElementById('hostModal');
       const hostImage = document.getElementById('modalHostImage');
       const hostName = document.getElementById('modalHostName');
+      const hostFirstName = document.getElementById('modalHostName');
+      const hostLastName = document.getElementById('modalHostName');
       const hostRating = document.getElementById('modalHostRating');
       const hostBrief = document.getElementById('modalHostBrief');
       // const hostReviews = document.getElementById('modalHostReviews');
 
       // Set host image and name
       hostImage.src = `https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${data.hostProfilePhoto}`;
-      hostName.textContent = data.hostName;
+      hostName.textContent = data.hostFirstName +" " + data.hostLastName ;
 
       // Format rating to one decimal place
       // const rating = parseFloat(data.hostRating).toFixed(1);
