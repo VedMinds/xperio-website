@@ -308,16 +308,6 @@
         }
 
         const data = await response.json();
-
-        // Update Meta Tags Dynamically
-        document.querySelector('meta[property="og:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[property="og:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[property="og:image"]').setAttribute("content", data.imageUrls[0]);
-
-        document.querySelector('meta[name="twitter:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[name="twitter:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[name="twitter:image"]').setAttribute("content", data.imageUrls[0]);
-
         // Update Page Title
         document.title = data.title;
 
