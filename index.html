@@ -254,12 +254,12 @@
 
     function renderExperiences(experiences) {
       const container = document.getElementById("experience-container");
-      if (!container) return;
+    if (!container) return;
 
       container.innerHTML = experiences
         .map(
           (experience) => `
-    <a href="https://xperio.travel/experience.html?exId=${experience.id}" style="text-decoration: none; color: inherit;" target="_blank">
+    <a href="https://xperio.travel/experience/${experience.id}" style="text-decoration: none; color: inherit;" target="_blank">
       <div class="xperio-card">
         <div style="width: 100%; height: 400px; overflow: hidden;">
           <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.imageUrls[0]}" 
@@ -272,7 +272,7 @@
           <h3 style="font-size: 1.2rem; margin: 0.5rem 0 1.5rem; transition: transform 0.3s ease; white-space: normal;">
             ${experience.title}
           </h3>
-          <a href="https://xperio.travel/experience.html?exId=${experience.id}" class="xperio-price-tag">
+          <a href="https://xperio.travel/experience/${experience.id}" class="xperio-price-tag">
             ₹${experience.pricing[0].totalPrice / experience.pricing[0].guestCount} / Person
           </a>
         </div>
