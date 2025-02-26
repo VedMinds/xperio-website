@@ -12,21 +12,11 @@
   <link rel="canonical" href="https://xperio.travel/experience.html?exId=EX-1737445387855">
   <link rel="icon" href="https://xperio.travel/images/favicon.png">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Xperio : Experience Slow Living: Sustainable Farm Stay Near Bengaluru">
-  <meta property="og:description"
+  <!-- Google Search and Basic Link Previews -->
+  <meta itemprop="name" content="Xperio : Experience Slow Living: Sustainable Farm Stay Near Bengaluru">
+  <meta itemprop="description"
     content="Discover the best travel experiences with Xperio Travel. Adventure, relaxation, and culture—find your next trip today!">
-  <meta property="og:image"
-    content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/mA0zMobtBMVx45t.jpeg">
-  <meta property="og:url" content="https://xperio.travel/experience.html?exId=EX-1737445387855">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Xperio : Experience Slow Living: Sustainable Farm Stay Near Bengaluru">
-  <meta name="twitter:description"
-    content="Discover the best travel experiences with Xperio Travel. Adventure, relaxation, and culture—find your next trip today!">
-  <meta name="twitter:image"
+  <meta itemprop="image"
     content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/mA0zMobtBMVx45t.jpeg">
 
   <!-- Stylesheet -->
@@ -316,16 +306,6 @@
         }
 
         const data = await response.json();
-
-        // Update Meta Tags Dynamically
-        document.querySelector('meta[property="og:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[property="og:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[property="og:image"]').setAttribute("content", data.imageUrls[0]);
-
-        document.querySelector('meta[name="twitter:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[name="twitter:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[name="twitter:image"]').setAttribute("content", data.imageUrls[0]);
-
         // Update Page Title
         document.title = data.title;
 
