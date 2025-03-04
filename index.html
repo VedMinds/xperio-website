@@ -1227,12 +1227,11 @@
     <div style="position: relative; width: 100%; height: 280px; overflow: hidden;">
       <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.imageUrls[0]}" 
            alt="${experience.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"/>
-      
+
       <!-- Weekend Treks Banner -->
       <div style="position: absolute; top: 20px; left: 20px; background-color: #222232; color: white; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 14px; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-        ${experience.categoryList[0]}
+         ${experience.categoryList[Math.floor(Math.random() * experience.categoryList.length)]}
       </div>
-      
       <!-- Destination Name -->
       <div style="position: absolute; bottom: 0; left: 0; width: 100%; text-align: center; padding-bottom: 25px; background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);">
         <h2 style="color: #ffffff; font-size: 25px; margin: 0; font-weight: bold; font-family: 'Segoe UI', Arial, sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
