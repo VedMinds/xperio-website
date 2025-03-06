@@ -48,7 +48,7 @@
       'page_path': window.location.pathname + window.location.search
     });
 
-    const exId = "EX-1739881213177";
+    const exId = "EX-1740679453101";
     if (exId) {
       gtag('event', 'view_experience', {
         'experience_id': exId
@@ -289,14 +289,19 @@
 
     async function fetchExperienceData() {
       try {
-        const experienceId = "EX-1739881213177";
+        const experienceId = "EX-1740679453101";
 
         if (!experienceId) {
           throw new Error("Experience ID not provided in URL");
         }
 
+        if(experienceId === "EX-1739881213177"){
+          window.location.href = "https://xperio.travel/experience-prod/EX-1740679453101";
+          return;
+        }
+
         const response = await fetch(
-          `https://qa-api.xperio.travel/app/experience/public/${experienceId}`,
+          `https://api.xperio.travel/app/experience/public/${experienceId}`,
           {
             headers: {
               "Cache-Control": "no-cache",
@@ -1298,7 +1303,7 @@
         hasError = true;
       }
 
-      const experienceId = "EX-1739881213177";
+      const experienceId = "EX-1740679453101";
       if (!experienceId) {
         errors.push("Experience ID is missing");
         hasError = true;
@@ -1329,7 +1334,7 @@
 
       try {
         const response = await fetch(
-          "https://qa-api.xperio.travel/app/experience/public/enquire",
+          "https://api.xperio.travel/app/experience/public/enquire",
           {
             method: "POST",
             headers: {
