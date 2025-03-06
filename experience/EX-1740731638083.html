@@ -297,6 +297,11 @@
           throw new Error("Experience ID not provided in URL");
         }
 
+        if(experienceId === "EX-1740731638083"){
+          window.location.href = "https://xperio.travel/experience-prod/EX-1740988610225";
+          return;
+        }
+
         const response = await fetch(
           `https://qa-api.xperio.travel/app/experience/public/${experienceId}`,
           {

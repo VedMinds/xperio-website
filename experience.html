@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,17 @@
   <meta name="description"
     content="Discover the best travel experiences with Xperio Travel. Adventure, relaxation, and culture—find your next trip today!">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://xperio.travel/experience.html?exId=EX-1737445387855">
   <link rel="icon" href="https://xperio.travel/images/favicon.png">
 
   <meta property="og:title" content="Xperio Travel Experience">
   <meta property="og:description" content="Discover amazing travel experiences with Xperio. Click to explore!">
   <meta property="og:image" content="https://xperio.travel/images/xperio-preview.jpg">
-  <meta property="og:url" content="https://xperio.travel/experience.html?exId=EX-1737445387855">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Xperio Travel Experience">
   <meta name="twitter:description" content="Discover amazing travel experiences with Xperio. Click to explore!">
   <meta name="twitter:image" content="https://xperio.travel/images/xperio-preview.jpg">
-  <meta name="twitter:url" content="https://xperio.travel/experience.html?exId=EX-1737445387855">
   <link rel="stylesheet" href="https://xperio.travel/css/ex-styles.css">
 
   <script type="application/ld+json">
@@ -287,14 +285,29 @@
     async function fetchExperienceData() {
       try {
         const urlParams = new URLSearchParams(window.location.search);
-        const experienceId = urlParams.get("exId");
+        let experienceId = urlParams.get("exId");
+
+        const experienceRedirects = {
+          "EX-1737526743299": "https://xperio.travel/experience-prod/EX-1740720907470",
+          "EX-1737033059440": "https://xperio.travel/experience-prod/EX-1740722269160",
+          "EX-1737373895821": "https://xperio.travel/experience-prod/EX-1740723420434",
+          "EX-1736943696352": "https://xperio.travel/experience-prod/EX-1740677736259",
+          "EX-1737027135696": "https://xperio.travel/experience-prod/EX-1740676394852",
+          "EX-1737016979966": "https://xperio.travel/experience-prod/EX-1740672228216",
+          "EX-1739367805678": "https://xperio.travel/experience-prod/EX-1740739057483"
+        };
+
+        if (experienceId in experienceRedirects) {
+          window.location.href = experienceRedirects[experienceId];
+          return;
+        }
 
         if (!experienceId) {
           throw new Error("Experience ID not provided in URL");
         }
 
         const response = await fetch(
-          `https://qa-api.xperio.travel/app/experience/public/${experienceId}`,
+          `https://api.xperio.travel/app/experience/public/${experienceId}`,
           {
             headers: {
               "Cache-Control": "no-cache",
@@ -309,32 +322,21 @@
 
         const data = await response.json();
 
-        // Update Meta Tags Dynamically
-        document.querySelector('meta[property="og:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[property="og:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[property="og:image"]').setAttribute("content", data.imageUrls[0]);
-
-        document.querySelector('meta[name="twitter:title"]').setAttribute("content", data.title);
-        document.querySelector('meta[name="twitter:description"]').setAttribute("content", data.description);
-        document.querySelector('meta[name="twitter:image"]').setAttribute("content", data.imageUrls[0]);
-
         // Update Page Title
         document.title = data.title;
 
         return data;
-
       } catch (error) {
         console.error("Error fetching experience data:", error);
       }
     }
 
-
     function mapApiDataToExperience(apiData) {
       return {
         id: apiData?.id || null,
         hostName: apiData?.hostName || '',
-        hostFirstName: apiData?.hostFirstName	 || "",
-        hostLastName: apiData?.hostLastName	 || "",
+        hostFirstName: apiData?.hostFirstName || "",
+        hostLastName: apiData?.hostLastName || "",
         hostProfilePhoto: apiData?.hostProfilePhoto || '',
         coHostName: apiData?.coHostName || '',
         coHostProfilePhoto: apiData?.coHostProfilePhoto || '',
@@ -1334,7 +1336,7 @@
 
       try {
         const response = await fetch(
-          "https://qa-api.xperio.travel/app/experience/public/enquire",
+          "https://api.xperio.travel/app/experience/public/enquire",
           {
             method: "POST",
             headers: {
@@ -1378,7 +1380,7 @@
 
       // Set host image and name
       hostImage.src = `https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${data.hostProfilePhoto}`;
-      hostName.textContent = data.hostFirstName +" " + data.hostLastName ;
+      hostName.textContent = data.hostFirstName + " " + data.hostLastName;
 
       // Format rating to one decimal place
       // const rating = parseFloat(data.hostRating).toFixed(1);
