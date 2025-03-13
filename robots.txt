@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /experience-prod/${*}
 
 Sitemap: https://xperio.travel/sitemap.xml
