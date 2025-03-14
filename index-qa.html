@@ -3137,6 +3137,7 @@
       margin-bottom: 2px;
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
     }
 
@@ -3148,11 +3149,12 @@
       justify-content: center;
       padding: 3px 8px 3px 10px;
       border-radius: 12px;
-      margin-left: 6px;
+      margin-left: 0;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
       font-size: 12px;
       font-weight: 500;
       gap: 4px;
+      white-space: nowrap;
     }
 
     .verified-text {
@@ -3168,6 +3170,17 @@
     .verified-icon svg {
       width: 10px;
       height: 10px;
+      min-width: 10px;
+    }
+    @media (max-width: 480px) {
+      .host-details-name {
+        font-size: 16px;
+      }
+
+      .host-details-verified-badge {
+        font-size: 11px;
+        padding: 2px 6px 2px 8px;
+      }
     }
 
     .host-details-location {
