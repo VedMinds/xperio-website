@@ -563,6 +563,66 @@
     }
 
     /* TOP RATED EXPERIENCE */
+    .xp-host-info {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .xp-host-avatar-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .xp-host-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #eee;
+    }
+
+    .xp-host-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .xp-host-label {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 2px;
+    }
+
+    .xp-host-fullname {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .xp-host-badge {
+      background-color: #222222;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      padding: 3px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .xp-host-badge svg {
+      width: 10px;
+      height: 10px;
+    }
+
     .xp-section-container {
       max-width: 95%;
       margin: 0px auto;
@@ -791,7 +851,6 @@
       color: #222232;
     }
 
-    /* Enhanced Book Now Button */
     .xp-book-button {
       background-color: #222232;
       color: white;
@@ -892,7 +951,6 @@
       width: 24px;
     }
 
-    /* Enhanced Responsive Styles */
     @media (max-width: 992px) {
       .xp-section-title {
         font-size: 32px;
@@ -2793,40 +2851,25 @@
       z-index: 1;
     }
 
-    /* Image section */
+    /* Image section - KEY CHANGES HERE */
     .about__image {
       width: 40%;
       background-color: #f8f8f8;
       position: relative;
       overflow: hidden;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      align-self: flex-start;
+      /* Keep image at the top */
+      height: auto;
+      /* Auto height */
     }
 
-    /* Logo bars */
-    .about__logo-bars {
-      margin-bottom: 30px;
-    }
-
-    .about__logo-bar {
-      width: 30px;
-      height: 10px;
-      background-color: #ff385c;
-      margin: 2px;
-      display: inline-block;
-      animation: fadeInUp 0.8s forwards;
-      animation-delay: 0.2s;
-    }
-
-    .about__logo-bar:nth-child(2) {
-      animation-delay: 0.4s;
-    }
-
-    .about__logo-bar:nth-child(3) {
-      animation-delay: 0.6s;
+    .about__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 450px;
+      /* Minimum height for the image */
     }
 
     /* Content section */
@@ -2934,47 +2977,8 @@
       padding: 20px;
     }
 
-    /* Keep the other styles the same */
     .about__differentiator {
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .about__differentiator:last-child {
-      border-bottom: none;
-    }
-
-    /* Update the arrow rotation */
-    .about__arrow {
-      display: inline-block;
-      margin-left: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .about__arrow::after {
-      content: '↓';
-    }
-
-    .about__differentiators-btn.active .about__arrow::after {
-      content: '↑';
-    }
-
-    /* Add this to ensure the transitions work properly */
-    .about__wrapper.in-view .about__differentiator {
-      animation: fadeInUp 0.5s forwards;
-      animation-delay: 0.2s;
-    }
-
-    .about__wrapper.in-view .about__differentiator:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-
-    .about__wrapper.in-view .about__differentiator:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    .about__differentiator {
-      padding: 12px 0;
+      padding: 9px 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
@@ -3020,7 +3024,11 @@
       }
 
       .about__image {
-        min-height: 200px;
+        position: relative;
+      }
+
+      .about__image img {
+        min-height: 250px;
       }
 
       .about__content {
@@ -3136,22 +3144,32 @@
       gap: 8px;
     }
 
-    .host-details-badge {
+    .host-details-verified-badge {
       background-color: #222222;
       color: #fff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
+      padding: 3px 8px 3px 10px;
+      border-radius: 12px;
       margin-left: 6px;
-      padding: 3px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      vertical-align: middle;
+      font-size: 12px;
+      font-weight: 500;
+      gap: 4px;
     }
 
-    .host-details-badge svg {
+    .verified-text {
+      display: inline-block;
+    }
+
+    .verified-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verified-icon svg {
       width: 10px;
       height: 10px;
     }
@@ -3587,13 +3605,16 @@
     <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" alt="${experience.hostFirstName} ${experience.hostLastName}" class="host-details-avatar">
     <div class="host-details-info">
       <h3 class="host-details-name">
-        ${experience.hostFirstName} ${experience.hostLastName}
-        <span class="host-details-badge" title="Verified Host">
-  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="20 6 9 17 4 12"></polyline>
-  </svg>
-</span>
-      </h3>
+  ${experience.hostFirstName} ${experience.hostLastName}
+  <span class="host-details-verified-badge" title="Verified Host">
+    <span class="verified-text">Verified</span>
+    <span class="verified-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </span>
+  </span>
+</h3>
       <div class="host-details-location">
         <svg class="host-details-location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -3627,10 +3648,10 @@
          <a href="https://xperio.travel/experience-prod/${experience.id}" class="xp-card-link" target="_blank">
   <div class="xp-experience-card" data-index="${index}">
     <div class="xp-card-image-container">
-      <img 
+      <img
         src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.imageUrls[0]}"
-        alt="${experience.title}" 
-        loading="lazy" 
+        alt="${experience.title}"
+        loading="lazy"
         class="xp-card-image"
       />
       <div class="xp-category-badge">
@@ -3642,6 +3663,27 @@
     </div>
     
     <div class="xp-card-content">
+     <div class="xp-host-info">
+  <div class="xp-host-avatar-name">
+    <img 
+      src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" 
+      alt="${experience.hostFirstName}" 
+      class="xp-host-avatar"
+    />
+    <div class="xp-host-text">
+      <span class="xp-host-label">Hosted by</span>
+      <span class="xp-host-fullname">
+        ${experience.hostFirstName} ${experience.hostLastName}
+        <span class="xp-host-badge" title="Verified Host">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+      
       <h3 class="xp-experience-title">${experience.title}</h3>
       
       <div class="xp-experience-description">
@@ -4818,15 +4860,16 @@ font-family: 'Cormorant Garamond', Georgia, serif;
   </script>
   <!-- CONTACT US SECTION ::: END  -->
 
+  <!-- ABOUT US SECTION START -->
   <div class="about__wrapper" id="aboutus-xperio">
-    <!-- Decorative elements from contact section -->
+    <!-- Decorative elements -->
     <div class="about__decorative-shape"></div>
     <div class="about__decorative-shape-2"></div>
 
     <div class="about__image">
       <img
         src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/CP2jcKMH3CbhDPI.png"
-        alt="About Image" style="max-width: 100%; height: 100%;">
+        alt="About Image">
     </div>
 
     <div class="about__content">
@@ -4837,15 +4880,14 @@ font-family: 'Cormorant Garamond', Georgia, serif;
         <p class="about__description">
           Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and
           immersive experiences. The tech platform facilitates discovery, booking, and financial transactions,
-          ensuring
-          a seamless connection between the traveler's desire for unique experiences and the host's offer of local
+          ensuring a seamless connection between the traveler's desire for unique experiences and the host's offer of
+          local
           authenticity. All these experiences will be delivered through sustainable practices.
         </p>
 
         <p class="about__description">
           Xperio addresses the growing demand for authentic and immersive travel experiences that go beyond
-          conventional
-          sightseeing tours.
+          conventional sightseeing tours.
         </p>
       </div>
 
@@ -4868,8 +4910,6 @@ font-family: 'Cormorant Garamond', Georgia, serif;
           responsible tourism.
         </div>
       </div>
-
-      <a href="#contact-us-inquire" class="about__learn-more-btn">Learn More</a>
     </div>
   </div>
   <script>
@@ -4885,8 +4925,10 @@ font-family: 'Cormorant Garamond', Georgia, serif;
 
           if (content.style.maxHeight) {
             content.style.maxHeight = null;
+            content.classList.remove('active');
           } else {
             content.style.maxHeight = content.scrollHeight + "px";
+            content.classList.add('active');
           }
         });
       }
@@ -4908,6 +4950,8 @@ font-family: 'Cormorant Garamond', Georgia, serif;
       }
     });
   </script>
+
+  <!-- ABOUT US SECTION END -->
 
   <footer
     style="background-color: #1a1a1a; color: #d9d9d9; padding: 60px 20px 40px; width: 100%; box-sizing: border-box;">
