@@ -3104,13 +3104,10 @@
       background-color: #fff;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .host-details-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     .host-details-card-header {
@@ -3118,6 +3115,16 @@
       display: flex;
       align-items: center;
       gap: 15px;
+    }
+
+    .host-details-section-one {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .host-avatar-container {
+      flex-shrink: 0;
     }
 
     .host-details-avatar {
@@ -3131,10 +3138,14 @@
       flex: 1;
     }
 
+    .host-name-container {
+      flex: 1;
+    }
+
     .host-details-name {
       font-size: 18px;
       font-weight: 600;
-      margin-bottom: 2px;
+      margin: 0;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
@@ -3172,16 +3183,6 @@
       height: 10px;
       min-width: 10px;
     }
-    @media (max-width: 480px) {
-      .host-details-name {
-        font-size: 16px;
-      }
-
-      .host-details-verified-badge {
-        font-size: 11px;
-        padding: 2px 6px 2px 8px;
-      }
-    }
 
     .host-details-location {
       font-size: 14px;
@@ -3195,6 +3196,19 @@
       width: 12px;
       height: 12px;
       opacity: 0.7;
+    }
+
+    .host-details-location {
+      font-size: 14px;
+      color: #777;
+      display: flex;
+      align-items: center;
+    }
+
+    .host-details-section-two {
+      padding-top: 10px;
+      padding-left: 65px;
+      margin-bottom: 10px;
     }
 
     .host-details-description {
@@ -3315,23 +3329,56 @@
     }
 
     @media (max-width: 768px) {
-      .host-details-card {
-        width: 280px;
+      .host-details-card-header {
+        padding: 15px;
       }
 
-      .host-details-title {
-        font-size: 28px;
+      .host-details-name {
+        font-size: 16px;
+      }
+
+      .host-details-section-two {
+        padding-left: 55px;
+      }
+
+      .host-details-verified-badge {
+        font-size: 11px;
+        padding: 2px 6px 2px 8px;
       }
     }
 
     @media (max-width: 480px) {
-      .host-details-card {
-        width: 260px;
+      .host-details-card-header {
+        padding: 12px;
       }
 
-      .host-details-title {
-        font-size: 24px;
+      .host-details-avatar {
+        width: 40px;
+        height: 40px;
       }
+
+
+      .host-details-location {
+        font-size: 13px;
+      }
+
+      .host-details-card {
+        padding: 12px;
+      }
+
+      .host-details-avatar {
+        width: 40px;
+        height: 40px;
+      }
+
+      .host-details-section-two {
+        padding-left: 45px;
+      }
+
+      .host-details-name {
+        font-size: 15px;
+      }
+
     }
 
     /* HOST DETAILS END */
@@ -3388,7 +3435,7 @@
           <span class="content-subtitle">Experience India</span>
           <h2 class="hero-title">Unfold the charm of village life</h2>
           <p class="hero-text">Enjoy life with simplicity, local cuisine, and nature's connection</p>
-          <a href="#explore" class="explore-btn">Explore Experience</a>
+          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
         </div>
       </div>
 
@@ -3399,7 +3446,7 @@
           <span class="content-subtitle">Cultural Immersion</span>
           <h2 class="hero-title">Embrace Indian dance culture</h2>
           <p class="hero-text">Dive into rich traditions and vibrant styles of Indian dance</p>
-          <a href="#explore" class="explore-btn">Explore Experience</a>
+          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
         </div>
       </div>
 
@@ -3410,7 +3457,7 @@
           <span class="content-subtitle">Natural Wonders</span>
           <h2 class="hero-title">Discover the majestic mountains</h2>
           <p class="hero-text">Soak in the tranquility of nature's embrace</p>
-          <a href="#explore" class="explore-btn">Explore Experience</a>
+          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
         </div>
       </div>
 
@@ -3421,7 +3468,7 @@
           <span class="content-subtitle">Rural Experience</span>
           <h2 class="hero-title">Engage in Indian agriculture</h2>
           <p class="hero-text">Connect with the farmers and sustainable practices</p>
-          <a href="#explore" class="explore-btn">Explore Experience</a>
+          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
         </div>
       </div>
 
@@ -3432,7 +3479,7 @@
           <span class="content-subtitle">Coastal Beauty</span>
           <h2 class="hero-title">Explore the sea backwaters</h2>
           <p class="hero-text">Enjoy breathtaking views and guided adventures</p>
-          <a href="#explore" class="explore-btn">Explore Experience</a>
+          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
         </div>
       </div>
 
@@ -3610,28 +3657,34 @@
         )
         .map((experience, index) => `
    <div class="host-details-card">
-  <div class="host-details-card-header">
-    <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" alt="${experience.hostFirstName} ${experience.hostLastName}" class="host-details-avatar">
-    <div class="host-details-info">
+<div class="host-details-card">
+  <div class="host-details-section-one">
+    <div class="host-avatar-container">
+      <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" alt="${experience.hostFirstName} ${experience.hostLastName}" class="host-details-avatar">
+    </div>
+    <div class="host-name-container">
       <h3 class="host-details-name">
-  ${experience.hostFirstName} ${experience.hostLastName}
-  <span class="host-details-verified-badge" title="Verified Host">
-    <span class="verified-text">Verified</span>
-    <span class="verified-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-    </span>
-  </span>
-</h3>
-      <div class="host-details-location">
-        <svg class="host-details-location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-        </svg>
-        ${experience.village}, ${experience.district} ${experience.state}
-      </div>
+        ${experience.hostFirstName} ${experience.hostLastName}
+        <span class="host-details-verified-badge" title="Verified Host">
+          <span class="verified-text">Verified</span>
+          <span class="verified-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+        </span>
+      </h3>
     </div>
   </div>
+  <div class="host-details-section-two">
+    <div class="host-details-location">
+      <svg class="host-details-location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      ${experience.village}, ${experience.district} ${experience.state}
+    </div>
+  </div>
+</div>
   
   <div class="host-details-description" style="display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
     ${experience.hostBriefAbout}
