@@ -3137,12 +3137,23 @@
     }
 
     .host-details-badge {
-      background-color: #ffb700;
+      background-color: #222222;
       color: #fff;
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 10px;
-      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-left: 6px;
+      padding: 3px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      vertical-align: middle;
+    }
+
+    .host-details-badge svg {
+      width: 10px;
+      height: 10px;
     }
 
     .host-details-location {
@@ -3571,13 +3582,17 @@
           index === self.findIndex(e => e.hostId === experience.hostId)
         )
         .map((experience, index) => `
-    <div class="host-details-card">
+   <div class="host-details-card">
   <div class="host-details-card-header">
     <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" alt="${experience.hostFirstName} ${experience.hostLastName}" class="host-details-avatar">
     <div class="host-details-info">
       <h3 class="host-details-name">
         ${experience.hostFirstName} ${experience.hostLastName}
-        <span class="host-details-badge">Verified</span>
+        <span class="host-details-badge" title="Verified Host">
+  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+</span>
       </h3>
       <div class="host-details-location">
         <svg class="host-details-location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
