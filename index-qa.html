@@ -17,8 +17,10 @@
 
   <!-- Apple Touch Icons for iOS devices -->
   <link rel="apple-touch-icon" sizes="180x180" href="https://xperio.travel/favicon.ico">
-  <link rel="apple-touch-icon" sizes="152x152" href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&w=152&h=152">
-  <link rel="apple-touch-icon" sizes="120x120" href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&w=152&h=152">
+  <link rel="apple-touch-icon" sizes="152x152"
+    href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&w=152&h=152">
+  <link rel="apple-touch-icon" sizes="120x120"
+    href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&w=152&h=152">
   <link rel="apple-touch-icon" sizes="76x76" href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&w=76&h=76">
 
   <!-- Windows Tile Icon -->
@@ -3039,6 +3041,262 @@
         text-align: center;
       }
     }
+
+    /* HOST DETAILS STYLES START  */
+    .host-details-container {
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 20px 0px;
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    .host-details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .host-details-title {
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #444;
+    }
+
+    .host-details-view-all {
+      color: #2c9e6a;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .host-details-view-all:hover {
+      text-decoration: underline;
+    }
+
+    .host-details-carousel-wrapper {
+      position: relative;
+      margin: 0 -10px;
+    }
+
+    .host-details-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 10px 0;
+      gap: 20px;
+    }
+
+    .host-details-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .host-details-card {
+      flex: 0 0 auto;
+      width: 300px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .host-details-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .host-details-card-header {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .host-details-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .host-details-info {
+      flex: 1;
+    }
+
+    .host-details-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .host-details-badge {
+      background-color: #ffb700;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .host-details-location {
+      font-size: 14px;
+      color: #777;
+      display: flex;
+      align-items: center;
+    }
+
+    .host-details-location-icon {
+      margin-right: 5px;
+      width: 12px;
+      height: 12px;
+      opacity: 0.7;
+    }
+
+    .host-details-description {
+      padding: 0 20px 15px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .host-details-experiences {
+      padding: 15px 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .host-details-exp-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .host-details-exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .host-details-exp-tag {
+      background-color: #f5f5f5;
+      color: #555;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .host-details-stats {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .host-details-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #ffb700;
+      font-weight: 600;
+    }
+
+    .host-details-star-icon {
+      width: 14px;
+      height: 14px;
+      fill: #ffb700;
+    }
+
+    .host-details-reviews {
+      color: #777;
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    .host-details-hosting-time {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .host-details-languages {
+      font-size: 12px;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    .host-details-profile-link {
+      display: block;
+      text-align: right;
+      color: #2c9e6a;
+      text-decoration: none;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .host-details-profile-link:hover {
+      text-decoration: underline;
+    }
+
+    .host-details-nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .host-details-nav-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .host-details-nav-button:hover {
+      background-color: #f5f5f5;
+      border-color: #aaa;
+    }
+
+    .host-details-nav-button svg {
+      width: 18px;
+      height: 18px;
+      fill: #555;
+    }
+
+    @media (max-width: 768px) {
+      .host-details-card {
+        width: 280px;
+      }
+
+      .host-details-title {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .host-details-card {
+        width: 260px;
+      }
+
+      .host-details-title {
+        font-size: 24px;
+      }
+    }
+
+    /* HOST DETAILS END */
   </style>
 </head>
 
@@ -3304,6 +3562,47 @@
     }
 
     function xpRenderExperiences(experiences) {
+
+      const hostDetailsContainer = document.getElementById("hostDetailsCarousel");
+      if (!hostDetailsContainer) return;
+
+      hostDetailsContainer.innerHTML = experiences
+        .filter((experience, index, self) =>
+          index === self.findIndex(e => e.hostId === experience.hostId)
+        )
+        .map((experience, index) => `
+    <div class="host-details-card">
+  <div class="host-details-card-header">
+    <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" alt="${experience.hostFirstName} ${experience.hostLastName}" class="host-details-avatar">
+    <div class="host-details-info">
+      <h3 class="host-details-name">
+        ${experience.hostFirstName} ${experience.hostLastName}
+        <span class="host-details-badge">Verified</span>
+      </h3>
+      <div class="host-details-location">
+        <svg class="host-details-location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        ${experience.village}, ${experience.district} ${experience.state}
+      </div>
+    </div>
+  </div>
+  
+  <div class="host-details-description" style="display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+    ${experience.hostBriefAbout}
+  </div>
+  
+  <div class="host-details-experiences">
+    <h4 class="host-details-exp-title">Experiences:</h4>
+    <div class="host-details-exp-tags">
+      <span class="host-details-exp-tag">${experience.title}</span>
+    </div>
+    <div class="host-details-languages">Languages: ${experience.languageAssisted}</div>
+  </div>
+</div>
+  `)
+        .join("");
+
       const container = document.getElementById("xp-experience-container");
       if (!container) return;
 
@@ -3999,6 +4298,19 @@
     </div>
   </div>
   <!-- Discover the Beauty of Uttara Kannada! section end -->
+
+  <!-- HOST DETAILS SECTION START  -->
+  <div class="host-details-container">
+    <div class="host-details-header">
+      <h2 class="host-details-title">Meet Our Outstanding Hosts</h2>
+    </div>
+
+    <div class="host-details-carousel-wrapper">
+      <div class="host-details-carousel" id="hostDetailsCarousel">
+      </div>
+    </div>
+  </div>
+  <!-- HOST DETAILS SECTION END -->
 
   <!--  JOIN AS A HOST SECTION START:::  -->
   <section class="host-section">
