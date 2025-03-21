@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Xperio</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description"
+    content="Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and immersive experiences.">
+    <meta name="keywords" content="Travel , culture, unique experince, booking">
     <link rel="icon" type="image/x-icon" href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         p {
             color: #666;
             line-height: 1.6;
+            margin-bottom: 15px;
         }
 
         h1, h2 {
@@ -26,86 +39,260 @@
         }
 
         h1 {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2.5em;
+            font-weight: 600;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        ul li {
+            color: #666;
+            margin-bottom: 8px;
         }
 
-        .privacy-content {
-            max-width: 800px;
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 95%;
             margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .privacy-content h1 {
-            color: #ff385c;
-        }
-        
-        .privacy-content h2 {
-            margin-top: 30px;
+            padding: 0 20px;
         }
 
-        /* Add logo and header styles */
+        /* Header Styles */
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            transition: all 0.4s ease;
+            background-color: #222232;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header.scrolled {
+            background-color: #222232;
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 40px;
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #e0e0e0;
         }
 
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
 
         .logo-image {
-            width: 50px;
-            height: auto;
-            margin-right: 10px;
+            height: 48px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .logo-image {
+            height: 42px;
         }
 
         .logo-text {
-            font-size: 24px;
-            color: #ff385c;
-            font-weight: bold;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .logo-text {
+            font-size: 28px;
+        }
+
+        /* Content Styles */
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 130px 20px 40px;
+        }
+        
+        .privacy-content h1 {
+            color: #222232;
+            margin-bottom: 30px;
+        }
+        
+        .privacy-content h2 {
+            margin-top: 30px;
+            font-size: 1.6em;
+            color: #333;
         }
 
         /* Footer styles */
         .footer {
-            background-color: white;
-            color: black;
-            padding: 20px 0;
+            background-color: #222232;
+            color: #fff;
+            padding: 40px 0;
             margin-top: 40px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
         .footer__info {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer__copyright {
+            flex: 1;
+            min-width: 280px;
         }
 
         .footer__contact-email {
-            color: #333;
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 8px 0;
+            position: relative;
         }
 
-        .footer__contact-email:hover {
-            text-decoration: underline;
+        .footer__contact-email:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .footer__contact-email:hover:after {
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ccc;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .footer-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 0;
+            }
+            
+            .header.scrolled {
+                padding: 10px 0;
+            }
+            
+            .logo-image {
+                height: 40px;
+            }
+            
+            .header.scrolled .logo-image {
+                height: 36px;
+            }
+            
+            .logo-text {
+                font-size: 26px;
+            }
+            
+            .header.scrolled .logo-text {
+                font-size: 22px;
+            }
+            
+            .privacy-content {
+                padding: 100px 15px 30px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            .footer__info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer__contact-email {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 32px;
+                margin-right: 10px;
+            }
+            
+            .logo-text {
+                font-size: 22px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+            
+            .privacy-content {
+                padding: 90px 15px 30px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
-                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" class="logo-image">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" class="logo-image" alt="Xperio Logo">
                 <span class="logo-text">Xperio</span>
             </a>
         </div>
@@ -150,17 +337,30 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__info">
-                <p class="footer__copyright">
-                    &copy; Copyright 2024 Xperio Travel. All rights reserved.<br><br>
+                <div class="footer__copyright">
+                    &copy; Copyright 2025 Xperio Travel. All rights reserved.<br><br>
                     ExploreEdge Technologies Private Limited<br><br>
-                    <a href="privacy-policy.html" style="color: #666; text-decoration: underline;">Privacy Policy</a> | 
-                    <a href="account-deletion.html" style="color: #666; text-decoration: underline;">Account Deletion</a>
-                </p>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="account-deletion.html">Account Deletion</a>
+                    </div>
+                </div>
                 <a href="mailto:info@xperio.travel" class="footer__contact-email">
                     Contact Us: info@xperio.travel
                 </a>
             </div>
         </div>
     </footer>
+
+    <script>
+    window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
-</html> 
+</html>
