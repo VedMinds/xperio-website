@@ -1,101 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cancellation & Refund Policy</title>
-    <link rel="stylesheet" href="styles.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation & Refund Policy | Xperio Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
     <style>
-      /* Additional Styles for Cancellation & Refund Policy */
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-      }
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-      .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
 
-      h1 {
-        font-size: 2.5em;
-        color: #ff385c;
-        margin-bottom: 20px;
-      }
+        h1, h2, h3 {
+            color: #333;
+            margin: 20px 0;
+        }
 
-      p {
-        line-height: 1.6;
-        margin-bottom: 15px;
-      }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #222232;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 1.6em;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #222232;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+            color: #222232;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        ul li, ol li {
+            color: #666;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        strong {
+            color: #222232;
+        }
 
-      ul {
-        list-style-type: disc;
-        padding-left: 20px;
-      }
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-      li {
-        margin-bottom: 10px;
-      }
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            transition: all 0.4s ease;
+            background-color: #222232;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header.scrolled {
+            background-color: #222232;
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
 
-      footer {
-        background-color: #f8f8f8;
-        padding: 20px 0;
-        text-align: center;
-      }
+        .header .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-      .footer__info {
-        margin: 0 auto;
-      }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
-      .footer__contact-email {
-        color: #ff385c;
-        text-decoration: none;
-      }
+        .logo-image {
+            height: 48px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .logo-image {
+            height: 42px;
+        }
 
-      .footer__contact-email:hover {
-        text-decoration: underline;
-      }
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .logo-text {
+            font-size: 28px;
+        }
+
+        /* Content Styles */
+        .terms-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 130px 20px 40px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section ul {
+            list-style-type: none;
+            margin-left: 10px;
+        }
+        
+        .section ul li {
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .section ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #222232;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #222232;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer__copyright {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .footer__contact-email {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .footer__contact-email:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .footer__contact-email:hover:after {
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ccc;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .footer-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 0;
+            }
+            
+            .header.scrolled {
+                padding: 10px 0;
+            }
+            
+            .logo-image {
+                height: 40px;
+            }
+            
+            .header.scrolled .logo-image {
+                height: 36px;
+            }
+            
+            .logo-text {
+                font-size: 26px;
+            }
+            
+            .header.scrolled .logo-text {
+                font-size: 22px;
+            }
+            
+            .terms-content {
+                padding: 100px 15px 30px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            .footer__info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer__contact-email {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 32px;
+                margin-right: 10px;
+            }
+            
+            .logo-text {
+                font-size: 22px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+            
+            h3 {
+                font-size: 1.1em;
+            }
+            
+            .terms-content {
+                padding: 90px 15px 30px;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <section class="container">
-      <h1>Cancellation & Refund Policy</h1>
-      <p>Last updated on 20-12-2024 16:14:14</p>
-      <p>
-        EXPLOREEDGE TECHNOLOGIES PRIVATE LIMITED believes in helping its customers as far as possible, and has therefore a liberal cancellation policy. Under this policy:
-      </p>
-      <ul>
-        <li>
-          Cancellations will be considered only if the request is made immediately after placing the order. However, the cancellation request may not be entertained if the orders have been communicated to the vendors/merchants and they have initiated the process of shipping them.
-        </li>
-        <li>
-          EXPLOREEDGE TECHNOLOGIES PRIVATE LIMITED does not accept cancellation requests for perishable items like flowers, eatables etc. However, refund/replacement can be made if the customer establishes that the quality of product delivered is not good.
-        </li>
-        <li>
-          In case of receipt of damaged or defective items please report the same to our Customer Service team. The request will, however, be entertained once the merchant has checked and determined the same at his own end. This should be reported within 7 Days of receipt of the products. In case you feel that the product received is not as shown on the site or as per your expectations, you must bring it to the notice of our customer service within 7 Days of receiving the product. The Customer Service Team after looking into your complaint will take an appropriate decision.
-        </li>
-        <li>
-          In case of complaints regarding products that come with a warranty from manufacturers, please refer the issue to them. In case of any Refunds approved by the EXPLOREEDGE TECHNOLOGIES PRIVATE LIMITED, it’ll take 6-8 Days for the refund to be processed to the end customer.
-        </li>
-      </ul>
-    </section>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" alt="Xperio Travel Logo" class="logo-image">
+                <span class="logo-text">Xperio Travel</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="terms-content">
+        <h1>Cancellation & Refund Policy</h1>
+        
+        <p>Last updated on 20-12-2024 16:14:14</p>
+        
+        <div class="section">
+            <p>EXPLOREEDGE TECHNOLOGIES PRIVATE LIMITED believes in helping its customers as far as possible, and has therefore a liberal cancellation policy. Under this policy:</p>
+            
+            <ul>
+                <li>Cancellations will be considered only if the request is made immediately after placing the order. However, the cancellation request may not be entertained if the orders have been communicated to the vendors/merchants and they have initiated the process of shipping them.</li>
+                
+                <li>EXPLOREEDGE TECHNOLOGIES PRIVATE LIMITED does not accept cancellation requests for perishable items like flowers, eatables etc. However, refund/replacement can be made if the customer establishes that the quality of product delivered is not good.</li>
+                
+                <li>In case of receipt of damaged or defective items please report the same to our Customer Service team. The request will, however, be entertained once the merchant has checked and determined the same at his own end. This should be reported within 7 Days of receipt of the products. In case you feel that the product received is not as shown on the site or as per your expectations, you must bring it to the notice of our customer service within 7 Days of receiving the product. The Customer Service Team after looking into your complaint will take an appropriate decision.</li>
+                
+                <li>In case of complaints regarding products that come with a warranty from manufacturers, please refer the issue to them. In case of any Refunds approved by the EXPLOREEDGE TECHNOLOGIES PRIVATE LIMITED, it'll take 6-8 Days for the refund to be processed to the end customer.</li>
+            </ul>
+        </div>
+    </div>
 
     <footer class="footer">
-      <div class="footer__info">
-        <p class="footer__copyright">
-          &copy; Copyright 2024 Xperio Travel. All rights reserved.
-          <br /><br />
-          ExploreEdge Technologies Private Limited
-          <br /><br />
-        <a href="mailto:info@xperio.travel" class="footer__contact-email">
-          Contact Us: info@xperio.travel
-        </a>
-      </div>
+        <div class="container">
+            <div class="footer__info">
+                <div class="footer__copyright">
+                    &copy; Copyright 2025 Xperio Travel. All rights reserved.
+                    <br /><br />
+                    ExploreEdge Technologies Private Limited
+                    <br /><br />
+                    <div class="footer-links">
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+                <a href="mailto:info@xperio.travel" class="footer__contact-email">
+                    Contact Us: info@xperio.travel
+                </a>
+            </div>
+        </div>
     </footer>
-  </body>
+
+    <script>
+        // Script for header scrolling effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
 </html>
