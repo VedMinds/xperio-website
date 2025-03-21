@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler Responsibility Agreement | Xperio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        h1, h2 {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #222232;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        ul li, ol li {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            transition: all 0.4s ease;
+            background-color: #222232;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header.scrolled {
+            background-color: #222232;
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 48px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .logo-image {
+            height: 42px;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .logo-text {
+            font-size: 28px;
+        }
+
+        /* Content Styles */
+        .responsibility-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 130px 20px 40px;
+        }
+        
+        .responsibility-content h1 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .responsibility-content h2 {
+            margin-top: 30px;
+            font-size: 1.6em;
+            color: #333;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #222232;
+        }
+
+        .responsibility-content strong {
+            color: #222232;
+        }
+        
+        .section-content {
+            margin-bottom: 25px;
+        }
+        
+        .numbering {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .subsection-title {
+            font-weight: 600;
+            color: #222232;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .point-list {
+            list-style-type: none;
+            margin-left: 25px;
+        }
+        
+        .point-list li {
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .point-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #222232;
+        }
+        
+        .traveler-pledge {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #222232;
+            margin-top: 20px;
+        }
+        
+        .pledge-list {
+            list-style-type: none;
+        }
+        
+        .pledge-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .pledge-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #222232;
+            font-weight: bold;
+        }
+        
+        .thank-you {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #222232;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer__copyright {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .footer__contact-email {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .footer__contact-email:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .footer__contact-email:hover:after {
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ccc;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .footer-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 0;
+            }
+            
+            .header.scrolled {
+                padding: 10px 0;
+            }
+            
+            .logo-image {
+                height: 40px;
+            }
+            
+            .header.scrolled .logo-image {
+                height: 36px;
+            }
+            
+            .logo-text {
+                font-size: 26px;
+            }
+            
+            .header.scrolled .logo-text {
+                font-size: 22px;
+            }
+            
+            .responsibility-content {
+                padding: 100px 15px 30px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            .footer__info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer__contact-email {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 32px;
+                margin-right: 10px;
+            }
+            
+            .logo-text {
+                font-size: 22px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+            
+            .responsibility-content {
+                padding: 90px 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" alt="Xperio Logo" class="logo-image">
+                <span class="logo-text">Xperio</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="responsibility-content">
+        <h1>Xperio Traveler Responsibility Agreement</h1>
+        
+        <p>Welcome to Xperio! As a traveler on our platform, your journey is more than just a trip. It is a chance to contribute to <strong>sustainable tourism</strong>, promote <strong>cultural respect</strong>, and leave a positive impact. By booking an experience, you agree to follow these <strong>responsible travel guidelines</strong> to ensure your journey benefits both <strong>communities and the environment</strong>.</p>
+        
+        <div class="section-content">
+            <h2>1. Respect for Local Culture and Traditions</h2>
+            
+            <p class="subsection-title"><span class="numbering">1.1</span> Cultural Awareness:</p>
+            <ul class="point-list">
+                <li>Learn about and <strong>respect local customs and traditions</strong> before your visit.</li>
+                <li>Dress appropriately based on <strong>local cultural norms</strong> and settings.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">1.2</span> Respect for Religious Practices:</p>
+            <ul class="point-list">
+                <li>Follow guidelines when visiting <strong>temples, shrines, or sacred sites</strong>.</li>
+                <li>Seek permission where necessary to participate in <strong>local rituals or ceremonies</strong>.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">1.3</span> Engage Positively with Hosts and Communities:</p>
+            <ul class="point-list">
+                <li><strong>Greet and interact</strong> with locals courteously.</li>
+                <li>Respect privacy by seeking consent before <strong>taking photographs</strong> of people or homes.</li>
+            </ul>
+        </div>
+        
+        <div class="section-content">
+            <h2>2. Environmental Responsibility</h2>
+            
+            <p class="subsection-title"><span class="numbering">2.1</span> Minimize Waste:</p>
+            <ul class="point-list">
+                <li>Carry a reusable <strong>water bottle and shopping bag</strong> to reduce plastic waste.</li>
+                <li>Dispose of trash responsibly and participate in <strong>waste management initiatives</strong> when possible.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">2.2</span> Leave No Trace:</p>
+            <ul class="point-list">
+                <li>Follow <strong>"Leave No Trace" principles</strong>: Avoid disturbing natural landscapes and wildlife.</li>
+                <li>Stick to marked trails during <strong>treks and nature walks</strong> to preserve the ecosystem.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">2.3</span> Reduce Carbon Footprint:</p>
+            <ul class="point-list">
+                <li>Choose <strong>eco-friendly transportation</strong> options where available (e.g., cycling, public transport).</li>
+                <li>Consider carbon offset programs to <strong>reduce emissions</strong> related to your travel.</li>
+            </ul>
+        </div>
+        
+        <div class="section-content">
+            <h2>3. Support Local Economies</h2>
+            
+            <p class="subsection-title"><span class="numbering">3.1</span> Buy Local:</p>
+            <ul class="point-list">
+                <li>Purchase products and souvenirs from <strong>local artisans and businesses</strong> to support the community economy.</li>
+                <li>Avoid purchasing items made from <strong>endangered wildlife or plants</strong>.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">3.2</span> Eat Local, Stay Local:</p>
+            <ul class="point-list">
+                <li>Prefer <strong>local eateries and farm-to-table dining</strong> experiences to reduce food miles.</li>
+                <li>Stay at <strong>locally-owned accommodations</strong> and eco-friendly lodges to benefit the host communities.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">3.3</span> Participate in Ethical Tourism:</p>
+            <ul class="point-list">
+                <li>Join experiences that actively <strong>promote conservation and education</strong>.</li>
+                <li>Avoid tours that exploit animals or harm the environment.</li>
+            </ul>
+        </div>
+        
+        <div class="section-content">
+            <h2>4. Health, Safety, and Personal Responsibility</h2>
+            
+            <p class="subsection-title"><span class="numbering">4.1</span> Emergency Preparedness:</p>
+            <ul class="point-list">
+                <li>Familiarize yourself with <strong>emergency contacts and procedures</strong> in the region.</li>
+                <li>Bring any necessary <strong>medications</strong> and a basic <strong>first-aid kit</strong> for personal use.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">4.2</span> Follow Host Instructions:</p>
+            <ul class="point-list">
+                <li>Listen carefully to <strong>safety briefings</strong> from hosts and guides.</li>
+                <li>Respect rules and guidelines set by the host for <strong>safe participation</strong> in activities.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">4.3</span> Travel Insurance:</p>
+            <ul class="point-list">
+                <li>Ensure you have <strong>adequate travel and health insurance</strong> to cover unexpected situations.</li>
+            </ul>
+        </div>
+        
+        <div class="section-content">
+            <h2>5. Positive Community Impact</h2>
+            
+            <p class="subsection-title"><span class="numbering">5.1</span> Fair Compensation:</p>
+            <ul class="point-list">
+                <li>Pay the agreed prices for services without bargaining excessively. Respect that these services <strong>contribute to the livelihood</strong> of locals.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">5.2</span> Avoid Over-Tourism:</p>
+            <ul class="point-list">
+                <li>Travel to offbeat destinations to reduce pressure on popular tourist spots.</li>
+                <li>Be mindful of <strong>noise levels</strong> and behavior to avoid disturbing locals.</li>
+            </ul>
+            
+            <p class="subsection-title"><span class="numbering">5.3</span> Voluntourism and Giving Back:</p>
+            <ul class="point-list">
+                <li>Participate in <strong>community service or conservation activities</strong> where available.</li>
+                <li>Donate thoughtfully—support verified local initiatives rather than giving cash directly to individuals.</li>
+            </ul>
+        </div>
+        
+        <div class="section-content">
+            <h2>6. Traveler Pledge and Acknowledgment</h2>
+            
+            <div class="traveler-pledge">
+                <p>By booking an experience on Xperio, you agree to:</p>
+                <ul class="pledge-list">
+                    <li>Act as a <strong>responsible traveler</strong>, leaving a <strong>positive impact</strong> on the places you visit.</li>
+                    <li><strong>Respect local customs, communities, and the environment</strong>.</li>
+                    <li>Follow the instructions provided by <strong>hosts and guides</strong> for a safe and enjoyable experience.</li>
+                    <li>Contribute to the <strong>sustainable development</strong> of the destinations you explore.</li>
+                </ul>
+                <p>Your reading of this document and agreement will be your commitment to being a <strong>responsible traveler</strong>.</p>
+            </div>
+            
+            <p class="thank-you">Thank you for helping us create <strong>a sustainable tourism ecosystem</strong> that benefits everyone involved!</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__info">
+                <div class="footer__copyright">
+                    <p>&copy; 2025 Xperio. All rights reserved.</p>
+                    <p>Connecting travelers with authentic experiences.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">About Us</a>
+                    </div>
+                </div>
+                <a href="mailto:contact@xperio.com" class="footer__contact-email">contact@xperio.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
