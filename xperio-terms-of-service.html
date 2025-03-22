@@ -1,437 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | Xperio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | Xperio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        h1, h2, h3 {
-            color: #333;
-            margin: 20px 0;
-        }
+    p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
 
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5em;
-            font-weight: 600;
-            color: #222232;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        h2 {
-            font-size: 1.6em;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #222232;
-            margin-top: 30px;
-        }
-        
-        h3 {
-            font-size: 1.3em;
-            color: #222232;
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-        
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        ul li, ol li {
-            color: #666;
-            margin-bottom: 8px;
-            position: relative;
-        }
-        
-        strong {
-            color: #222232;
-        }
+    h1,
+    h2,
+    h3 {
+      color: #333;
+      margin: 20px 0;
+    }
 
-        /* Container */
-        .container {
-            width: 100%;
-            max-width: 95%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5em;
+      font-weight: 600;
+      color: #222232;
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-        /* Header Styles */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 100;
-            transition: all 0.4s ease;
-            background-color: #222232;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .header.scrolled {
-            background-color: #222232;
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+    h2 {
+      font-size: 1.6em;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #222232;
+      margin-top: 30px;
+    }
 
-        .header .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    h3 {
+      font-size: 1.3em;
+      color: #222232;
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+    ul,
+    ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
 
-        .logo-image {
-            height: 48px;
-            margin-right: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .header.scrolled .logo-image {
-            height: 42px;
-        }
+    ul li,
+    ol li {
+      color: #666;
+      margin-bottom: 8px;
+      position: relative;
+    }
 
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            color: #fff;
-            font-weight: 600;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-        
-        .header.scrolled .logo-text {
-            font-size: 28px;
-        }
+    strong {
+      color: #222232;
+    }
 
-        /* Content Styles */
-        .terms-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 130px 20px 40px;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-        }
-        
-        .section ul {
-            list-style-type: none;
-            margin-left: 10px;
-        }
-        
-        .section ul li {
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .section ul li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #222232;
-        }
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 95%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* Footer styles */
-        .footer {
-            background-color: #222232;
-            color: #fff;
-            padding: 40px 0;
-            margin-top: 40px;
-        }
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 100;
+      transition: all 0.4s ease;
+      background-color: #222232;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .footer__info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+    .header.scrolled {
+      background-color: #222232;
+      padding: 15px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .footer__copyright {
-            flex: 1;
-            min-width: 280px;
-        }
+    .header .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .footer__contact-email {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 8px 0;
-            position: relative;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
-        .footer__contact-email:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
+    .logo-image {
+      height: 48px;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
 
-        .footer__contact-email:hover:after {
-            width: 100%;
-        }
+    .header.scrolled .logo-image {
+      height: 42px;
+    }
 
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+    }
 
-        .footer a:hover {
-            color: #ccc;
-        }
+    .header.scrolled .logo-text {
+      font-size: 28px;
+    }
 
-        .footer-links {
-            margin-top: 15px;
-        }
+    /* Content Styles */
+    .terms-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 130px 20px 40px;
+    }
 
-        .footer-links a {
-            margin-right: 15px;
-            position: relative;
-        }
+    .section {
+      margin-bottom: 30px;
+    }
 
-        .footer-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
+    .section ul {
+      list-style-type: none;
+      margin-left: 10px;
+    }
 
-        .footer-links a:hover:after {
-            width: 100%;
-        }
+    .section ul li {
+      padding-left: 20px;
+      position: relative;
+    }
 
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            .header {
-                padding: 15px 0;
-            }
-            
-            .header.scrolled {
-                padding: 10px 0;
-            }
-            
-            .logo-image {
-                height: 40px;
-            }
-            
-            .header.scrolled .logo-image {
-                height: 36px;
-            }
-            
-            .logo-text {
-                font-size: 26px;
-            }
-            
-            .header.scrolled .logo-text {
-                font-size: 22px;
-            }
-            
-            .terms-content {
-                padding: 100px 15px 30px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            h2 {
-                font-size: 1.4em;
-            }
-            
-            h3 {
-                font-size: 1.2em;
-            }
-            
-            .footer__info {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .footer__contact-email {
-                margin-top: 20px;
-            }
-        }
+    .section ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #222232;
+    }
 
-        @media (max-width: 480px) {
-            .logo-image {
-                height: 32px;
-                margin-right: 10px;
-            }
-            
-            .logo-text {
-                font-size: 22px;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            h2 {
-                font-size: 1.3em;
-            }
-            
-            h3 {
-                font-size: 1.1em;
-            }
-            
-            .terms-content {
-                padding: 90px 15px 30px;
-            }
-        }
-    </style>
+    /* Footer styles */
+    .footer {
+      background-color: #222232;
+      color: #fff;
+      padding: 40px 0;
+      margin-top: 40px;
+    }
+
+    .footer__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer__copyright {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer__contact-email {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .footer__contact-email:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .footer__contact-email:hover:after {
+      width: 100%;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #ccc;
+    }
+
+    .footer-links {
+      margin-top: 15px;
+    }
+
+    .footer-links a {
+      margin-right: 15px;
+      position: relative;
+    }
+
+    .footer-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover:after {
+      width: 100%;
+    }
+
+    .logo-img {
+      height: 85px;
+      width: 90px;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 0;
+      }
+
+      .header.scrolled {
+        padding: 10px 0;
+      }
+
+      .logo-image {
+        height: 40px;
+      }
+
+      .header.scrolled .logo-image {
+        height: 36px;
+      }
+
+      .logo-text {
+        font-size: 26px;
+      }
+
+      .header.scrolled .logo-text {
+        font-size: 22px;
+      }
+
+      .terms-content {
+        padding: 100px 15px 30px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+
+      .footer__info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer__contact-email {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-image {
+        height: 32px;
+        margin-right: 10px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      .terms-content {
+        padding: 90px 15px 30px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" alt="Xperio Logo" class="logo-image">
-                <span class="logo-text">Xperio</span>
-            </a>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img
+          src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+          alt="Xperio Logo" class="logo-image">
+        <span class="logo-text">Xperio</span>
+      </a>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <main class="terms-content">
-        <h1>Xperio Terms of Service</h1>
-        
-        <div class="section">
-            <h2>1. Introduction</h2>
-            <p><strong>Purpose:</strong> Xperio is a peer-to-peer online platform that connects travelers seeking unique, localized experiences with hosts offering them. By accessing or using Xperio's services, both hosts and travelers agree to these Terms of Service.</p>
-            <p><strong>Scope:</strong> These terms govern your use of the platform, including but not limited to booking experiences, communicating with hosts/travelers, and participating in hosted activities.</p>
-        </div>
+  <!-- Main Content -->
+  <main class="terms-content">
+    <h1>Xperio Terms of Service</h1>
 
-        <div class="section">
-            <h2>2. Definitions</h2>
-            <p><strong>"Host":</strong> An individual or group who lists, offers, or provides an experience on the Xperio platform.</p>
-            <p><strong>"Traveler":</strong> A person who books or participates in an experience provided by a host.</p>
-            <p><strong>"Experience":</strong> Any service, activity, or event offered by hosts on Xperio.</p>
-            <p><strong>"Platform":</strong> The Xperio website, mobile app, and other digital services.</p>
-        </div>
+    <div class="section">
+      <h2>1. Introduction</h2>
+      <p><strong>Purpose:</strong> Xperio is a peer-to-peer online platform that connects travelers seeking unique,
+        localized experiences with hosts offering them. By accessing or using Xperio's services, both hosts and
+        travelers agree to these Terms of Service.</p>
+      <p><strong>Scope:</strong> These terms govern your use of the platform, including but not limited to booking
+        experiences, communicating with hosts/travelers, and participating in hosted activities.</p>
+    </div>
 
-        <div class="section">
-            <h2>3. User Eligibility</h2>
-            <p><strong>Age:</strong> You must be at least 18 years old to use Xperio services, or the legal age in your jurisdiction.</p>
-            <p><strong>Account Setup:</strong> To access certain features, users must create an account, provide accurate information, and maintain the security of their account.</p>
-        </div>
+    <div class="section">
+      <h2>2. Definitions</h2>
+      <p><strong>"Host":</strong> An individual or group who lists, offers, or provides an experience on the Xperio
+        platform.</p>
+      <p><strong>"Traveler":</strong> A person who books or participates in an experience provided by a host.</p>
+      <p><strong>"Experience":</strong> Any service, activity, or event offered by hosts on Xperio.</p>
+      <p><strong>"Platform":</strong> The Xperio website, mobile app, and other digital services.</p>
+    </div>
 
-        <div class="section">
-            <h2>4. Responsibilities of Users</h2>
-            <h3>Travelers:</h3>
-            <ul>
-                <li><strong>Booking and Payment:</strong> Travelers must make full payment for any experience through the platform and are bound by the host's cancellation policies.</li>
-                <li><strong>Behavior During Experience:</strong> Travelers must respect the local culture, customs, and any rules set by the host. Any illegal or inappropriate behavior may result in termination of the experience and expulsion from the platform.</li>
-                <li><strong>Risk Acknowledgment:</strong> Travelers acknowledge the potential risks inherent in certain experiences (e.g., adventure activities, wildlife experiences) and agree that Xperio is not liable for any injuries or damages that occur during an experience.</li>
-            </ul>
-            <h3>Hosts:</h3>
-            <ul>
-                <li><strong>Accuracy of Listings:</strong> Hosts must ensure that all experience listings are accurate, clear, and truthful, including any risks or special conditions that may apply.</li>
-                <li><strong>Compliance with Local Laws:</strong> Hosts are responsible for complying with all applicable laws, rules, and regulations regarding their offered experiences.</li>
-                <li><strong>Safety and Well-being:</strong> Hosts are responsible for ensuring the safety and well-being of travelers during the experience, including providing necessary safety equipment and instructions where relevant.</li>
-            </ul>
-        </div>
+    <div class="section">
+      <h2>3. User Eligibility</h2>
+      <p><strong>Age:</strong> You must be at least 18 years old to use Xperio services, or the legal age in your
+        jurisdiction.</p>
+      <p><strong>Account Setup:</strong> To access certain features, users must create an account, provide accurate
+        information, and maintain the security of their account.</p>
+    </div>
 
-        <div class="section">
-            <h2>5. Xperio as an Intermediary</h2>
-            <p><strong>Platform Role:</strong> Xperio acts solely as an intermediary to connect travelers with hosts. The platform does not control, operate, or supervise any experience and is not responsible for the actions of either party.</p>
-            <p><strong>Liability Limitation:</strong> Xperio is not liable for any loss, injury, or damage incurred during the experience, including but not limited to physical injuries, property damage, or emotional distress.</p>
-        </div>
+    <div class="section">
+      <h2>4. Responsibilities of Users</h2>
+      <h3>Travelers:</h3>
+      <ul>
+        <li><strong>Booking and Payment:</strong> Travelers must make full payment for any experience through the
+          platform and are bound by the host's cancellation policies.</li>
+        <li><strong>Behavior During Experience:</strong> Travelers must respect the local culture, customs, and any
+          rules set by the host. Any illegal or inappropriate behavior may result in termination of the experience and
+          expulsion from the platform.</li>
+        <li><strong>Risk Acknowledgment:</strong> Travelers acknowledge the potential risks inherent in certain
+          experiences (e.g., adventure activities, wildlife experiences) and agree that Xperio is not liable for any
+          injuries or damages that occur during an experience.</li>
+      </ul>
+      <h3>Hosts:</h3>
+      <ul>
+        <li><strong>Accuracy of Listings:</strong> Hosts must ensure that all experience listings are accurate, clear,
+          and truthful, including any risks or special conditions that may apply.</li>
+        <li><strong>Compliance with Local Laws:</strong> Hosts are responsible for complying with all applicable laws,
+          rules, and regulations regarding their offered experiences.</li>
+        <li><strong>Safety and Well-being:</strong> Hosts are responsible for ensuring the safety and well-being of
+          travelers during the experience, including providing necessary safety equipment and instructions where
+          relevant.</li>
+      </ul>
+    </div>
 
-        <div class="section">
-            <h2>6. Booking and Payment Policies</h2>
-            <p><strong>Payment Terms:</strong> Travelers must pay the full experience fee at the time of booking. Xperio processes payments on behalf of the host and takes a service fee.</p>
-            <p><strong>Host Payouts:</strong> Hosts will receive payment after the successful completion of the experience, minus the platform's commission.</p>
-            <p><strong>Refunds and Cancellations:</strong> Travelers may cancel a booking subject to the host's cancellation policy. Any refunds will be processed based on the timeline outlined by the host's policy. Xperio will not be liable for cancellations by hosts or travelers.</p>
-        </div>
+    <div class="section">
+      <h2>5. Xperio as an Intermediary</h2>
+      <p><strong>Platform Role:</strong> Xperio acts solely as an intermediary to connect travelers with hosts. The
+        platform does not control, operate, or supervise any experience and is not responsible for the actions of either
+        party.</p>
+      <p><strong>Liability Limitation:</strong> Xperio is not liable for any loss, injury, or damage incurred during the
+        experience, including but not limited to physical injuries, property damage, or emotional distress.</p>
+    </div>
 
-        <div class="section">
-            <h2>7. Insurance and Safety</h2>
-            <p><strong>Host Liability:</strong> Hosts are strongly encouraged to obtain insurance that covers their liability for hosting experiences. Xperio does not provide insurance for hosts or travelers.</p>
-            <p><strong>Traveler Responsibility:</strong> Travelers are responsible for obtaining their own travel or medical insurance to cover any unforeseen circumstances during their participation in an experience.</p>
-            <p><strong>Safety Measures:</strong> Both travelers and hosts must adhere to all safety guidelines and protocols during the experience. Hosts must disclose any risks or hazards involved in the experience and ensure proper safety precautions are taken.</p>
-        </div>
+    <div class="section">
+      <h2>6. Booking and Payment Policies</h2>
+      <p><strong>Payment Terms:</strong> Travelers must pay the full experience fee at the time of booking. Xperio
+        processes payments on behalf of the host and takes a service fee.</p>
+      <p><strong>Host Payouts:</strong> Hosts will receive payment after the successful completion of the experience,
+        minus the platform's commission.</p>
+      <p><strong>Refunds and Cancellations:</strong> Travelers may cancel a booking subject to the host's cancellation
+        policy. Any refunds will be processed based on the timeline outlined by the host's policy. Xperio will not be
+        liable for cancellations by hosts or travelers.</p>
+    </div>
 
-        <div class="section">
-            <h2>8. Reviews and Ratings</h2>
-            <p><strong>Mutual Reviews:</strong> After completing an experience, both hosts and travelers can leave reviews. These reviews must be honest and free from defamatory or offensive content. Xperio reserves the right to remove any inappropriate reviews.</p>
-            <p><strong>Impact on Future Participation:</strong> Reviews help maintain trust on the platform. Poor reviews may affect the host or traveler's ability to participate in future bookings.</p>
-        </div>
+    <div class="section">
+      <h2>7. Insurance and Safety</h2>
+      <p><strong>Host Liability:</strong> Hosts are strongly encouraged to obtain insurance that covers their liability
+        for hosting experiences. Xperio does not provide insurance for hosts or travelers.</p>
+      <p><strong>Traveler Responsibility:</strong> Travelers are responsible for obtaining their own travel or medical
+        insurance to cover any unforeseen circumstances during their participation in an experience.</p>
+      <p><strong>Safety Measures:</strong> Both travelers and hosts must adhere to all safety guidelines and protocols
+        during the experience. Hosts must disclose any risks or hazards involved in the experience and ensure proper
+        safety precautions are taken.</p>
+    </div>
 
-        <div class="section">
-            <h2>9. Dispute Resolution and Arbitration</h2>
-            <p><strong>Disputes between Users:</strong> Any disputes between hosts and travelers should first be attempted to resolve amicably through the platform's messaging or support system.</p>
-            <p><strong>Arbitration Clause:</strong> In case of unresolved disputes, users agree to submit to binding arbitration, waiving the right to a court trial. This applies to all claims arising out of or relating to these Terms or the use of the platform.</p>
-        </div>
+    <div class="section">
+      <h2>8. Reviews and Ratings</h2>
+      <p><strong>Mutual Reviews:</strong> After completing an experience, both hosts and travelers can leave reviews.
+        These reviews must be honest and free from defamatory or offensive content. Xperio reserves the right to remove
+        any inappropriate reviews.</p>
+      <p><strong>Impact on Future Participation:</strong> Reviews help maintain trust on the platform. Poor reviews may
+        affect the host or traveler's ability to participate in future bookings.</p>
+    </div>
 
-        <div class="section">
-            <h2>10. Intellectual Property Rights</h2>
-            <p><strong>Ownership:</strong> Xperio owns all rights to the platform and its services. Users are granted a limited, non-exclusive license to use the platform for the purpose of participating in experiences.</p>
-            <p><strong>User Content:</strong> Any content submitted by users (e.g., reviews, photos) may be used by Xperio for promotional purposes.</p>
-        </div>
+    <div class="section">
+      <h2>9. Dispute Resolution and Arbitration</h2>
+      <p><strong>Disputes between Users:</strong> Any disputes between hosts and travelers should first be attempted to
+        resolve amicably through the platform's messaging or support system.</p>
+      <p><strong>Arbitration Clause:</strong> In case of unresolved disputes, users agree to submit to binding
+        arbitration, waiving the right to a court trial. This applies to all claims arising out of or relating to these
+        Terms or the use of the platform.</p>
+    </div>
 
-        <div class="section">
-            <h2>11. Termination</h2>
-            <p><strong>By Xperio:</strong> Xperio reserves the right to suspend or terminate the accounts of users who violate these Terms or engage in inappropriate behavior.</p>
-            <p><strong>By Users:</strong> Users may delete their account at any time, but certain obligations (e.g., ongoing bookings) must be honored before account closure.</p>
-        </div>
+    <div class="section">
+      <h2>10. Intellectual Property Rights</h2>
+      <p><strong>Ownership:</strong> Xperio owns all rights to the platform and its services. Users are granted a
+        limited, non-exclusive license to use the platform for the purpose of participating in experiences.</p>
+      <p><strong>User Content:</strong> Any content submitted by users (e.g., reviews, photos) may be used by Xperio for
+        promotional purposes.</p>
+    </div>
 
-        <div class="section">
-            <h2>12. Data Privacy</h2>
-            <p><strong>Collection of Personal Data:</strong> Xperio collects personal data in accordance with its Privacy Policy. By using the platform, users agree to the collection and use of their data as outlined.</p>
-            <p><strong>Third-Party Sharing:</strong> Personal data may be shared with third parties only when necessary to facilitate the booking or experience.</p>
-        </div>
+    <div class="section">
+      <h2>11. Termination</h2>
+      <p><strong>By Xperio:</strong> Xperio reserves the right to suspend or terminate the accounts of users who violate
+        these Terms or engage in inappropriate behavior.</p>
+      <p><strong>By Users:</strong> Users may delete their account at any time, but certain obligations (e.g., ongoing
+        bookings) must be honored before account closure.</p>
+    </div>
 
-        <div class="section">
-            <h2>13. Modifications to the Terms</h2>
-            <p>Xperio may modify these Terms from time to time. Users will be notified of any major changes and continued use of the platform will constitute acceptance of the updated Terms.</p>
-        </div>
-    </main>
+    <div class="section">
+      <h2>12. Data Privacy</h2>
+      <p><strong>Collection of Personal Data:</strong> Xperio collects personal data in accordance with its Privacy
+        Policy. By using the platform, users agree to the collection and use of their data as outlined.</p>
+      <p><strong>Third-Party Sharing:</strong> Personal data may be shared with third parties only when necessary to
+        facilitate the booking or experience.</p>
+    </div>
 
-    <footer
+    <div class="section">
+      <h2>13. Modifications to the Terms</h2>
+      <p>Xperio may modify these Terms from time to time. Users will be notified of any major changes and continued use
+        of the platform will constitute acceptance of the updated Terms.</p>
+    </div>
+  </main>
+
+  <footer
     style="background-color: #1a1a1a; color: #d9d9d9; padding: 60px 20px 40px; width: 100%; box-sizing: border-box;">
     <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
       <!-- Top Section with Logo and Slogan -->
@@ -570,18 +626,19 @@
     </div>
   </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.querySelector('.header');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        });
-    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.querySelector('.header');
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>

@@ -1,423 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refund Policy | Xperio Travel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund Policy | Xperio Travel</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        h1, h2, h3 {
-            color: #333;
-            margin: 20px 0;
-        }
+    p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
 
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5em;
-            font-weight: 600;
-            color: #222232;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        h2 {
-            font-size: 1.6em;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #222232;
-            margin-top: 30px;
-        }
-        
-        h3 {
-            font-size: 1.3em;
-            color: #222232;
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-        
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        ul li, ol li {
-            color: #666;
-            margin-bottom: 8px;
-            position: relative;
-        }
-        
-        strong {
-            color: #222232;
-        }
+    h1,
+    h2,
+    h3 {
+      color: #333;
+      margin: 20px 0;
+    }
 
-        /* Container */
-        .container {
-            width: 100%;
-            max-width: 95%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5em;
+      font-weight: 600;
+      color: #222232;
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-        /* Header Styles */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 100;
-            transition: all 0.4s ease;
-            background-color: #222232;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .header.scrolled {
-            background-color: #222232;
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+    h2 {
+      font-size: 1.6em;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #222232;
+      margin-top: 30px;
+    }
 
-        .header .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    h3 {
+      font-size: 1.3em;
+      color: #222232;
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+    ul,
+    ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
 
-        .logo-image {
-            height: 48px;
-            margin-right: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .header.scrolled .logo-image {
-            height: 42px;
-        }
+    ul li,
+    ol li {
+      color: #666;
+      margin-bottom: 8px;
+      position: relative;
+    }
 
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            color: #fff;
-            font-weight: 600;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-        
-        .header.scrolled .logo-text {
-            font-size: 28px;
-        }
+    strong {
+      color: #222232;
+    }
 
-        /* Content Styles */
-        .terms-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 130px 20px 40px;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-        }
-        
-        .section ul {
-            list-style-type: none;
-            margin-left: 10px;
-        }
-        
-        .section ul li {
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .section ul li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #222232;
-        }
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 95%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* Footer styles */
-        .footer {
-            background-color: #222232;
-            color: #fff;
-            padding: 40px 0;
-            margin-top: 40px;
-        }
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 100;
+      transition: all 0.4s ease;
+      background-color: #222232;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .footer__info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+    .header.scrolled {
+      background-color: #222232;
+      padding: 15px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .footer__copyright {
-            flex: 1;
-            min-width: 280px;
-        }
+    .header .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .footer__contact-email {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 8px 0;
-            position: relative;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
-        .footer__contact-email:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
+    .logo-image {
+      height: 48px;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
 
-        .footer__contact-email:hover:after {
-            width: 100%;
-        }
+    .header.scrolled .logo-image {
+      height: 42px;
+    }
 
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+    }
 
-        .footer a:hover {
-            color: #ccc;
-        }
+    .header.scrolled .logo-text {
+      font-size: 28px;
+    }
 
-        .footer-links {
-            margin-top: 15px;
-        }
+    /* Content Styles */
+    .terms-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 130px 20px 40px;
+    }
 
-        .footer-links a {
-            margin-right: 15px;
-            position: relative;
-        }
+    .section {
+      margin-bottom: 30px;
+    }
 
-        .footer-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
+    .section ul {
+      list-style-type: none;
+      margin-left: 10px;
+    }
 
-        .footer-links a:hover:after {
-            width: 100%;
-        }
+    .section ul li {
+      padding-left: 20px;
+      position: relative;
+    }
 
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            .header {
-                padding: 15px 0;
-            }
-            
-            .header.scrolled {
-                padding: 10px 0;
-            }
-            
-            .logo-image {
-                height: 40px;
-            }
-            
-            .header.scrolled .logo-image {
-                height: 36px;
-            }
-            
-            .logo-text {
-                font-size: 26px;
-            }
-            
-            .header.scrolled .logo-text {
-                font-size: 22px;
-            }
-            
-            .terms-content {
-                padding: 100px 15px 30px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            h2 {
-                font-size: 1.4em;
-            }
-            
-            h3 {
-                font-size: 1.2em;
-            }
-            
-            .footer__info {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .footer__contact-email {
-                margin-top: 20px;
-            }
-        }
+    .section ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #222232;
+    }
 
-        @media (max-width: 480px) {
-            .logo-image {
-                height: 32px;
-                margin-right: 10px;
-            }
-            
-            .logo-text {
-                font-size: 22px;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            h2 {
-                font-size: 1.3em;
-            }
-            
-            h3 {
-                font-size: 1.1em;
-            }
-            
-            .terms-content {
-                padding: 90px 15px 30px;
-            }
-        }
+    /* Footer styles */
+    .footer {
+      background-color: #222232;
+      color: #fff;
+      padding: 40px 0;
+      margin-top: 40px;
+    }
 
-        /* Additional styles for policy sections */
-        .policy-section {
-            margin-bottom: 25px;
-        }
+    .footer__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-        .policy-section h2 {
-            font-size: 1.4em;
-            color: #222232;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #222232;
-        }
+    .footer__copyright {
+      flex: 1;
+      min-width: 280px;
+    }
 
-        .last-updated {
-            font-style: italic;
-            color: #888;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-    </style>
+    .footer__contact-email {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .footer__contact-email:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .footer__contact-email:hover:after {
+      width: 100%;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #ccc;
+    }
+
+    .footer-links {
+      margin-top: 15px;
+    }
+
+    .footer-links a {
+      margin-right: 15px;
+      position: relative;
+    }
+
+    .footer-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover:after {
+      width: 100%;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 0;
+      }
+
+      .header.scrolled {
+        padding: 10px 0;
+      }
+
+      .logo-image {
+        height: 40px;
+      }
+
+      .header.scrolled .logo-image {
+        height: 36px;
+      }
+
+      .logo-text {
+        font-size: 26px;
+      }
+
+      .header.scrolled .logo-text {
+        font-size: 22px;
+      }
+
+      .terms-content {
+        padding: 100px 15px 30px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+
+      .footer__info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer__contact-email {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-image {
+        height: 32px;
+        margin-right: 10px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      .terms-content {
+        padding: 90px 15px 30px;
+      }
+    }
+
+    /* Additional styles for policy sections */
+    .policy-section {
+      margin-bottom: 25px;
+    }
+
+    .policy-section h2 {
+      font-size: 1.4em;
+      color: #222232;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #222232;
+    }
+
+    .last-updated {
+      font-style: italic;
+      color: #888;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-img {
+      height: 85px;
+      width: 90px;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" alt="Xperio Travel Logo" class="logo-image">
-                <span class="logo-text">Xperio</span>
-            </a>
-        </div>
-    </header>
 
-    <div class="terms-content">
-        <h1>Xperio Refund Policy</h1>        
-        <div class="policy-section">
-            <h2>1. Introduction</h2>
-            <p>At Xperio, we strive to provide authentic and immersive travel experiences. We understand that plans may change, and we have established a fair refund policy to accommodate both travelers and hosts.</p>
-        </div>
-        
-        <div class="policy-section">
-            <h2>2. Cancellation by Travelers</h2>
-            <ul>
-                <li>If a traveler cancels a booking:
-                    <ul>
-                        <li>Refunds will be processed as per the cancellation policy defined by the host for each experience.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="policy-section">
-            <h2>3. Cancellation by Hosts</h2>
-            <ul>
-                <li>If a host cancels a booking, travelers will receive a full refund, including any processing fees.</li>
-                <li>Repeated cancellations by a host may lead to suspension or removal from the platform.</li>
-            </ul>
-        </div>
-        
-        <div class="policy-section">
-            <h2>4. No-Show Policy</h2>
-            <ul>
-                <li>If a traveler does not show up for the experience, no refund will be issued.</li>
-                <li>If a host is unavailable at the scheduled time, travelers will receive a full refund.</li>
-            </ul>
-        </div>
-        
-        <div class="policy-section">
-            <h2>5. Weather-Related Cancellations</h2>
-            <ul>
-                <li>If an experience is canceled due to extreme weather conditions or unforeseen circumstances, travelers will receive a full refund or the option to reschedule.</li>
-            </ul>
-        </div>
-        
-        <div class="policy-section">
-            <h2>6. Exceptional Circumstances</h2>
-            <ul>
-                <li>In case of emergencies, illness, or other exceptional situations, travelers may request a refund with proper documentation. Xperio reserves the right to evaluate such requests on a case-by-case basis.</li>
-            </ul>
-        </div>
-        
-        <div class="policy-section">
-            <h2>7. Refund Processing</h2>
-            <ul>
-                <li>Approved refunds will be processed within 5-10 business days.</li>
-                <li>Refunds will be credited to the original payment method used for the booking.</li>
-            </ul>
-        </div>
-        
-        <div class="policy-section">
-            <h2>8. Contact Us</h2>
-            <p>For any refund inquiries, please contact our support team at <a href="mailto:support@xperio.travel">support@xperio.travel</a>.</p>
-            <p>By using Xperio, travelers and hosts agree to this refund policy. Xperio reserves the right to modify this policy at any time.</p>
-        </div>
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img
+          src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+          alt="Xperio Travel Logo" class="logo-image">
+        <span class="logo-text">Xperio</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="terms-content">
+    <h1>Xperio Refund Policy</h1>
+    <div class="policy-section">
+      <h2>1. Introduction</h2>
+      <p>At Xperio, we strive to provide authentic and immersive travel experiences. We understand that plans may
+        change, and we have established a fair refund policy to accommodate both travelers and hosts.</p>
     </div>
 
-    <footer
+    <div class="policy-section">
+      <h2>2. Cancellation by Travelers</h2>
+      <ul>
+        <li>If a traveler cancels a booking:
+          <ul>
+            <li>Refunds will be processed as per the cancellation policy defined by the host for each experience.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>3. Cancellation by Hosts</h2>
+      <ul>
+        <li>If a host cancels a booking, travelers will receive a full refund, including any processing fees.</li>
+        <li>Repeated cancellations by a host may lead to suspension or removal from the platform.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>4. No-Show Policy</h2>
+      <ul>
+        <li>If a traveler does not show up for the experience, no refund will be issued.</li>
+        <li>If a host is unavailable at the scheduled time, travelers will receive a full refund.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>5. Weather-Related Cancellations</h2>
+      <ul>
+        <li>If an experience is canceled due to extreme weather conditions or unforeseen circumstances, travelers will
+          receive a full refund or the option to reschedule.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>6. Exceptional Circumstances</h2>
+      <ul>
+        <li>In case of emergencies, illness, or other exceptional situations, travelers may request a refund with proper
+          documentation. Xperio reserves the right to evaluate such requests on a case-by-case basis.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>7. Refund Processing</h2>
+      <ul>
+        <li>Approved refunds will be processed within 5-10 business days.</li>
+        <li>Refunds will be credited to the original payment method used for the booking.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>8. Contact Us</h2>
+      <p>For any refund inquiries, please contact our support team at <a
+          href="mailto:support@xperio.travel">support@xperio.travel</a>.</p>
+      <p>By using Xperio, travelers and hosts agree to this refund policy. Xperio reserves the right to modify this
+        policy at any time.</p>
+    </div>
+  </div>
+
+  <footer
     style="background-color: #1a1a1a; color: #d9d9d9; padding: 60px 20px 40px; width: 100%; box-sizing: border-box;">
     <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
       <!-- Top Section with Logo and Slogan -->
@@ -555,16 +577,17 @@
       </div>
     </div>
   </footer>
-    <script>
-        // Script for header scrolling effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
+  <script>
+    // Script for header scrolling effect
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
+
 </html>

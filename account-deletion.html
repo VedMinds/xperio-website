@@ -1,349 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Deletion - Xperio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png">
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Deletion - Xperio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-icon"
+    href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        h1, h2 {
-            color: #333;
-            margin: 20px 0;
-        }
+    p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
 
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5em;
-            font-weight: 600;
-            color: #222232;
-        }
-        
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        ul li, ol li {
-            color: #666;
-            margin-bottom: 8px;
-        }
+    h1,
+    h2 {
+      color: #333;
+      margin: 20px 0;
+    }
 
-        /* Container */
-        .container {
-            width: 100%;
-            max-width: 95%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5em;
+      font-weight: 600;
+      color: #222232;
+    }
 
-        /* Header Styles */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 100;
-            transition: all 0.4s ease;
-            background-color: #222232;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .header.scrolled {
-            background-color: #222232;
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+    ul,
+    ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
 
-        .header .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    ul li,
+    ol li {
+      color: #666;
+      margin-bottom: 8px;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 95%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        .logo-image {
-            height: 48px;
-            margin-right: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .header.scrolled .logo-image {
-            height: 42px;
-        }
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 100;
+      transition: all 0.4s ease;
+      background-color: #222232;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            color: #fff;
-            font-weight: 600;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-        
-        .header.scrolled .logo-text {
-            font-size: 28px;
-        }
+    .header.scrolled {
+      background-color: #222232;
+      padding: 15px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        /* Content Styles */
-        .deletion-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 130px 20px 40px;
-        }
-        
-        .deletion-content h1 {
-            margin-bottom: 30px;
-        }
-        
-        .deletion-content h2 {
-            margin-top: 30px;
-            font-size: 1.6em;
-            color: #333;
-        }
+    .header .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        /* Footer styles */
-        .footer {
-            background-color: #222232;
-            color: #fff;
-            padding: 40px 0;
-            margin-top: 40px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
-        .footer__info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+    .logo-image {
+      height: 48px;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
 
-        .footer__copyright {
-            flex: 1;
-            min-width: 280px;
-        }
+    .header.scrolled .logo-image {
+      height: 42px;
+    }
 
-        .footer__contact-email {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 8px 0;
-            position: relative;
-        }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+    }
 
-        .footer__contact-email:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
+    .header.scrolled .logo-text {
+      font-size: 28px;
+    }
 
-        .footer__contact-email:hover:after {
-            width: 100%;
-        }
+    /* Content Styles */
+    .deletion-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 130px 20px 40px;
+    }
 
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+    .deletion-content h1 {
+      margin-bottom: 30px;
+    }
 
-        .footer a:hover {
-            color: #ccc;
-        }
+    .deletion-content h2 {
+      margin-top: 30px;
+      font-size: 1.6em;
+      color: #333;
+    }
 
-        .footer-links {
-            margin-top: 15px;
-        }
+    /* Footer styles */
+    .footer {
+      background-color: #222232;
+      color: #fff;
+      padding: 40px 0;
+      margin-top: 40px;
+    }
 
-        .footer-links a {
-            margin-right: 15px;
-            position: relative;
-        }
+    .footer__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-        .footer-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
+    .footer__copyright {
+      flex: 1;
+      min-width: 280px;
+    }
 
-        .footer-links a:hover:after {
-            width: 100%;
-        }
+    .footer__contact-email {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      padding: 8px 0;
+      position: relative;
+    }
 
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            .header {
-                padding: 15px 0;
-            }
-            
-            .header.scrolled {
-                padding: 10px 0;
-            }
-            
-            .logo-image {
-                height: 40px;
-            }
-            
-            .header.scrolled .logo-image {
-                height: 36px;
-            }
-            
-            .logo-text {
-                font-size: 26px;
-            }
-            
-            .header.scrolled .logo-text {
-                font-size: 22px;
-            }
-            
-            .deletion-content {
-                padding: 100px 15px 30px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            h2 {
-                font-size: 1.4em;
-            }
-            
-            .footer__info {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .footer__contact-email {
-                margin-top: 20px;
-            }
-        }
+    .footer__contact-email:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
 
-        @media (max-width: 480px) {
-            .logo-image {
-                height: 32px;
-                margin-right: 10px;
-            }
-            
-            .logo-text {
-                font-size: 22px;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            h2 {
-                font-size: 1.3em;
-            }
-            
-            .deletion-content {
-                padding: 90px 15px 30px;
-            }
-        }
-    </style>
+    .footer__contact-email:hover:after {
+      width: 100%;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #ccc;
+    }
+
+    .footer-links {
+      margin-top: 15px;
+    }
+
+    .footer-links a {
+      margin-right: 15px;
+      position: relative;
+    }
+
+    .footer-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover:after {
+      width: 100%;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 0;
+      }
+
+      .header.scrolled {
+        padding: 10px 0;
+      }
+
+      .logo-image {
+        height: 40px;
+      }
+
+      .header.scrolled .logo-image {
+        height: 36px;
+      }
+
+      .logo-text {
+        font-size: 26px;
+      }
+
+      .header.scrolled .logo-text {
+        font-size: 22px;
+      }
+
+      .deletion-content {
+        padding: 100px 15px 30px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      .footer__info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer__contact-email {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-image {
+        height: 32px;
+        margin-right: 10px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      .deletion-content {
+        padding: 90px 15px 30px;
+      }
+    }
+
+    .logo-img {
+      height: 85px;
+      width: 90px;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
+
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" alt="Xperio Logo" class="logo-image">
-                <span class="logo-text">Xperio</span>
-            </a>
-        </div>
-    </header>
-
-    <div class="deletion-content">
-        <h1>Account Deletion</h1>
-
-        <h2>Overview</h2>
-        <p>
-            At Xperio, we respect your right to control your data. This page
-            explains how to delete your account and associated information from our
-            platform.
-        </p>
-
-        <h2>What Gets Deleted</h2>
-        <p>Account deletion will permanently remove:</p>
-        <ul>
-            <li>Your profile information</li>
-            <li>Booking history</li>
-            <li>Saved preferences</li>
-            <li>Reviews and ratings</li>
-        </ul>
-
-        <h2>Deletion Process</h2>
-        <ol>
-            <li>
-                Send an account deletion request to info@xperio.travel from your
-                registered email address
-            </li>
-            <li>
-                Include your full name and registered phone number for verification
-            </li>
-            <li>We'll verify your identity and send a confirmation email</li>
-            <li>Your account will be deleted within 48 hours of confirmation</li>
-        </ol>
-
-        <h2>Important Notes</h2>
-        <ul>
-            <li>Account deletion is permanent and cannot be undone</li>
-            <li>
-                Any active bookings must be completed or cancelled before deletion
-            </li>
-            <li>Certain information may be retained for legal compliance</li>
-        </ul>
-
-        <h2>Need Help?</h2>
-        <p>
-            If you have questions about account deletion, please contact us at
-            info@xperio.travel
-        </p>
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img
+          src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+          alt="Xperio Logo" class="logo-image">
+        <span class="logo-text">Xperio</span>
+      </a>
     </div>
+  </header>
 
-    <footer
+  <div class="deletion-content">
+    <h1>Account Deletion</h1>
+
+    <h2>Overview</h2>
+    <p>
+      At Xperio, we respect your right to control your data. This page
+      explains how to delete your account and associated information from our
+      platform.
+    </p>
+
+    <h2>What Gets Deleted</h2>
+    <p>Account deletion will permanently remove:</p>
+    <ul>
+      <li>Your profile information</li>
+      <li>Booking history</li>
+      <li>Saved preferences</li>
+      <li>Reviews and ratings</li>
+    </ul>
+
+    <h2>Deletion Process</h2>
+    <ol>
+      <li>
+        Send an account deletion request to info@xperio.travel from your
+        registered email address
+      </li>
+      <li>
+        Include your full name and registered phone number for verification
+      </li>
+      <li>We'll verify your identity and send a confirmation email</li>
+      <li>Your account will be deleted within 48 hours of confirmation</li>
+    </ol>
+
+    <h2>Important Notes</h2>
+    <ul>
+      <li>Account deletion is permanent and cannot be undone</li>
+      <li>
+        Any active bookings must be completed or cancelled before deletion
+      </li>
+      <li>Certain information may be retained for legal compliance</li>
+    </ul>
+
+    <h2>Need Help?</h2>
+    <p>
+      If you have questions about account deletion, please contact us at
+      info@xperio.travel
+    </p>
+  </div>
+
+  <footer
     style="background-color: #1a1a1a; color: #d9d9d9; padding: 60px 20px 40px; width: 100%; box-sizing: border-box;">
     <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
       <!-- Top Section with Logo and Slogan -->
@@ -478,16 +495,17 @@
     </div>
   </footer>
 
-    <script>
-        // Add scrolled class to header on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
+  <script>
+    // Add scrolled class to header on scroll
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
+
 </html>
