@@ -2386,48 +2386,172 @@
     }
 
     .why-choose-us-section {
-      padding: 60px 0px;
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0;
+    }
+
+    .decorative-shape {
+      position: absolute;
+      width: 200px;
+      height: 180px;
+      border-radius: 50%;
+      background-color: rgba(255, 56, 92, 0.05);
+      top: -100px;
+      left: -100px;
+      z-index: 1;
+    }
+
+    .decorative-shape-2 {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: rgba(33, 150, 243, 0.05);
+      bottom: -75px;
+      left: 10%;
+      z-index: 1;
+    }
+
+    .why-choose-us-container {
+      max-width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .why-choose-us-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeInUp 1.2s forwards;
+    }
+
+    .why-choose-us-image {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .why-choose-us-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .subtitle {
+      display: inline-block;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      color: #666;
+      font-weight: 600;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #222232;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      color: #666;
+    }
+
+    .benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .benefit-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #222232;
+      color: white;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .explore-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #222232;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: all 0.3s ease;
+      border-radius: 30px;
+      font-weight: 500;
+      border: 2px solid #222232;
+      align-self: flex-start;
+    }
+
+    /* Hover Effects */
+    .why-choose-us-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .explore-btn:hover {
+      background-color: #fff;
+      color: #222232;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .benefit:hover .benefit-icon {
+      background-color: #ff385c;
+      transform: scale(1.1);
     }
 
     /* Responsive Design */
     @media (max-width: 992px) {
       .why-choose-us-container {
         flex-direction: column-reverse;
-        gap: 40px;
+        gap: 30px;
       }
 
-      .why-choose-us-image,
-      .why-choose-us-content {
+      .why-choose-us-content,
+      .why-choose-us-image {
         width: 100%;
       }
     }
 
     @media (max-width: 768px) {
       .why-choose-us-section {
-        padding: 60px 20px;
-      }
-
-      .title {
-        font-size: 32px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-
-      .subtitle {
-        font-size: 13px;
-        letter-spacing: 2px;
-      }
-
-      .explore-btn {
-        padding: 12px 28px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .why-choose-us-section {
-        padding: 40px 10px;
+        padding: 40px 20px;
       }
 
       .title {
@@ -2445,41 +2569,40 @@
 
       .explore-btn {
         padding: 10px 24px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .why-choose-us-section {
+        padding: 30px 15px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .description {
         font-size: 14px;
+      }
+
+      .explore-btn {
         width: 100%;
         text-align: center;
       }
     }
 
-    /* Touch device optimizations */
-    @media (hover: none) {
-      .explore-btn:hover {
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
         transform: translateY(0);
       }
-
-      .explore-btn:active {
-        transform: scale(0.98);
-      }
-    }
-
-    .why-choose-us-image:hover img {
-      transform: scale(1.05);
-    }
-
-    .why-choose-us-image:hover .image-overlay {
-      opacity: 1;
-    }
-
-    .benefit:hover .benefit-icon {
-      background-color: #ff385c;
-      transform: scale(1.1);
-    }
-
-    .explore-btn:hover {
-      background-color: #fff;
-      color: #222232;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
     /* WHY TO CHOOSE US SECTION END::: */
@@ -2811,7 +2934,7 @@
     /* About Us Section Styling based on Contact Us styles */
     .about__wrapper {
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 0px 20px;
       display: flex;
       flex-wrap: wrap;
       position: relative;
@@ -2851,18 +2974,13 @@
       position: relative;
       overflow: hidden;
       align-self: flex-start;
-      /* Keep image at the top */
-      height: auto;
-      /* Auto height */
     }
 
     .about__image img {
       width: 100%;
-      height: 100%;
+      height: 500px;
       object-fit: cover;
       display: block;
-      min-height: 450px;
-      /* Minimum height for the image */
     }
 
     /* Content section */
@@ -3004,6 +3122,7 @@
     /* Responsive Design */
     @media (max-width: 768px) {
       .about__wrapper {
+        padding-top: 20px;
         flex-direction: column;
       }
 
@@ -3017,6 +3136,7 @@
       }
 
       .about__image img {
+        height: 250px;
         min-height: 250px;
       }
 
@@ -3334,6 +3454,11 @@
         font-size: 11px;
         padding: 2px 6px 2px 8px;
       }
+
+      .host-details-title {
+        font-size: 25px;
+        line-height: 1.2;
+      }
     }
 
     @media (max-width: 480px) {
@@ -3357,6 +3482,12 @@
       .host-details-name {
         font-size: 15px;
       }
+
+      .host-details-title {
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
     }
 
     @keyframes fadeInUp {
@@ -3364,6 +3495,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -4032,7 +4164,7 @@
 
   <div id="xp-experience-section" class="xp-section-container">
     <div class="xp-section-header">
-      <h2 class="xp-section-title" style="margin-top: 50px;">Top-Rated Experiences</h2>
+      <h2 class="xperio-section-title" style="margin-top: 50px;">Top-Rated Experiences</h2>
       <p class="xp-section-subtitle">Discover unforgettable adventures curated by local experts</p>
     </div>
 
@@ -4065,7 +4197,7 @@
       <!-- Left side information container -->
       <div class="info-container">
         <div class="info-content">
-          <h1>NATURE ESCAPES</h1>
+          <h2 class="host-details-title">NATURE ESCAPES</h2>
           <span class="category-label">Find Your Next Adventure</span>
           <p class="description">
             Dive into a world of possibilities. Whether you're seeking tranquility, excitement, or cultural immersion,
@@ -4368,6 +4500,9 @@
   <!-- Find Experiences SECTION end ::::  -->
 
   <!-- Discover the Beauty of Uttara Kannada! section start -->
+  <section class="xperio-experience-container fade-in">
+    <h2 class="host-details-title" style="margin-left: 20px;">Travel Destination</h2>
+  </section>
   <div class="promo-section" style="animation: fadeInUp 1.2s forwards;">
     <div class="promo-image">
       <img
@@ -4377,7 +4512,6 @@
     </div>
 
     <div class="promo-content">
-      <span class="promo-category">Travel Destination</span>
       <span class="promo-heading">Discover the Beauty of Uttara Kannada</span>
       <p class="promo-text">
         Embark on an extraordinary journey through the captivating landscapes of Uttara Kannada.
@@ -4413,7 +4547,8 @@
     <div class="host-details-header">
       <h2 class="host-details-title">Meet Your Local Hosts</h2>
     </div>
-    <span class="category-label">Meet the real storytellers —local hosts who welcome you as a guest and bring their land, culture, and traditions to life through unforgettable experiences.</span>
+    <span class="category-label">Meet the real storytellers —local hosts who welcome you as a guest and bring their
+      land, culture, and traditions to life through unforgettable experiences.</span>
 
     <div class="host-details-carousel-wrapper">
       <div class="host-details-carousel" id="hostDetailsCarousel">
@@ -4458,202 +4593,45 @@
 
 
   <!-- WHY TO CHOOSE US SECTION ::: START -->
-  <section class="why-choose-us-section" style="
-background-color: #fff;
-position: relative;
-overflow: hidden;
-">
-    <div class="decorative-shape" style="
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: rgba(255, 56, 92, 0.05);
-  top: -100px;
-  left: -100px;
-  z-index: 1;
-"></div>
+  <section class="why-choose-us-section">
+    <div class="decorative-shape"></div>
+    <div class="decorative-shape-2"></div>
 
-    <div class="decorative-shape-2" style="
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: rgba(33, 150, 243, 0.05);
-  bottom: -75px;
-  left: 10%;
-  z-index: 1;
-"></div>
+    <div class="why-choose-us-container">
+      <div class="why-choose-us-content">
+        <span class="subtitle">Why Choose Us</span>
+        <h2 class="title">Elevate Your Travel Experience</h2>
+        <p class="description">Enjoy authentic, secure, and exclusive experiences with every booking. Our platform
+          connects you with verified local hosts who provide unforgettable adventures.</p>
 
-    <div class="why-choose-us-container" style="
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  position: relative;
-  z-index: 2;
-">
-      <div class="why-choose-us-content" style="
-    flex: 1;
-    padding: 10px 0;
-    position: relative;
-    transform: translateY(0);
-    opacity: 1;
-    animation: fadeInUp 1.2s forwards;
-  ">
-        <span class="subtitle" style="
-      display: inline-block;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      color: #666;
-      font-weight: 600;
-    ">Why Choose Us</span>
-
-        <h2 class="title" style="
-      font-size: 40px;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 25px;
-      color: #222232;
-    ">Elevate Your Travel Experience</h2>
-
-        <p class="description" style="
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 35px;
-      color: #666;
-    ">Enjoy authentic, secure, and exclusive experiences with every booking. Our platform connects you with
-          verified local hosts who provide unforgettable adventures.</p>
-
-        <div class="benefits" style="
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 35px;
-    ">
-          <div class="benefit" style="
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        color: #333;
-      ">
-            <div class="benefit-icon" style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background-color: #222232;
-          color: white;
-          font-size: 14px;
-          transition: all 0.3s ease;
-        ">✓</div>
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">✓</div>
             <span><strong>Authentic Local Experiences</strong> - Explore exclusive local experiences you won't find
               elsewhere.</span>
           </div>
-
-          <div class="benefit" style="
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        color: #333;
-      ">
-            <div class="benefit-icon" style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background-color: #222232;
-          color: white;
-          font-size: 14px;
-          transition: all 0.3s ease;
-        ">✓</div>
+        </div>
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">✓</div>
             <span><strong>Verified Hosts</strong> - Plan your next adventure with ease and confidence.</span>
           </div>
-
-          <div class="benefit" style="
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        color: #333;
-      ">
-            <div class="benefit-icon" style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background-color: #222232;
-          color: white;
-          font-size: 14px;
-          transition: all 0.3s ease;
-        ">✓</div>
+        </div>
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">✓</div>
             <span><strong>Exclusive App-Only Deals</strong> - Enjoy app-only perks and seamless booking.</span>
           </div>
-        </div>
-
-        <a href="#xp-experience-section" class="explore-btn" style="
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: #222232;
-      color: #fff;
-      text-decoration: none;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s ease;
-      border-radius: 30px;
-      font-weight: 500;
-      margin-bottom: 30px;
-      border: 2px solid #222232;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    ">Explore Experiences</a>
+        </div>  
+      <a href="#xp-experience-section" class="explore-btn">Explore Experiences</a>
       </div>
 
-      <div class="why-choose-us-image" style="
-    flex: 1;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    position: relative;
-  ">
+      <div class="why-choose-us-image">
         <img
           src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/Qd0SQ7gqhrFSdef.png"
-          alt="Traveler with backpack" style="
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-        display: block;
-      " />
-        <div class="image-overlay" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    "></div>
+          alt="Traveler with backpack" />
       </div>
     </div>
-
   </section>
   <!-- WHY TO CHOOSE US SECTION ::: END -->
 
@@ -5021,7 +4999,7 @@ overflow: hidden;
                 About Us
               </a>
             </li>
-            </ul>
+          </ul>
         </div>
 
         <!-- Quick Links -->
@@ -5136,4 +5114,5 @@ overflow: hidden;
     </div>
   </footer>
 </body>
+
 </html>
