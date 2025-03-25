@@ -102,6 +102,7 @@
       align-items: center;
       width: 100%;
       max-width: 95%;
+      height: 100px;
     }
 
     .logo-container {
@@ -110,8 +111,8 @@
     }
 
     .logo-img {
-      height: 85px;
-      width: 90px;
+      height: 160px;
+      width: 160px;
       margin-right: 15px;
       transition: all 0.3s ease;
     }
@@ -121,7 +122,6 @@
     }
 
     .logo-text {
-      font-family: 'Cormorant Garamond', serif;
       font-size: 32px;
       font-weight: 600;
       color: #fff;
@@ -346,7 +346,6 @@
     }
 
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
       font-size: 64px;
       font-weight: 400;
       line-height: 1.2;
@@ -515,7 +514,7 @@
       }
 
       .navbar {
-        padding: 18px 20px;
+        padding: 0px 20px;
       }
 
       .navbar.scrolled {
@@ -555,7 +554,8 @@
       }
 
       .logo-img {
-        height: 80px;
+        width: 100px;
+        height: 100px;
       }
 
       .navbar.scrolled {
@@ -1195,7 +1195,6 @@
     .adventure-section {
       flex-direction: row;
       margin-top: 1rem;
-      font-family: 'Cormorant Garamond', Georgia, serif;
       color: #1a1a1a;
       background-color: #f8f8f8;
       max-height: 600px;
@@ -1207,8 +1206,6 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 3% 5%;
-      /* Reduced padding */
       background-color: #fff;
       height: 100%;
       position: relative;
@@ -2003,7 +2000,6 @@
       line-height: 1.7;
       margin-bottom: 35px;
       color: #666;
-      font-family: 'Arial', sans-serif;
     }
 
     /* App Store Links */
@@ -2117,7 +2113,6 @@
       padding: 60px 0;
       position: relative;
       overflow: hidden;
-      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
     .host-section::before {
@@ -2146,8 +2141,8 @@
 
     .decorative-shape-2 {
       position: absolute;
-      width: 150px;
-      height: 150px;
+      width: 145px;
+      height: 145px;
       border-radius: 50%;
       background-color: rgba(33, 150, 243, 0.05);
       bottom: -75px;
@@ -2197,7 +2192,6 @@
       line-height: 1.7;
       margin-bottom: 35px;
       color: #666;
-      font-family: 'Arial', sans-serif;
     }
 
     /* Benefits section */
@@ -2226,7 +2220,6 @@
       gap: 10px;
       font-size: 15px;
       color: #333;
-      font-family: 'Arial', sans-serif;
     }
 
     .benefit-icon {
@@ -2494,7 +2487,6 @@
     /* CONTACT US SECTION START*/
     .contact-us-container {
       margin: 0 auto;
-      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
     /* Inquiry Section Styling */
@@ -3105,6 +3097,8 @@
       background-color: #fff;
       border-radius: 8px;
       overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
 
     .host-details-card:hover {
@@ -3122,6 +3116,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      padding: 20px 20px 0 20px;
     }
 
     .host-avatar-container {
@@ -3197,13 +3192,6 @@
       width: 12px;
       height: 12px;
       opacity: 0.7;
-    }
-
-    .host-details-location {
-      font-size: 14px;
-      color: #777;
-      display: flex;
-      align-items: center;
     }
 
     .host-details-section-two {
@@ -3358,18 +3346,8 @@
         height: 40px;
       }
 
-
       .host-details-location {
         font-size: 13px;
-      }
-
-      .host-details-card {
-        padding: 12px;
-      }
-
-      .host-details-avatar {
-        width: 40px;
-        height: 40px;
       }
 
       .host-details-section-two {
@@ -3379,7 +3357,17 @@
       .host-details-name {
         font-size: 15px;
       }
+    }
 
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* HOST DETAILS END */
@@ -3402,8 +3390,9 @@
         <div class="nav-right desktop-nav">
           <ul class="nav-links">
             <li><a href="#" class="nav-link active">Home</a></li>
-            <li><a href="#aboutus-xperio" class="nav-link">About Us</a></li>
             <li><a href="#xp-experience-section" class="nav-link">Experiences</a></li>
+            <li><a href="#" class="nav-link">Stories</a></li>
+            <li><a href="#aboutus-xperio" class="nav-link">About Us</a></li>
             <li><a href="#contact-us-inquire" class="contact-btn">Contact Us</a></li>
           </ul>
         </div>
@@ -3420,8 +3409,9 @@
     <div id="mobile-menu" class="mobile-menu">
       <ul class="mobile-nav-links">
         <li><a href="#" class="mobile-nav-link active">Home</a></li>
-        <li><a href="#aboutus-xperio" class="mobile-nav-link">About Us</a></li>
         <li><a href="#xp-experience-section" class="mobile-nav-link">Experiences</a></li>
+        <li><a href="#" class="mobile-nav-link">Stories</a></li>
+        <li><a href="#aboutus-xperio" class="mobile-nav-link">About Us</a></li>
         <li><a href="#contact-us-inquire" class="mobile-nav-link">Contact Us</a></li>
       </ul>
     </div>
@@ -3657,7 +3647,7 @@
         )
         .map((experience, index) => `
    <div class="host-details-card">
-<div class="host-details-card">
+<div>
   <div class="host-details-section-one">
     <div class="host-avatar-container">
       <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" alt="${experience.hostFirstName} ${experience.hostLastName}" class="host-details-avatar">
@@ -4075,8 +4065,8 @@
       <!-- Left side information container -->
       <div class="info-container">
         <div class="info-content">
-          <span class="category-label">NATURE ESCAPES</span>
-          <h1>Find Your Next Adventure</h1>
+          <h1>NATURE ESCAPES</h1>
+          <span class="category-label">Find Your Next Adventure</span>
           <p class="description">
             Dive into a world of possibilities. Whether you're seeking tranquility, excitement, or cultural immersion,
             we have something for everyone.
@@ -4421,8 +4411,9 @@
   <!-- HOST DETAILS SECTION START  -->
   <div class="host-details-container">
     <div class="host-details-header">
-      <h2 class="host-details-title">Meet Our Outstanding Hosts</h2>
+      <h2 class="host-details-title">Meet Your Local Hosts</h2>
     </div>
+    <span class="category-label">Meet the real storytellers —local hosts who welcome you as a guest and bring their land, culture, and traditions to life through unforgettable experiences.</span>
 
     <div class="host-details-carousel-wrapper">
       <div class="host-details-carousel" id="hostDetailsCarousel">
@@ -4471,7 +4462,6 @@
 background-color: #fff;
 position: relative;
 overflow: hidden;
-font-family: 'Cormorant Garamond', Georgia, serif;
 ">
     <div class="decorative-shape" style="
   position: absolute;
@@ -4538,7 +4528,6 @@ font-family: 'Cormorant Garamond', Georgia, serif;
       line-height: 1.7;
       margin-bottom: 35px;
       color: #666;
-      font-family: 'Arial', sans-serif;
     ">Enjoy authentic, secure, and exclusive experiences with every booking. Our platform connects you with
           verified local hosts who provide unforgettable adventures.</p>
 
@@ -4554,7 +4543,6 @@ font-family: 'Cormorant Garamond', Georgia, serif;
         gap: 10px;
         font-size: 15px;
         color: #333;
-        font-family: 'Arial', sans-serif;
       ">
             <div class="benefit-icon" style="
           display: flex;
@@ -4578,7 +4566,6 @@ font-family: 'Cormorant Garamond', Georgia, serif;
         gap: 10px;
         font-size: 15px;
         color: #333;
-        font-family: 'Arial', sans-serif;
       ">
             <div class="benefit-icon" style="
           display: flex;
@@ -4601,7 +4588,6 @@ font-family: 'Cormorant Garamond', Georgia, serif;
         gap: 10px;
         font-size: 15px;
         color: #333;
-        font-family: 'Arial', sans-serif;
       ">
             <div class="benefit-icon" style="
           display: flex;
@@ -5018,14 +5004,6 @@ font-family: 'Cormorant Garamond', Georgia, serif;
   <footer
     style="background-color: #1a1a1a; color: #d9d9d9; padding: 60px 20px 40px; width: 100%; box-sizing: border-box;">
     <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
-      <!-- Top Section with Logo and Slogan -->
-      <div style="text-align: center; margin-bottom: 50px;">
-        <img
-          src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/HM0F7sb5cWL53ET.png"
-          alt="Xperio Logo" class="logo-img" />
-        <p style="margin-bottom: 0; font-size: 16px; letter-spacing: 2px; color: #d9d9d9;">EXPLORE THE UNEXPLORED</p>
-      </div>
-
       <!-- Main Footer Grid -->
       <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 60px; justify-content: space-between;">
         <!-- Company Info -->
@@ -5036,8 +5014,14 @@ font-family: 'Cormorant Garamond', Georgia, serif;
             <span
               style="position: absolute; bottom: -8px; left: 0; width: 30px; height: 2px; background-color: #ff385c;"></span>
           </h4>
-          <p style="margin-bottom: 16px; font-size: 15px; line-height: 1.8; color: #a0a0a0;">ExploreEdge Technologies
-            Private Limited.</p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 14px;">
+              <a href="#aboutus-xperio"
+                style="color: #a0a0a0; text-decoration: none; transition: color 0.3s; display: inline-block; padding: 2px 0; font-size: 15px;">
+                About Us
+              </a>
+            </li>
+            </ul>
         </div>
 
         <!-- Quick Links -->
@@ -5120,6 +5104,10 @@ font-family: 'Cormorant Garamond', Georgia, serif;
       </div>
       <!-- Bottom Section -->
       <div style="text-align: center;">
+
+        <p style="margin-bottom: 16px; font-size: 15px; line-height: 1.8; color: #f0f0f0;">ExploreEdge Technologies
+          Private Limited.</p>
+
         <!-- Policy Links -->
         <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 30px;">
           <a href="https://xperio.travel/privacy-policy"
