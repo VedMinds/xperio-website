@@ -1463,7 +1463,7 @@
     }
 
     .xperio-experience-container {
-      max-width: 95%;
+      max-width: 93%;
       margin: 0 auto;
       position: relative;
     }
@@ -1631,7 +1631,6 @@
       height: 67px;
       overflow: hidden;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
 
@@ -1766,6 +1765,10 @@
     }
 
     @media (max-width: 768px) {
+      .gap-div {
+        margin-top: 25px;
+      }
+
       .xperio-experiences {
         padding: 60px 15px;
       }
@@ -1901,40 +1904,31 @@
     }
 
     /* FIND YOUR Experiences Section Styles END */
-
-
-
     .promo-section {
       display: flex;
       flex-direction: column;
       max-width: 95%;
-      margin: 0px auto;
+      margin: 0 auto;
       padding: 0 20px;
+      gap: 30px;
       animation: fadeInUp 1.2s forwards;
     }
 
     @media (min-width: 992px) {
       .promo-section {
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
         gap: 50px;
       }
     }
 
-    /* Promo Image Styles */
     .promo-image {
       flex: 1;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
       position: relative;
-      margin-bottom: 40px;
-    }
-
-    @media (min-width: 992px) {
-      .promo-image {
-        margin-bottom: 0;
-      }
+      display: flex;
     }
 
     .promo-image img {
@@ -1942,7 +1936,6 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.7s ease;
-      display: block;
     }
 
     .promo-image:hover img {
@@ -1964,31 +1957,18 @@
       opacity: 1;
     }
 
-    /* Promo Content Styles */
     .promo-content {
       flex: 1;
-      padding: 10px 0;
-      position: relative;
-      transform: translateY(0);
-      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 0;
       animation: fadeInUp 1.2s forwards;
-    }
-
-    .promo-category {
-      display: inline-block;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      font-weight: 600;
-      color: #666;
     }
 
     .promo-heading {
       display: block;
-      font-size: 40px;
+      font-size: 2.5rem;
       font-weight: 400;
       line-height: 1.2;
       margin-bottom: 25px;
@@ -1996,44 +1976,19 @@
     }
 
     .promo-text {
-      font-size: 18px;
+      font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 35px;
       color: #666;
     }
 
-    /* App Store Links */
-    .app-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .store-link {
-      transition: all 0.3s ease;
-    }
-
-    .store-badge {
-      height: auto;
-      max-height: 50px;
-    }
-
-    .store-link:hover {
-      transform: translateY(-5px);
-    }
-
-    .google-badge {
-      width: 155px;
-    }
-
-    /* Explore Button */
     .explore-btn {
       display: inline-block;
       padding: 14px 32px;
       background-color: #222232;
       color: #fff;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       transition: all 0.3s ease;
@@ -2044,18 +1999,7 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
-    }
-
-    .explore-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.7s ease;
-      z-index: -1;
+      align-self: flex-start;
     }
 
     .explore-btn:hover {
@@ -2065,42 +2009,59 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .explore-btn:hover::before {
-      left: 100%;
+    .app-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    /* Responsive Design */
+    .store-badge {
+      height: auto;
+      max-height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .store-badge:hover {
+      transform: scale(1.05);
+    }
+
+    .google-badge {
+      width: 155px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 768px) {
+
+      .host-details-title,
       .promo-heading {
-        font-size: 32px;
+        font-size: 2rem;
       }
 
       .promo-text {
-        font-size: 16px;
-      }
-
-      .explore-btn {
-        padding: 12px 28px;
+        font-size: 1rem;
       }
     }
 
     @media (max-width: 480px) {
+
+      .host-details-title,
       .promo-heading {
-        font-size: 28px;
+        font-size: 1.75rem;
       }
 
       .promo-text {
-        font-size: 15px;
-      }
-
-      .promo-category {
-        font-size: 12px;
-        letter-spacing: 2px;
-      }
-
-      .explore-btn {
-        padding: 10px 24px;
-        font-size: 14px;
+        font-size: 0.9rem;
       }
     }
 
@@ -2415,7 +2376,7 @@
     }
 
     .why-choose-us-container {
-      max-width: 90%;
+      max-width: 93%;
       margin: 0 auto;
       display: flex;
       align-items: stretch;
@@ -2905,7 +2866,7 @@
       }
 
       .contact-us-submit-btn {
-        width: 100%;
+        width: 90%;
         padding: 12px 24px;
       }
     }
@@ -2932,212 +2893,154 @@
     /* CONTACT US SECTION END */
 
     /* About Us Section Styling based on Contact Us styles */
-    .about__wrapper {
-      margin: 0 auto;
-      padding: 0px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      position: relative;
-      background-color: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      animation: fadeInUp 1.2s forwards;
+    .about-section {
+      max-width: 93%;
+      margin: 10px auto;
     }
 
-    /* Decorative shapes */
-    .about__decorative-shape {
+    .about__wrapper {
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      position: relative;
+      min-height: 500px;
+    }
+
+    /* Decorative Shapes */
+    .about__decorative-shape,
+    .about__decorative-shape-2 {
       position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background-color: rgba(255, 56, 92, 0.05);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .about__decorative-shape {
+      width: 250px;
+      height: 250px;
+      background-color: rgba(255, 56, 92, 0.1);
       top: -100px;
       right: -100px;
-      z-index: 1;
     }
 
     .about__decorative-shape-2 {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background-color: rgba(33, 150, 243, 0.05);
+      width: 200px;
+      height: 200px;
+      background-color: rgba(33, 150, 243, 0.1);
       bottom: -75px;
       left: 10%;
-      z-index: 1;
     }
 
-    /* Image section - KEY CHANGES HERE */
-    .about__image {
+    /* Image Container */
+    .about__image-container {
       width: 40%;
+      display: flex;
+      flex-direction: column;
       background-color: #f8f8f8;
-      position: relative;
-      overflow: hidden;
-      align-self: flex-start;
-    }
-
-    .about__image img {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Content section */
-    .about__content {
-      width: 60%;
-      padding: 40px;
-      box-sizing: border-box;
     }
 
     .about__title {
       font-size: 36px;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 15px;
+      font-weight: 600;
       color: #222232;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .about__image {
+      flex-grow: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about__image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .about__image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Content Section */
+    .about__content {
+      width: 60%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .about__subtitle {
       color: #555;
       font-size: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       display: inline-block;
       letter-spacing: 1px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      padding-bottom: 5px;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 10px;
     }
 
     .about__description {
       font-size: 18px;
       line-height: 1.7;
-      margin-bottom: 25px;
       color: #666;
+      margin-bottom: 25px;
     }
 
-    /* Differentiators */
     .about__differentiators-btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #222232;
-      color: #fff;
-      text-decoration: none;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s ease;
-      border-radius: 30px;
-      font-weight: 500;
-      margin: 10px 0 25px;
-      border: 2px solid #222232;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .about__differentiators-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.7s ease;
-      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
     }
 
     .about__differentiators-btn:hover {
-      background-color: #fff;
-      color: #222232;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .about__differentiators-btn:hover::before {
-      left: 100%;
-    }
-
-    .about__arrow {
-      display: inline-block;
-      margin-left: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .about__arrow::after {
-      content: '↓';
-    }
-
-    .about__differentiators-btn.active .about__arrow::after {
-      content: '↑';
+      background-color: #0056b3;
     }
 
     .about__differentiators-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      background-color: #f9f9f9;
-      border-radius: 6px;
-      padding: 0 20px;
-      margin-bottom: 30px;
-      box-sizing: border-box;
+      transition: max-height 0.3s ease;
+    }
+
+    .about__differentiators-content.active {
+      max-height: 500px;
+      /* Adjust based on content */
     }
 
     .about__differentiator {
-      padding: 5px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      background-color: #f4f4f4;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
     }
 
-    .about__differentiator:last-child {
-      border-bottom: none;
-    }
-
-    .about__learn-more-btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: #fff;
-      color: #222232;
-      text-decoration: none;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s ease;
-      border-radius: 30px;
-      font-weight: 500;
-      border: 2px solid #222232;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .about__learn-more-btn:hover {
-      background-color: #222232;
-      color: #fff;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Responsive Design */
+    /* Mobile Responsive */
     @media (max-width: 768px) {
       .about__wrapper {
-        padding-top: 20px;
         flex-direction: column;
+        min-height: auto;
       }
 
-      .about__image,
+      .about__image-container,
       .about__content {
         width: 100%;
       }
 
       .about__image {
-        position: relative;
-      }
-
-      .about__image img {
         height: 250px;
-        min-height: 250px;
       }
 
       .about__content {
@@ -3145,23 +3048,34 @@
       }
 
       .about__title {
-        font-size: 28px;
+        text-align: center;
       }
 
       .about__description {
         font-size: 16px;
       }
+    }
 
-      .about__differentiators-btn,
-      .about__learn-more-btn {
-        width: 100%;
-        text-align: center;
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about__wrapper.in-view {
+      animation: fadeInUp 1.2s forwards;
     }
 
     /* HOST DETAILS STYLES START  */
     .host-details-container {
-      max-width: 90%;
+      max-width: 93%;
       margin: 0 auto;
       padding: 20px 0px;
       animation: fadeInUp 0.8s forwards;
@@ -4500,10 +4414,11 @@
   <!-- Find Experiences SECTION end ::::  -->
 
   <!-- Discover the Beauty of Uttara Kannada! section start -->
-  <section class="xperio-experience-container fade-in">
-    <h2 class="host-details-title" style="margin-left: 20px;">Travel Destination</h2>
+  <section class="xperio-experience-container">
+    <h2 class="host-details-title">Travel Destination</h2>
   </section>
-  <div class="promo-section" style="animation: fadeInUp 1.2s forwards;">
+
+  <div class="promo-section">
     <div class="promo-image">
       <img
         src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/AKhpHZ8jeXGTosq.jpeg"
@@ -4525,17 +4440,13 @@
 
       <div class="app-links">
         <a href="#">
-          <div class="store-link">
-            <img
-              src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
-              alt="Download on the App Store" class="store-badge" />
-          </div>
+          <img
+            src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+            alt="Download on the App Store" class="store-badge" />
         </a>
         <a href="#">
-          <div class="store-link" style="margin-top: -5px;">
-            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-              alt="Get it on Google Play" class="store-badge google-badge" />
-          </div>
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+            alt="Get it on Google Play" class="store-badge google-badge" />
         </a>
       </div>
     </div>
@@ -4593,6 +4504,7 @@
 
 
   <!-- WHY TO CHOOSE US SECTION ::: START -->
+
   <section class="why-choose-us-section">
     <div class="decorative-shape"></div>
     <div class="decorative-shape-2"></div>
@@ -4622,8 +4534,8 @@
             <div class="benefit-icon">✓</div>
             <span><strong>Exclusive App-Only Deals</strong> - Enjoy app-only perks and seamless booking.</span>
           </div>
-        </div>  
-      <a href="#xp-experience-section" class="explore-btn">Explore Experiences</a>
+        </div>
+        <a href="#xp-experience-section" class="explore-btn">Explore Experiences</a>
       </div>
 
       <div class="why-choose-us-image">
@@ -4887,95 +4799,54 @@
   <!-- CONTACT US SECTION ::: END  -->
 
   <!-- ABOUT US SECTION START -->
-  <div class="about__wrapper" id="aboutus-xperio">
-    <!-- Decorative elements -->
-    <div class="about__decorative-shape"></div>
-    <div class="about__decorative-shape-2"></div>
+  <div class="gap-div"></div>
+  <section class="xperio-experience-container">
+    <h2 class="host-details-title">About Us</h2>
+    <span class="about__subtitle">Connect with authentic local experiences</span>
+  </section>
+  <section class="about-section">
+    <div class="about__wrapper" id="aboutus-xperio">
 
-    <div class="about__image">
-      <img
-        src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/CP2jcKMH3CbhDPI.png"
-        alt="About Image">
-    </div>
-
-    <div class="about__content">
-      <div class="about__info">
-        <h2 class="about__title">About Us</h2>
-        <span class="about__subtitle">Connect with authentic local experiences</span>
-
-        <p class="about__description">
-          Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and
-          immersive experiences. The tech platform facilitates discovery, booking, and financial transactions,
-          ensuring a seamless connection between the traveler's desire for unique experiences and the host's offer of
-          local
-          authenticity. All these experiences will be delivered through sustainable practices.
-        </p>
-
-        <p class="about__description">
-          Xperio addresses the growing demand for authentic and immersive travel experiences that go beyond
-          conventional sightseeing tours.
-        </p>
+      <div class="about__image-container">
+        <div class="about__image">
+          <img
+            src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/CP2jcKMH3CbhDPI.png"
+            alt="About Image">
+        </div>
       </div>
 
-      <button class="about__differentiators-btn">
-        Unique Differentiators
-        <span class="about__arrow"></span>
-      </button>
+      <div class="about__content">
+        <div class="about__info">
+          <p class="about__description">
+            Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and
+            immersive experiences. The tech platform facilitates discovery, booking, and financial transactions,
+            ensuring a seamless connection between the traveler's desire for unique experiences and the host's offer of
+            local authenticity. All these experiences will be delivered through sustainable practices.
+          </p>
 
-      <div class="about__differentiators-content">
-        <div class="about__differentiator">
-          <strong>Authenticity First:</strong> Focus on deep connection and immersion, rather than standard tourist
-          offerings.
+          <p class="about__description">
+            Xperio addresses the growing demand for authentic and immersive travel experiences that go beyond
+            conventional sightseeing tours.
+          </p>
         </div>
-        <div class="about__differentiator">
-          <strong>Local Economic Empowerment:</strong> A business model that prioritizes local hosts, ensuring they
-          receive a fair share of the revenue.
-        </div>
-        <div class="about__differentiator">
-          <strong>Sustainability:</strong> Encouraging experiences that promote environmental sustainability and
-          responsible tourism.
+        <div><strong>Unique Differentiators:</strong></div>
+        <div class="" style="margin-top: 5px;">
+          <div class="about__differentiator">
+            <strong>Authenticity First:</strong> Focus on deep connection and immersion, rather than standard tourist
+            offerings.
+          </div>
+          <div class="about__differentiator">
+            <strong>Local Economic Empowerment:</strong> A business model that prioritizes local hosts, ensuring they
+            receive a fair share of the revenue.
+          </div>
+          <div class="about__differentiator">
+            <strong>Sustainability:</strong> Encouraging experiences that promote environmental sustainability and
+            responsible tourism.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Use the existing collapsible functionality
-      var coll = document.getElementsByClassName("about__differentiators-btn");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-
-          if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            content.classList.remove('active');
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            content.classList.add('active');
-          }
-        });
-      }
-
-      // Add animations for initial page load
-      const aboutSection = document.getElementById("aboutus-xperio");
-      if (aboutSection) {
-        // Trigger animation when section comes into view
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-
-        observer.observe(aboutSection);
-      }
-    });
-  </script>
+  </section>
 
   <!-- ABOUT US SECTION END -->
 
