@@ -79,7 +79,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding: 25px 50px;
+      padding: 10px 50px;
       z-index: 100;
       transition: all 0.4s ease;
       display: flex;
@@ -102,6 +102,7 @@
       align-items: center;
       width: 100%;
       max-width: 95%;
+      height: 100px;
     }
 
     .logo-container {
@@ -110,17 +111,17 @@
     }
 
     .logo-img {
-      height: 48px;
+      height: 160px;
+      width: 160px;
       margin-right: 15px;
       transition: all 0.3s ease;
     }
 
-    .navbar.scrolled .logo-img {
-      height: 42px;
+    .navbar.scrolled {
+      height: 80px;
     }
 
     .logo-text {
-      font-family: 'Cormorant Garamond', serif;
       font-size: 32px;
       font-weight: 600;
       color: #fff;
@@ -226,7 +227,7 @@
     }
 
     .navbar.scrolled .bar {
-      background-color: #333;
+      background-color: #fff;
     }
 
     .menu-toggle.active .bar:nth-child(1) {
@@ -345,7 +346,6 @@
     }
 
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
       font-size: 64px;
       font-weight: 400;
       line-height: 1.2;
@@ -514,7 +514,7 @@
       }
 
       .navbar {
-        padding: 18px 20px;
+        padding: 0px 20px;
       }
 
       .navbar.scrolled {
@@ -554,11 +554,12 @@
       }
 
       .logo-img {
-        height: 36px;
+        width: 100px;
+        height: 100px;
       }
 
-      .navbar.scrolled .logo-img {
-        height: 32px;
+      .navbar.scrolled {
+        height: 70px;
       }
     }
 
@@ -1194,7 +1195,6 @@
     .adventure-section {
       flex-direction: row;
       margin-top: 1rem;
-      font-family: 'Cormorant Garamond', Georgia, serif;
       color: #1a1a1a;
       background-color: #f8f8f8;
       max-height: 600px;
@@ -1206,8 +1206,6 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 3% 5%;
-      /* Reduced padding */
       background-color: #fff;
       height: 100%;
       position: relative;
@@ -1465,7 +1463,7 @@
     }
 
     .xperio-experience-container {
-      max-width: 95%;
+      max-width: 93%;
       margin: 0 auto;
       position: relative;
     }
@@ -1633,7 +1631,6 @@
       height: 67px;
       overflow: hidden;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
 
@@ -1768,6 +1765,10 @@
     }
 
     @media (max-width: 768px) {
+      .gap-div {
+        margin-top: 25px;
+      }
+
       .xperio-experiences {
         padding: 60px 15px;
       }
@@ -1903,40 +1904,31 @@
     }
 
     /* FIND YOUR Experiences Section Styles END */
-
-
-
     .promo-section {
       display: flex;
       flex-direction: column;
       max-width: 95%;
-      margin: 0px auto;
+      margin: 0 auto;
       padding: 0 20px;
+      gap: 30px;
       animation: fadeInUp 1.2s forwards;
     }
 
     @media (min-width: 992px) {
       .promo-section {
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
         gap: 50px;
       }
     }
 
-    /* Promo Image Styles */
     .promo-image {
       flex: 1;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
       position: relative;
-      margin-bottom: 40px;
-    }
-
-    @media (min-width: 992px) {
-      .promo-image {
-        margin-bottom: 0;
-      }
+      display: flex;
     }
 
     .promo-image img {
@@ -1944,7 +1936,6 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.7s ease;
-      display: block;
     }
 
     .promo-image:hover img {
@@ -1966,31 +1957,18 @@
       opacity: 1;
     }
 
-    /* Promo Content Styles */
     .promo-content {
       flex: 1;
-      padding: 10px 0;
-      position: relative;
-      transform: translateY(0);
-      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 0;
       animation: fadeInUp 1.2s forwards;
-    }
-
-    .promo-category {
-      display: inline-block;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      font-weight: 600;
-      color: #666;
     }
 
     .promo-heading {
       display: block;
-      font-size: 40px;
+      font-size: 2.5rem;
       font-weight: 400;
       line-height: 1.2;
       margin-bottom: 25px;
@@ -1998,45 +1976,19 @@
     }
 
     .promo-text {
-      font-size: 18px;
+      font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 35px;
       color: #666;
-      font-family: 'Arial', sans-serif;
     }
 
-    /* App Store Links */
-    .app-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .store-link {
-      transition: all 0.3s ease;
-    }
-
-    .store-badge {
-      height: auto;
-      max-height: 50px;
-    }
-
-    .store-link:hover {
-      transform: translateY(-5px);
-    }
-
-    .google-badge {
-      width: 155px;
-    }
-
-    /* Explore Button */
     .explore-btn {
       display: inline-block;
       padding: 14px 32px;
       background-color: #222232;
       color: #fff;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       transition: all 0.3s ease;
@@ -2047,18 +1999,7 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
-    }
-
-    .explore-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.7s ease;
-      z-index: -1;
+      align-self: flex-start;
     }
 
     .explore-btn:hover {
@@ -2068,42 +2009,59 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .explore-btn:hover::before {
-      left: 100%;
+    .app-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    /* Responsive Design */
+    .store-badge {
+      height: auto;
+      max-height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .store-badge:hover {
+      transform: scale(1.05);
+    }
+
+    .google-badge {
+      width: 155px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 768px) {
+
+      .host-details-title,
       .promo-heading {
-        font-size: 32px;
+        font-size: 2rem;
       }
 
       .promo-text {
-        font-size: 16px;
-      }
-
-      .explore-btn {
-        padding: 12px 28px;
+        font-size: 1rem;
       }
     }
 
     @media (max-width: 480px) {
+
+      .host-details-title,
       .promo-heading {
-        font-size: 28px;
+        font-size: 1.75rem;
       }
 
       .promo-text {
-        font-size: 15px;
-      }
-
-      .promo-category {
-        font-size: 12px;
-        letter-spacing: 2px;
-      }
-
-      .explore-btn {
-        padding: 10px 24px;
-        font-size: 14px;
+        font-size: 0.9rem;
       }
     }
 
@@ -2116,7 +2074,6 @@
       padding: 60px 0;
       position: relative;
       overflow: hidden;
-      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
     .host-section::before {
@@ -2145,8 +2102,8 @@
 
     .decorative-shape-2 {
       position: absolute;
-      width: 150px;
-      height: 150px;
+      width: 145px;
+      height: 145px;
       border-radius: 50%;
       background-color: rgba(33, 150, 243, 0.05);
       bottom: -75px;
@@ -2196,7 +2153,6 @@
       line-height: 1.7;
       margin-bottom: 35px;
       color: #666;
-      font-family: 'Arial', sans-serif;
     }
 
     /* Benefits section */
@@ -2225,7 +2181,6 @@
       gap: 10px;
       font-size: 15px;
       color: #333;
-      font-family: 'Arial', sans-serif;
     }
 
     .benefit-icon {
@@ -2392,48 +2347,172 @@
     }
 
     .why-choose-us-section {
-      padding: 60px 0px;
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0;
+    }
+
+    .decorative-shape {
+      position: absolute;
+      width: 200px;
+      height: 180px;
+      border-radius: 50%;
+      background-color: rgba(255, 56, 92, 0.05);
+      top: -100px;
+      left: -100px;
+      z-index: 1;
+    }
+
+    .decorative-shape-2 {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: rgba(33, 150, 243, 0.05);
+      bottom: -75px;
+      left: 10%;
+      z-index: 1;
+    }
+
+    .why-choose-us-container {
+      max-width: 93%;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .why-choose-us-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeInUp 1.2s forwards;
+    }
+
+    .why-choose-us-image {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .why-choose-us-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .subtitle {
+      display: inline-block;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      color: #666;
+      font-weight: 600;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #222232;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      color: #666;
+    }
+
+    .benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .benefit-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #222232;
+      color: white;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .explore-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #222232;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: all 0.3s ease;
+      border-radius: 30px;
+      font-weight: 500;
+      border: 2px solid #222232;
+      align-self: flex-start;
+    }
+
+    /* Hover Effects */
+    .why-choose-us-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .explore-btn:hover {
+      background-color: #fff;
+      color: #222232;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .benefit:hover .benefit-icon {
+      background-color: #ff385c;
+      transform: scale(1.1);
     }
 
     /* Responsive Design */
     @media (max-width: 992px) {
       .why-choose-us-container {
         flex-direction: column-reverse;
-        gap: 40px;
+        gap: 30px;
       }
 
-      .why-choose-us-image,
-      .why-choose-us-content {
+      .why-choose-us-content,
+      .why-choose-us-image {
         width: 100%;
       }
     }
 
     @media (max-width: 768px) {
       .why-choose-us-section {
-        padding: 60px 20px;
-      }
-
-      .title {
-        font-size: 32px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-
-      .subtitle {
-        font-size: 13px;
-        letter-spacing: 2px;
-      }
-
-      .explore-btn {
-        padding: 12px 28px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .why-choose-us-section {
-        padding: 40px 10px;
+        padding: 40px 20px;
       }
 
       .title {
@@ -2451,41 +2530,40 @@
 
       .explore-btn {
         padding: 10px 24px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .why-choose-us-section {
+        padding: 30px 15px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .description {
         font-size: 14px;
+      }
+
+      .explore-btn {
         width: 100%;
         text-align: center;
       }
     }
 
-    /* Touch device optimizations */
-    @media (hover: none) {
-      .explore-btn:hover {
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
         transform: translateY(0);
       }
-
-      .explore-btn:active {
-        transform: scale(0.98);
-      }
-    }
-
-    .why-choose-us-image:hover img {
-      transform: scale(1.05);
-    }
-
-    .why-choose-us-image:hover .image-overlay {
-      opacity: 1;
-    }
-
-    .benefit:hover .benefit-icon {
-      background-color: #ff385c;
-      transform: scale(1.1);
-    }
-
-    .explore-btn:hover {
-      background-color: #fff;
-      color: #222232;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
     /* WHY TO CHOOSE US SECTION END::: */
@@ -2493,7 +2571,6 @@
     /* CONTACT US SECTION START*/
     .contact-us-container {
       margin: 0 auto;
-      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
     /* Inquiry Section Styling */
@@ -2789,7 +2866,7 @@
       }
 
       .contact-us-submit-btn {
-        width: 100%;
+        width: 90%;
         padding: 12px 24px;
       }
     }
@@ -2816,215 +2893,154 @@
     /* CONTACT US SECTION END */
 
     /* About Us Section Styling based on Contact Us styles */
-    .about__wrapper {
-      margin: 0 auto;
-      padding: 40px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      position: relative;
-      background-color: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      animation: fadeInUp 1.2s forwards;
+    .about-section {
+      max-width: 93%;
+      margin: 10px auto;
     }
 
-    /* Decorative shapes */
-    .about__decorative-shape {
+    .about__wrapper {
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      position: relative;
+      min-height: 500px;
+    }
+
+    /* Decorative Shapes */
+    .about__decorative-shape,
+    .about__decorative-shape-2 {
       position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background-color: rgba(255, 56, 92, 0.05);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .about__decorative-shape {
+      width: 250px;
+      height: 250px;
+      background-color: rgba(255, 56, 92, 0.1);
       top: -100px;
       right: -100px;
-      z-index: 1;
     }
 
     .about__decorative-shape-2 {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background-color: rgba(33, 150, 243, 0.05);
+      width: 200px;
+      height: 200px;
+      background-color: rgba(33, 150, 243, 0.1);
       bottom: -75px;
       left: 10%;
-      z-index: 1;
     }
 
-    /* Image section - KEY CHANGES HERE */
-    .about__image {
+    /* Image Container */
+    .about__image-container {
       width: 40%;
+      display: flex;
+      flex-direction: column;
       background-color: #f8f8f8;
+    }
+
+    .about__title {
+      font-size: 36px;
+      font-weight: 600;
+      color: #222232;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .about__image {
+      flex-grow: 1;
       position: relative;
       overflow: hidden;
-      align-self: flex-start;
-      /* Keep image at the top */
-      height: auto;
-      /* Auto height */
     }
 
     .about__image img {
       width: 100%;
       height: 100%;
+      border-radius: 20px;
       object-fit: cover;
       display: block;
-      min-height: 450px;
-      /* Minimum height for the image */
+      transition: transform 0.3s ease;
     }
 
-    /* Content section */
+    .about__image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Content Section */
     .about__content {
       width: 60%;
-      padding: 40px;
-      box-sizing: border-box;
-    }
-
-    .about__title {
-      font-size: 36px;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 15px;
-      color: #222232;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .about__subtitle {
       color: #555;
       font-size: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       display: inline-block;
       letter-spacing: 1px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      padding-bottom: 5px;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 10px;
     }
 
     .about__description {
       font-size: 18px;
       line-height: 1.7;
-      margin-bottom: 25px;
       color: #666;
+      margin-bottom: 25px;
     }
 
-    /* Differentiators */
     .about__differentiators-btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #222232;
-      color: #fff;
-      text-decoration: none;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s ease;
-      border-radius: 30px;
-      font-weight: 500;
-      margin: 10px 0 25px;
-      border: 2px solid #222232;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .about__differentiators-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.7s ease;
-      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
     }
 
     .about__differentiators-btn:hover {
-      background-color: #fff;
-      color: #222232;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .about__differentiators-btn:hover::before {
-      left: 100%;
-    }
-
-    .about__arrow {
-      display: inline-block;
-      margin-left: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .about__arrow::after {
-      content: '↓';
-    }
-
-    .about__differentiators-btn.active .about__arrow::after {
-      content: '↑';
+      background-color: #0056b3;
     }
 
     .about__differentiators-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      background-color: #f9f9f9;
-      border-radius: 6px;
-      padding: 0 20px;
-      margin-bottom: 30px;
-      box-sizing: border-box;
+      transition: max-height 0.3s ease;
+    }
+
+    .about__differentiators-content.active {
+      max-height: 500px;
+      /* Adjust based on content */
     }
 
     .about__differentiator {
-      padding: 5px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      background-color: #f4f4f4;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
     }
 
-    .about__differentiator:last-child {
-      border-bottom: none;
-    }
-
-    .about__learn-more-btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: #fff;
-      color: #222232;
-      text-decoration: none;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s ease;
-      border-radius: 30px;
-      font-weight: 500;
-      border: 2px solid #222232;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .about__learn-more-btn:hover {
-      background-color: #222232;
-      color: #fff;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Responsive Design */
+    /* Mobile Responsive */
     @media (max-width: 768px) {
       .about__wrapper {
         flex-direction: column;
+        min-height: auto;
       }
 
-      .about__image,
+      .about__image-container,
       .about__content {
         width: 100%;
       }
 
       .about__image {
-        position: relative;
-      }
-
-      .about__image img {
-        min-height: 250px;
+        height: 250px;
       }
 
       .about__content {
@@ -3032,23 +3048,34 @@
       }
 
       .about__title {
-        font-size: 28px;
+        text-align: center;
       }
 
       .about__description {
         font-size: 16px;
       }
+    }
 
-      .about__differentiators-btn,
-      .about__learn-more-btn {
-        width: 100%;
-        text-align: center;
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about__wrapper.in-view {
+      animation: fadeInUp 1.2s forwards;
     }
 
     /* HOST DETAILS STYLES START  */
     .host-details-container {
-      max-width: 90%;
+      max-width: 93%;
       margin: 0 auto;
       padding: 20px 0px;
       animation: fadeInUp 0.8s forwards;
@@ -3104,6 +3131,8 @@
       background-color: #fff;
       border-radius: 8px;
       overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
 
     .host-details-card:hover {
@@ -3121,6 +3150,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      padding: 20px 20px 0 20px;
     }
 
     .host-avatar-container {
@@ -3196,13 +3226,6 @@
       width: 12px;
       height: 12px;
       opacity: 0.7;
-    }
-
-    .host-details-location {
-      font-size: 14px;
-      color: #777;
-      display: flex;
-      align-items: center;
     }
 
     .host-details-section-two {
@@ -3345,6 +3368,11 @@
         font-size: 11px;
         padding: 2px 6px 2px 8px;
       }
+
+      .host-details-title {
+        font-size: 25px;
+        line-height: 1.2;
+      }
     }
 
     @media (max-width: 480px) {
@@ -3357,18 +3385,8 @@
         height: 40px;
       }
 
-
       .host-details-location {
         font-size: 13px;
-      }
-
-      .host-details-card {
-        padding: 12px;
-      }
-
-      .host-details-avatar {
-        width: 40px;
-        height: 40px;
       }
 
       .host-details-section-two {
@@ -3379,9 +3397,102 @@
         font-size: 15px;
       }
 
+      .host-details-title {
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* HOST DETAILS END */
+
+
+    /* Video background styles */
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .fallback-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      /* Only show when video fails */
+    }
+
+    /* Play button for mobile */
+    .video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      z-index: 5;
+      display: none;
+      /* Hidden by default, shown on mobile */
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+
+    .video-play-btn:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .video-play-btn svg {
+      margin-left: 4px;
+      /* Centering the triangle */
+    }
+
+    /* Show play button on mobile */
+    @media (max-width: 768px) {
+      .video-play-btn {
+        display: flex;
+      }
+
+      /* Pause video on mobile until play button is clicked */
+      .carousel-item.active .carousel-video-background {
+        /* Video is paused by default on mobile */
+        /* JavaScript will handle play/pause */
+      }
+    }
   </style>
 </head>
 
@@ -3393,17 +3504,17 @@
         <div class="nav-left">
           <div class="logo-container">
             <img
-              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+              src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/HM0F7sb5cWL53ET.png"
               alt="Xperio Logo" class="logo-img" />
-            <span class="logo-text">Xperio</span>
           </div>
         </div>
 
         <div class="nav-right desktop-nav">
           <ul class="nav-links">
             <li><a href="#" class="nav-link active">Home</a></li>
-            <li><a href="#aboutus-xperio" class="nav-link">About Us</a></li>
             <li><a href="#xp-experience-section" class="nav-link">Experiences</a></li>
+            <li><a href="#" class="nav-link">Stories</a></li>
+            <li><a href="#aboutus-xperio" class="nav-link">About Us</a></li>
             <li><a href="#contact-us-inquire" class="contact-btn">Contact Us</a></li>
           </ul>
         </div>
@@ -3420,16 +3531,30 @@
     <div id="mobile-menu" class="mobile-menu">
       <ul class="mobile-nav-links">
         <li><a href="#" class="mobile-nav-link active">Home</a></li>
-        <li><a href="#aboutus-xperio" class="mobile-nav-link">About Us</a></li>
         <li><a href="#xp-experience-section" class="mobile-nav-link">Experiences</a></li>
+        <li><a href="#" class="mobile-nav-link">Stories</a></li>
+        <li><a href="#aboutus-xperio" class="mobile-nav-link">About Us</a></li>
         <li><a href="#contact-us-inquire" class="mobile-nav-link">Contact Us</a></li>
       </ul>
     </div>
 
-    <!-- Full-screen Carousel -->
     <div class="carousel">
-      <div class="carousel-item active"
-        style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/jCfOigCi1PObMiW.png')">
+      <div class="carousel-item active">
+        <div class="video-container">
+          <video class="carousel-video-background" autoplay loop muted playsinline>
+            <source src="./assets/xperio.mp4" type="video/mp4">
+          </video>
+          <button class="video-play-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+          <img class="fallback-img"
+            src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/jCfOigCi1PObMiW.png"
+            alt="Village life experience">
+        </div>
+
         <div class="carousel-overlay"></div>
         <div class="carousel-content">
           <span class="content-subtitle">Experience India</span>
@@ -3438,143 +3563,80 @@
           <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
         </div>
       </div>
-
-      <div class="carousel-item"
-        style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/8tlOOopJ2mev58J.png')">
-        <div class="carousel-overlay"></div>
-        <div class="carousel-content">
-          <span class="content-subtitle">Cultural Immersion</span>
-          <h2 class="hero-title">Embrace Indian dance culture</h2>
-          <p class="hero-text">Dive into rich traditions and vibrant styles of Indian dance</p>
-          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
-        </div>
-      </div>
-
-      <div class="carousel-item"
-        style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/oP9wZeGveaalzeT.png')">
-        <div class="carousel-overlay"></div>
-        <div class="carousel-content">
-          <span class="content-subtitle">Natural Wonders</span>
-          <h2 class="hero-title">Discover the majestic mountains</h2>
-          <p class="hero-text">Soak in the tranquility of nature's embrace</p>
-          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
-        </div>
-      </div>
-
-      <div class="carousel-item"
-        style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/fLPXJMqS7sGfePw.png')">
-        <div class="carousel-overlay"></div>
-        <div class="carousel-content">
-          <span class="content-subtitle">Rural Experience</span>
-          <h2 class="hero-title">Engage in Indian agriculture</h2>
-          <p class="hero-text">Connect with the farmers and sustainable practices</p>
-          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
-        </div>
-      </div>
-
-      <div class="carousel-item"
-        style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/JNDu9YjCNNFJOhx.png')">
-        <div class="carousel-overlay"></div>
-        <div class="carousel-content">
-          <span class="content-subtitle">Coastal Beauty</span>
-          <h2 class="hero-title">Explore the sea backwaters</h2>
-          <p class="hero-text">Enjoy breathtaking views and guided adventures</p>
-          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
-        </div>
-      </div>
-
-      <!-- Carousel Navigation -->
-      <button class="carousel-control prev">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <button class="carousel-control next">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
     </div>
-
-    <div class="carousel-indicators"></div>
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-          const navbar = document.querySelector('.navbar');
-          if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
+        const contentSets = [
+          {
+            subtitle: "Experience India",
+            title: "Unfold the charm of village life",
+            text: "Enjoy life with simplicity, local cuisine, and nature's connection"
+          },
+          {
+            subtitle: "Cultural Immersion",
+            title: "Embrace Indian dance culture",
+            text: "Dive into rich traditions and vibrant styles of Indian dance"
+          },
+          {
+            subtitle: "Natural Wonders",
+            title: "Discover the majestic mountains",
+            text: "Soak in the tranquility of nature's embrace"
+          },
+          {
+            subtitle: "Rural Experience",
+            title: "Engage in Indian agriculture",
+            text: "Connect with the farmers and sustainable practices"
+          },
+          {
+            subtitle: "Coastal Beauty",
+            title: "Explore the sea backwaters",
+            text: "Enjoy breathtaking views and guided adventures"
           }
-        });
+        ];
 
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Get the content elements
+        const subtitleElement = document.querySelector('.content-subtitle');
+        const titleElement = document.querySelector('.hero-title');
+        const textElement = document.querySelector('.hero-text');
 
-        menuToggle.addEventListener('click', function () {
-          mobileMenu.classList.toggle('show');
-          menuToggle.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function (event) {
-          const isClickInsideMenu = mobileMenu.contains(event.target);
-          const isClickOnToggle = menuToggle.contains(event.target);
-
-          if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('show')) {
-            mobileMenu.classList.remove('show');
-            menuToggle.classList.remove('active');
-          }
-        });
-
-        // Carousel functionality
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const indicators = document.querySelector('.carousel-indicators');
-        const prevBtn = document.querySelector('.carousel-control.prev');
-        const nextBtn = document.querySelector('.carousel-control.next');
         let currentIndex = 0;
 
-        // Create indicators
-        carouselItems.forEach((_, index) => {
-          const indicator = document.createElement('span');
-          indicator.classList.add('indicator');
-          if (index === 0) indicator.classList.add('active');
-          indicator.addEventListener('click', () => goToSlide(index));
-          indicators.appendChild(indicator);
-        });
+        // Initial content is already set in HTML, so we start from index 1
+        function rotateContent() {
+          // Fade out
+          subtitleElement.style.opacity = 0;
+          titleElement.style.opacity = 0;
+          textElement.style.opacity = 0;
 
-        const indicatorDots = document.querySelectorAll('.indicator');
+          setTimeout(() => {
+            // Change content
+            currentIndex = (currentIndex + 1) % contentSets.length;
+            subtitleElement.textContent = contentSets[currentIndex].subtitle;
+            titleElement.textContent = contentSets[currentIndex].title;
+            textElement.textContent = contentSets[currentIndex].text;
 
-        // Function to go to a specific slide
-        function goToSlide(index) {
-          carouselItems[currentIndex].classList.remove('active');
-          indicatorDots[currentIndex].classList.remove('active');
-
-          currentIndex = index;
-
-          if (currentIndex >= carouselItems.length) {
-            currentIndex = 0;
-          } else if (currentIndex < 0) {
-            currentIndex = carouselItems.length - 1;
-          }
-
-          carouselItems[currentIndex].classList.add('active');
-          indicatorDots[currentIndex].classList.add('active');
+            // Fade in
+            subtitleElement.style.opacity = 1;
+            titleElement.style.opacity = 1;
+            textElement.style.opacity = 1;
+          }, 500); // Half second for fade out
         }
 
-        // Next/Previous buttons
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        // Add CSS for transitions
+        const style = document.createElement('style');
+        style.innerHTML = `
+    .content-subtitle, .hero-title, .hero-text {
+      transition: opacity 0.5s ease;
+    }
+  `;
+        document.head.appendChild(style);
 
-        // Auto-rotate carousel
-        setInterval(() => {
-          goToSlide(currentIndex + 1);
-        }, 7000);
+        // Rotate content every 5 seconds
+        setInterval(rotateContent, 5000);
       });
     </script>
+
   </section>
   <!-- NAVIGATION SECTION END ::::  -->
 
@@ -3585,6 +3647,7 @@
     let xpShuffleInterval;
     const xpExperienceIds = [
       "EX-1740672228216",
+      "EX-1742294389297",
       "EX-1741535334231",
       "EX-1740722269160",
       "EX-1740739057483",
@@ -3657,7 +3720,7 @@
         )
         .map((experience, index) => `
    <div class="host-details-card">
-<div class="host-details-card">
+<div>
   <div class="host-details-section-one">
     <div class="host-avatar-container">
       <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${experience.hostProfilePhoto}" alt="${experience.hostFirstName} ${experience.hostLastName}" class="host-details-avatar">
@@ -4042,7 +4105,7 @@
 
   <div id="xp-experience-section" class="xp-section-container">
     <div class="xp-section-header">
-      <h2 class="xp-section-title" style="margin-top: 50px;">Top-Rated Experiences</h2>
+      <h2 class="xperio-section-title" style="margin-top: 50px;">Top-Rated Experiences</h2>
       <p class="xp-section-subtitle">Discover unforgettable adventures curated by local experts</p>
     </div>
 
@@ -4075,8 +4138,8 @@
       <!-- Left side information container -->
       <div class="info-container">
         <div class="info-content">
-          <span class="category-label">NATURE ESCAPES</span>
-          <h1>Find Your Next Adventure</h1>
+          <h2 class="host-details-title">NATURE ESCAPES</h2>
+          <span class="category-label">Find Your Next Adventure</span>
           <p class="description">
             Dive into a world of possibilities. Whether you're seeking tranquility, excitement, or cultural immersion,
             we have something for everyone.
@@ -4378,7 +4441,11 @@
   <!-- Find Experiences SECTION end ::::  -->
 
   <!-- Discover the Beauty of Uttara Kannada! section start -->
-  <div class="promo-section" style="animation: fadeInUp 1.2s forwards;">
+  <section class="xperio-experience-container">
+    <h2 class="host-details-title">Travel Destination</h2>
+  </section>
+
+  <div class="promo-section">
     <div class="promo-image">
       <img
         src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/AKhpHZ8jeXGTosq.jpeg"
@@ -4387,7 +4454,6 @@
     </div>
 
     <div class="promo-content">
-      <span class="promo-category">Travel Destination</span>
       <span class="promo-heading">Discover the Beauty of Uttara Kannada</span>
       <p class="promo-text">
         Embark on an extraordinary journey through the captivating landscapes of Uttara Kannada.
@@ -4401,17 +4467,13 @@
 
       <div class="app-links">
         <a href="#">
-          <div class="store-link">
-            <img
-              src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
-              alt="Download on the App Store" class="store-badge" />
-          </div>
+          <img
+            src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+            alt="Download on the App Store" class="store-badge" />
         </a>
         <a href="#">
-          <div class="store-link" style="margin-top: -5px;">
-            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-              alt="Get it on Google Play" class="store-badge google-badge" />
-          </div>
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+            alt="Get it on Google Play" class="store-badge google-badge" />
         </a>
       </div>
     </div>
@@ -4421,8 +4483,10 @@
   <!-- HOST DETAILS SECTION START  -->
   <div class="host-details-container">
     <div class="host-details-header">
-      <h2 class="host-details-title">Meet Our Outstanding Hosts</h2>
+      <h2 class="host-details-title">Meet Your Local Hosts</h2>
     </div>
+    <span class="category-label">Meet the real storytellers —local hosts who welcome you as a guest and bring their
+      land, culture, and traditions to life through unforgettable experiences.</span>
 
     <div class="host-details-carousel-wrapper">
       <div class="host-details-carousel" id="hostDetailsCarousel">
@@ -4446,15 +4510,15 @@
       <div class="benefits">
         <div class="benefit">
           <span class="benefit-icon">✓</span>
+          <span>Share your culture, tradition, environment, talent and profession</span>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">✓</span>
           <span>Earn extra income</span>
         </div>
         <div class="benefit">
           <span class="benefit-icon">✓</span>
           <span>Meet global travelers</span>
-        </div>
-        <div class="benefit">
-          <span class="benefit-icon">✓</span>
-          <span>24/7 support</span>
         </div>
       </div>
 
@@ -4467,207 +4531,46 @@
 
 
   <!-- WHY TO CHOOSE US SECTION ::: START -->
-  <section class="why-choose-us-section" style="
-background-color: #fff;
-position: relative;
-overflow: hidden;
-font-family: 'Cormorant Garamond', Georgia, serif;
-">
-    <div class="decorative-shape" style="
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: rgba(255, 56, 92, 0.05);
-  top: -100px;
-  left: -100px;
-  z-index: 1;
-"></div>
 
-    <div class="decorative-shape-2" style="
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: rgba(33, 150, 243, 0.05);
-  bottom: -75px;
-  left: 10%;
-  z-index: 1;
-"></div>
+  <section class="why-choose-us-section">
+    <div class="decorative-shape"></div>
+    <div class="decorative-shape-2"></div>
 
-    <div class="why-choose-us-container" style="
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  position: relative;
-  z-index: 2;
-">
-      <div class="why-choose-us-content" style="
-    flex: 1;
-    padding: 10px 0;
-    position: relative;
-    transform: translateY(0);
-    opacity: 1;
-    animation: fadeInUp 1.2s forwards;
-  ">
-        <span class="subtitle" style="
-      display: inline-block;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      color: #666;
-      font-weight: 600;
-    ">Why Choose Us</span>
+    <div class="why-choose-us-container">
+      <div class="why-choose-us-content">
+        <span class="subtitle">Why Choose Us</span>
+        <h2 class="title">Elevate Your Travel Experience</h2>
+        <p class="description">Enjoy authentic, secure, and exclusive experiences with every booking. Our platform
+          connects you with verified local hosts who provide unforgettable adventures.</p>
 
-        <h2 class="title" style="
-      font-size: 40px;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 25px;
-      color: #222232;
-    ">Elevate Your Travel Experience</h2>
-
-        <p class="description" style="
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 35px;
-      color: #666;
-      font-family: 'Arial', sans-serif;
-    ">Enjoy authentic, secure, and exclusive experiences with every booking. Our platform connects you with
-          verified local hosts who provide unforgettable adventures.</p>
-
-        <div class="benefits" style="
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 35px;
-    ">
-          <div class="benefit" style="
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        color: #333;
-        font-family: 'Arial', sans-serif;
-      ">
-            <div class="benefit-icon" style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background-color: #222232;
-          color: white;
-          font-size: 14px;
-          transition: all 0.3s ease;
-        ">✓</div>
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">✓</div>
             <span><strong>Authentic Local Experiences</strong> - Explore exclusive local experiences you won't find
               elsewhere.</span>
           </div>
-
-          <div class="benefit" style="
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        color: #333;
-        font-family: 'Arial', sans-serif;
-      ">
-            <div class="benefit-icon" style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background-color: #222232;
-          color: white;
-          font-size: 14px;
-          transition: all 0.3s ease;
-        ">✓</div>
+        </div>
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">✓</div>
             <span><strong>Verified Hosts</strong> - Plan your next adventure with ease and confidence.</span>
           </div>
-
-          <div class="benefit" style="
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        color: #333;
-        font-family: 'Arial', sans-serif;
-      ">
-            <div class="benefit-icon" style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background-color: #222232;
-          color: white;
-          font-size: 14px;
-          transition: all 0.3s ease;
-        ">✓</div>
+        </div>
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">✓</div>
             <span><strong>Exclusive App-Only Deals</strong> - Enjoy app-only perks and seamless booking.</span>
           </div>
         </div>
-
-        <a href="#xp-experience-section" class="explore-btn" style="
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: #222232;
-      color: #fff;
-      text-decoration: none;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s ease;
-      border-radius: 30px;
-      font-weight: 500;
-      margin-bottom: 30px;
-      border: 2px solid #222232;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    ">Explore Experiences</a>
+        <a href="#xp-experience-section" class="explore-btn">Explore Experiences</a>
       </div>
 
-      <div class="why-choose-us-image" style="
-    flex: 1;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    position: relative;
-  ">
+      <div class="why-choose-us-image">
         <img
           src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/Qd0SQ7gqhrFSdef.png"
-          alt="Traveler with backpack" style="
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-        display: block;
-      " />
-        <div class="image-overlay" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    "></div>
+          alt="Traveler with backpack" />
       </div>
     </div>
-
   </section>
   <!-- WHY TO CHOOSE US SECTION ::: END -->
 
@@ -4923,112 +4826,62 @@ font-family: 'Cormorant Garamond', Georgia, serif;
   <!-- CONTACT US SECTION ::: END  -->
 
   <!-- ABOUT US SECTION START -->
-  <div class="about__wrapper" id="aboutus-xperio">
-    <!-- Decorative elements -->
-    <div class="about__decorative-shape"></div>
-    <div class="about__decorative-shape-2"></div>
+  <div class="gap-div"></div>
+  <section class="xperio-experience-container">
+    <h2 class="host-details-title">About Us</h2>
+    <span class="about__subtitle">Connect with authentic local experiences</span>
+  </section>
+  <section class="about-section">
+    <div class="about__wrapper" id="aboutus-xperio">
 
-    <div class="about__image">
-      <img
-        src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/CP2jcKMH3CbhDPI.png"
-        alt="About Image">
-    </div>
-
-    <div class="about__content">
-      <div class="about__info">
-        <h2 class="about__title">About Us</h2>
-        <span class="about__subtitle">Connect with authentic local experiences</span>
-
-        <p class="about__description">
-          Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and
-          immersive experiences. The tech platform facilitates discovery, booking, and financial transactions,
-          ensuring a seamless connection between the traveler's desire for unique experiences and the host's offer of
-          local
-          authenticity. All these experiences will be delivered through sustainable practices.
-        </p>
-
-        <p class="about__description">
-          Xperio addresses the growing demand for authentic and immersive travel experiences that go beyond
-          conventional sightseeing tours.
-        </p>
+      <div class="about__image-container">
+        <div class="about__image">
+          <img
+            src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/CP2jcKMH3CbhDPI.png"
+            alt="About Image">
+        </div>
       </div>
 
-      <button class="about__differentiators-btn">
-        Unique Differentiators
-        <span class="about__arrow"></span>
-      </button>
+      <div class="about__content">
+        <div class="about__info">
+          <p class="about__description">
+            Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and
+            immersive experiences. The tech platform facilitates discovery, booking, and financial transactions,
+            ensuring a seamless connection between the traveler's desire for unique experiences and the host's offer of
+            local authenticity. All these experiences will be delivered through sustainable practices.
+          </p>
 
-      <div class="about__differentiators-content">
-        <div class="about__differentiator">
-          <strong>Authenticity First:</strong> Focus on deep connection and immersion, rather than standard tourist
-          offerings.
+          <p class="about__description">
+            Xperio addresses the growing demand for authentic and immersive travel experiences that go beyond
+            conventional sightseeing tours.
+          </p>
         </div>
-        <div class="about__differentiator">
-          <strong>Local Economic Empowerment:</strong> A business model that prioritizes local hosts, ensuring they
-          receive a fair share of the revenue.
-        </div>
-        <div class="about__differentiator">
-          <strong>Sustainability:</strong> Encouraging experiences that promote environmental sustainability and
-          responsible tourism.
+        <div><strong>Unique Differentiators:</strong></div>
+        <div class="" style="margin-top: 5px;">
+          <div class="about__differentiator">
+            <strong>Authenticity First:</strong> Focus on deep connection and immersion, rather than standard tourist
+            offerings.
+          </div>
+          <div class="about__differentiator">
+            <strong>Local Economic Empowerment:</strong> A business model that prioritizes local hosts, ensuring they
+            receive a fair share of the revenue.
+          </div>
+          <div class="about__differentiator">
+            <strong>Sustainability:</strong> Encouraging experiences that promote environmental sustainability and
+            responsible tourism.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Use the existing collapsible functionality
-      var coll = document.getElementsByClassName("about__differentiators-btn");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-
-          if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            content.classList.remove('active');
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            content.classList.add('active');
-          }
-        });
-      }
-
-      // Add animations for initial page load
-      const aboutSection = document.getElementById("aboutus-xperio");
-      if (aboutSection) {
-        // Trigger animation when section comes into view
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-
-        observer.observe(aboutSection);
-      }
-    });
-  </script>
+  </section>
 
   <!-- ABOUT US SECTION END -->
 
   <footer
     style="background-color: #1a1a1a; color: #d9d9d9; padding: 60px 20px 40px; width: 100%; box-sizing: border-box;">
     <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
-      <!-- Top Section with Logo and Slogan -->
-      <div style="text-align: center; margin-bottom: 50px;">
-        <h3
-          style="color: #ff385c; font-size: 38px; font-weight: 300; margin-bottom: 16px; margin-top: 0; letter-spacing: 1.5px;">
-          Xperio
-        </h3>
-        <p style="margin-bottom: 0; font-size: 16px; letter-spacing: 2px; color: #d9d9d9;">EXPLORE THE UNEXPLORED</p>
-      </div>
-
       <!-- Main Footer Grid -->
-      <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 60px; justify-content: space-between;">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 30px; justify-content: space-between;">
         <!-- Company Info -->
         <div style="flex: 1; min-width: 220px; margin-bottom: 20px;">
           <h4
@@ -5037,8 +4890,14 @@ font-family: 'Cormorant Garamond', Georgia, serif;
             <span
               style="position: absolute; bottom: -8px; left: 0; width: 30px; height: 2px; background-color: #ff385c;"></span>
           </h4>
-          <p style="margin-bottom: 16px; font-size: 15px; line-height: 1.8; color: #a0a0a0;">ExploreEdge Technologies
-            Private Limited.</p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 14px;">
+              <a href="#aboutus-xperio"
+                style="color: #a0a0a0; text-decoration: none; transition: color 0.3s; display: inline-block; padding: 2px 0; font-size: 15px;">
+                About Us
+              </a>
+            </li>
+          </ul>
         </div>
 
         <!-- Quick Links -->
@@ -5051,21 +4910,9 @@ font-family: 'Cormorant Garamond', Georgia, serif;
           </h4>
           <ul style="list-style: none; padding: 0; margin: 0;">
             <li style="margin-bottom: 14px;">
-              <a href="#aboutus-xperio"
-                style="color: #a0a0a0; text-decoration: none; transition: color 0.3s; display: inline-block; padding: 2px 0; font-size: 15px;">
-                About Us
-              </a>
-            </li>
-            <li style="margin-bottom: 14px;">
               <a href="#xp-experience-section"
                 style="color: #a0a0a0; text-decoration: none; transition: color 0.3s; display: inline-block; padding: 2px 0; font-size: 15px;">
                 Our Experiences
-              </a>
-            </li>
-            <li style="margin-bottom: 14px;">
-              <a href="#journal"
-                style="color: #a0a0a0; text-decoration: none; transition: color 0.3s; display: inline-block; padding: 2px 0; font-size: 15px;">
-                Travel Journal
               </a>
             </li>
           </ul>
@@ -5107,13 +4954,18 @@ font-family: 'Cormorant Garamond', Georgia, serif;
             <p style="font-size: 15px; margin-bottom: 16px; color: #a0a0a0;">Follow Our Journey</p>
             <div>
               <a href="https://www.instagram.com/xperio.travel" target="_blank"
-                style="margin-right: 15px; display: inline-block; background-color: transparent; padding: 8px; border: 1px solid #444; border-radius: 50%; width: 20px; height: 20px; text-align: center; transition: all 0.3s ease;">
+                style="margin-right: 15px; width: 20px; height: 20px; text-align: center; transition: all 0.3s ease;">
                 <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="20" height="20"
                   style="vertical-align: middle; filter: brightness(0) invert(0.6);">
               </a>
               <a href="https://www.facebook.com/XperioTravel" target="_blank"
-                style="margin-right: 15px; display: inline-block; background-color: transparent; padding: 8px; border: 1px solid #444; border-radius: 50%; width: 20px; height: 20px; text-align: center; transition: all 0.3s ease;">
+                style="margin-right: 15px; width: 20px; height: 20px; text-align: center; transition: all 0.3s ease;">
                 <img src="https://cdn-icons-png.flaticon.com/512/733/733549.png" alt="Facebook" width="20" height="20"
+                  style="vertical-align: middle; filter: brightness(0) invert(0.6);">
+              </a>
+              <a href="https://www.linkedin.com/company/xperio-travel" target="_blank"
+                style="margin-right: 15px; width: 20px; height: 20px; text-align: center; transition: all 0.3s ease;">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20" height="20"
                   style="vertical-align: middle; filter: brightness(0) invert(0.6);">
               </a>
             </div>
@@ -5122,6 +4974,10 @@ font-family: 'Cormorant Garamond', Georgia, serif;
       </div>
       <!-- Bottom Section -->
       <div style="text-align: center;">
+
+        <p style="margin-bottom: 16px; font-size: 15px; line-height: 1.8; color: #f0f0f0;">ExploreEdge Technologies
+          Private Limited.</p>
+
         <!-- Policy Links -->
         <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 30px;">
           <a href="https://xperio.travel/privacy-policy"
@@ -5131,6 +4987,10 @@ font-family: 'Cormorant Garamond', Georgia, serif;
           <a href="https://xperio.travel/xperio-terms-of-service"
             style="color: #a0a0a0; text-decoration: none; font-size: 14px; transition: color 0.3s; padding: 2px 0;">
             Terms & Conditions
+          </a>
+          <a href="https://xperio.travel/traveler_responsibility"
+            style="color: #a0a0a0; text-decoration: none; font-size: 14px; transition: color 0.3s; padding: 2px 0;">
+            Traveler Responsibility Agreement
           </a>
           <a href="https://xperio.travel/refund-policy"
             style="color: #a0a0a0; text-decoration: none; font-size: 14px; transition: color 0.3s; padding: 2px 0;">
