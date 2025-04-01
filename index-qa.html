@@ -3544,17 +3544,33 @@
           <video class="carousel-video-background" autoplay loop playsinline>
             <source src="./assets/xperio.mp4" type="video/mp4">
           </video>
-          <button class="video-play-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          <button class="video-play-btn invisible">
+            <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" >
+              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+          </button>
+          <button class="sound-toggle-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-on">
+              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-off" style="display: none;">
+              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
             </svg>
           </button>
           <img class="fallback-img"
             src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/jCfOigCi1PObMiW.png"
             alt="Village life experience">
         </div>
-
+        
         <div class="carousel-overlay"></div>
         <div class="carousel-content">
           <span class="content-subtitle">Experience India</span>
@@ -3564,9 +3580,91 @@
         </div>
       </div>
     </div>
-
+    
     <script>
       document.addEventListener('DOMContentLoaded', function () {
+        const video = document.querySelector('.carousel-video-background');
+        const playButton = document.querySelector('.video-play-btn');
+        const soundToggleBtn = document.querySelector('.sound-toggle-btn');
+        const soundOnIcon = document.querySelector('.sound-on');
+        const soundOffIcon = document.querySelector('.sound-off');
+        
+        playVideoWithSound();
+      
+        function updateSoundToggleButton() {
+          if (video.muted) {
+            soundOnIcon.style.display = 'none';
+            soundOffIcon.style.display = 'block';
+          } else {
+            soundOnIcon.style.display = 'block';
+            soundOffIcon.style.display = 'none';
+          }
+        }
+        
+        function attemptUnmuteOnUserGesture() {
+          const userInteractionEvents = ['click', 'touchstart', 'keydown', 'scroll', 'mousewheel'];
+          
+          const unmute = function() {
+            video.muted = false;
+            video.volume = 1;
+            video.play();
+            updateSoundToggleButton();
+            userInteractionEvents.forEach(event => {
+              document.removeEventListener(event, unmute);
+            });
+          };
+          
+          userInteractionEvents.forEach(event => {
+            document.addEventListener(event, unmute, { once: true });
+          });
+        }
+        function playVideoWithSound() {
+          video.muted = false;
+          video.volume = 1;
+          const playPromise = video.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              updateSoundToggleButton();
+            }).catch(error => {
+              video.muted = true;
+              video.play().then(() => {
+                console.log("Video playing muted");
+                updateSoundToggleButton();
+                
+                attemptUnmuteOnUserGesture();
+              });
+            });
+          }
+        }
+        
+        soundToggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          
+          if (video.muted) {
+            video.muted = false;
+          } else {
+            video.muted = true;
+          }
+          
+          updateSoundToggleButton();
+          if (video.paused) {
+            video.play();
+          }
+        });
+        playButton.addEventListener('click', function() {
+          if (video.muted) {
+            video.muted = false;
+          } else {
+            video.muted = true;
+          }
+          
+          updateSoundToggleButton();
+          if (video.paused) {
+            video.play();
+          }
+        });
+        
         const contentSets = [
           {
             subtitle: "Experience India",
@@ -3594,45 +3692,117 @@
             text: "Enjoy breathtaking views and guided adventures"
           }
         ];
-
-        // Get the content elements
+        
         const subtitleElement = document.querySelector('.content-subtitle');
         const titleElement = document.querySelector('.hero-title');
         const textElement = document.querySelector('.hero-text');
-
+        
         let currentIndex = 0;
-
-        // Initial content is already set in HTML, so we start from index 1
         function rotateContent() {
-          // Fade out
           subtitleElement.style.opacity = 0;
           titleElement.style.opacity = 0;
           textElement.style.opacity = 0;
-
+          
           setTimeout(() => {
-            // Change content
             currentIndex = (currentIndex + 1) % contentSets.length;
             subtitleElement.textContent = contentSets[currentIndex].subtitle;
             titleElement.textContent = contentSets[currentIndex].title;
             textElement.textContent = contentSets[currentIndex].text;
-
-            // Fade in
             subtitleElement.style.opacity = 1;
             titleElement.style.opacity = 1;
             textElement.style.opacity = 1;
-          }, 500); // Half second for fade out
+          }, 500);
         }
-
-        // Add CSS for transitions
+        
         const style = document.createElement('style');
         style.innerHTML = `
-    .content-subtitle, .hero-title, .hero-text {
-      transition: opacity 0.5s ease;
-    }
-  `;
+          .content-subtitle, .hero-title, .hero-text {
+            transition: opacity 0.5s ease;
+          }
+          
+          .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 5;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+          }
+          
+          /* Sound toggle button in bottom right */
+          .sound-toggle-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+            backdrop-filter: blur(2px);
+          }
+          
+          .sound-toggle-btn:hover {
+            opacity: 1;
+            transform: scale(1.1);
+          }
+          
+          .sound-toggle-btn svg {
+            fill: none;
+            stroke: white;
+          }
+          
+          /* Make button invisible but still functional */
+          .video-play-btn.invisible {
+            opacity: 0;
+            pointer-events: auto; /* Still allows clicks */
+          }
+          
+          .video-play-btn:hover {
+            opacity: 0; /* Keep invisible even on hover */
+            transform: translate(-50%, -50%) scale(1.1);
+          }
+          
+          .video-play-btn svg {
+            fill: white;
+            stroke: white;
+          }
+          
+          .fallback-img {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          .carousel-video-background {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        `;
         document.head.appendChild(style);
-
-        // Rotate content every 5 seconds
+        updateSoundToggleButton();
         setInterval(rotateContent, 5000);
       });
     </script>
