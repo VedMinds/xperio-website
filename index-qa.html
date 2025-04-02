@@ -295,35 +295,7 @@
       height: 100%;
       position: relative;
     }
-
-    .carousel-item {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-      display: flex;
-      align-items: center;
-    }
-
-    .carousel-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
-    }
-
-    .carousel-item.active {
-      opacity: 1;
-      z-index: 1;
-    }
-
+    
     .carousel-content {
       position: relative;
       z-index: 2;
@@ -3418,79 +3390,292 @@
 
     /* HOST DETAILS END */
 
-
-    /* Video background styles */
-    .video-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    /* Fixed CSS with proper class names and responsive styles */
+    .carousel-container {
+      height: 100vh;
+      position: relative;
       overflow: hidden;
     }
 
-    .carousel-video-background {
+    .carousel {
+      height: 100%;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Static content that stays in place */
+    .static-content {
+      position: absolute;
+      z-index: 10;
+      max-width: 1100px;
+      top: 50%;
+      left: 35%;
+      transform: translate(-50%, -50%);
+      padding: 0 40px;
+      color: #fff;
+    }
+
+    .carousel-item {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1.1);
+      transition: opacity 1.5s ease, transform 1.8s ease;
     }
 
-    .fallback-img {
+    .carousel-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: none;
-      /* Only show when video fails */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
     }
 
-    /* Play button for mobile */
-    .video-play-btn {
+    .carousel-item.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    .carousel-item.next-enter {
+      opacity: 0;
+      transform: scale(1.08);
+      z-index: 1;
+    }
+
+    /* Carousel Controls */
+    .carousel-control {
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background-color: rgba(0, 0, 0, 0.6);
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.2);
       border: none;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      color: white;
-      cursor: pointer;
-      z-index: 5;
-      display: none;
-      /* Hidden by default, shown on mobile */
+      display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0.8;
-      transition: all 0.3s ease;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      opacity: 0.6;
     }
 
-    .video-play-btn:hover {
+    .carousel-control:hover {
+      background: rgba(0, 0, 0, 0.5);
+      transform: translateY(-50%) scale(1.1);
       opacity: 1;
-      background-color: rgba(0, 0, 0, 0.8);
     }
 
-    .video-play-btn svg {
-      margin-left: 4px;
-      /* Centering the triangle */
+    .prev {
+      left: 30px;
     }
 
-    /* Show play button on mobile */
-    @media (max-width: 768px) {
-      .video-play-btn {
-        display: flex;
+    .next {
+      right: 30px;
+    }
+
+    /* Carousel Indicators */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .indicator.active {
+      background-color: #fff;
+      transform: scale(1.3);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Mexico travel specific styles */
+    .mexico-title {
+      font-size: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .mexico-subtitle-2 {
+      font-size: 50px;
+      color: #e6e04d;
+      margin-top: 0;
+      margin-bottom: 40px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .play-btn {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none !important;
+      white-space: nowrap;
+      margin-top: 1%;
+    }
+
+    .play-btn svg {
+      margin-right: 10px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+
+    @media (max-width: 1200px) {
+      .static-content {
+        left: 40%;
       }
 
-      /* Pause video on mobile until play button is clicked */
-      .carousel-item.active .carousel-video-background {
-        /* Video is paused by default on mobile */
-        /* JavaScript will handle play/pause */
+      .mexico-title {
+        font-size: 52px;
+      }
+
+      .mexico-subtitle-2 {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .static-content {
+        left: 50%;
+        max-width: 80%;
+      }
+
+      .mexico-title {
+        font-size: 48px;
+      }
+
+      .mexico-subtitle-2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+
+      .explore-btn {
+        padding: 15px 30px;
+        font-size: 18px;
+      }
+
+      .play-btn {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .static-content {
+        text-align: center;
+      }
+
+      .mexico-title {
+        font-size: 40px;
+      }
+
+      .mexico-subtitle-2 {
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+
+      .explore-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+      }
+
+      .play-btn {
+        font-size: 16px;
+      }
+
+      .carousel-control {
+        width: 40px;
+        height: 40px;
+      }
+
+      .prev {
+        left: 15px;
+      }
+
+      .next {
+        right: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .button-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .explore-btn {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .static-content {
+        padding: 0 20px;
+      }
+
+      .mexico-title {
+        font-size: 32px;
+      }
+
+      .mexico-subtitle-2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+
+      .explore-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .play-btn {
+        font-size: 14px;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .carousel-indicators {
+        bottom: 25px;
+      }
+    }
+
+    @media (max-height: 600px) {
+      .mexico-subtitle-2 {
+        margin-bottom: 15px;
+      }
+
+      .explore-btn {
+        padding: 8px 16px;
       }
     }
   </style>
@@ -3538,275 +3723,218 @@
       </ul>
     </div>
 
-    <div class="carousel">
-      <div class="carousel-item active">
-        <div class="video-container">
-          <video class="carousel-video-background" autoplay loop playsinline>
-            <source src="./assets/xperio.mp4" type="video/mp4">
-          </video>
-          <button class="video-play-btn invisible">
-            <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" >
-              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+    <div class="carousel-container">
+      <div class="static-content">
+        <span class="mexico-title">Experience the<br>authentic Local.</span>
+        <div></div>
+        <h3 class="mexico-subtitle-2">Regenerate communities, revive traditions, and reconnect people</h3>
+        <div></div>
+        <div class="button-container">
+          <a onclick="openDialog()" class="explore-btn">Plan your trip with us</a>
+          <a href="https://youtu.be/m0GDxsZ4a-A" class="play-btn" style="text-decoration: none;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.5 5L15.5 12L8.5 19" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
-          </button>
-          <button class="sound-toggle-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-on">
-              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-off" style="display: none;">
-              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-              <line x1="23" y1="9" x2="17" y2="15"></line>
-              <line x1="17" y1="9" x2="23" y2="15"></line>
-            </svg>
-          </button>
-          <img class="fallback-img"
-            src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/jCfOigCi1PObMiW.png"
-            alt="Village life experience">
-        </div>
-        
-        <div class="carousel-overlay"></div>
-        <div class="carousel-content">
-          <span class="content-subtitle">Experience India</span>
-          <h2 class="hero-title">Unfold the charm of village life</h2>
-          <p class="hero-text">Enjoy life with simplicity, local cuisine, and nature's connection</p>
-          <a href="#xp-experience-section" class="explore-btn">Explore Experience</a>
+            Play video
+          </a>
         </div>
       </div>
+
+      <div class="carousel">
+        <div class="carousel-item active"
+          style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/jCfOigCi1PObMiW.png')">
+          <div class="carousel-overlay"></div>
+        </div>
+
+        <div class="carousel-item"
+          style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/8tlOOopJ2mev58J.png')">
+          <div class="carousel-overlay"></div>
+        </div>
+
+        <div class="carousel-item"
+          style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/oP9wZeGveaalzeT.png')">
+          <div class="carousel-overlay"></div>
+        </div>
+
+        <div class="carousel-item"
+          style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/fLPXJMqS7sGfePw.png')">
+          <div class="carousel-overlay"></div>
+        </div>
+
+        <div class="carousel-item"
+          style="background-image: url('https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/JNDu9YjCNNFJOhx.png')">
+          <div class="carousel-overlay"></div>
+        </div>
+
+        <!-- Carousel Navigation -->
+        <button class="carousel-control prev">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="carousel-control next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="carousel-indicators"></div>
     </div>
-    
+
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const video = document.querySelector('.carousel-video-background');
-        const playButton = document.querySelector('.video-play-btn');
-        const soundToggleBtn = document.querySelector('.sound-toggle-btn');
-        const soundOnIcon = document.querySelector('.sound-on');
-        const soundOffIcon = document.querySelector('.sound-off');
-        
-        playVideoWithSound();
-      
-        function updateSoundToggleButton() {
-          if (video.muted) {
-            soundOnIcon.style.display = 'none';
-            soundOffIcon.style.display = 'block';
-          } else {
-            soundOnIcon.style.display = 'block';
-            soundOffIcon.style.display = 'none';
-          }
-        }
-        
-        function attemptUnmuteOnUserGesture() {
-          const userInteractionEvents = ['click', 'touchstart', 'keydown', 'scroll', 'mousewheel'];
-          
-          const unmute = function() {
-            video.muted = false;
-            video.volume = 1;
-            video.play();
-            updateSoundToggleButton();
-            userInteractionEvents.forEach(event => {
-              document.removeEventListener(event, unmute);
-            });
-          };
-          
-          userInteractionEvents.forEach(event => {
-            document.addEventListener(event, unmute, { once: true });
+        // Carousel functionality
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelector('.carousel-indicators');
+        const prevBtn = document.querySelector('.carousel-control.prev');
+        const nextBtn = document.querySelector('.carousel-control.next');
+        let currentIndex = 0;
+        let isAnimating = false;
+
+        // Preload images for smoother transitions
+        function preloadImages() {
+          carouselItems.forEach(item => {
+            const bgUrl = item.style.backgroundImage.match(/url\(['"]?([^'"]+)['"]?\)/)[1];
+            const img = new Image();
+            img.src = bgUrl;
           });
         }
-        function playVideoWithSound() {
-          video.muted = false;
-          video.volume = 1;
-          const playPromise = video.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(() => {
-              updateSoundToggleButton();
-            }).catch(error => {
-              video.muted = true;
-              video.play().then(() => {
-                console.log("Video playing muted");
-                updateSoundToggleButton();
-                
-                attemptUnmuteOnUserGesture();
-              });
-            });
-          }
-        }
-        
-        soundToggleBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          
-          if (video.muted) {
-            video.muted = false;
-          } else {
-            video.muted = true;
-          }
-          
-          updateSoundToggleButton();
-          if (video.paused) {
-            video.play();
-          }
+
+        preloadImages();
+
+        // Create indicators
+        carouselItems.forEach((_, index) => {
+          const indicator = document.createElement('span');
+          indicator.classList.add('indicator');
+          if (index === 0) indicator.classList.add('active');
+          indicator.addEventListener('click', () => {
+            if (!isAnimating) goToSlide(index);
+          });
+          indicators.appendChild(indicator);
         });
-        playButton.addEventListener('click', function() {
-          if (video.muted) {
-            video.muted = false;
-          } else {
-            video.muted = true;
+
+        const indicatorDots = document.querySelectorAll('.indicator');
+
+        // Function to go to a specific slide
+        function goToSlide(index) {
+          if (index === currentIndex || isAnimating) return;
+
+          isAnimating = true;
+
+          // Store the previous slide index
+          const prevIndex = currentIndex;
+
+          // Remove all special classes first
+          carouselItems.forEach(item => {
+            item.classList.remove('prev-slide', 'next-enter');
+          });
+
+          // Mark the current slide as previous
+          carouselItems[currentIndex].classList.add('prev-slide');
+          carouselItems[currentIndex].classList.remove('active');
+          indicatorDots[currentIndex].classList.remove('active');
+
+          // Set new index
+          currentIndex = index;
+
+          if (currentIndex >= carouselItems.length) {
+            currentIndex = 0;
+          } else if (currentIndex < 0) {
+            currentIndex = carouselItems.length - 1;
           }
-          
-          updateSoundToggleButton();
-          if (video.paused) {
-            video.play();
-          }
-        });
-        
-        const contentSets = [
-          {
-            subtitle: "Experience India",
-            title: "Unfold the charm of village life",
-            text: "Enjoy life with simplicity, local cuisine, and nature's connection"
-          },
-          {
-            subtitle: "Cultural Immersion",
-            title: "Embrace Indian dance culture",
-            text: "Dive into rich traditions and vibrant styles of Indian dance"
-          },
-          {
-            subtitle: "Natural Wonders",
-            title: "Discover the majestic mountains",
-            text: "Soak in the tranquility of nature's embrace"
-          },
-          {
-            subtitle: "Rural Experience",
-            title: "Engage in Indian agriculture",
-            text: "Connect with the farmers and sustainable practices"
-          },
-          {
-            subtitle: "Coastal Beauty",
-            title: "Explore the sea backwaters",
-            text: "Enjoy breathtaking views and guided adventures"
-          }
-        ];
-        
-        const subtitleElement = document.querySelector('.content-subtitle');
-        const titleElement = document.querySelector('.hero-title');
-        const textElement = document.querySelector('.hero-text');
-        
-        let currentIndex = 0;
-        function rotateContent() {
-          subtitleElement.style.opacity = 0;
-          titleElement.style.opacity = 0;
-          textElement.style.opacity = 0;
-          
+
+          // Prepare the new slide
+          carouselItems[currentIndex].classList.add('next-enter');
+
+          // Force browser to acknowledge the state change
+          void carouselItems[currentIndex].offsetWidth;
+
+          // Activate new slide with transition
+          carouselItems[currentIndex].classList.remove('next-enter');
+          carouselItems[currentIndex].classList.add('active');
+          indicatorDots[currentIndex].classList.add('active');
+
+          // Allow next animation after current one completes
           setTimeout(() => {
-            currentIndex = (currentIndex + 1) % contentSets.length;
-            subtitleElement.textContent = contentSets[currentIndex].subtitle;
-            titleElement.textContent = contentSets[currentIndex].title;
-            textElement.textContent = contentSets[currentIndex].text;
-            subtitleElement.style.opacity = 1;
-            titleElement.style.opacity = 1;
-            textElement.style.opacity = 1;
-          }, 500);
+            carouselItems[prevIndex].classList.remove('prev-slide');
+            isAnimating = false;
+          }, 1000);
         }
-        
-        const style = document.createElement('style');
-        style.innerHTML = `
-          .content-subtitle, .hero-title, .hero-text {
-            transition: opacity 0.5s ease;
+
+        // Next/Previous buttons
+        prevBtn.addEventListener('click', () => {
+          if (!isAnimating) goToSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (!isAnimating) goToSlide(currentIndex + 1);
+        });
+
+        // Add swipe support for touch devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const carousel = document.querySelector('.carousel');
+
+        carousel.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const swipeThreshold = 50;
+          if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left - go to next slide
+            if (!isAnimating) goToSlide(currentIndex + 1);
+          } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right - go to previous slide
+            if (!isAnimating) goToSlide(currentIndex - 1);
           }
-          
-          .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 5;
-            opacity: 0.7;
-            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        // Auto-rotate carousel with transitions
+        let carouselInterval = setInterval(() => {
+          if (!isAnimating) goToSlide(currentIndex + 1);
+        }, 5000); // Increased interval for better user experience
+
+        // Pause auto-rotation when hovering over carousel
+        carousel.addEventListener('mouseenter', () => {
+          clearInterval(carouselInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+          carouselInterval = setInterval(() => {
+            if (!isAnimating) goToSlide(currentIndex + 1);
+          }, 5000);
+        });
+
+        // Pause auto-rotation when page is not visible
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            clearInterval(carouselInterval);
+          } else {
+            carouselInterval = setInterval(() => {
+              if (!isAnimating) goToSlide(currentIndex + 1);
+            }, 5000);
           }
-          
-          /* Sound toggle button in bottom right */
-          .sound-toggle-btn {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-            opacity: 0.7;
-            transition: opacity 0.3s, transform 0.3s;
-            backdrop-filter: blur(2px);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') {
+            if (!isAnimating) goToSlide(currentIndex - 1);
+          } else if (e.key === 'ArrowRight') {
+            if (!isAnimating) goToSlide(currentIndex + 1);
           }
-          
-          .sound-toggle-btn:hover {
-            opacity: 1;
-            transform: scale(1.1);
-          }
-          
-          .sound-toggle-btn svg {
-            fill: none;
-            stroke: white;
-          }
-          
-          /* Make button invisible but still functional */
-          .video-play-btn.invisible {
-            opacity: 0;
-            pointer-events: auto; /* Still allows clicks */
-          }
-          
-          .video-play-btn:hover {
-            opacity: 0; /* Keep invisible even on hover */
-            transform: translate(-50%, -50%) scale(1.1);
-          }
-          
-          .video-play-btn svg {
-            fill: white;
-            stroke: white;
-          }
-          
-          .fallback-img {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-          
-          .carousel-video-background {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        `;
-        document.head.appendChild(style);
-        updateSoundToggleButton();
-        setInterval(rotateContent, 5000);
+        });
       });
     </script>
-
   </section>
   <!-- NAVIGATION SECTION END ::::  -->
 
