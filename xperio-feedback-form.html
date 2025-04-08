@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xperio - Thank You for Exploring with Us!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            color: #444;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .logo-container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .logo-img {
+            max-height: 80px;
+            max-width: 100px;
+        }
+
+        .header {
+            background-color: #222232;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 16px;
+        }
+
+        .form-container {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #222232;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #222232;
+            display: inline-block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+        }
+
+        .rating-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .rating-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .rating-label {
+            flex: 1;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 10px;
+        }
+
+        .star-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .star-btn:hover {
+            color: #ffd700;
+        }
+
+        .star-btn.active {
+            color: #ffd700;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: #222232;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(34, 34, 50, 0.1);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            margin: 15px 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .file-upload {
+            margin-top: 20px;
+        }
+
+        .file-upload-btn {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #444;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .file-upload-btn:hover {
+            background-color: #ddd;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .uploaded-files {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .uploaded-file {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .uploaded-file img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .remove-file {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+            color: #ff4444;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #222232;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            font-weight: 500;
+            border: 2px solid #222232;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #fff;
+            color: #222232;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .order-id {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .thank-you {
+            text-align: center;
+            padding: 50px 20px;
+            display: none;
+        }
+
+        .thank-you h2 {
+            font-size: 28px;
+            color: #222232;
+            margin-bottom: 15px;
+        }
+
+        .thank-you p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .rating-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .submit-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/1T7J6c9LHDKCNTX.png"
+                alt="Xperio Logo" class="logo-img">
+            <h2>Thank You for Exploring with Us!</h2>
+            <p>We'd love to hear about your experience. Your feedback helps us enhance our immersive travel experiences!
+            </p>
+        </div>
+
+        <div class="form-container">
+            <div id="orderIdContainer" class="order-id">
+                Order ID: <span id="orderIdDisplay"></span>
+            </div>
+
+            <form id="feedbackForm">
+                <input type="hidden" id="orderId" name="orderId">
+
+                <div class="section">
+                    <h2 class="section-title">Overall Experience</h2>
+
+                    <div class="form-group">
+                        <label>1. How would you rate your overall experience?</label>
+                        <div class="rating-stars" id="overallRating">
+                            <button type="button" class="star-btn" data-value="1">★</button>
+                            <button type="button" class="star-btn" data-value="2">★</button>
+                            <button type="button" class="star-btn" data-value="3">★</button>
+                            <button type="button" class="star-btn" data-value="4">★</button>
+                            <button type="button" class="star-btn" data-value="5">★</button>
+                            <input type="hidden" name="overallRating" id="overallRatingInput">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Did your experience meet or exceed your expectations?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="expectYes" name="expectations" value="yes" checked>
+                                <label for="expectYes">Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="expectNo" name="expectations" value="no">
+                                <label for="expectNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expectationComments">Comments: (What stood out for you?)</label>
+                        <textarea id="expectationComments" name="expectationComments"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Photos/Videos:</label>
+                        <div class="file-upload">
+                            <label for="mediaUpload" class="file-upload-btn">
+                                <i class="fa fa-upload"></i> Select Files
+                            </label>
+                            <input type="file" id="mediaUpload" multiple accept="image/*,video/*">
+                        </div>
+                        <div class="uploaded-files" id="uploadedFiles"></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Experience Breakdown</h2>
+                    <p>On a scale of 1 to 5 (1 = Poor, 5 = Excellent), please rate:</p>
+
+                    <div class="rating-group">
+                        <div class="rating-item">
+                            <div class="rating-label">Nature & Surroundings</div>
+                            <div class="rating-stars" data-category="nature">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="natureRating">
+                            </div>
+                        </div>
+
+                        <div class="rating-item">
+                            <div class="rating-label">Host's Knowledge & Hospitality</div>
+                            <div class="rating-stars" data-category="host">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="hostRating">
+                            </div>
+                        </div>
+
+                        <div class="rating-item">
+                            <div class="rating-label">Smoothness of Activities</div>
+                            <div class="rating-stars" data-category="activities">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="activitiesRating">
+                            </div>
+                        </div>
+
+                        <div class="rating-item">
+                            <div class="rating-label">Stay & Facilities</div>
+                            <div class="rating-stars" data-category="stay">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="stayRating">
+                            </div>
+                        </div>
+
+                        <div class="rating-item">
+                            <div class="rating-label">Authenticity of Experience</div>
+                            <div class="rating-stars" data-category="authenticity">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="authenticityRating">
+                            </div>
+                        </div>
+
+                        <div class="rating-item">
+                            <div class="rating-label">Cultural & Local Interaction</div>
+                            <div class="rating-stars" data-category="cultural">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="culturalRating">
+                            </div>
+                        </div>
+
+                        <div class="rating-item">
+                            <div class="rating-label">Level of Immersion</div>
+                            <div class="rating-stars" data-category="immersion">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="immersionRating">
+                            </div>
+                        </div>
+
+                        <div class="rating-item">
+                            <div class="rating-label">Value for Money</div>
+                            <div class="rating-stars" data-category="value">
+                                <button type="button" class="star-btn" data-value="1">★</button>
+                                <button type="button" class="star-btn" data-value="2">★</button>
+                                <button type="button" class="star-btn" data-value="3">★</button>
+                                <button type="button" class="star-btn" data-value="4">★</button>
+                                <button type="button" class="star-btn" data-value="5">★</button>
+                                <input type="hidden" name="valueRating">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memorablePart">3. What was the most memorable part of your experience?</label>
+                        <textarea id="memorablePart" name="memorablePart"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="improvements">4. What could be improved?</label>
+                        <textarea id="improvements" name="improvements"></textarea>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Your Suggestions</h2>
+
+                    <div class="form-group">
+                        <label for="suggestions">1. How can we make this experience even better?</label>
+                        <textarea id="suggestions" name="suggestions"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalFeedback">2. Any additional thoughts or feedback?</label>
+                        <textarea id="additionalFeedback" name="additionalFeedback"></textarea>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Sharing & Recommendations</h2>
+
+                    <div class="form-group">
+                        <label>1. Would you recommend this experience to others?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="recommendYes" name="recommend" value="yes" checked>
+                                <label for="recommendYes">Yes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="recommendNo" name="recommend" value="no">
+                                <label for="recommendNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Can we share your feedback or media on our website/social media?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="shareWithName" name="share" value="with-name" checked>
+                                <label for="shareWithName">Yes, with my name</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="shareAnonymously" name="share" value="anonymous">
+                                <label for="shareAnonymously">Yes, anonymously</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="shareNo" name="share" value="no">
+                                <label for="shareNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+
+            <div class="thank-you" id="thankYouMessage">
+                <h2>Thank You!</h2>
+                <p>We appreciate your feedback and look forward to creating more unforgettable experiences with you.</p>
+                <button class="submit-btn" id="newFeedbackBtn">Share Another Experience</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('orderId');
+
+            if (orderId) {
+                document.getElementById('orderId').value = orderId;
+                document.getElementById('orderIdDisplay').textContent = orderId;
+            } else {
+                document.getElementById('orderIdContainer').classList.add('hidden');
+            }
+
+            const ratingContainers = document.querySelectorAll('.rating-stars');
+
+            ratingContainers.forEach(container => {
+                const stars = container.querySelectorAll('.star-btn');
+                const hiddenInput = container.querySelector('input[type="hidden"]');
+
+                stars.forEach(star => {
+                    star.addEventListener('click', function () {
+                        const value = this.getAttribute('data-value');
+
+                        // Reset all stars
+                        stars.forEach(s => s.classList.remove('active'));
+
+                        // Activate stars up to selected one
+                        for (let i = 0; i < value; i++) {
+                            stars[i].classList.add('active');
+                        }
+
+                        // Set hidden input value
+                        if (hiddenInput) {
+                            hiddenInput.value = value;
+                        }
+                    });
+                });
+            });
+
+            // Handle file uploads
+            const fileInput = document.getElementById('mediaUpload');
+            const uploadedFiles = document.getElementById('uploadedFiles');
+
+            fileInput.addEventListener('change', function () {
+                const files = this.files;
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+
+                    if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+                        const reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            const fileContainer = document.createElement('div');
+                            fileContainer.className = 'uploaded-file';
+
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+
+                            const removeBtn = document.createElement('div');
+                            removeBtn.className = 'remove-file';
+                            removeBtn.innerHTML = '✕';
+                            removeBtn.addEventListener('click', function () {
+                                fileContainer.remove();
+                            });
+
+                            fileContainer.appendChild(img);
+                            fileContainer.appendChild(removeBtn);
+                            uploadedFiles.appendChild(fileContainer);
+                        };
+
+                        reader.readAsDataURL(file);
+                    }
+                }
+            });
+
+            // Form submission
+            const feedbackForm = document.getElementById('feedbackForm');
+
+            feedbackForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Collect form data
+                const formData = new FormData(feedbackForm);
+                const formDataObj = {};
+
+                formData.forEach((value, key) => {
+                    formDataObj[key] = value;
+                });
+
+                // Here you would normally send the data to your server
+                console.log('Form data:', formDataObj);
+
+                // Show thank you message
+                feedbackForm.style.display = 'none';
+                document.getElementById('thankYouMessage').style.display = 'block';
+            });
+
+            // New feedback button
+            document.getElementById('newFeedbackBtn').addEventListener('click', function () {
+                // Reset form
+                feedbackForm.reset();
+
+                // Clear star ratings
+                const stars = document.querySelectorAll('.star-btn');
+                stars.forEach(star => star.classList.remove('active'));
+
+                // Clear uploaded files
+                uploadedFiles.innerHTML = '';
+
+                // Hide thank you message and show form
+                document.getElementById('thankYouMessage').style.display = 'none';
+                feedbackForm.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>
