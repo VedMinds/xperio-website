@@ -23,8 +23,10 @@ jobs:
         with:
           node-version: '16'
           
-      - name: Install dependencies
-        run: npm install -g cheerio fs-extra moment
+      - name: Initialize npm and install dependencies
+        run: |
+          npm init -y
+          npm install cheerio fs-extra moment
           
       - name: Update timestamp metadata
         run: |
