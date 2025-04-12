@@ -87,44 +87,36 @@
             font-weight: 500;
         }
 
-        .rating-group {
+        .required-label{
+            margin-bottom: 1%;
+        }
+
+        .required-label::after {
+            content: " *";
+            color: #ff4444;
+        }
+
+        .optional-label::after {
+            content: " (optional)";
+            font-size: 0.85em;
+            color: #888;
+            font-weight: normal;
+        }
+
+        .rating-options {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-        }
-
-        .rating-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .rating-label {
-            flex: 1;
-        }
-
-        .rating-stars {
-            display: flex;
             gap: 10px;
+            margin-top: 10px;
         }
 
-        .star-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: #ddd;
-            transition: all 0.3s ease;
+        .rating-option {
+            display: flex;
+            align-items: center;
         }
 
-        .star-btn:hover {
-            color: #ffd700;
-        }
-
-        .star-btn.active {
-            color: #ffd700;
+        input[type="radio"] {
+            margin-right: 8px;
         }
 
         input[type="text"],
@@ -163,6 +155,12 @@
             margin-right: 10px;
             width: 16px;
             height: 16px;
+        }
+
+        .checkboxes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .file-upload {
@@ -276,8 +274,17 @@
             margin-bottom: 30px;
         }
 
-        input[type="radio"] {
-            margin-right: 10px;
+        .error-message {
+            color: #ff4444;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .file-size-info {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
         }
 
         @keyframes fadeInUp {
@@ -352,211 +359,209 @@
                 <input type="hidden" id="orderId" name="orderId">
 
                 <div class="section">
-                    <h2 class="section-title">Overall Experience</h2>
+                    <h2 class="section-title">Feedback</h2>
 
                     <div class="form-group">
-                        <label>1. How would you rate your overall experience?</label>
-                        <div class="rating-stars" id="overallRating">
-                            <button type="button" class="star-btn" data-value="1">★</button>
-                            <button type="button" class="star-btn" data-value="2">★</button>
-                            <button type="button" class="star-btn" data-value="3">★</button>
-                            <button type="button" class="star-btn" data-value="4">★</button>
-                            <button type="button" class="star-btn" data-value="5">★</button>
-                            <input type="hidden" name="overallRating" id="overallRatingInput">
+                        <label class="required-label">1. How would you rate your overall experience?</label>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="rating-excellent" name="overall-rating" value="Excellent" required>
+                                <label for="rating-excellent">Excellent</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating-good" name="overall-rating" value="Good">
+                                <label for="rating-good">Good</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating-average" name="overall-rating" value="Average">
+                                <label for="rating-average">Average</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating-below" name="overall-rating" value="Below Expectations">
+                                <label for="rating-below">Below Expectations</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating-poor" name="overall-rating" value="Very Poor">
+                                <label for="rating-poor">Very Poor</label>
+                            </div>
                         </div>
+                        <div class="error-message" id="overall-rating-error">Please select an option</div>
                     </div>
 
                     <div class="form-group">
-                        <label>2. Did your experience meet or exceed your expectations?</label>
-                        <div class="checkbox-group">
+                        <label class="optional-label" for="comment">Comment</label>
+                        <textarea id="comment" name="comment" placeholder="Please share your thoughts about the experience"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required-label">2. Did you feel the experience was authentic and immersive?</label>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="authentic-absolutely" name="authentic-immersive" value="Absolutely" required>
+                                <label for="authentic-absolutely">Absolutely</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="authentic-somewhat" name="authentic-immersive" value="To some extent">
+                                <label for="authentic-somewhat">To some extent</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="authentic-not" name="authentic-immersive" value="Not really">
+                                <label for="authentic-not">Not really</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="authentic-immersive-error">Please select an option</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required-label">3. What part of the experience did you enjoy the most?</label>
+                        <div class="checkboxes-container">
                             <div class="checkbox-item">
-                                <input type="radio" id="expectYes" name="expectations" value="yes" checked>
-                                <label for="expectYes">Yes</label>
+                                <input type="checkbox" id="enjoy-booking" name="enjoy-parts" value="Ease of enquiry and booking on xperio" class="required-checkbox">
+                                <label for="enjoy-booking">Ease of enquiry and booking on xperio</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="radio" id="expectNo" name="expectations" value="no">
-                                <label for="expectNo">No</label>
+                                <input type="checkbox" id="enjoy-immersion" name="enjoy-parts" value="Immersion in any (nature, culture, spiritual, adventure etc..)" class="required-checkbox">
+                                <label for="enjoy-immersion">Immersion in any (nature, culture, spiritual, adventure etc..)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-culture" name="enjoy-parts" value="Culture, story telling, art etc" class="required-checkbox">
+                                <label for="enjoy-culture">Culture, story telling, art etc</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-activities" name="enjoy-parts" value="Activities and story telling" class="required-checkbox">
+                                <label for="enjoy-activities">Activities and story telling</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-interaction" name="enjoy-parts" value="Interaction with host and community" class="required-checkbox">
+                                <label for="enjoy-interaction">Interaction with host and community</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-cuisine" name="enjoy-parts" value="Local cuisine and cooking" class="required-checkbox">
+                                <label for="enjoy-cuisine">Local cuisine and cooking</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-location" name="enjoy-parts" value="Peaceful and offbeat location" class="required-checkbox">
+                                <label for="enjoy-location">Peaceful and offbeat location</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-accommodation" name="enjoy-parts" value="Accommodation and hospitality" class="required-checkbox">
+                                <label for="enjoy-accommodation">Accommodation and hospitality</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-bonding" name="enjoy-parts" value="Group bonding and shared moments" class="required-checkbox">
+                                <label for="enjoy-bonding">Group bonding and shared moments</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="enjoy-everything" name="enjoy-parts" value="Everything – the entire experience was memorable" class="required-checkbox">
+                                <label for="enjoy-everything">Everything – the entire experience was memorable</label>
                             </div>
                         </div>
+                        <div class="error-message" id="enjoy-parts-error">Please select at least one option</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="expectationComments">Comments: (What stood out for you?)</label>
-                        <textarea id="expectationComments" name="expectationComments"></textarea>
+                        <label class="required-label">4. Were the facilities as expected and comfortable? (pickup, stay, food & communication)</label>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="facilities-very" name="facilities" value="Yes, very comfortable" required>
+                                <label for="facilities-very">Yes, very comfortable</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="facilities-okay" name="facilities" value="Mostly okay">
+                                <label for="facilities-okay">Mostly okay</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="facilities-better" name="facilities" value="Could be better">
+                                <label for="facilities-better">Could be better</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="facilities-not" name="facilities" value="Not comfortable">
+                                <label for="facilities-not">Not comfortable</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="facilities-error">Please select an option</div>
                     </div>
 
                     <div class="form-group">
-                        <label>Upload Photos/Videos:</label>
+                        <label class="optional-label" for="facilities-comment">Comment</label>
+                        <textarea id="facilities-comment" name="facilities-comment"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required-label">5. Did you face any challenges or issues during your experience?</label>
+                        <textarea id="challenges" name="challenges" required></textarea>
+                        <div class="error-message" id="challenges-error">Please provide your response</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required-label">6. Would you recommend this experience to others?</label>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="recommend-definitely" name="recommend" value="Definitely" required>
+                                <label for="recommend-definitely">Definitely</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="recommend-maybe" name="recommend" value="Maybe">
+                                <label for="recommend-maybe">Maybe</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="recommend-not" name="recommend" value="Not likely">
+                                <label for="recommend-not">Not likely</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="recommend-error">Please select an option</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required-label">7. Any suggestions to improve this experience or your journey with Xperio? (price, location accessibility, accommodation, host communication etc..)</label>
+                        <div class="checkboxes-container">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-price" name="suggestions" value="Lower the price for better affordability" class="required-checkbox">
+                                <label for="improve-price">Lower the price for better affordability</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-access" name="suggestions" value="Choose destinations that are more easily accessible" class="required-checkbox">
+                                <label for="improve-access">Choose destinations that are more easily accessible</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-comfort" name="suggestions" value="Improve stay and facility comfort" class="required-checkbox">
+                                <label for="improve-comfort">Improve stay and facility comfort</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-communication" name="suggestions" value="Enhance communication before or during the trip" class="required-checkbox">
+                                <label for="improve-communication">Enhance communication before or during the trip</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-itinerary" name="suggestions" value="Provide clearer itinerary or expectations before booking" class="required-checkbox">
+                                <label for="improve-itinerary">Provide clearer itinerary or expectations before booking</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-transport" name="suggestions" value="Improve local transportation arrangements" class="required-checkbox">
+                                <label for="improve-transport">Improve local transportation arrangements</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-discounts" name="suggestions" value="Offer group discounts or packages" class="required-checkbox">
+                                <label for="improve-discounts">Offer group discounts or packages</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="improve-none" name="suggestions" value="Everything was good, no suggestions" class="required-checkbox">
+                                <label for="improve-none">Everything was good, no suggestions</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="suggestions-error">Please select at least one option</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="optional-label">8. Upload Images and videos you would like to share publicly</label>
                         <div class="file-upload">
                             <label for="mediaUpload" class="file-upload-btn">
                                 <i class="fa fa-upload"></i> Select Files
                             </label>
                             <input type="file" id="mediaUpload" multiple accept="image/*,video/*">
                         </div>
+                        <div class="file-size-info">Maximum file size: 25MB</div>
                         <div class="uploaded-files" id="uploadedFiles"></div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">Experience Breakdown</h2>
-                    <p>On a scale of 1 to 5 (1 = Poor, 5 = Excellent), please rate:</p>
-
-                    <div class="rating-group">
-                        <div class="rating-item">
-                            <div class="rating-label">Nature & Surroundings</div>
-                            <div class="rating-stars" data-category="nature">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="natureRating">
-                            </div>
-                        </div>
-
-                        <div class="rating-item">
-                            <div class="rating-label">Host's Knowledge & Hospitality</div>
-                            <div class="rating-stars" data-category="host">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="hostRating">
-                            </div>
-                        </div>
-
-                        <div class="rating-item">
-                            <div class="rating-label">Smoothness of Activities</div>
-                            <div class="rating-stars" data-category="activities">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="activitiesRating">
-                            </div>
-                        </div>
-
-                        <div class="rating-item">
-                            <div class="rating-label">Stay & Facilities</div>
-                            <div class="rating-stars" data-category="stay">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="stayRating">
-                            </div>
-                        </div>
-
-                        <div class="rating-item">
-                            <div class="rating-label">Authenticity of Experience</div>
-                            <div class="rating-stars" data-category="authenticity">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="authenticityRating">
-                            </div>
-                        </div>
-
-                        <div class="rating-item">
-                            <div class="rating-label">Cultural & Local Interaction</div>
-                            <div class="rating-stars" data-category="cultural">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="culturalRating">
-                            </div>
-                        </div>
-
-                        <div class="rating-item">
-                            <div class="rating-label">Level of Immersion</div>
-                            <div class="rating-stars" data-category="immersion">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="immersionRating">
-                            </div>
-                        </div>
-
-                        <div class="rating-item">
-                            <div class="rating-label">Value for Money</div>
-                            <div class="rating-stars" data-category="value">
-                                <button type="button" class="star-btn" data-value="1">★</button>
-                                <button type="button" class="star-btn" data-value="2">★</button>
-                                <button type="button" class="star-btn" data-value="3">★</button>
-                                <button type="button" class="star-btn" data-value="4">★</button>
-                                <button type="button" class="star-btn" data-value="5">★</button>
-                                <input type="hidden" name="valueRating">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="memorablePart">3. What was the most memorable part of your experience?</label>
-                        <textarea id="memorablePart" name="memorablePart"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="improvements">4. What could be improved?</label>
-                        <textarea id="improvements" name="improvements"></textarea>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">Your Suggestions</h2>
-
-                    <div class="form-group">
-                        <label for="suggestions">1. How can we make this experience even better?</label>
-                        <textarea id="suggestions" name="suggestions"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="additionalFeedback">2. Any additional thoughts or feedback?</label>
-                        <textarea id="additionalFeedback" name="additionalFeedback"></textarea>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">Sharing & Recommendations</h2>
-
-                    <div class="form-group">
-                        <label>1. Would you recommend this experience to others?</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="radio" id="recommendYes" name="recommend" value="yes" checked>
-                                <label for="recommendYes">Yes</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="radio" id="recommendNo" name="recommend" value="no">
-                                <label for="recommendNo">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>2. Can we share your feedback or media on our website/social media?</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="radio" id="shareWithName" name="share" value="with-name" checked>
-                                <label for="shareWithName">Yes, with my name</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="radio" id="shareAnonymously" name="share" value="anonymous">
-                                <label for="shareAnonymously">Yes, anonymously</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="radio" id="shareNo" name="share" value="no">
-                                <label for="shareNo">No</label>
-                            </div>
-                        </div>
+                        <div class="error-message" id="file-size-error">One or more files exceed the 25MB limit</div>
                     </div>
                 </div>
 
@@ -583,41 +588,23 @@
                 document.getElementById('orderIdContainer').classList.add('hidden');
             }
 
-            const ratingContainers = document.querySelectorAll('.rating-stars');
-
-            ratingContainers.forEach(container => {
-                const stars = container.querySelectorAll('.star-btn');
-                const hiddenInput = container.querySelector('input[type="hidden"]');
-
-                stars.forEach(star => {
-                    star.addEventListener('click', function () {
-                        const value = this.getAttribute('data-value');
-
-                        // Reset all stars
-                        stars.forEach(s => s.classList.remove('active'));
-
-                        // Activate stars up to selected one
-                        for (let i = 0; i < value; i++) {
-                            stars[i].classList.add('active');
-                        }
-
-                        // Set hidden input value
-                        if (hiddenInput) {
-                            hiddenInput.value = value;
-                        }
-                    });
-                });
-            });
-
             // Handle file uploads
             const fileInput = document.getElementById('mediaUpload');
             const uploadedFiles = document.getElementById('uploadedFiles');
+            const fileSizeError = document.getElementById('file-size-error');
+            const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25MB in bytes
 
             fileInput.addEventListener('change', function () {
                 const files = this.files;
+                let hasOversizedFile = false;
 
                 for (let i = 0; i < files.length; i++) {
                     const file = files[i];
+
+                    if (file.size > MAX_FILE_SIZE) {
+                        hasOversizedFile = true;
+                        continue;
+                    }
 
                     if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
                         const reader = new FileReader();
@@ -644,13 +631,79 @@
                         reader.readAsDataURL(file);
                     }
                 }
+
+                if (hasOversizedFile) {
+                    fileSizeError.style.display = 'block';
+                } else {
+                    fileSizeError.style.display = 'none';
+                }
             });
 
-            // Form submission
+            // Form validation
             const feedbackForm = document.getElementById('feedbackForm');
 
+            function validateForm() {
+                let isValid = true;
+
+                // Validate radio buttons
+                const radioGroups = ['overall-rating', 'authentic-immersive', 'facilities', 'recommend'];
+                radioGroups.forEach(group => {
+                    const checkedRadio = document.querySelector(`input[name="${group}"]:checked`);
+                    const errorElement = document.getElementById(`${group}-error`);
+                    
+                    if (!checkedRadio) {
+                        errorElement.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        errorElement.style.display = 'none';
+                    }
+                });
+
+                // Validate checkbox groups
+                const checkboxGroups = ['enjoy-parts', 'suggestions'];
+                checkboxGroups.forEach(group => {
+                    const checkedBoxes = document.querySelectorAll(`input[name="${group}"]:checked`);
+                    const errorElement = document.getElementById(`${group}-error`);
+                    
+                    if (checkedBoxes.length === 0) {
+                        errorElement.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        errorElement.style.display = 'none';
+                    }
+                });
+
+                // Validate challenges textarea
+                const challenges = document.getElementById('challenges');
+                const challengesError = document.getElementById('challenges-error');
+                
+                if (!challenges.value.trim()) {
+                    challengesError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    challengesError.style.display = 'none';
+                }
+
+                return isValid;
+            }
+
+            // Form submission
             feedbackForm.addEventListener('submit', function (e) {
                 e.preventDefault();
+
+                if (!validateForm()) {
+                    const firstError = document.querySelector('.error-message[style="display: block"]');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+
+                // Check for oversized files
+                if (document.getElementById('file-size-error').style.display === 'block') {
+                    document.getElementById('file-size-error').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
 
                 // Collect form data
                 const formData = new FormData(feedbackForm);
@@ -673,16 +726,17 @@
                 // Reset form
                 feedbackForm.reset();
 
-                // Clear star ratings
-                const stars = document.querySelectorAll('.star-btn');
-                stars.forEach(star => star.classList.remove('active'));
-
                 // Clear uploaded files
                 uploadedFiles.innerHTML = '';
 
                 // Hide thank you message and show form
                 document.getElementById('thankYouMessage').style.display = 'none';
                 feedbackForm.style.display = 'block';
+                
+                // Reset all error messages
+                document.querySelectorAll('.error-message').forEach(elem => {
+                    elem.style.display = 'none';
+                });
             });
         });
     </script>
