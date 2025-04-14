@@ -357,6 +357,8 @@
 
             <form id="feedbackForm">
                 <input type="hidden" id="orderId" name="orderId">
+                <input type="hidden" id="experienceId" name="experienceId">
+                <input type="hidden" id="userId" name="userId">
 
                 <div class="section">
                     <h2 class="section-title">Feedback</h2>
@@ -365,23 +367,23 @@
                         <label class="required-label">1. How would you rate your overall experience?</label>
                         <div class="rating-options">
                             <div class="rating-option">
-                                <input type="radio" id="rating-excellent" name="overall-rating" value="Excellent" required>
+                                <input type="radio" id="rating-excellent" name="overall-rating" value="5" required>
                                 <label for="rating-excellent">Excellent</label>
                             </div>
                             <div class="rating-option">
-                                <input type="radio" id="rating-good" name="overall-rating" value="Good">
+                                <input type="radio" id="rating-good" name="overall-rating" value="4">
                                 <label for="rating-good">Good</label>
                             </div>
                             <div class="rating-option">
-                                <input type="radio" id="rating-average" name="overall-rating" value="Average">
+                                <input type="radio" id="rating-average" name="overall-rating" value="3">
                                 <label for="rating-average">Average</label>
                             </div>
                             <div class="rating-option">
-                                <input type="radio" id="rating-below" name="overall-rating" value="Below Expectations">
+                                <input type="radio" id="rating-below" name="overall-rating" value="2">
                                 <label for="rating-below">Below Expectations</label>
                             </div>
                             <div class="rating-option">
-                                <input type="radio" id="rating-poor" name="overall-rating" value="Very Poor">
+                                <input type="radio" id="rating-poor" name="overall-rating" value="1">
                                 <label for="rating-poor">Very Poor</label>
                             </div>
                         </div>
@@ -559,7 +561,6 @@
                             </label>
                             <input type="file" id="mediaUpload" multiple accept="image/*,video/*">
                         </div>
-                        <div class="file-size-info">Maximum file size: 25MB</div>
                         <div class="uploaded-files" id="uploadedFiles"></div>
                         <div class="error-message" id="file-size-error">One or more files exceed the 25MB limit</div>
                     </div>
@@ -580,7 +581,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const urlParams = new URLSearchParams(window.location.search);
             const orderId = urlParams.get('orderId');
+            const experienceId = urlParams.get('experinceId');
+            const userId = urlParams.get('userId');
 
+            // Populate hidden inputs
             if (orderId) {
                 document.getElementById('orderId').value = orderId;
                 document.getElementById('orderIdDisplay').textContent = orderId;
@@ -588,11 +592,20 @@
                 document.getElementById('orderIdContainer').classList.add('hidden');
             }
 
+            if (experienceId) {
+                document.getElementById('experienceId').value = experienceId;
+            }
+
+            if (userId) {
+                document.getElementById('userId').value = userId;
+            }
+
             // Handle file uploads
             const fileInput = document.getElementById('mediaUpload');
             const uploadedFiles = document.getElementById('uploadedFiles');
             const fileSizeError = document.getElementById('file-size-error');
             const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25MB in bytes
+            const uploadedMediaFiles = []; // To store base64 encoded media files
 
             fileInput.addEventListener('change', function () {
                 const files = this.files;
@@ -612,14 +625,23 @@
                         reader.onload = function (e) {
                             const fileContainer = document.createElement('div');
                             fileContainer.className = 'uploaded-file';
+                            
+                            // Store the base64 data for submission
+                            const base64Data = e.target.result;
+                            uploadedMediaFiles.push(base64Data);
 
                             const img = document.createElement('img');
-                            img.src = e.target.result;
+                            img.src = base64Data;
 
                             const removeBtn = document.createElement('div');
                             removeBtn.className = 'remove-file';
                             removeBtn.innerHTML = '✕';
                             removeBtn.addEventListener('click', function () {
+                                // Remove from the array
+                                const index = uploadedMediaFiles.indexOf(base64Data);
+                                if (index > -1) {
+                                    uploadedMediaFiles.splice(index, 1);
+                                }
                                 fileContainer.remove();
                             });
 
@@ -687,6 +709,12 @@
                 return isValid;
             }
 
+            // Helper function to get selected values from checkbox groups
+            function getSelectedCheckboxValues(name) {
+                const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+                return Array.from(checkboxes).map(cb => cb.value);
+            }
+
             // Form submission
             feedbackForm.addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -705,20 +733,55 @@
                     return;
                 }
 
-                // Collect form data
-                const formData = new FormData(feedbackForm);
-                const formDataObj = {};
+                // Map form data to API request format
+                const apiRequestData = {
+                    orderId: document.getElementById('orderId').value,
+                    experienceId: document.getElementById('experienceId').value,
+                    userId: document.getElementById('userId').value,
+                    ratingCount: parseInt(document.querySelector('input[name="overall-rating"]:checked').value),
+                    comment: document.getElementById('comment').value,
+                    hostRatingCount: 5, // Default value as this is not in the form
+                    hostComment: "", // Default value as this is not in the form
+                    wasExperienceAuthenticAndImmersive: document.querySelector('input[name="authentic-immersive"]:checked').value,
+                    mostEnjoyablePart: getSelectedCheckboxValues('enjoy-parts'),
+                    wereComfortableFacilitiesProvided: document.querySelector('input[name="facilities"]:checked').value,
+                    comfortableFacilitiesComment: document.getElementById('facilities-comment').value,
+                    challengesDuringExperience: document.getElementById('challenges').value,
+                    wouldRecommend: document.querySelector('input[name="recommend"]:checked').value,
+                    xperioImprovementSuggestions: getSelectedCheckboxValues('suggestions'),
+                    media: uploadedMediaFiles
+                };
 
-                formData.forEach((value, key) => {
-                    formDataObj[key] = value;
+                // API endpoint
+                const apiEndpoint = `https://qa-api.xperio.travel/app/experience-review/public/add-review?orderId=${orderId}&experinceId=${experienceId}&userId=${userId}`;
+
+                // Here you would send the data to your server with a fetch call
+                console.log('API request data:', apiRequestData);
+
+                // Example fetch call
+                fetch(apiEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(apiRequestData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    // Show thank you message on success
+                    feedbackForm.style.display = 'none';
+                    document.getElementById('thankYouMessage').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your feedback. Please try again.');
                 });
-
-                // Here you would normally send the data to your server
-                console.log('Form data:', formDataObj);
-
-                // Show thank you message
-                feedbackForm.style.display = 'none';
-                document.getElementById('thankYouMessage').style.display = 'block';
             });
 
             // New feedback button
@@ -728,6 +791,7 @@
 
                 // Clear uploaded files
                 uploadedFiles.innerHTML = '';
+                uploadedMediaFiles.length = 0; // Clear the array
 
                 // Hide thank you message and show form
                 document.getElementById('thankYouMessage').style.display = 'none';
