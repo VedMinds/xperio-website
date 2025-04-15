@@ -17,28 +17,27 @@
             background-color: #f9f9f9;
             color: #444;
             line-height: 1.6;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            /* Prevent body scrolling */
+            height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
+            width: 100%;
+            height: 100vh;
             background: white;
-            border-radius: 12px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
             animation: fadeInUp 0.8s forwards;
-        }
-
-        .logo-container {
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-        }
-
-        .logo-img {
-            max-height: 80px;
-            max-width: 100px;
         }
 
         .header {
@@ -46,92 +45,119 @@
             color: white;
             padding: 30px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .header h1 {
-            font-size: 28px;
-            font-weight: 400;
+
+        .header h2 {
+            font-size: 22px;
+            /* Reduced from 28px */
+            font-weight: 600;
             margin-bottom: 10px;
+            animation: pulse 2s infinite;
         }
 
         .header p {
-            opacity: 0.8;
-            font-size: 16px;
+            opacity: 0.9;
+            font-size: 14px;
+            /* Reduced from 16px */
+        }
+
+        .logo-img {
+            max-height: 80px;
+            max-width: 100px;
+            margin-bottom: 15px;
         }
 
         .form-container {
             padding: 30px;
+            overflow-y: auto;
+            /* Enable scrolling */
+            flex: 1;
+            /* Fill remaining space */
         }
 
-        input[type="email"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        input[type="email"]:focus {
-            border-color: #222232;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(34, 34, 50, 0.1);
-        }
-
-        .your-info-section {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
-
-        input[type="text"]::placeholder,
-        input[type="email"]::placeholder {
-            color: #aaa;
+        .order-id {
             font-size: 14px;
-        }
-
-        /* Optional: Add a nice transition effect on focus */
-        input[type="text"],
-        input[type="email"] {
-            transition: all 0.3s ease;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus {
-            transform: translateY(-2px);
+            color: #666;
+            margin-bottom: 20px;
+            background-color: #f5f5f5;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: inline-block;
         }
 
         .section {
-            padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 22px;
             color: #222232;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding-bottom: 10px;
             border-bottom: 2px solid #222232;
             display: inline-block;
+            font-weight: 600;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
 
-        label {
+        .form-group:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .question-label {
+            font-weight: 600;
+            color: #222232;
+            font-size: 18px;
+            margin-bottom: 15px;
             display: block;
-            font-weight: 500;
+            background-color: rgba(34, 34, 50, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #222232;
         }
 
-        .required-label {
-            margin-bottom: 1%;
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #222232;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(34, 34, 50, 0.1);
+            transform: translateY(-2px);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
         }
 
         .required-label::after {
             content: " *";
             color: #ff4444;
+            font-weight: bold;
         }
 
         .optional-label::after {
@@ -144,61 +170,55 @@
         .rating-options {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 15px;
         }
 
         .rating-option {
             display: flex;
             align-items: center;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .rating-option:hover {
+            background-color: rgba(34, 34, 50, 0.05);
         }
 
         input[type="radio"] {
-            margin-right: 8px;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        input[type="text"]:focus,
-        textarea:focus {
-            border-color: #222232;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(34, 34, 50, 0.1);
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .checkbox-group {
-            margin: 15px 0;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .checkbox-item input[type="checkbox"] {
             margin-right: 10px;
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
+            accent-color: #222232;
         }
 
         .checkboxes-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background-color: rgba(34, 34, 50, 0.05);
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #222232;
         }
 
         .file-upload {
@@ -207,129 +227,32 @@
 
         .file-upload-btn {
             display: inline-block;
-            background-color: #f0f0f0;
-            color: #444;
-            padding: 10px 20px;
+            background-color: #222232;
+            color: white;
+            padding: 12px 25px;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(34, 34, 50, 0.2);
         }
 
         .file-upload-btn:hover {
-            background-color: #ddd;
+            background-color: #2a2a3d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(34, 34, 50, 0.3);
         }
 
         input[type="file"] {
             display: none;
         }
 
-        .uploaded-files {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .uploaded-file {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .uploaded-file img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .remove-file {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(255, 255, 255, 0.8);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 12px;
-            color: #ff4444;
-        }
-
-        .submit-btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background-color: #222232;
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border-radius: 30px;
-            font-weight: 500;
-            border: 2px solid #222232;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .submit-btn:hover {
-            background-color: #fff;
-            color: #222232;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .order-id {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .thank-you {
-            text-align: center;
-            padding: 50px 20px;
-            display: none;
-        }
-
-        .thank-you h2 {
-            font-size: 28px;
-            color: #222232;
-            margin-bottom: 15px;
-        }
-
-        .thank-you p {
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .error-message {
-            color: #ff4444;
-            font-size: 14px;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .file-size-info {
-            font-size: 14px;
-            color: #888;
-            margin-top: 5px;
-        }
-
         .upload-progress {
             width: 100%;
-            height: 5px;
+            height: 8px;
             background-color: #eee;
-            margin-top: 10px;
+            margin-top: 15px;
             border-radius: 5px;
             overflow: hidden;
             display: none;
@@ -344,8 +267,108 @@
 
         .upload-status {
             font-size: 14px;
-            color: #888;
-            margin-top: 5px;
+            color: #666;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .uploaded-files {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .uploaded-file {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .uploaded-file img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .remove-file {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            color: #ff4444;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .remove-file:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 14px;
+            margin-top: 8px;
+            display: none;
+            background-color: rgba(255, 68, 68, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid #ff4444;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background-color: #222232;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 6px 15px rgba(34, 34, 50, 0.25);
+        }
+
+        .submit-btn:hover {
+            background-color: #2a2a3d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(34, 34, 50, 0.3);
+        }
+
+        .thank-you {
+            text-align: center;
+            padding: 50px 20px;
+            display: none;
+        }
+
+        .thank-you h2 {
+            font-size: 32px;
+            color: #222232;
+            margin-bottom: 20px;
+        }
+
+        .thank-you p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .hidden {
             display: none;
         }
 
@@ -361,6 +384,20 @@
             }
         }
 
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
         @media (max-width: 768px) {
             .form-container {
                 padding: 20px;
@@ -370,14 +407,16 @@
                 padding: 20px;
             }
 
-            .header h1 {
-                font-size: 24px;
+            .header h2 {
+                font-size: 20px;
             }
 
-            .rating-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .form-group {
+                padding: 15px;
+            }
+
+            .question-label {
+                font-size: 16px;
             }
         }
 
@@ -386,8 +425,8 @@
                 padding: 15px;
             }
 
-            .header h1 {
-                font-size: 20px;
+            .header h2 {
+                font-size: 18px;
             }
 
             .section-title {
@@ -398,6 +437,10 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .form-group {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -405,8 +448,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/1T7J6c9LHDKCNTX.png"
-                alt="Xperio Logo" class="logo-img">
+            <a href="https://xperio.travel">
+                <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/1T7J6c9LHDKCNTX.png"
+                    alt="Xperio Logo" class="logo-img">
+            </a>
             <h2>Thank You for Exploring with Us!</h2>
             <p>We'd love to hear about your experience. Your feedback helps us enhance our immersive travel experiences!
             </p>
@@ -426,12 +471,12 @@
                     <h2 class="section-title">Your Information</h2>
 
                     <div class="form-group">
-                        <label class="required-label" for="fullName">Full Name</label>
+                        <label class="question-label required-label" for="fullName">Full Name</label>
                         <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
                     </div>
 
                     <div class="form-group">
-                        <label class="required-label" for="email">Email Address</label>
+                        <label class="question-label required-label" for="email">Email Address</label>
                         <input type="email" id="email" name="email" required placeholder="Enter your email address">
                     </div>
                 </div>
@@ -440,7 +485,8 @@
                     <h2 class="section-title">Experience Feedback</h2>
 
                     <div class="form-group">
-                        <label class="required-label">1. How would you rate your overall experience?</label>
+                        <label class="question-label required-label">1. How would you rate your overall
+                            experience?</label>
                         <div class="rating-options">
                             <div class="rating-option">
                                 <input type="radio" id="rating-excellent" name="overall-rating" value="5" required>
@@ -466,6 +512,9 @@
                         <div class="error-message" id="overall-rating-error">Please select an option</div>
                     </div>
 
+                    <!-- Rest of the form content remains the same -->
+                    <!-- I'm keeping the entire form content for completeness -->
+
                     <div class="form-group">
                         <label class="optional-label" for="comment">Comment</label>
                         <textarea id="comment" name="comment"
@@ -473,7 +522,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="required-label">2. Did you feel the experience was authentic and
+                        <label class="question-label required-label">2. Did you feel the experience was authentic and
                             immersive?</label>
                         <div class="rating-options">
                             <div class="rating-option">
@@ -495,7 +544,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="required-label">3. What part of the experience did you enjoy the most?</label>
+                        <label class="question-label required-label">3. What part of the experience did you enjoy the
+                            most?</label>
                         <div class="checkboxes-container">
                             <div class="checkbox-item">
                                 <input type="checkbox" id="enjoy-booking" name="enjoy-parts"
@@ -554,7 +604,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="required-label">4. Were the facilities as expected and comfortable? (pickup, stay,
+                        <label class="question-label required-label">4. Were the facilities as expected and comfortable?
+                            (pickup, stay,
                             food & communication)</label>
                         <div class="rating-options">
                             <div class="rating-option">
@@ -580,18 +631,22 @@
 
                     <div class="form-group">
                         <label class="optional-label" for="facilities-comment">Comment</label>
-                        <textarea id="facilities-comment" name="facilities-comment"></textarea>
+                        <textarea id="facilities-comment" name="facilities-comment"
+                            placeholder="Please share any comments about the facilities"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label class="required-label">5. Did you face any challenges or issues during your
+                        <label class="question-label required-label">5. Did you face any challenges or issues during
+                            your
                             experience?</label>
-                        <textarea id="challenges" name="challenges" required></textarea>
+                        <textarea id="challenges" name="challenges" required
+                            placeholder="Please describe any challenges or issues you faced, or write 'None' if everything went smoothly"></textarea>
                         <div class="error-message" id="challenges-error">Please provide your response</div>
                     </div>
 
                     <div class="form-group">
-                        <label class="required-label">6. Would you recommend this experience to others?</label>
+                        <label class="question-label required-label">6. Would you recommend this experience to
+                            others?</label>
                         <div class="rating-options">
                             <div class="rating-option">
                                 <input type="radio" id="recommend-definitely" name="recommend" value="Definitely"
@@ -611,7 +666,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="required-label">7. Any suggestions to improve this experience or your journey with
+                        <label class="question-label required-label">7. Any suggestions to improve this experience or
+                            your journey with
                             Xperio? (price, location accessibility, accommodation, host communication etc..)</label>
                         <div class="checkboxes-container">
                             <div class="checkbox-item">
@@ -663,7 +719,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="optional-label">8. Upload Images and videos you would like to share
+                        <label class="question-label optional-label">8. Upload Images and videos you would like to share
                             publicly</label>
                         <div class="file-upload">
                             <label for="mediaUpload" class="file-upload-btn">
@@ -686,7 +742,7 @@
                     <h2 class="section-title">Host Feedback</h2>
 
                     <div class="form-group">
-                        <label class="required-label">How would you rate your host?</label>
+                        <label class="question-label required-label">How would you rate your host?</label>
                         <div class="rating-options">
                             <div class="rating-option">
                                 <input type="radio" id="host-rating-5" name="host-rating" value="5" required>
@@ -729,7 +785,6 @@
             </div>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const urlParams = new URLSearchParams(window.location.search);
