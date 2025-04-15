@@ -678,7 +678,6 @@
             // Function to upload a file and return a promise
             async function uploadFile(file) {
                 const formData = new FormData();
-                // Using the correct parameter name "filePartFlux" instead of "file"
                 formData.append('filePartFlux', file);
 
                 try {
@@ -691,9 +690,23 @@
                         throw new Error('Upload failed with status: ' + response.status);
                     }
 
-                    const data = await response;
-                    return data.url;
+                    // Parse the JSON response
+                    const data = await response.json();
+
+                    let url;
+                    if (file.type.startsWith('image/')) {
+                        url = data?.imageUrls?.[0];
+                    } else if (file.type.startsWith('video/')) {
+                        url = data?.videoUrls?.[0];
+                    }
+
+                    if (!url) {
+                        throw new Error('No URL returned from server');
+                    }
+
+                    return url;
                 } catch (error) {
+                    console.error("Upload error:", error);
                     throw error;
                 }
             }
@@ -759,6 +772,9 @@
 
                         // Upload to API
                         const url = await uploadFile(file);
+
+                        // Add URL to mediaUrls array - THIS WAS MISSING
+                        mediaUrls.push(url);
 
                         // Add remove button after successful upload
                         const fileContainer = uploadedFiles.querySelector(`[data-index="${i}"]`);
@@ -865,6 +881,9 @@
                     return;
                 }
 
+                // For debugging - log the mediaUrls array before submission
+                console.log("Media URLs being submitted:", mediaUrls);
+
                 // Map form data to API request format
                 const apiRequestData = {
                     orderId: document.getElementById('orderId').value,
@@ -881,7 +900,7 @@
                     challengesDuringExperience: document.getElementById('challenges').value,
                     wouldRecommend: document.querySelector('input[name="recommend"]:checked').value,
                     xperioImprovementSuggestions: getSelectedCheckboxValues('suggestions'),
-                    media: mediaUrls.slice() // Create a copy of the array to ensure it's not modified
+                    media: mediaUrls // Use the mediaUrls array directly
                 };
 
                 // API endpoint
@@ -906,6 +925,7 @@
                     })
                     .catch(error => {
                         alert('There was an error submitting your feedback. Please try again.');
+                        console.error("Form submission error:", error);
                     });
             });
 
