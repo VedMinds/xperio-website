@@ -62,6 +62,7 @@
         .form-container {
             padding: 30px;
         }
+
         input[type="email"] {
             width: 100%;
             padding: 12px;
@@ -436,42 +437,6 @@
                 </div>
 
                 <div class="section">
-                    <h2 class="section-title">Host Feedback</h2>
-                    
-                    <div class="form-group">
-                        <label class="required-label">How would you rate your host?</label>
-                        <div class="rating-options">
-                            <div class="rating-option">
-                                <input type="radio" id="host-rating-5" name="host-rating" value="5" required>
-                                <label for="host-rating-5">★★★★★ (Excellent)</label>
-                            </div>
-                            <div class="rating-option">
-                                <input type="radio" id="host-rating-4" name="host-rating" value="4">
-                                <label for="host-rating-4">★★★★☆ (Very Good)</label>
-                            </div>
-                            <div class="rating-option">
-                                <input type="radio" id="host-rating-3" name="host-rating" value="3">
-                                <label for="host-rating-3">★★★☆☆ (Good)</label>
-                            </div>
-                            <div class="rating-option">
-                                <input type="radio" id="host-rating-2" name="host-rating" value="2">
-                                <label for="host-rating-2">★★☆☆☆ (Fair)</label>
-                            </div>
-                            <div class="rating-option">
-                                <input type="radio" id="host-rating-1" name="host-rating" value="1">
-                                <label for="host-rating-1">★☆☆☆☆ (Poor)</label>
-                            </div>
-                        </div>
-                        <div class="error-message" id="host-rating-error">Please select a rating for your host</div>
-                    </div>
-                
-                    <div class="form-group">
-                        <label class="optional-label" for="host-comment">Comments about your host</label>
-                        <textarea id="host-comment" name="host-comment" placeholder="Please share your thoughts about your host's hospitality, knowledge, communication, etc."></textarea>
-                    </div>
-                </div>
-
-                <div class="section">
                     <h2 class="section-title">Experience Feedback</h2>
 
                     <div class="form-group">
@@ -714,6 +679,43 @@
                         <div class="error-message" id="file-size-error">One or more files exceed the 25MB limit</div>
                         <div class="error-message" id="file-upload-error">Error uploading one or more files. Please try
                             again.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Host Feedback</h2>
+
+                    <div class="form-group">
+                        <label class="required-label">How would you rate your host?</label>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="host-rating-5" name="host-rating" value="5" required>
+                                <label for="host-rating-5">★★★★★ (Excellent)</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="host-rating-4" name="host-rating" value="4">
+                                <label for="host-rating-4">★★★★☆ (Very Good)</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="host-rating-3" name="host-rating" value="3">
+                                <label for="host-rating-3">★★★☆☆ (Good)</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="host-rating-2" name="host-rating" value="2">
+                                <label for="host-rating-2">★★☆☆☆ (Fair)</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="host-rating-1" name="host-rating" value="1">
+                                <label for="host-rating-1">★☆☆☆☆ (Poor)</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="host-rating-error">Please select a rating for your host</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="optional-label" for="host-comment">Comments about your host</label>
+                        <textarea id="host-comment" name="host-comment"
+                            placeholder="Please share your thoughts about your host's hospitality, knowledge, communication, etc."></textarea>
                     </div>
                 </div>
 
