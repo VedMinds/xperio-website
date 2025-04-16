@@ -46,7 +46,7 @@
   <!-- Google Play app association -->
   <meta name="google-play-app" content="app-id=travel.xperio.xpapp">
 
-  <meta property="og:updated_time" content="2025-04-16T17:20:48Z">
+  <meta property="og:updated_time" content="2025-04-16T15:29:25Z">
 
   <!-- Pre loading images  -->
   <link rel="preload" as="image" href="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/HM0F7sb5cWL53ET.png">
@@ -407,18 +407,6 @@
       display: flex;
       flex-direction: column;
       min-width: calc(25% - 16px);
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .experience-reviews-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    .experience-reviews-card.expanded {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      transform: translateY(-5px);
     }
 
     .experience-reviews-header {
@@ -485,11 +473,18 @@
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
-      transition: all 0.3s ease;
     }
 
     .experience-reviews-content.expanded {
       -webkit-line-clamp: unset;
+    }
+
+    .read-more-btn {
+      color: #0077CC;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 15px;
     }
 
     .experience-reviews-divider {
@@ -569,51 +564,18 @@
       height: 14px;
     }
 
-    .read-more-btn {
-      font-size: 14px;
-      color: #0066cc;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-block;
-      margin-top: -5px;
-      margin-bottom: 15px;
-      transition: color 0.2s ease;
+    .experience-reviews-card.expanded {
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+      transition: box-shadow 0.3s ease;
     }
-
-    .read-more-btn:hover {
-      color: #004999;
-      text-decoration: underline;
-    }
-
-    .play-pause-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 1px solid #ddd;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .play-pause-btn:hover {
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-
 
     @media (max-width: 768px) {
       .experience-reviews-card {
         min-width: calc(100% - 10px);
         padding: 16px;
+        /* Reduced padding */
         margin-right: 10px;
+        /* Smaller margin */
       }
 
       .experience-reviews-container {
@@ -629,6 +591,7 @@
 
       .experience-reviews-avatar {
         width: 40px;
+        /* Smaller avatar */
         height: 40px;
         margin-right: 10px;
         margin-bottom: 0;
@@ -636,6 +599,7 @@
 
       .experience-reviews-name {
         font-size: 16px;
+        /* Smaller font */
       }
 
       .experience-reviews-date {
@@ -652,6 +616,7 @@
         line-height: 1.5;
         margin-bottom: 10px;
         -webkit-line-clamp: 3;
+        /* Show fewer lines */
       }
 
       .experience-reviews-highlight-title {
@@ -667,12 +632,9 @@
       .experience-reviews-controls {
         margin-top: 15px;
       }
-      
-      .read-more-btn {
-        font-size: 13px;
-      }
     }
 
+    /* Add an extra breakpoint for very small devices */
     @media (max-width: 480px) {
       .experience-reviews-card {
         padding: 12px;
@@ -685,6 +647,7 @@
 
       .experience-reviews-content {
         -webkit-line-clamp: 2;
+        /* Even fewer lines on very small screens */
       }
     }
   </style>
@@ -1894,15 +1857,14 @@
         recommends: true
       }
     ];
-
+  
     // Global variables
     let reviewsPerView = 4; // Force showing 4 items when possible
     let scrollPosition = 0;
     let animationId;
     let scrollSpeed = 0.8; // Lower number = faster scrolling
     let isPaused = false;
-    let isAutoScrollPaused = false;
-
+  
     // Function to create star rating
     function generateStarRating(rating) {
       let stars = '';
@@ -1923,14 +1885,14 @@
       }
       return stars;
     }
-
+  
     // Function to create single review card
     function createReviewCard(review, index) {
       // Create review card
       const card = document.createElement('div');
       card.className = 'experience-reviews-card';
       card.dataset.index = index;
-
+  
       // Create highlights HTML
       let highlightsHTML = '';
       if (review.highlights && review.highlights.length > 0) {
@@ -1943,7 +1905,7 @@
           </div>
         `;
       }
-
+  
       // Create recommendation badge
       let recommendHTML = '';
       if (review.recommends) {
@@ -1957,15 +1919,15 @@
           </div>
         `;
       }
-
+  
       // Determine if we need a "Read More" button (based on content length)
       const needsReadMore = review.content.length > 150;
       const readMoreBtn = needsReadMore ? 
         `<div class="read-more-btn" data-index="${index}">Read more</div>` : '';
-
+  
       // Set default avatar if not provided
       const avatarUrl = review.avatar ? review.avatar : "https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/vIEkj7q7Q3sWtxQ.png";
-
+  
       // Set card content
       card.innerHTML = `
         <div class="experience-reviews-header">
@@ -1991,17 +1953,17 @@
         
         ${highlightsHTML}
       `;
-
+  
       return card;
     }
-
+  
     // Function to create review cards
     function createReviewCards() {
       const carousel = document.getElementById('reviewsCarousel');
-
+  
       // Clear the carousel first
       carousel.innerHTML = '';
-
+  
       // Create a container for the slides
       const slidesContainer = document.createElement('div');
       slidesContainer.id = 'slidesContainer';
@@ -2009,15 +1971,13 @@
       slidesContainer.style.position = 'relative';
       slidesContainer.style.left = '0px';
       carousel.appendChild(slidesContainer);
-
   
-
       // Add the initial cards
       reviews.forEach((review, index) => {
         const card = createReviewCard(review, index);
         slidesContainer.appendChild(card);
       });
-
+  
       // Duplicate the reviews several times for a truly continuous effect
       // This ensures enough cards for continuous scrolling
       for (let i = 0; i < 3; i++) {
@@ -2027,10 +1987,10 @@
           slidesContainer.appendChild(card);
         });
       }
-
+  
       // Set card widths based on reviewsPerView
       const cardWidth = Math.floor((carousel.offsetWidth / reviewsPerView) - 20);
-
+  
       // Apply width to all cards
       const cards = slidesContainer.querySelectorAll('.experience-reviews-card');
       cards.forEach(card => {
@@ -2039,7 +1999,7 @@
         card.style.marginRight = '20px';
         card.style.boxSizing = 'border-box';
       });
-
+  
       // Add event listeners for Read More buttons
       const readMoreBtns = document.querySelectorAll('.read-more-btn');
       readMoreBtns.forEach(btn => {
@@ -2060,9 +2020,38 @@
           }
         });
       });
-
-      // Add event listeners for card clicks to pause/resume scrolling
+  
+      // Add touch/mouse event handlers for all devices
       cards.forEach(card => {
+        // Desktop - pause on hover
+        card.addEventListener('mouseenter', function() {
+          pauseScrolling();
+        });
+        
+        // Desktop - resume on mouse leave
+        card.addEventListener('mouseleave', function() {
+          // Only resume if no card is expanded
+          if (!document.querySelector('.experience-reviews-card.expanded') && 
+              !document.querySelector('.experience-reviews-content.expanded')) {
+            resumeScrolling();
+          }
+        });
+        
+        // Mobile - use touch events
+        card.addEventListener('touchstart', function() {
+          pauseScrolling();
+        });
+        
+        card.addEventListener('touchend', function() {
+          // Don't resume if the card was expanded
+          if (!this.classList.contains('expanded') && 
+              !document.querySelector('.experience-reviews-content.expanded')) {
+            // Add a small delay to allow for tapping
+            setTimeout(() => resumeScrolling(), 500);
+          }
+        });
+        
+        // Handle card click
         card.addEventListener('click', function() {
           if (this.classList.contains('expanded')) {
             this.classList.remove('expanded');
@@ -2077,54 +2066,17 @@
             pauseScrolling();
           }
         });
-
-        // Pause scrolling on hover
-        card.addEventListener('mouseenter', function() {
-          pauseScrolling();
-        });
-
-        // Resume scrolling when mouse leaves
-        card.addEventListener('mouseleave', function() {
-          // Only resume if no card is expanded
-          if (!document.querySelector('.experience-reviews-card.expanded') && 
-              !document.querySelector('.experience-reviews-content.expanded') &&
-              !isAutoScrollPaused) {
-            resumeScrolling();
-          }
-        });
       });
-
-      // Add click event for play/pause button
-      document.getElementById('playPauseBtn').addEventListener('click', function() {
-        if (isPaused) {
-          resumeScrolling();
-          isAutoScrollPaused = false;
-          this.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="4" width="4" height="16"></rect>
-              <rect x="14" y="4" width="4" height="16"></rect>
-            </svg>
-          `;
-        } else {
-          pauseScrolling();
-          isAutoScrollPaused = true;
-          this.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          `;
-        }
-      });
-
+  
       return cardWidth + 20; // Return width including margin
     }
-
+  
     // Function to pause scrolling
     function pauseScrolling() {
       cancelAnimationFrame(animationId);
       isPaused = true;
     }
-
+  
     // Function to resume scrolling
     function resumeScrolling() {
       if (isPaused) {
@@ -2132,28 +2084,28 @@
         animateScroll(document.querySelector('.experience-reviews-card').offsetWidth + 20);
       }
     }
-
+  
     // Continuous scrolling animation function
     function animateScroll(cardWidth) {
       if (isPaused) return;
       
       const slidesContainer = document.getElementById('slidesContainer');
-
+  
       // Increment scroll position
       scrollPosition += scrollSpeed;
-
+  
       // Reset position when we've scrolled past the first set of cards
       if (scrollPosition >= cardWidth * reviews.length) {
         scrollPosition = 0;
       }
-
+  
       // Apply the scroll position
       slidesContainer.style.transform = `translateX(-${scrollPosition}px)`;
-
+  
       // Continue the animation
       animationId = requestAnimationFrame(() => animateScroll(cardWidth));
     }
-
+  
     // Initialize
     function initialize() {
       // Always try to show 4 items on larger screens
@@ -2162,54 +2114,53 @@
       else if (width < 992) reviewsPerView = 2;
       else if (width < 1200) reviewsPerView = 3;
       else reviewsPerView = 4;
-
+  
       // Modify carousel styles for smooth continuous scrolling
       const carousel = document.getElementById('reviewsCarousel');
       carousel.style.overflow = 'hidden';
-
+  
       // Create cards and get card width
       const cardWidth = createReviewCards();
-
+  
       // Start the continuous scrolling animation
       animationId = requestAnimationFrame(() => animateScroll(cardWidth));
-
+  
       // Make sure navigation buttons are visible and functional
       document.getElementById('prevButton').style.display = 'flex';
       document.getElementById('nextButton').style.display = 'flex';
-
+  
       // Handle navigation buttons
       document.getElementById('prevButton').addEventListener('click', () => {
         // Speed up scrolling in reverse direction temporarily
         const originalSpeed = scrollSpeed;
         scrollSpeed = -scrollSpeed * 5;
-
+  
         setTimeout(() => {
           scrollSpeed = originalSpeed;
         }, 500);
       });
-
+  
       document.getElementById('nextButton').addEventListener('click', () => {
         // Speed up scrolling temporarily
         const originalSpeed = scrollSpeed;
         scrollSpeed = scrollSpeed * 5;
-
+  
         setTimeout(() => {
           scrollSpeed = originalSpeed;
         }, 500);
       });
     }
-
+  
     // Initialize on load
     document.addEventListener('DOMContentLoaded', initialize);
-
+  
     // Update on window resize
     window.addEventListener('resize', () => {
       // Cancel the current animation
       cancelAnimationFrame(animationId);
       scrollPosition = 0;
       isPaused = false;
-      isAutoScrollPaused = false;
-
+  
       // Reinitialize
       initialize();
     });
