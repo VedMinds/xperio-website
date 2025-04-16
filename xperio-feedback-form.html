@@ -476,7 +476,7 @@
                 <input type="hidden" id="userId" name="userId">
 
                 <div class="section">
-                    <h2 class="section-title">Your Information</h2>
+                    <span class="section-title" id="experienceTitle"></span>
 
                     <div class="form-group">
                         <label class="question-label required-label" for="fullName">Full Name</label>
@@ -799,11 +799,47 @@
             const orderId = urlParams.get('orderId');
             const experienceId = urlParams.get('experienceId');
             const userId = urlParams.get('userId');
+            const experienceTitle = urlParams.get('experienceTitle');
+            const startDate = urlParams.get('startDate');
+            const endDate = urlParams.get('endDate');
+
+            function formatDate(dateString) {
+                try {
+                    const date = new Date(dateString);
+                    if (isNaN(date.getTime())) {
+                        return dateString;
+                    }
+
+                    return date.toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                } catch (e) {
+                    console.error("Date parsing error:", e);
+                    return dateString;
+                }
+            }
 
             // Populate hidden inputs
             if (orderId) {
                 document.getElementById('orderId').value = orderId;
                 document.getElementById('orderIdDisplay').textContent = orderId;
+                const titleElement = document.getElementById('experienceTitle');
+
+                titleElement.textContent = experienceTitle || 'Your Experience';
+
+                if (startDate && endDate) {
+                    const dateSpan = document.createElement('span');
+                    dateSpan.className = 'experience-dates';
+                    dateSpan.textContent = `(${formatDate(startDate)} - ${formatDate(endDate)})`;
+                    dateSpan.style.display = 'block';
+                    dateSpan.style.fontSize = '16px';
+                    dateSpan.style.fontWeight = 'normal';
+                    dateSpan.style.color = '#666';
+                    dateSpan.style.marginTop = '5px';
+                    titleElement.appendChild(dateSpan);
+                }
             } else {
                 document.getElementById('orderIdContainer').classList.add('hidden');
             }
