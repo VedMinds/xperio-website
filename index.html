@@ -407,6 +407,18 @@
       display: flex;
       flex-direction: column;
       min-width: calc(25% - 16px);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .experience-reviews-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .experience-reviews-card.expanded {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
     }
 
     .experience-reviews-header {
@@ -473,6 +485,11 @@
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
+      transition: all 0.3s ease;
+    }
+
+    .experience-reviews-content.expanded {
+      -webkit-line-clamp: unset;
     }
 
     .experience-reviews-divider {
@@ -552,14 +569,51 @@
       height: 14px;
     }
 
+    .read-more-btn {
+      font-size: 14px;
+      color: #0066cc;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: -5px;
+      margin-bottom: 15px;
+      transition: color 0.2s ease;
+    }
+
+    .read-more-btn:hover {
+      color: #004999;
+      text-decoration: underline;
+    }
+
+    .play-pause-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .play-pause-btn:hover {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
 
     @media (max-width: 768px) {
       .experience-reviews-card {
         min-width: calc(100% - 10px);
         padding: 16px;
-        /* Reduced padding */
         margin-right: 10px;
-        /* Smaller margin */
       }
 
       .experience-reviews-container {
@@ -575,7 +629,6 @@
 
       .experience-reviews-avatar {
         width: 40px;
-        /* Smaller avatar */
         height: 40px;
         margin-right: 10px;
         margin-bottom: 0;
@@ -583,7 +636,6 @@
 
       .experience-reviews-name {
         font-size: 16px;
-        /* Smaller font */
       }
 
       .experience-reviews-date {
@@ -600,7 +652,6 @@
         line-height: 1.5;
         margin-bottom: 10px;
         -webkit-line-clamp: 3;
-        /* Show fewer lines */
       }
 
       .experience-reviews-highlight-title {
@@ -616,9 +667,12 @@
       .experience-reviews-controls {
         margin-top: 15px;
       }
+      
+      .read-more-btn {
+        font-size: 13px;
+      }
     }
 
-    /* Add an extra breakpoint for very small devices */
     @media (max-width: 480px) {
       .experience-reviews-card {
         padding: 12px;
@@ -631,7 +685,6 @@
 
       .experience-reviews-content {
         -webkit-line-clamp: 2;
-        /* Even fewer lines on very small screens */
       }
     }
   </style>
@@ -1776,6 +1829,7 @@
     </div>
   </div>
 
+
   <script>
     // Only use the reviews from the latest document
     const reviews = [
@@ -1846,6 +1900,8 @@
     let scrollPosition = 0;
     let animationId;
     let scrollSpeed = 0.8; // Lower number = faster scrolling
+    let isPaused = false;
+    let isAutoScrollPaused = false;
 
     // Function to create star rating
     function generateStarRating(rating) {
@@ -1869,10 +1925,11 @@
     }
 
     // Function to create single review card
-    function createReviewCard(review) {
+    function createReviewCard(review, index) {
       // Create review card
       const card = document.createElement('div');
       card.className = 'experience-reviews-card';
+      card.dataset.index = index;
 
       // Create highlights HTML
       let highlightsHTML = '';
@@ -1901,6 +1958,11 @@
         `;
       }
 
+      // Determine if we need a "Read More" button (based on content length)
+      const needsReadMore = review.content.length > 150;
+      const readMoreBtn = needsReadMore ? 
+        `<div class="read-more-btn" data-index="${index}">Read more</div>` : '';
+
       // Set default avatar if not provided
       const avatarUrl = review.avatar ? review.avatar : "https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/vIEkj7q7Q3sWtxQ.png";
 
@@ -1924,7 +1986,8 @@
           <span class="experience-reviews-rating-text">${review.rating}.0</span>
         </div>
         
-        <p class="experience-reviews-content">${review.content}</p>
+        <p class="experience-reviews-content" data-index="${index}">${review.content}</p>
+        ${readMoreBtn}
         
         ${highlightsHTML}
       `;
@@ -1947,17 +2010,20 @@
       slidesContainer.style.left = '0px';
       carousel.appendChild(slidesContainer);
 
+  
+
       // Add the initial cards
-      reviews.forEach(review => {
-        const card = createReviewCard(review);
+      reviews.forEach((review, index) => {
+        const card = createReviewCard(review, index);
         slidesContainer.appendChild(card);
       });
 
       // Duplicate the reviews several times for a truly continuous effect
       // This ensures enough cards for continuous scrolling
       for (let i = 0; i < 3; i++) {
-        reviews.forEach(review => {
-          const card = createReviewCard(review);
+        reviews.forEach((review, originalIndex) => {
+          const duplicateIndex = originalIndex + ((i + 1) * reviews.length);
+          const card = createReviewCard(review, duplicateIndex);
           slidesContainer.appendChild(card);
         });
       }
@@ -1974,11 +2040,103 @@
         card.style.boxSizing = 'border-box';
       });
 
+      // Add event listeners for Read More buttons
+      const readMoreBtns = document.querySelectorAll('.read-more-btn');
+      readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation(); // Prevent card click event
+          const index = this.getAttribute('data-index');
+          const contentEl = document.querySelector(`.experience-reviews-content[data-index="${index}"]`);
+          
+          if (contentEl.classList.contains('expanded')) {
+            contentEl.classList.remove('expanded');
+            this.textContent = 'Read more';
+          } else {
+            contentEl.classList.add('expanded');
+            this.textContent = 'Read less';
+            
+            // Pause scrolling when expanded
+            pauseScrolling();
+          }
+        });
+      });
+
+      // Add event listeners for card clicks to pause/resume scrolling
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          if (this.classList.contains('expanded')) {
+            this.classList.remove('expanded');
+            resumeScrolling();
+          } else {
+            // Remove expanded class from all cards
+            document.querySelectorAll('.experience-reviews-card').forEach(c => {
+              c.classList.remove('expanded');
+            });
+            
+            this.classList.add('expanded');
+            pauseScrolling();
+          }
+        });
+
+        // Pause scrolling on hover
+        card.addEventListener('mouseenter', function() {
+          pauseScrolling();
+        });
+
+        // Resume scrolling when mouse leaves
+        card.addEventListener('mouseleave', function() {
+          // Only resume if no card is expanded
+          if (!document.querySelector('.experience-reviews-card.expanded') && 
+              !document.querySelector('.experience-reviews-content.expanded') &&
+              !isAutoScrollPaused) {
+            resumeScrolling();
+          }
+        });
+      });
+
+      // Add click event for play/pause button
+      document.getElementById('playPauseBtn').addEventListener('click', function() {
+        if (isPaused) {
+          resumeScrolling();
+          isAutoScrollPaused = false;
+          this.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          `;
+        } else {
+          pauseScrolling();
+          isAutoScrollPaused = true;
+          this.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          `;
+        }
+      });
+
       return cardWidth + 20; // Return width including margin
+    }
+
+    // Function to pause scrolling
+    function pauseScrolling() {
+      cancelAnimationFrame(animationId);
+      isPaused = true;
+    }
+
+    // Function to resume scrolling
+    function resumeScrolling() {
+      if (isPaused) {
+        isPaused = false;
+        animateScroll(document.querySelector('.experience-reviews-card').offsetWidth + 20);
+      }
     }
 
     // Continuous scrolling animation function
     function animateScroll(cardWidth) {
+      if (isPaused) return;
+      
       const slidesContainer = document.getElementById('slidesContainer');
 
       // Increment scroll position
@@ -2015,10 +2173,11 @@
       // Start the continuous scrolling animation
       animationId = requestAnimationFrame(() => animateScroll(cardWidth));
 
-      // Handle pause on hover
-      const slidesContainer = document.getElementById('slidesContainer');
+      // Make sure navigation buttons are visible and functional
+      document.getElementById('prevButton').style.display = 'flex';
+      document.getElementById('nextButton').style.display = 'flex';
 
-      // Make sure navigation buttons don't interfere with continuous scrolling
+      // Handle navigation buttons
       document.getElementById('prevButton').addEventListener('click', () => {
         // Speed up scrolling in reverse direction temporarily
         const originalSpeed = scrollSpeed;
@@ -2040,9 +2199,6 @@
       });
     }
 
-    // Variable to store original speed when pausing
-    let tempSpeed;
-
     // Initialize on load
     document.addEventListener('DOMContentLoaded', initialize);
 
@@ -2051,6 +2207,8 @@
       // Cancel the current animation
       cancelAnimationFrame(animationId);
       scrollPosition = 0;
+      isPaused = false;
+      isAutoScrollPaused = false;
 
       // Reinitialize
       initialize();
