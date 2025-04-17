@@ -893,7 +893,7 @@
                 formData.append('filePartFlux', file);
 
                 try {
-                    const response = await fetch('https://api.xperio.travel/media/upload?entityType=EXPERIENCE', {
+                    const response = await fetch('https://qa-api.xperio.travel/media/upload?entityType=EXPERIENCE', {
                         method: 'POST',
                         body: formData
                     });
@@ -1118,7 +1118,7 @@
                 };
 
                 // API endpoint
-                const apiEndpoint = `https://api.xperio.travel/app/experience-review/public/add-review?orderId=${orderId}&experienceId=${experienceId}&userId=${userId}&experienceTitle=${experienceTitle}&startDate=${startDate}&endDate=${endDate}`;
+                const apiEndpoint = `https://qa-api.xperio.travel/app/experience-review/public/add-review?orderId=${orderId}&experienceId=${experienceId}&userId=${userId}&experienceTitle=${experienceTitle}&startDate=${startDate}&endDate=${endDate}`;
 
                 fetch(apiEndpoint, {
                     method: 'POST',
