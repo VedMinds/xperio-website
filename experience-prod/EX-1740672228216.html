@@ -10,21 +10,21 @@
     content="Discover the best travel experiences with Xperio Travel. Adventure, relaxation, and culture—find your next trip today!">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://xperio.travel/favicon.ico">
-   <!-- Primary favicon -->
-   <link rel="icon" href="https://xperio.travel/favicon.ico">
-    
-   <!-- Standard favicon -->
-   <link rel="shortcut icon" href="https://xperio.travel/favicon.ico">
-   
-   <!-- Sizes for different devices -->
-   <link rel="icon" type="image/x-icon" href="https://xperio.travel/favicon.ico">
-   <link rel="icon" type="image/png" sizes="16x16" href="https://xperio.travel/favicon.ico">
-   <link rel="icon" type="image/png" sizes="32x32" href="https://xperio.travel/favicon.ico">
-   
-   <!-- Apple Touch Icon for iOS devices -->
-   <link rel="apple-touch-icon" href="https://xperio.travel/favicon.ico">
-   <link rel="apple-touch-icon" sizes="180x180" href="https://xperio.travel/favicon.ico">
-  
+  <!-- Primary favicon -->
+  <link rel="icon" href="https://xperio.travel/favicon.ico">
+
+  <!-- Standard favicon -->
+  <link rel="shortcut icon" href="https://xperio.travel/favicon.ico">
+
+  <!-- Sizes for different devices -->
+  <link rel="icon" type="image/x-icon" href="https://xperio.travel/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://xperio.travel/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://xperio.travel/favicon.ico">
+
+  <!-- Apple Touch Icon for iOS devices -->
+  <link rel="apple-touch-icon" href="https://xperio.travel/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://xperio.travel/favicon.ico">
+
   <meta name="image"
     content="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/jazrJoLUGDvkqik.jpeg&w=300">
 
@@ -335,6 +335,7 @@
     function mapApiDataToExperience(apiData) {
       return {
         id: apiData?.id || null,
+        stars: apiData?.stars ? parseFloat(apiData.stars).toFixed(1) : "",
         hostName: apiData?.hostName || '',
         hostFirstName: apiData?.hostFirstName || "",
         hostLastName: apiData?.hostLastName || "",
@@ -390,7 +391,7 @@
         localInteractions: apiData?.localInteractions || false,
         communityBenefits: apiData?.communityBenefits || false,
         sustainabilityPractices: apiData?.sustainabilityPractices || false,
-        hostRating: apiData?.hostRating || 0,
+        hostRating: apiData?.hostRating ? parseFloat(apiData.hostRating).toFixed(1) : "",
         hostReviews: apiData?.hostReviews || [],
         hostBriefAbout: apiData?.hostBriefAbout || '',
         isStayAvailable: apiData?.isStayAvailable ?? false,
@@ -426,79 +427,74 @@
       const app = document.getElementById("app");
 
       app.innerHTML = `
-          <div class="experience-header">
-            <div class="header-content">
-              <a href="https://xperio.travel/" style="text-decoration: none; color: inherit;">
-  <div class="brand-container">
-    <div class="brand-wrapper">
-      <div class="logo-mark">
-        <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png" 
-             alt="Xperio Logo"
-             style="width: 30px; height: 30px; vertical-align: middle;">
-        <span class="brand-name" style="font-size: 1rem; vertical-align: middle; margin-left: 0px;">Xperio</span>
+  <div class="experience-header">
+    <div class="header-content">
+      <a href="https://xperio.travel/" style="text-decoration: none; color: inherit;">
+        <div class="brand-container">
+          <div class="brand-wrapper">
+            <div class="logo-mark">
+              <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/35Fp5UAUQrRYDop.png"
+                  alt="Xperio Logo"
+                  style="width: 30px; height: 30px; vertical-align: middle;">
+              <span class="brand-name" style="font-size: 1rem; vertical-align: middle; margin-left: 0px;">Xperio</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      
+      <div class="header-row">
+        <div class="title-location">
+  <!-- Title and Rating in one row -->
+  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+    <h1 class="title" style="margin: 0; font-size: 24px;">${data.title}</h1>
+    ${data.stars ? `
+      <!-- Experience Rating - aligned directly beside title -->
+      <div class="rating" style="display: flex; align-items: center; gap: 4px; background-color: #f8f8f8; padding: 3px 8px; border-radius: 16px; height: fit-content;">
+        <span style="color: #FF9E00;">★</span>
+        <span style="font-size: 14px; font-weight: 500;">${data.stars}</span>
       </div>
-    </div>
+    ` : ''}
   </div>
-</a>
-
-              
-              <div class="header-row">
-                <div class="title-location">
-                  <h1 class="title">${data.title}</h1>
-                   <div
-  class="location"
-  style="
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 5px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #333;
-  "
->
-  <!-- Location Icon -->
-  <img
-    src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/vRoXr0zMHBBZaAQ.jpeg"
-    alt="Location Icon"
-    style="
-      width: 30px;
-      height: 30px;
-      object-fit: cover;
-    "
-  />
-
-  <!-- Location Details -->
-  <span style="flex: 1; line-height: 1.4; margin-top: 5px ">
-    ${[
-          data.village,
-          data.district,
-          data.state
-        ]
-          .filter(Boolean)
-          .join(", ")}
-  </span>
+  
+  <!-- Location Information -->
+  <div class="location" style="display: flex; align-items: center; gap: 10px; padding: 5px 0; border-radius: 8px; font-size: 14px; color: #333;">
+    <!-- Location Icon -->
+    <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/unapproved/experience/vRoXr0zMHBBZaAQ.jpeg"
+         alt="Location Icon"
+         style="width: 20px; height: 20px; object-fit: cover;">
+    
+    <!-- Location Details -->
+    <span style="flex: 1; line-height: 1.4;">
+      ${[data.village, data.district, data.state].filter(Boolean).join(", ")}
+    </span>
+  </div>
 </div>
-
-                </div>
+        
+        <div class="categories-hosts desktop-only">
+          <div class="hosts-section">
+            <div class="host-card" onclick="openHostModal(window.experienceData)" style="display: flex; align-items: center; padding: 10px; background: #ffffff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s ease; cursor: pointer; border: 1px solid #f0f0f0;">
+              <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${data.hostProfilePhoto}"
+                  alt="Host"
+                  style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #fff;">
+              
+              <div style="margin-left: 12px; display: flex; flex-direction: column;">
+                <span style="font-size: 12px; color: #666; margin-bottom: 2px;">Host</span>
+                <span style="font-size: 14px; font-weight: 600; color: #333; margin-bottom: 3px;">${data.hostFirstName} ${data.hostLastName}</span>
                 
-                <div class="categories-hosts desktop-only">
-                  <div class="hosts-section">
-                    <div class="host-card" onclick="openHostModal(window.experienceData)">
-                      <img src="https://wsrv.nl/?url=https://xperio-images.s3.ap-south-1.amazonaws.com//xperio/${data.hostProfilePhoto}" 
-                           alt="Host"
-                           class="host-image">
-                      <div class="host-details">
-                        <span class="host-label">Host</span>
-                        <span class="host-name">${data.hostFirstName} ${data.hostLastName}</span>
-                      </div>
-                    </div>
+                ${data.hostRating ? `
+                  <div style="display: flex; align-items: center; gap: 4px; background-color: #fff; padding: 2px 6px; border-radius: 12px; border: 1px solid #eee; align-self: flex-start;">
+                    <span style="color: #FF9E00; font-size: 13px;">★</span>
+                    <span style="font-size: 13px; font-weight: 600;">${data.hostRating}</span>
                   </div>
-                </div>
+                ` : ''}
               </div>
             </div>
           </div>
-        `;
+        </div>
+      </div>
+    </div>
+  </div>
+`;
 
       const isMobile = window.innerWidth <= 768;
       app.innerHTML += `
@@ -576,6 +572,12 @@
         <div class="host-details">
           <span class="host-label">Hosted by</span>
           <span class="host-name">${data.hostFirstName} ${data.hostLastName}</span>
+          ${data.hostRating ? `
+                    <div class="rating" style="display: flex; align-items: center; gap: 4px; background-color: #fff; padding: 2px 8px; border-radius: 12px; border: 1px solid #eee;">
+                      <span style="color: #FF9E00; font-size: 13px;">★</span>
+                      <span style="font-size: 13px; font-weight: 600;">${data.hostRating}</span>
+                    </div>
+                  ` : ''}
         </div>
       </div>
     </div>
