@@ -947,12 +947,17 @@
 
 
     function setupImageGallery() {
+
       // Image Gallery variables
       window.currentGallery = null;
       window.currentImageIndex = 0;
 
+      const bookNowButton = document.getElementById("bookNowButton");
+
       // Image Gallery functions
       window.openImageGallery = function (galleryId, imageIndex) {
+        bookNowButton.style.display = 'none';
+
         const modal = document.getElementById('xpImageGalleryModal');
         const images = window.reviewGalleries[galleryId];
 
@@ -969,12 +974,14 @@
       };
 
       window.closeImageGallery = function () {
+        bookNowButton.style.display = 'block';
         const modal = document.getElementById('xpImageGalleryModal');
         modal.style.display = 'none';
         document.body.style.overflow = '';
       };
 
       window.navigateGallery = function (step) {
+        bookNowButton.style.display = 'none';
         const images = window.reviewGalleries[window.currentGallery];
         if (!images) return;
 
@@ -1772,7 +1779,7 @@
       setupImageGallery();
       window.scrollReviews = function (direction) {
         const container = document.querySelector('.reviews-scroll');
-        const cardWidth = document.querySelector('.review-card').offsetWidth + 20; // Add gap
+        const cardWidth = document.querySelector('.review-card').offsetWidth + 20;
 
         if (direction === 'left') {
           container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
