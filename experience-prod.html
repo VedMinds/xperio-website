@@ -1345,14 +1345,16 @@
           }
         );
 
-        if (!response.ok) {
-          throw new Error("Booking failed");
-        }
+        const responseData = await response.json();
 
-        alert("Booking submitted successfully!");
+        if (responseData.status !== 200) {
+          alert(responseData.message || "Something went wrong while booking.");
+          return;
+        }
+        alert("Booking submitted successfully!", responseData.message);
         closeDialog();
       } catch (error) {
-        alert("Failed to submit booking. Please try again.");
+        alert(error.message || "Failed to submit booking. Please try again.");
       }
     }
 
