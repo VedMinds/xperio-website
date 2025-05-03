@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Xperio | Discover &amp; Book Unique Indian Cultural Experiences</title>
+    <link rel="canonical" href="https://xperio.travel/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direct App Store Redirect</title>
+    <meta name="title" content="Xperio:  Explore the unexplored">
+    <meta name="description"
+        content="Xperio is a digital platform that connects travelers directly with local hosts for authentic, cultural, and immersive experiences.">
+    <meta name="keywords" content="Travel , culture, unique experince, booking">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <!-- Standard favicon for all browsers -->
+    <link rel="icon" href="https://xperio.travel/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://xperio.travel/favicon.ico" type="image/x-icon">
+    <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Apple Touch Icons for iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://xperio.travel/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152"
+        href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&amp;w=152&amp;h=152">
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&amp;w=152&amp;h=152">
+    <link rel="apple-touch-icon" sizes="76x76"
+        href="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&amp;w=76&amp;h=76">
+
+    <!-- Windows Tile Icon -->
+    <meta name="msapplication-TileImage"
+        content="https://wsrv.nl/?url=https://xperio.travel/favicon.ico&amp;w=144&amp;h=144">
+    <meta name="msapplication-TileColor" content="#2b5797">
     <!-- This page will be ultra-minimal and redirect immediately -->
 </head>
+
 <body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
     <p>Redirecting to app store...</p>
-    
+
     <script>
-        // Immediate redirect function - runs as soon as page loads
-        (function() {
+        (function () {
             // Get user agent
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
+
             // iOS detection
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 window.location.replace("https://apps.apple.com/in/app/xperio-travel/id6744454025");
                 return;
             }
-            
+
             // Android detection
             if (/android/i.test(userAgent)) {
                 window.location.replace("https://play.google.com/store/apps/details?id=travel.xperio.xpapp");
                 return;
             }
-            
-            // If can't detect or on desktop, default to a page with both links
+
             document.body.innerHTML = `
                 <div style="max-width: 500px; margin: 0 auto; padding: 20px;">
                     <h1>Xperio Travel App</h1>
@@ -45,4 +71,5 @@
         })();
     </script>
 </body>
+
 </html>
