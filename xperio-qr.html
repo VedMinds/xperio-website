@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct App Store Redirect</title>
+    <!-- This page will be ultra-minimal and redirect immediately -->
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+    <p>Redirecting to app store...</p>
+    
+    <script>
+        // Immediate redirect function - runs as soon as page loads
+        (function() {
+            // Get user agent
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // iOS detection
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.replace("https://apps.apple.com/in/app/xperio-travel/id6744454025");
+                return;
+            }
+            
+            // Android detection
+            if (/android/i.test(userAgent)) {
+                window.location.replace("https://play.google.com/store/apps/details?id=travel.xperio.xpapp");
+                return;
+            }
+            
+            // If can't detect or on desktop, default to a page with both links
+            document.body.innerHTML = `
+                <div style="max-width: 500px; margin: 0 auto; padding: 20px;">
+                    <h1>Xperio Travel App</h1>
+                    <p>Please download our app from your device's app store:</p>
+                    <div style="margin: 20px 0;">
+                        <div style="margin-bottom: 15px;">
+                            <a href="https://apps.apple.com/in/app/xperio-travel/id6744454025" style="display: block; background-color: #000; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold;">Download on App Store</a>
+                        </div>
+                        <div>
+                            <a href="https://play.google.com/store/apps/details?id=travel.xperio.xpapp" style="display: block; background-color: #4285F4; color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold;">Get it on Google Play</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        })();
+    </script>
+</body>
+</html>
