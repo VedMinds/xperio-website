@@ -1,0 +1,21 @@
+{
+    "applinks": {
+      "apps": [],
+      "details": [
+        {
+          "appID": "travel.xperio.xpapp",
+          "paths": ["*"],
+          "components": [
+            {
+              "/": "/experience-prod/*",
+              "comment": "Matches experience product pages"
+            },
+            {
+              "/": "/experience/*",
+              "comment": "Matches standard experience pages"
+            }
+          ]
+        }
+      ]
+    }
+  }
