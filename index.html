@@ -383,6 +383,14 @@
       }
     }
 
+    /* PRICE LABEL */
+    .xp-per-person {
+      font-size: 16px;
+      font-weight: 500;
+      color: #444;
+      margin-left: 2px;
+    }
+
     /* GUEST REVIEW */
     .experience-reviews-container {
       position: relative;
@@ -1345,9 +1353,8 @@
           
           <div class="xp-price-cta">
             <div class="xp-price-container">
-              <span class="xp-price-label">Starting from</span>
               <div class="xp-price-value">
-                ₹${Math.round(experience.pricing[0].totalPrice / experience.pricing[0].guestCount)}
+                 <span class="xp-currency">₹</span>${Math.round(experience.pricing[0].totalPrice / experience.pricing[0].guestCount)}<span class="xp-per-person">/Person</span>
               </div>
             </div>
             
